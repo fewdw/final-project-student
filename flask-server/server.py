@@ -2,6 +2,20 @@ from flask import Flask
 
 app = Flask(__name__)
 
+MONGODB_LINK = os.environ.get("MONGODB_LINK")
+MONGODB_USER = os.environ.get("MONGODB_USER")
+MONGODB_PASS = os.environ.get("MONGODB_PASS")
+
+
+client = pymongo.MongoClient(f"mongodb+srv://{MONGODB_USER}:{MONGODB_PASS}@{MONGODB_LINK}/?retryWrites=true&w=majority")
+db = client.test
+
+
+if 'SoilTimeseries' not in db.list_collection_names():
+    db.create_collection("SoilTimeseries",
+                         timeseries={'timeField': 'timestamp', 'metaField': 'deviceId', 'granularity': 'hours'})
+
+
 @app.route('/')
 def index():
     return "hello world"
