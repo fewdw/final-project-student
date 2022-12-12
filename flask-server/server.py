@@ -140,7 +140,9 @@ def update_user(email):
 @app.route('/student', methods=["POST"])
 def add_student():
     read = request.json
-
+    error = schemaPost().validate(read)
+    if error:
+        return error, 400
 
 
     #Writting to the database
