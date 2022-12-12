@@ -151,10 +151,26 @@ def add_student():
 
     return jsonify(read)
 
+#Get readings from the database
+@app.route('student/<student_id>', methods=["GET"])
+def get_by_id(student_id):
+    try:
+        cursor = db.results.find({"student_id": student_id})
+        read = list(cursor)
+        for read in read:
+            if "_id" in read:
+                read["_id"] = str(read["_id"])
+
+                return jsonify(read)
+    except Exception as e:
+        print(e)
+        return {"error": "some error happened"}, 501
+
 
 
 if __name__ == '__main__':
     app.run(debug=True)
+
 
 #activate venv
 #mac: source venv/bin/activate
