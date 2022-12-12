@@ -5,7 +5,7 @@ from pymongo.server_api import ServerApi
 from flask import Flask, request, jsonify, abort
 import json
 import os
-
+from Schema import schemaPost
 app = Flask(__name__)
 
 
@@ -137,6 +137,17 @@ def update_user(email):
 
 
 
+@app.route('/student', methods=["POST"])
+def add_student():
+    read = request.json
+
+
+
+    #Writting to the database
+    addedId = db.results.insert_one(read).inserted_id
+    read["_id"] = str(addedId)
+
+    return jsonify(read)
 
 
 

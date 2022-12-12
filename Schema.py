@@ -1,7 +1,7 @@
 from marshmallow import Schema, fields, validate
 
 class schemaPost(Schema):
-    id = fields.Integer(required=True)
+    id = fields.String(required=True)
     first_name = fields.String(required=True)
     last_name = fields.String(required=True)
     email = fields.String(required=True)
