@@ -18,13 +18,13 @@ This project is being done with the aid of mentor and external client Dr. Ben Ha
 
 - Branches will be named with the following convention depending on what they are working:
 
-	-feat/
+	- feat/
 	
-	-bug/
+	- bug/
 	
-	-doc/
+	- doc/
 	
-	-conf/
+	- conf/
 
 - A branch should look like this
 ```
