@@ -14,7 +14,7 @@ This project is being done with the aid of mentor and external client Dr. Ben Ha
 - Every developper will have their own specific tag so it is easier to read the branches they have been working on 
 - The acronym should be the first letter of your name and the last (VS,FS,AS,FL)
 
--You should also be adding the story number depending on the JIRA story you are taking on. 
+- You should also be adding the story number depending on the JIRA story you are taking on. 
 
 - Branches will be named with the following convention depending on what they are working:
 
