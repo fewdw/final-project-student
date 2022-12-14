@@ -1,5 +1,6 @@
 from marshmallow import Schema, fields, validate
 
+
 class schemaPost(Schema):
     id = fields.String(required=True)
     first_name = fields.String(required=True)

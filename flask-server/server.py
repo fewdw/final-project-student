@@ -11,7 +11,7 @@ MONGODB_USER = os.environ.get("MONGODB_USER")
 MONGODB_PASS = os.environ.get("MONGODB_PASS")
 
 
-client = pymongo.MongoClient(f"mongodb+srv://{MONGODB_USER}:{MONGODB_PASS}@{MONGODB_LINK}/?retryWrites=true&w=majority")
+client = pymongo.MongoClient(f"mongodb+srv://{vic}:{vic}@{student.kslusvd.mongodb.net}/?retryWrites=true&w=majority")
 db = client.test
 
 
@@ -25,84 +25,84 @@ def index():
 
 data = open('MOCK_DATA.json')
 
-def add_user_to_file(user):
-    data.append(user)
-    dump_data()
-
-
-def update_user_to_file(user, idx):
-    data[idx] = user
-    dump_data()
-
-
-def dump_data():
-    with open('MOCK_DATA.json', 'w') as outfile:
-        json.dump(data, outfile)
-
-
-
-@app.route('/users/<email>')
-def get_users_by_email(email):
-    for user in data:
-        if user['email'] == email:
-            return jsonify(user)
-    return {'message': f'{email} not found'}, 404
-
-
-def sort_users(users, key):
-    filtered = sorted(users, key=lambda x: x[key])
-    return filtered
-
-
-@app.route('/users/')
-def get_users():
-    gender = request.args.get('gender')
-    sort = request.args.get('sort')
-    if sort not in ['id', 'first_name', 'last_name']:
-        sort = None
-
-    if gender is None and sort is None:
-        return jsonify(data)
-    elif gender is None:
-        return jsonify(sort_users(data, sort))
-
-    users = [user for user in data if user['gender'].lower() == gender.lower()]
-
-    if len(users) == 0:
-        return jsonify({'message': f'no users found for gender {gender}'}), 404
-    if sort is None:
-        return jsonify(users)
-    else:
-        return jsonify(sort_users(users, sort))
-
-
-@app.route('/users/', methods=['POST'])
-def add_user():
-    if request.json is None:
-        abort(404)
-
-    first_name = request.json.get('first_name')
-    last_name = request.json.get('last_name')
-    email = request.json.get('email')
-    gender = request.json.get('gender')
-    department = request.json.get('department')
-    title = request.json.get('title')
-    university = request.json.get('university')
-
-    for key in [first_name, last_name, gender, department, title, email, university]:
-        if key is None:
-            abort(404)
-
-    email_found = [user for user in data if user['email'] == email]
-    if len(email_found) != 0:
-        return {'message': 'email already exist'}, 409
-
-    maxId = max(data, key=lambda x: x['id'])['id']
-    user = {"id": maxId + 1, "first_name": first_name, "last_name": last_name,
-            "email": email, "gender": gender, "department": department, "title": title, "university": university}
-    add_user_to_file(user)
-    return jsonify(user)
-
+# def add_user_to_file(user):
+#     data.append(user)
+#     dump_data()
+#
+#
+# def update_user_to_file(user, idx):
+#     data[idx] = user
+#     dump_data()
+#
+#
+# def dump_data():
+#     with open('MOCK_DATA.json', 'w') as outfile:
+#         json.dump(data, outfile)
+#
+#
+#
+# @app.route('/users/<email>')
+# def get_users_by_email(email):
+#     for user in data:
+#         if user['email'] == email:
+#             return jsonify(user)
+#     return {'message': f'{email} not found'}, 404
+#
+#
+# def sort_users(users, key):
+#     filtered = sorted(users, key=lambda x: x[key])
+#     return filtered
+#
+#
+# @app.route('/users/')
+# def get_users():
+#     gender = request.args.get('gender')
+#     sort = request.args.get('sort')
+#     if sort not in ['id', 'first_name', 'last_name']:
+#         sort = None
+#
+#     if gender is None and sort is None:
+#         return jsonify(data)
+#     elif gender is None:
+#         return jsonify(sort_users(data, sort))
+#
+#     users = [user for user in data if user['gender'].lower() == gender.lower()]
+#
+#     if len(users) == 0:
+#         return jsonify({'message': f'no users found for gender {gender}'}), 404
+#     if sort is None:
+#         return jsonify(users)
+#     else:
+#         return jsonify(sort_users(users, sort))
+#
+#
+# @app.route('/users/', methods=['POST'])
+# def add_user():
+#     if request.json is None:
+#         abort(404)
+#
+#     first_name = request.json.get('first_name')
+#     last_name = request.json.get('last_name')
+#     email = request.json.get('email')
+#     gender = request.json.get('gender')
+#     department = request.json.get('department')
+#     title = request.json.get('title')
+#     university = request.json.get('university')
+#
+#     for key in [first_name, last_name, gender, department, title, email, university]:
+#         if key is None:
+#             abort(404)
+#
+#     email_found = [user for user in data if user['email'] == email]
+#     if len(email_found) != 0:
+#         return {'message': 'email already exist'}, 409
+#
+#     maxId = max(data, key=lambda x: x['id'])['id']
+#     user = {"id": maxId + 1, "first_name": first_name, "last_name": last_name,
+#             "email": email, "gender": gender, "department": department, "title": title, "university": university}
+#     add_user_to_file(user)
+#     return jsonify(user)
+#
 
 @app.route('/users/<email>', methods=['PUT'])
 def update_user(email):
@@ -162,6 +162,7 @@ def get_by_id(student_id):
     except Exception as e:
         print(e)
         return {"error": "some error happened"}, 501
+
 
 
 
