@@ -35,10 +35,9 @@ git checkout -b feat/VS-ISRS-6_Create_Student_For_Admin
 
 -To document PRs easily we will adhere to the following standard: 
 
-'''
+```
 feat(INITIAL-JiraStoryID): short description
-
-'''
+```
 - In inittial you would put your inittials 
 
 - Keep the parantheses
