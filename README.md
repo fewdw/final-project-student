@@ -33,7 +33,7 @@ git checkout -b feat/VS-ISRS-6_Create_Student_For_Admin
 
 ### Pull Request Naming (PR)
 
--To document PRs easily we will adhere to the following standard: 
+- To document PRs easily we will adhere to the following standard: 
 
 ```
 feat(INITIAL-JiraStoryID): short description
