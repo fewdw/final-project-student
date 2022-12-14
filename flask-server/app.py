@@ -6,13 +6,13 @@ from Schema import schemaPost
 app = Flask(__name__)
 
 
-MONGODB_LINK = os.environ.get("MONGODB_LINK")
-MONGODB_USER = os.environ.get("MONGODB_USER")
-MONGODB_PASS = os.environ.get("MONGODB_PASS")
+#MONGODB_LINK = os.environ.get("MONGODB_LINK")
+#MONGODB_USER = os.environ.get("MONGODB_USER")
+#MONGODB_PASS = os.environ.get("MONGODB_PASS")
 
 
-client = pymongo.MongoClient(f"mongodb+srv://{vic}:{vic}@{student.kslusvd.mongodb.net}/?retryWrites=true&w=majority")
-db = client.test
+#client = pymongo.MongoClient(f"mongodb+srv://{vic}:{vic}@{student.kslusvd.mongodb.net}/?retryWrites=true&w=majority")
+#db = client.test
 
 
 
