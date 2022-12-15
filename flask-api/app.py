@@ -50,7 +50,7 @@ def update_student(_id):
     }
     student_collection.replace_one({"_id": _id}, new_student)
 
-    return jsonify({'msg':"User updated succesfully"})
+    return {str(_id): "was updated"}
     
 
 
