@@ -27,7 +27,7 @@ def index():
 
 #Put method
 @app.route('/students/', methods=["PUT"])
-def update_student(_id):
+def update_student():
     
     _id = ObjectId(request.json['id'])
     id = request.json['id']
