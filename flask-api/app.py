@@ -63,7 +63,7 @@ def update_student(student_id):
     db.update_one({'student_id': object(id)},{'$set':{
     'id': request.json['id'],
     'first_name': request.json['first_name'],
-    
+    'last_name': request.json['last_name'],
    
     }} )
   
