@@ -61,17 +61,17 @@ def get_by_id(student_id):
 @app.route('/student/<student_id>', methods=["PUT"])
 def update_student(student_id):
     db.update_one({'student_id': object(id)},{'$set':{
-    'id': request.json['id'],
-    'first_name': request.json['first_name'],
-    'last_name': request.json['last_name'],
-    'email': request.json['email'],
-    'gender': request.json['gender'],
-    'professor_name': request.json['professor_name'],
-    'project': request.json['project'],
-    'programming_language': request.json['programming_language']
+        'id': request.json['id'],
+        'first_name': request.json['first_name'],
+        'last_name': request.json['last_name'],
+        'email': request.json['email'],
+        'gender': request.json['gender'],
+        'professor_name': request.json['professor_name'],
+        'project': request.json['project'],
+        'programming_language': request.json['programming_language']
 
     }} )
-  
+    return jsonify({'msg':"User updated succesfully"})
 
 
 if __name__ == "__main__":
