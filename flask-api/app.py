@@ -27,10 +27,6 @@ def index():
 data = open('MOCK_DATA.json')
 
 
-
-
-
-
 @app.route('/student', methods=["POST"])
 def add_student():
     read = request.json
@@ -59,6 +55,12 @@ def get_by_id(student_id):
     except Exception as e:
         print(e)
         return {"error": "some error happened"}, 501
+
+
+#Put method
+@app.route('/student/<student_id>', methods=["PUT"])
+def update_student(student_id):
+    
 
 
 if __name__ == "__main__":
