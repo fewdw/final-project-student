@@ -48,7 +48,7 @@ def update_student(_id):
         'programming_language': programming_language
         
     }
-    db
+    student_collection.replace_one({"_id": _id}, new_student)
 
     return jsonify({'msg':"User updated succesfully"})
     
