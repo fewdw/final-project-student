@@ -12,4 +12,4 @@ class schemaPost(Schema):
     title = fields.String(required=True)
     university = fields.String(required=True)
 class schemaPut(schemaPost):
-    
+    complete = fields.Bool(required=True)
