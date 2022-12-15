@@ -60,7 +60,8 @@ def get_by_id(student_id):
 #Put method
 @app.route('/student/<student_id>', methods=["PUT"])
 def update_student(student_id):
-    
+    if request.json is None:
+        abort(404)
 
 
 if __name__ == "__main__":
