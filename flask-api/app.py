@@ -1,6 +1,6 @@
 import pymongo as pymongo
 from flask import Flask, request, jsonify, abort
-from  Schema import schemaPut, Schema
+import json
 import os
 from Schema import schemaPost
 from bson.objectid import ObjectId
@@ -26,28 +26,9 @@ def index():
     return 'Hello, this is the main!'
 
 #Put method
-@app.route('/students/<student_id>', methods=["PUT"])
-def update_student(student_id):
-
-    error = {}
-
-    if request.method == 'PUT':
-        error = schemaPut.validate(request.json)
-    if error:
-        return error, 400
+@app.route('/students/', methods=["PUT"])
+def update_student():
     
-    try:
-        update_student = student_collection.find_one_and_update({"student_id": student_id}, 
-                                                                {"$set": request.json},
-                                                                return_document = ReturnDocument.AFTER, upsert=False)
-        if update_student is None:
-            return {"error": "resource not found"}, 404
-        
-        
-
-
-
-
     _id = ObjectId(request.json['id'])
     first_name = request.json['first_name']
     last_name = request.json['last_name']
@@ -58,7 +39,7 @@ def update_student(student_id):
     programming_language = request.json['programming_language']
 
     new_student ={
-        'id': 7,
+        'id': 8,
         'first_name': first_name,
         'last_name': last_name,
         'email': email,
