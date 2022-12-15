@@ -12,7 +12,7 @@ load_dotenv(find_dotenv())
 
 '''
 
-USE 'flask run' IN TERMNIAL TO START THE API
+USE 'flask run' IN TERMNIAL TO START THE API!
 
 '''
 
