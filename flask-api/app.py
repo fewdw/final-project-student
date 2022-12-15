@@ -66,7 +66,10 @@ def update_student(student_id):
     'last_name': request.json['last_name'],
     'email': request.json['email'],
     'gender': request.json['gender'],
+    'professor_name': request.json['professor_name'],
+    'project': request.json['project'],
     
+
     }} )
   
 
