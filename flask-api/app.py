@@ -129,7 +129,7 @@ def update_user(email):
     user['title'] = title
     user['university'] = university
 
-    dump_data()
+   
     return jsonify(user)
 
 
