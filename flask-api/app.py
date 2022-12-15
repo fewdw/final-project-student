@@ -33,11 +33,16 @@ def update_student(student_id):
 
     if request.method == 'PUT':
         error = schemaPut.validate(request.json)
-    elif error:
+    if error:
         return error, 400
     
     try:
+        update_student = student_collection.find_one_and_update({"student_id": student_id}, 
+                                                                {"$set": request.json},
+                                                                return_document = ReturnDocument.AFTER, upsert=False)
         
+        
+
 
 
 
