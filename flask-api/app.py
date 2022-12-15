@@ -64,13 +64,13 @@ def update_student(student_id):
     db.update_one({'student_id': object(id)},{'$set':{
         
         '_id': ObjectId(request.json['id']),
-        'first_name': request.json['first_name'],
-        'last_name': request.json['last_name'],
-        'email': request.json['email'],
-        'gender': request.json['gender'],
-        'professor_name': request.json['professor_name'],
-        'project': request.json['project'],
-        'programming_language': request.json['programming_language'],
+        'first_name': ObjectId(request.json['first_name']),
+        'last_name': ObjectId(request.json['last_name']),
+        'email': ObjectId(request.json['email']),
+        'gender': ObjectId(request.json['gender']),
+        'professor_name': ObjectId(request.json['professor_name']),
+        'project': ObjectId(request.json['project']),
+        'programming_language': ObjectId(request.json['programming_language']),
 
     }} )
     return jsonify({'msg':"User updated succesfully"})
