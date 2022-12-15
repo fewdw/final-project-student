@@ -3,7 +3,11 @@ from flask import Flask, request, jsonify, abort
 import json
 import os
 from Schema import schemaPost
+from dotenv import load_dotenv, find_dotenv
+
+
 app = Flask(__name__)
+load_dotenv(find_dotenv())
 
 
 '''
@@ -59,6 +63,8 @@ def get_by_id(student_id):
     except Exception as e:
         print(e)
         return {"error": "some error happened"}, 501
+
+        
 
 
 if __name__ == "__main__":
