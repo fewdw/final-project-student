@@ -38,7 +38,7 @@ def update_student(_id):
     email = request.json['email']
     gender = request.json['gender']
     professor_name = request.json['professor_name']
-    'project': request.json['project']
+    project = request.json['project']
     'programming_language': request.json['programming_language']
 
     new_student ={
