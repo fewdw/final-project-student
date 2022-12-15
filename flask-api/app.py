@@ -3,6 +3,7 @@ from flask import Flask, request, jsonify, abort
 import json
 import os
 from Schema import schemaPost
+from bson.objectid import ObjectId
 app = Flask(__name__)
 
 
@@ -62,7 +63,7 @@ def get_by_id(student_id):
 def update_student(student_id):
     db.update_one({'student_id': object(id)},{'$set':{
         
-        '_id': request.json['id'],
+        '_id': ObjectId(request.json['id']),
         'first_name': request.json['first_name'],
         'last_name': request.json['last_name'],
         'email': request.json['email'],
