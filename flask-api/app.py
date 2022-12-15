@@ -30,9 +30,17 @@ def index():
 def update_student(student_id):
 
     error = {}
-    
+
     if request.method == 'PUT':
-        error = schemaPut 
+        error = schemaPut.validate(request.json)
+    elif error:
+        return error, 400
+    
+    try:
+        
+
+
+
     _id = ObjectId(request.json['id'])
     first_name = request.json['first_name']
     last_name = request.json['last_name']
