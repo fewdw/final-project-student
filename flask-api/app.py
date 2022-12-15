@@ -19,7 +19,8 @@ MONGODB_PASS = os.environ.get("MONGODB_PASS")
 
 client = pymongo.MongoClient(f"mongodb://{MONGODB_USER}:{MONGODB_PASS}@{MONGODB_LINK}/?retryWrites=true&w=majority")
 db = client.StudentDB
-db.StudentCollection
+student_collection = db.StudentCollection
+
 @app.route('/')
 def index():
     return 'Hello, this is the main!'
@@ -47,7 +48,7 @@ def update_student(_id):
         'programming_language': programming_language
         
     }
-
+    db
 
     return jsonify({'msg':"User updated succesfully"})
     
