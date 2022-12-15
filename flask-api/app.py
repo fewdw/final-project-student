@@ -41,7 +41,8 @@ def update_student(student_id):
                                                                 {"$set": request.json},
                                                                 return_document = ReturnDocument.AFTER, upsert=False)
         if update_student is None:
-            
+            return {"error": "resource not found"}, 404
+        
         
 
 
