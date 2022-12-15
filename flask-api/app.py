@@ -1,6 +1,6 @@
 import pymongo as pymongo
 from flask import Flask, request, jsonify, abort
-import json
+from  Schema import schemaPut, Schema
 import os
 from Schema import schemaPost
 from bson.objectid import ObjectId
@@ -26,13 +26,13 @@ def index():
     return 'Hello, this is the main!'
 
 #Put method
-@app.route('/students/<student_id>', methods=["PUT","PATCH"])
+@app.route('/students/<student_id>', methods=["PUT"])
 def update_student(student_id):
 
     error = {}
     
-    if request.method =='PUT',
-        error = 
+    if request.method == 'PUT':
+        error = schemaPut 
     _id = ObjectId(request.json['id'])
     first_name = request.json['first_name']
     last_name = request.json['last_name']
