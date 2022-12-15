@@ -28,7 +28,11 @@ def index():
 #Put method
 @app.route('/students/<student_id>', methods=["PUT","PATCH"])
 def update_student(student_id):
+
+    error = {}
     
+    if request.method =='PUT',
+        error = 
     _id = ObjectId(request.json['id'])
     first_name = request.json['first_name']
     last_name = request.json['last_name']
