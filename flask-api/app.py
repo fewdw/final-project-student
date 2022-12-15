@@ -105,32 +105,32 @@ data = open('MOCK_DATA.json')
 #     return jsonify(user)
 #
 
-@app.route('/users/<email>', methods=['PUT'])
-def update_user(email):
-    if request.json is None:
-        abort(404)
-    filtered_users = [(data[i], i) for i in range(len(data)) if data[i]['email'] == email]
-    if len(filtered_users) == 0:
-        return {'message': 'email not found'}, 404
+# @app.route('/users/<email>', methods=['PUT'])
+# def update_user(email):
+#     if request.json is None:
+#         abort(404)
+#     filtered_users = [(data[i], i) for i in range(len(data)) if data[i]['email'] == email]
+#     if len(filtered_users) == 0:
+#         return {'message': 'email not found'}, 404
 
-    user, idx = filtered_users[0]
+#     user, idx = filtered_users[0]
 
-    first_name = request.json.get('first_name', user['first_name'])
-    last_name = request.json.get('last_name', user['last_name'])
-    gender = request.json.get('gender', user['gender'])
-    department = request.json.get('department', user['department'])
-    title = request.json.get('title', user['title'])
-    university = request.json.get('university', user['university'])
+#     first_name = request.json.get('first_name', user['first_name'])
+#     last_name = request.json.get('last_name', user['last_name'])
+#     gender = request.json.get('gender', user['gender'])
+#     department = request.json.get('department', user['department'])
+#     title = request.json.get('title', user['title'])
+#     university = request.json.get('university', user['university'])
 
-    user['first_name'] = first_name
-    user['last_name'] = last_name
-    user['gender'] = gender
-    user['department'] = department
-    user['title'] = title
-    user['university'] = university
+#     user['first_name'] = first_name
+#     user['last_name'] = last_name
+#     user['gender'] = gender
+#     user['department'] = department
+#     user['title'] = title
+#     user['university'] = university
 
-   
-    return jsonify(user)
+#     dump_data()
+#     return jsonify(user)
 
 
 

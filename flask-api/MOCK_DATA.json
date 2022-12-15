@@ -1,52 +1,104 @@
-[  {    "id": 1,    "teacher_name": "Jane Doe",    "projects_worked_on": ["Project A", "Project B", "Project C"],
-    "field_experience": "Math",
-    "teacher_list": ["Math", "Science", "English"],
-    "gender": "Female",
-    "programming_languages": ["Python", "Java", "C++"]
+[
+  {
+    "id": 1,
+    "first_name": "John",
+    "last_name": "Doe",
+    "email": "johndoe@gmail.com",
+    "gender": "male",
+    "professor_name": "Dr. Smith",
+    "project": "JavaFX Deep Space Trajectory Explorer",
+    "programming_language": "Java"
   },
   {
     "id": 2,
-    "teacher_name": "John Smith",
-    "projects_worked_on": ["Project D", "Project E", "Project F"],
-    "field_experience": "Science",
-    "teacher_list": ["Biology", "Chemistry", "Physics"],
-    "gender": "Male",
-    "programming_languages": ["Python", "JavaScript", "C#"]
+    "first_name": "Jane",
+    "last_name": "Doe",
+    "email": "janedoe@gmail.com",
+    "gender": "female",
+    "professor_name": "Dr. Smith",
+    "project": "Neural Network",
+    "programming_language": "Python"
   },
   {
     "id": 3,
-    "teacher_name": "Alexandra Johnson",
-    "projects_worked_on": ["Project G", "Project H", "Project I"],
-    "field_experience": "English",
-    "teacher_list": ["Literature", "Writing", "Grammar"],
-    "gender": "Female",
-    "programming_languages": ["Java", "JavaScript", "C++"]
+    "first_name": "Bob",
+    "last_name": "Smith",
+    "email": "bobsmith@gmail.com",
+    "gender": "male",
+    "professor_name": "Dr. Jones",
+    "project": "Weather APP",
+    "programming_language": "C++"
   },
   {
     "id": 4,
-    "teacher_name": "Samantha Williams",
-    "projects_worked_on": ["Project J", "Project K", "Project L"],
-    "field_experience": "Technology",
-    "teacher_list": ["Computer Science", "Information Technology", "Robotics"],
-    "gender": "Female",
-    "programming_languages": ["Python", "C++", "JavaScript"]
+    "first_name": "Alice",
+    "last_name": "Smith",
+    "email": "alicesmith@gmail.com",
+    "gender": "female",
+    "professor_name": "Dr. Jones",
+    "project": "Calculator ",
+    "programming_language": "JavaScript"
   },
   {
     "id": 5,
-    "teacher_name": "Michael Brown",
-    "projects_worked_on": ["Project M", "Project N", "Project O"],
-    "field_experience": "Social Studies",
-    "teacher_list": ["Geography", "History", "Civics"],
-    "gender": "Male",
-    "programming_languages": ["Java", "C#", "Python"]
+    "first_name": "Tom",
+    "last_name": "Johnson",
+    "email": "tomjohnson@gmail.com",
+    "gender": "male",
+    "professor_name": "Dr. Williams",
+    "project": "E-Commerce",
+    "programming_language": "C#"
   },
   {
     "id": 6,
-    "teacher_name": "Emily Davis",
-    "projects_worked_on": ["Project P", "Project Q", "Project R"],
-    "field_experience": "Art",
-    "teacher_list": ["Drawing", "Painting", "Sculpture"],
-    "gender": "Female",
-    "programming_languages": ["JavaScript", "C#", "Python"]
+    "first_name": "Sara",
+    "last_name": "Johnson",
+    "email": "sarajohnson@gmail.com",
+    "gender": "female",
+    "professor_name": "Dr. Williams",
+    "project": "Face2Face application",
+    "programming_language": "Swift"
+  },
+  {
+    "id": 7,
+    "first_name": "David",
+    "last_name": "Miller",
+    "email": "davidmiller@gmail.com",
+    "gender": "male",
+    "professor_name": "Dr. Brown",
+    "project": "Data minning service",
+    "programming_language": "Ruby"
+  },
+  {
+    "id": 8,
+    "first_name": "Emily",
+    "last_name": "Miller",
+    "email": "emilymiller@gmail.com",
+    "gender": "female",
+    "professor_name": "Dr. Brown",
+    "project": "Arduino skyrocket",
+    "programming_language": "C++"
+  },
+  {
+    "id": 9,
+    "first_name": "Victor",
+    "last_name": "Ssuto",
+    "email": "VictorSsuto@gmail.com",
+    "gender": "Male",
+    "professor_name": "Dr.Williams",
+    "project": "Hello World",
+    "programming_language": "Pearl"
   }
+  ,
+  {
+    "id": 10,
+    "first_name": "Carolina",
+    "last_name": "Wang Chen",
+    "email": "Carolinawang02@gmail.com",
+    "gender": "Female",
+    "professor_name": "Dr.James",
+    "project": "Bomb",
+    "programming_language": "Malbolge"
+  }
+  
 ]
