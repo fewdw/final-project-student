@@ -28,7 +28,9 @@ data = open('MOCK_DATA.json')
 
 
 
-
+@app.route('/get')
+def index():
+    return 'Changes in the get branch '
 
 
 @app.route('/student', methods=["POST"])
