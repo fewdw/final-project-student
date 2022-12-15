@@ -59,9 +59,10 @@ def get_by_id(student_id):
 
 
 #Put method
-@app.route('/students/<student_id>', methods=["PUT"])
-def update_student(student_id):
-    db.update_one({'student_id': object(id)},{'$set':{
+@app.route('/students/', methods=["PUT"])
+def update_student(_id):
+    
+        _id = ObjectId(request.json['id'])
         
         '_id': ObjectId(request.json['id']),
         'first_name': request.json['first_name'],
