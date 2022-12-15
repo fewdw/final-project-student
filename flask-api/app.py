@@ -32,18 +32,19 @@ def index():
 @app.route('/students/', methods=["PUT"])
 def update_student(_id):
     
-        _id = ObjectId(request.json['id'])
-        
-        '_id': ObjectId(request.json['id']),
-        'first_name': request.json['first_name'],
-        'last_name': request.json['last_name'],
-        'email': request.json['email'],
-        'gender': request.json['gender'],
-        'professor_name': request.json['professor_name'],
-        'project': request.json['project'],
-        'programming_language': request.json['programming_language'],
+    _id = ObjectId(request.json['id'])
+    'first_name': request.json['first_name']
+    'last_name': request.json['last_name']
+    'email': request.json['email']
+    'gender': request.json['gender']
+    'professor_name': request.json['professor_name']
+    'project': request.json['project']
+    'programming_language': request.json['programming_language']
 
-    }} )
+    new_student ={
+        
+    }
+
     return jsonify({'msg':"User updated succesfully"})
     
 
