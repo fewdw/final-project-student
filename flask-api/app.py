@@ -33,7 +33,7 @@ def index():
 def update_student(_id):
     
     _id = ObjectId(request.json['id'])
-    'first_name': request.json['first_name']
+    first_name = request.json['first_name']
     'last_name': request.json['last_name']
     'email': request.json['email']
     'gender': request.json['gender']
@@ -42,6 +42,7 @@ def update_student(_id):
     'programming_language': request.json['programming_language']
 
     new_student ={
+        'first_name': first_name,
         
     }
 
