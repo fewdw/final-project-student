@@ -58,8 +58,8 @@ def postStudents():
         "last_name":last_name,
         "email":email,
         "gender":gender,
-        "professor_name":"Christine Gerard",
-        "project": "ISRS",
+        "professor_name":professor_name,
+        "project": project,
         "programming_language":"python,react"
   
 
