@@ -3,7 +3,17 @@ from flask import Flask, request, jsonify, abort
 import json
 import os
 from Schema import schemaPost
-app = Flask(__name__)
+import requests
+import pymongo as pymongo
+from bson import ObjectId
+from flask import Flask, request, jsonify
+# from flask_objectid_converter import ObjectIDConverter
+from pymongo import ReturnDocument
+from pymongo.server_api import ServerApi
+
+import os
+
+
 
 
 '''
@@ -12,12 +22,16 @@ USE 'flask run' IN TERMNIAL TO START THE API
 
 '''
 
-MONGODB_LINK = os.environ.get("MONGODB_LINK")
-MONGODB_USER = os.environ.get("MONGODB_USER")
-MONGODB_PASS = os.environ.get("MONGODB_PASS")
+MONGODB_USER = os.environ.get("fewdw")
+MONGODB_PASS = os.environ.get("fewdw")
 
-client = pymongo.MongoClient(f"mongodb://{MONGODB_USER}:{MONGODB_PASS}@{MONGODB_LINK}/?retryWrites=true&w=majority")
+client = pymongo.MongoClient("mongodb+srv://fewdw:fewdw@student.kslusvd.mongodb.net/?retryWrites=true&w=majority", server_api=ServerApi('1'))
 db = client.StudentDB
+app = Flask(__name__)
+
+db = client['StudentDB']
+collection = db['StudentCollection']
+
 
 @app.route('/')
 def index():
@@ -26,39 +40,24 @@ def index():
 
 data = open('MOCK_DATA.json')
 
+@app.route('/students', methods=["POST"])
+def students():   
 
+    document = {
+        "id":1,
+        "first_name": "Francis",
+        "last_name":"Shehata",
+        "email":"francis_2002@icloud.com",
+        "gender":"male",
+        "professor_name":"Christine Gerard",
+        "project": "ISRS",
+        "programming_language":"python,react"
+  
 
+ }
+    
+    collection.insert_one(document)
 
-
-
-@app.route('/student', methods=["POST"])
-def add_student():
-    read = request.json
-    error = schemaPost().validate(read)
-    if error:
-        return error, 400
-
-
-    #Writting to the database
-    addedId = db.results.insert_one(read).inserted_id
-    read["_id"] = str(addedId)
-
-    return jsonify(read)
-
-#Get readings from the database
-@app.route('/student/<student_id>', methods=["GET"])
-def get_by_id(student_id):
-    try:
-        cursor = db.results.find({"student_id": student_id})
-        read = list(cursor)
-        for read in read:
-            if "_id" in read:
-                read["_id"] = str(read["_id"])
-
-                return jsonify(read)
-    except Exception as e:
-        print(e)
-        return {"error": "some error happened"}, 501
 
 
 if __name__ == "__main__":
