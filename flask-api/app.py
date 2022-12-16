@@ -60,7 +60,7 @@ def postStudents():
         "gender":gender,
         "professor_name":professor_name,
         "project": project,
-        "programming_language":"python,react"
+        "programming_language":programming_language
   
 
  }
