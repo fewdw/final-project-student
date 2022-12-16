@@ -42,7 +42,7 @@ data = open('MOCK_DATA.json')
 
 @app.route('/students', methods=["POST"])
 def postStudents():   
-
+    id = request.json['id']
     first_name = request.json["first_name"]
     last_name = request.json["last_name"]
     email = request.json["email"]
@@ -52,6 +52,7 @@ def postStudents():
     programming_language = request.json["programming_language"]
     
     document = {
+        "id": id,
         "first_name": first_name,
         "last_name":last_name,
         "email":email,
@@ -64,7 +65,7 @@ def postStudents():
  }
     
     collection.insert_one(document)
-    return(document)
+    return jsonify(document)
 
 
 
