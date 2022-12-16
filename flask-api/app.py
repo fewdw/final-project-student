@@ -48,6 +48,8 @@ def postStudents():
     email = request.json["email"]
     gender = request.json["gender"]
     professor_name = request.json["professor_name"]
+    year_of_graduation = request.json["year_of_graduation"]
+    degree = request.json["degree"]
     project = request.json["project"]
     programming_language = request.json["programming_language"]
     
@@ -58,8 +60,10 @@ def postStudents():
         "email":email,
         "gender":gender,
         "professor_name":professor_name,
+        "year_of_graduation":year_of_graduation,
+        "degree":degree,
         "project": project,
-        "programming_language":programming_language
+        "programming_language":[programming_language]
   
 
  }
