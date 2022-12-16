@@ -65,7 +65,7 @@ def postStudents():
  }
     
     collection.insert_one(document)
-    return jsonify(str(document))
+    return str(document)
 
 
 
