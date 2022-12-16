@@ -10,8 +10,8 @@ from flask import Flask, request, jsonify
 # from flask_objectid_converter import ObjectIDConverter
 from pymongo import ReturnDocument
 from pymongo.server_api import ServerApi
-
 import os
+from bson.objectid import ObjectId
 
 
 
@@ -65,7 +65,7 @@ def postStudents():
  }
     
     collection.insert_one(document)
-    return jsonify(document)
+    return jsonify(str(document))
 
 
 
