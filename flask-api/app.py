@@ -41,8 +41,9 @@ def index():
 data = open('MOCK_DATA.json')
 
 @app.route('/students', methods=["POST"])
-def postStudents():   
+def postStudents(): 
     id = request.json['id']
+    status = request.json['status']
     first_name = request.json["first_name"]
     last_name = request.json["last_name"]
     email = request.json["email"]
@@ -50,24 +51,24 @@ def postStudents():
     professor_name = request.json["professor_name"]
     year_of_graduation = request.json["year_of_graduation"]
     degree = request.json["degree"]
-    project = request.json["project"]
+    projectId = request.json["projectId"]
     programming_language = request.json["programming_language"]
     
-    document = {
-        "id": id,
-        "first_name": first_name,
-        "last_name":last_name,
-        "email":email,
-        "gender":gender,
-        "professor_name":professor_name,
-        "year_of_graduation":year_of_graduation,
-        "degree":degree,
-        "project": project,
-        "programming_language":[programming_language]
-  
+    document={
 
- }
-    
+    "id": id,
+    "status":status,
+    "first_name": first_name,
+    "last_name":last_name,
+    "email":email,
+    "gender":gender,
+    "professor_name":professor_name,
+    "year_of_graduation":year_of_graduation,
+    "degree":degree,
+    "projectId": projectId,
+    "programming_language":programming_language,
+    }
+
     collection.insert_one(document)
     return str(document)
 
