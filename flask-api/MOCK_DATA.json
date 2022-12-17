@@ -1,16 +1,16 @@
 [
   {
-  "student_id": "32",
-  "status":"Completed",
-  "first_name": "Sofia",
-  "last_name":"Garcia",
-  "email":"sofia_g@gmail.com",
-  "gender":"female",
-  "professor_name":"Dr.Emily Smith",
-  "year_of_graduation":"2022",
-  "degree":["bachelor"],
-  "projectId": "7",
-  "programming_language":["JavaScript","Python"]
+    "student_id": "12345",
+    "status": true,
+    "first_name": "John",
+    "last_name": "Doe",
+    "email": "johndoe@example.com",
+    "gender": "male",
+    "professor_name": "Dr. Smith",
+    "year_of_graduation": "2022",
+    "degree": "Bachelor of Science in Computer Science",
+    "projectId": 1,
+    "programming_language": ["Java", "C++", "Python"]
   },
   
  
