@@ -1,4 +1,3 @@
-
 from flask import Flask, request, jsonify, abort
 import pymongo as pymongo
 from pymongo import MongoClient
@@ -38,13 +37,16 @@ def delete_one_student():
 @app.route('/students/', methods=['POST'])
 def post_new_student():
     return post_a_new_student_helper_method(
-        # first_name, last_name, email, gender, professor_name, project, programming_language
+        request.json["student_id"],
+        request.json["status"],
         request.json["first_name"],
         request.json["last_name"],
         request.json["email"],
         request.json["gender"],
         request.json["professor_name"],
-        request.json["project"],
+        request.json["year_of_graduation"],
+        request.json["degree"],
+        request.json["projectId"],
         request.json["programming_language"]
     )
 
