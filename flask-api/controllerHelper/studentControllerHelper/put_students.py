@@ -22,8 +22,8 @@ def put_an_existing_student_helper_method(id,first_name, last_name, email, gende
     "professor_name": professor_name,
     "project": project,
     "programming_language":programming_language
-
-
-
-
  }
+
+ _id = student_collection.replace_one({"_id":ObjectId(id)},replace_student)
+
+ 
