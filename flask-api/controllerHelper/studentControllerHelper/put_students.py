@@ -23,5 +23,5 @@ def put_an_existing_student_helper_method(student_id,first_name, last_name, emai
         "project":project,
         "programming_language":programming_language
     }
-    _id = student_collection.replace_one({"_id":ObjectId(student_id)})
-    return {"student successfully created": str(_id)}
+    _id = student_collection.replace_one({"_id":ObjectId(student_id)},replace_student)
+    return {"student successfully updated": str(_id)}

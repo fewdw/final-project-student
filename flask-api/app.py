@@ -11,7 +11,7 @@ from bson.objectid import ObjectId
 from controllerHelper.studentControllerHelper.get_students import get_all_students_helper_method, get_one_student_helper_method
 from controllerHelper.studentControllerHelper.delete_students import delete_one_student_helper_method
 from controllerHelper.studentControllerHelper.post_students import post_a_new_student_helper_method
-
+from controllerHelper.studentControllerHelper.put_students import put_an_existing_student_helper_method
 app = Flask(__name__)
 
 '''
@@ -60,7 +60,16 @@ def post_a_new_student():
 # put/modify data for an existing student using a specific id
 @app.route('/students', methods=['PUT'])
 def put_an_existing_student():
-    pass
+    return put_an_existing_student_helper_method(
+        request.json['student_id'],
+        request.json['first_name'],
+        request.json['last_name'],
+        request.json['email'],
+        request.json['gender'],
+        request.json['professor_name'],
+        request.json['project'],
+        request.json['programming_language']
+    )
 
 
 if __name__ == "__main__":
