@@ -1,5 +1,6 @@
-{
-  "id": "32",
+[
+  {
+  "student_id": "32",
   "status":"Completed",
   "first_name": "Sofia",
   "last_name":"Garcia",
@@ -10,10 +11,12 @@
   "degree":["bachelor"],
   "projectId": "7",
   "programming_language":["JavaScript","Python"]
-  }
+  },
   
-  {
-  "id": "33",
+ 
+{
+
+  "student_id": "33",
   "status":"Pending",
   "first_name": "Michael",
   "last_name":"Wang",
@@ -24,10 +27,11 @@
   "degree":["masters"],
   "projectId": "9",
   "programming_language":["C++","Java"]
-  }
+
+ },
   
   {
-  "id": "34",
+  "student_id": "34",
   "status":"Completed",
   "first_name": "Emily",
   "last_name":"Lee",
@@ -38,10 +42,10 @@
   "degree":["bachelor"],
   "projectId": "11",
   "programming_language":["JavaScript","PHP"]
-  }
+  },
   
   {
-  "id": "35",
+  "student_id": "35",
   "status":"Pending",
   "first_name": "David",
   "last_name":"Williams",
@@ -52,10 +56,10 @@
   "degree":["masters", "phd"],
   "projectId": "13",
   "programming_language":["C#","Python"]
-  }
+  },
   
   {
-  "id": "36",
+  "student_id": "36",
   "status":"Completed",
   "first_name": "Sarah",
   "last_name":"Taylor",
@@ -66,10 +70,10 @@
   "degree":["bachelor"],
   "projectId": "15",
   "programming_language":["Java","Python"]
-  }
+  },
   
   {
-  "id": "37",
+  "student_id": "37",
   "status":"Pending",
   "first_name": "James",
   "last_name":"Parker",
@@ -80,10 +84,10 @@
   "degree":["masters"],
   "projectId": "17",
   "programming_language":["C++","Java"]
-  }
+  },
   
   {
-  "id": "38",
+  "student_id": "38",
   "status":"Completed",
   "first_name": "Jessica",
   "last_name":"Brown",
@@ -94,10 +98,10 @@
   "degree":["bachelor"],
   "projectId": "19",
   "programming_language":["JavaScript","PHP"]
-  }
+  },
   
   {
-  "id": "39",
+  "student_id": "39",
   "status":"Pending",
   "first_name": "Christopher",
   "last_name":"Davis",
@@ -108,10 +112,10 @@
   "degree":["masters", "phd"],
   "projectId": "21",
   "programming_language":["C#","Python"]
-  }
+  },
   
   {
-  "id": "40",
+  "student_id": "40",
   "status":"Completed",
   "first_name": "Rebecca",
   "last_name":"Williams",
@@ -123,3 +127,4 @@
   "projectId": "23",
   "programming_language":["Java","Python"]
   }
+]

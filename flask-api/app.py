@@ -1,76 +1,66 @@
-import pymongo as pymongo
 from flask import Flask, request, jsonify, abort
+import pymongo as pymongo
+from pymongo import MongoClient
 import json
 import os
 from Schema import schemaPost
-import requests
-import pymongo as pymongo
-from bson import ObjectId
-from flask import Flask, request, jsonify
-# from flask_objectid_converter import ObjectIDConverter
-from pymongo import ReturnDocument
-from pymongo.server_api import ServerApi
-import os
+from bson import json_util
 from bson.objectid import ObjectId
-
-
-
-
-'''
-
-USE 'flask run' IN TERMNIAL TO START THE API
-
-'''
-
-MONGODB_USER = os.environ.get("fewdw")
-MONGODB_PASS = os.environ.get("fewdw")
-
-client = pymongo.MongoClient("mongodb+srv://fewdw:fewdw@student.kslusvd.mongodb.net/?retryWrites=true&w=majority", server_api=ServerApi('1'))
-db = client.StudentDB
+from controllerHelper.studentControllerHelper.get_students import get_all_students_helper_method, get_one_student_helper_method
+from controllerHelper.studentControllerHelper.delete_students import delete_one_student_helper_method
+from controllerHelper.studentControllerHelper.put_students import put_an_existing_student_helper_method
+from controllerHelper.studentControllerHelper.post_students import post_a_new_student_helper_method
 app = Flask(__name__)
 
-db = client['StudentDB']
-collection = db['StudentCollection']
+'''
+USE 'flask run' IN TERMNIAL TO START THE API
+'''
 
+#get all students
+@app.route('/students/', methods=['GET'])
+def get_all_students():
+    return get_all_students_helper_method()
 
-@app.route('/')
-def index():
-    return 'Hello, this is the main!'
+#get student by id
+@app.route('/students/<id>', methods=['GET'])
+def get_one_students(id):
+    return get_one_student_helper_method(id)
 
+#delete student by id
+@app.route('/students/', methods=['DELETE'])
+def delete_one_student():
+    return delete_one_student_helper_method(request.json["id"])
 
-data = open('MOCK_DATA.json')
+#post a new student
+@app.route('/students/<id>', methods=['POST'])
+def post_new_student():
+    return post_a_new_student_helper_method(
+        request.json["student_id"],
+        request.json["status"],
+        request.json["first_name"],
+        request.json["last_name"],
+        request.json["email"],
+        request.json["gender"],
+        request.json["professor_name"],
+        request.json["year_of_graduation"],
+        request.json["degree"],
+        request.json["projectId"],
+        request.json["programming_language"]
+    )
 
-@app.route('/students', methods=["POST"])
-def postStudents(): 
-    id = request.json['id']
-    status = request.json['status']
-    first_name = request.json["first_name"]
-    last_name = request.json["last_name"]
-    email = request.json["email"]
-    gender = request.json["gender"]
-    professor_name = request.json["professor_name"]
-    year_of_graduation = request.json["year_of_graduation"]
-    degree = request.json["degree"]
-    projectId = request.json["projectId"]
-    programming_language = request.json["programming_language"]
-    
-    document={
-
-    "id": id,
-    "status":status,
-    "first_name": first_name,
-    "last_name":last_name,
-    "email":email,
-    "gender":gender,
-    "professor_name":professor_name,
-    "year_of_graduation":year_of_graduation,
-    "degree":degree,
-    "projectId": projectId,
-    "programming_language":programming_language,
-    }
-
-    collection.insert_one(document)
-    return str(document)
+#put a new student
+@app.route('/students/', methods=['PUT'])
+def put_an_existing_student():
+    return put_an_existing_student_helper_method(
+        request.json["id"],
+        request.json["first_name"],
+        request.json["last_name"],
+        request.json["email"],
+        request.json["gender"],
+        request.json["professor_name"],
+        request.json["project"],
+        request.json["programming_language"]
+    )
 
 
 
