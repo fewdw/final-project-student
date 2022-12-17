@@ -25,7 +25,7 @@ def get_all_students():
 
 #get student by id
 @app.route('/students/<id>', methods=['GET'])
-def get_all_students(id):
+def get_one_students(id):
     return get_one_student_helper_method(id)
 
 #delete student by id
@@ -50,7 +50,7 @@ def post_new_student():
 #put a new student
 @app.route('/students/', methods=['PUT'])
 def put_an_existing_student():
-    return post_a_new_student_helper_method(
+    return put_an_existing_student_helper_method(
         request.json["id"],
         request.json["first_name"],
         request.json["last_name"],
