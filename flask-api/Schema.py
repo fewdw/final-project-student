@@ -11,5 +11,5 @@ class schemaPost(Schema):
     professor_name = fields.String(required=True)
     year_of_graduation = fields.Int(required=True)
     degree = fields.String(required=True)
-    projectId = fields.String(required=True)
+    projectId = fields.Int(required=True)
     programming_language = fields.String(required=True)
