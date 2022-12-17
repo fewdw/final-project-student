@@ -13,3 +13,7 @@ client = MongoClient(connection_string)
 database = client.StudentDB
 student_collection = database.StudentCollection
 
+# delete by id
+def delete_one_student_helper_method(student_id):
+    student = student_collection.delete_one({"_id":ObjectId(student_id)})
+    return jsonify({"successfully deleted student with id":student_id})
