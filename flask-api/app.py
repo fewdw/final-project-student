@@ -6,6 +6,9 @@ import os
 from Schema import schemaPost
 from bson import json_util
 
+# import for other files
+
+
 app = Flask(__name__)
 
 '''
@@ -13,9 +16,7 @@ USE 'flask run' IN TERMNIAL TO START THE API
 '''
 
 MONGODB_PASS = os.environ.get("MONGODB_PASS")
-
 connection_string = f"mongodb+srv://fewdw:{MONGODB_PASS}@student.kslusvd.mongodb.net/?retryWrites=true&w=majority"
-
 client = MongoClient(connection_string)
 database = client.StudentDB
 student_collection = database.StudentCollection
@@ -48,10 +49,6 @@ def post_a_new_student():
 @app.route('/students', methods=['PUT'])
 def put_an_existing_student():
     pass
-
-@app.route('/')
-    
-
 
 
 if __name__ == "__main__":
