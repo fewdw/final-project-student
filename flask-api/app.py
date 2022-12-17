@@ -23,7 +23,6 @@ USE 'flask run' IN TERMNIAL TO START THE API
 def get_all_students():
     return get_all_students_helper_method()
 
-
 #get student by id
 @app.route('/students/<id>', methods=['GET'])
 def get_all_students(id):
@@ -35,11 +34,32 @@ def delete_one_student():
     return delete_one_student_helper_method(request.json["id"])
 
 #post a new student
-#@app.route('/students/', methods=['POST'])
-
+@app.route('/students/', methods=['POST'])
+def post_new_student():
+    return post_a_new_student_helper_method(
+        # first_name, last_name, email, gender, professor_name, project, programming_language
+        request.json["first_name"],
+        request.json["last_name"],
+        request.json["email"],
+        request.json["gender"],
+        request.json["professor_name"],
+        request.json["project"],
+        request.json["programming_language"]
+    )
 
 #put a new student
-
+@app.route('/students/', methods=['PUT'])
+def put_an_existing_student():
+    return post_a_new_student_helper_method(
+        request.json["id"],
+        request.json["first_name"],
+        request.json["last_name"],
+        request.json["email"],
+        request.json["gender"],
+        request.json["professor_name"],
+        request.json["project"],
+        request.json["programming_language"]
+    )
 
 
 
