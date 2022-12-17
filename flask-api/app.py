@@ -29,6 +29,10 @@ db = client.StudentDB
 def delete_one_student():
     return delete_one_student_helper_method(request.json["id"])
 
+#put student by id 
+@app.route('/students/', methods=['PUT'])
+
+
 
 data = open('MOCK_DATA.json')
 
