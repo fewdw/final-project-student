@@ -24,7 +24,9 @@ client = MongoClient(connection_string)
 database = client.StudentDB
 student_collection = database.StudentCollection
 
-
+####################################################################################
+##########          PATH FOR CRUD TO THE Student Collection         ################
+####################################################################################
 # get list of all students
 @app.route('/students/', methods=['GET'])
 def get_all_students():
