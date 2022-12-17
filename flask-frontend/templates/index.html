@@ -18,13 +18,13 @@
 class App extends React.Component {
         render() {
             return(
-                <h1>Hello {{name}}</h1>
+                <h1>Hello {{name}} {this.props.name2} </h1>
             );
         }
     }
 
 
-    ReactDOM.render(<App/>, document.querySelector("#app"));
+    ReactDOM.render(<App name2 = "francis"/>, document.querySelector("#app"));
     </script>
 
     
