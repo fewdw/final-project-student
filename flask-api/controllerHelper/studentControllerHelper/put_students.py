@@ -19,7 +19,10 @@ def put_an_existing_student_helper_method(id,first_name, last_name, email, gende
     "last_name":last_name,
     "email":email,
     "gender": gender,
-    
+    "professor_name": professor_name,
+    "project": project,
+    "programming_language":programming_language
+
 
 
 
