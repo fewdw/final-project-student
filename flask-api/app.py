@@ -5,9 +5,10 @@ import json
 import os
 from Schema import schemaPost
 from bson import json_util
+from bson.objectid import ObjectId
 
 # import for other files
-from controllerHelper.studentControllerHelper.get_students import get_all_students_helper_method
+from controllerHelper.studentControllerHelper.get_students import get_all_students_helper_method, get_one_student_helper_method
 
 app = Flask(__name__)
 
@@ -31,7 +32,7 @@ def get_all_students():
 # get a specific student by id
 @app.route('/students/id/<id>', methods=['GET'])
 def get_student_by_id(id):
-    pass
+    return get_one_student_helper_method(id)
 
 
 # delete a specific student
