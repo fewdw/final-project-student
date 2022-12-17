@@ -83,47 +83,5 @@
     "degree": "Bachelor of Science in Mechanical Engineering",
     "projectId": 7,
     "programming_language": ["JavaScript", "PHP", "Ruby"]
-  },
-  
-  {
-  "student_id": "38",
-  "status":"Completed",
-  "first_name": "Jessica",
-  "last_name":"Brown",
-  "email":"jessica_b@icloud.com",
-  "gender":"female",
-  "professor_name":"Dr.Emily Jones",
-  "year_of_graduation":"2020",
-  "degree":["bachelor"],
-  "projectId": "19",
-  "programming_language":["JavaScript","PHP"]
-  },
-  
-  {
-  "student_id": "39",
-  "status":"Pending",
-  "first_name": "Christopher",
-  "last_name":"Davis",
-  "email":"christopher_d@gmail.com",
-  "gender":"male",
-  "professor_name":"Dr.Sarah Johnson",
-  "year_of_graduation":"2023",
-  "degree":["masters", "phd"],
-  "projectId": "21",
-  "programming_language":["C#","Python"]
-  },
-  
-  {
-  "student_id": "40",
-  "status":"Completed",
-  "first_name": "Rebecca",
-  "last_name":"Williams",
-  "email":"rebecca_w@gmail.com",
-  "gender":"female",
-  "professor_name":"Dr.Michael Smith",
-  "year_of_graduation":"2022",
-  "degree":["bachelor"],
-  "projectId": "23",
-  "programming_language":["Java","Python"]
   }
 ]
