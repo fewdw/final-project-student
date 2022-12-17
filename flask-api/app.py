@@ -53,7 +53,8 @@ def post_a_new_student():
     professor_name = request.json['professor_name']
     project = request.json['project']
     programming_language = request.json['programming_language']
-
+    return post_a_new_student(first_name, last_name, email, gender, professor_name, project, programming_language)
+    
 
 # put/modify data for an existing student using a specific id
 @app.route('/students', methods=['PUT'])
