@@ -24,6 +24,10 @@ client = MongoClient(connection_string)
 database = client.StudentDB
 student_collection = database.StudentCollection
 
+@app.route('/')
+def index():
+    return "<h1>FLASK API RUNNING</h1"
+
 ####################################################################################
 ##########          PATH FOR CRUD TO THE Student Collection         ################
 ####################################################################################
