@@ -72,17 +72,17 @@
   },
   
   {
-  "student_id": "37",
-  "status":"Pending",
-  "first_name": "James",
-  "last_name":"Parker",
-  "email":"james_p@outlook.com",
-  "gender":"male",
-  "professor_name":"Dr.Andrew Johnson",
-  "year_of_graduation":"2021",
-  "degree":["masters"],
-  "projectId": "17",
-  "programming_language":["C++","Java"]
+    "student_id": "55555",
+    "status": true,
+    "first_name": "Chris",
+    "last_name": "Brown",
+    "email": "chrisbrown@example.com",
+    "gender": "male",
+    "professor_name": "Dr. Smith",
+    "year_of_graduation": "2022",
+    "degree": "Bachelor of Science in Mechanical Engineering",
+    "projectId": 7,
+    "programming_language": ["JavaScript", "PHP", "Ruby"]
   },
   
   {
