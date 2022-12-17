@@ -14,4 +14,10 @@ database = client.StudentDB
 student_collection = database.studentCollection
 
 def put_an_existing_student_helper_method(id,first_name, last_name, email, gender, professor_name, project, programming_language):
- replace_student = {}
+ replace_student = {
+    "first_name": first_name,
+
+
+
+
+ }
