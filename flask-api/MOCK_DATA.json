@@ -30,31 +30,21 @@
  },
   
   {
-  "student_id": "34",
-  "status":"Completed",
-  "first_name": "Emily",
-  "last_name":"Lee",
-  "email":"emily_l@icloud.com",
-  "gender":"female",
-  "professor_name":"Dr.Jessica Jones",
-  "year_of_graduation":"2020",
-  "degree":["bachelor"],
-  "projectId": "11",
-  "programming_language":["JavaScript","PHP"]
+    "student_id": "22222",
+    "status": false,
+    "first_name": "Alice",
+    "last_name": "Jones",
+    "email": "alicejones@example.com",
+    "gender": "female",
+    "professor_name": "Dr. Brown",
+    "year_of_graduation": "2022",
+    "degree": "Bachelor of Arts in English",
+    "projectId": 4,
+    "programming_language": ["JavaScript", "PHP", "Ruby"]
   },
   
   {
-  "student_id": "35",
-  "status":"Pending",
-  "first_name": "David",
-  "last_name":"Williams",
-  "email":"david_will@gmail.com",
-  "gender":"male",
-  "professor_name":"Dr.Christopher Brown",
-  "year_of_graduation":"2023",
-  "degree":["masters", "phd"],
-  "projectId": "13",
-  "programming_language":["C#","Python"]
+
   },
   
   {
