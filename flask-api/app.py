@@ -10,6 +10,7 @@ from bson.objectid import ObjectId
 # import from other files
 from controllerHelper.studentControllerHelper.get_students import get_all_students_helper_method, get_one_student_helper_method
 from controllerHelper.studentControllerHelper.delete_students import delete_one_student_helper_method
+from controllerHelper.studentControllerHelper.post_students import post_a_new_student
 
 app = Flask(__name__)
 
@@ -45,7 +46,13 @@ def delete_specific_student():
 # post new student data
 @app.route('/students', methods=['POST'])
 def post_a_new_student():
-    pass
+    first_name = request.json['first_name']
+    last_name = request.json['last_name']
+    email = request.json['email']
+    gender = request.json['gender']
+    professor_name = request.json['professor_name']
+    project = request.json['project']
+    programming_language = request.json['programming_language']
 
 
 # put/modify data for an existing student using a specific id
