@@ -58,17 +58,17 @@
   },
   
   {
-  "student_id": "36",
-  "status":"Completed",
-  "first_name": "Sarah",
-  "last_name":"Taylor",
-  "email":"sarah_t@gmail.com",
-  "gender":"female",
-  "professor_name":"Dr.Rebecca Smith",
-  "year_of_graduation":"2022",
-  "degree":["bachelor"],
-  "projectId": "15",
-  "programming_language":["Java","Python"]
+    "student_id": "44444",
+    "status": false,
+    "first_name": "Samantha",
+    "last_name": "Williams",
+    "email": "samanthawilliams@example.com",
+    "gender": "female",
+    "professor_name": "Dr. Johnson",
+    "year_of_graduation": "2023",
+    "degree": "Bachelor of Science in Biomedical Engineering",
+    "projectId": 6,
+    "programming_language": ["C", "C++", "Python"]
   },
   
   {
