@@ -9,6 +9,13 @@ from bson.objectid import ObjectId
 from controllerHelper.studentControllerHelper.post_students import post_a_new_student_helper_method
 app = Flask(__name__)
 
+MONGODB_LINK = os.environ.get("MONGODB_LINK")
+MONGODB_USER = os.environ.get("MONGODB_USER")
+MONGODB_PASS = os.environ.get("MONGODB_PASS")
+
+client = pymongo.MongoClient(f"mongodb://{MONGODB_USER}:{MONGODB_PASS}@{MONGODB_LINK}/?retryWrites=true&w=majority")
+db = client.StudentDB
+
 
 #post a new student
 @app.route('/students/<id>', methods=['POST'])
