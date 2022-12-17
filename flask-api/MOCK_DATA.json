@@ -1,103 +1,87 @@
 [
   {
-    "id": 1,
+    "student_id": "12345",
+    "status": true,
     "first_name": "John",
     "last_name": "Doe",
-    "email": "johndoe@gmail.com",
+    "email": "johndoe@example.com",
     "gender": "male",
     "professor_name": "Dr. Smith",
-    "project": "JavaFX Deep Space Trajectory Explorer",
-    "programming_language": "Java"
+    "year_of_graduation": "2022",
+    "degree": "Bachelor of Science in Computer Science",
+    "projectId": 1,
+    "programming_language": ["Java", "C++", "Python"]
   },
+  
+ 
+{
+  "student_id": "11111",
+  "status": true,
+  "first_name": "Bob",
+  "last_name": "Smith",
+  "email": "bobsmith@example.com",
+  "gender": "male",
+  "professor_name": "Dr. Williams",
+  "year_of_graduation": "2023",
+  "degree": "Bachelor of Science in Electrical Engineering",
+  "projectId": 3,
+  "programming_language": ["C", "C++", "Python"]
+
+ },
+  
   {
-    "id": 2,
-    "first_name": "Jane",
-    "last_name": "Doe",
-    "email": "janedoe@gmail.com",
-    "gender": "female",
-    "professor_name": "Dr. Smith",
-    "project": "Neural Network",
-    "programming_language": "Python"
-  },
-  {
-    "id": 3,
-    "first_name": "Bob",
-    "last_name": "Smith",
-    "email": "bobsmith@gmail.com",
-    "gender": "male",
-    "professor_name": "Dr. Jones",
-    "project": "Weather APP",
-    "programming_language": "C++"
-  },
-  {
-    "id": 4,
+    "student_id": "22222",
+    "status": false,
     "first_name": "Alice",
-    "last_name": "Smith",
-    "email": "alicesmith@gmail.com",
+    "last_name": "Jones",
+    "email": "alicejones@example.com",
     "gender": "female",
-    "professor_name": "Dr. Jones",
-    "project": "Calculator ",
-    "programming_language": "JavaScript"
+    "professor_name": "Dr. Brown",
+    "year_of_graduation": "2022",
+    "degree": "Bachelor of Arts in English",
+    "projectId": 4,
+    "programming_language": ["JavaScript", "PHP", "Ruby"]
   },
+  
   {
-    "id": 5,
+    "student_id": "33333",
+    "status": true,
     "first_name": "Tom",
-    "last_name": "Johnson",
-    "email": "tomjohnson@gmail.com",
+    "last_name": "Taylor",
+    "email": "tomtaylor@example.com",
     "gender": "male",
-    "professor_name": "Dr. Williams",
-    "project": "E-Commerce",
-    "programming_language": "C#"
+    "professor_name": "Dr. Davis",
+    "year_of_graduation": "2021",
+    "degree": "Bachelor of Science in Computer Science",
+    "projectId": 5,
+    "programming_language": ["Java", "C++", "Python"]
   },
+  
   {
-    "id": 6,
-    "first_name": "Sara",
-    "last_name": "Johnson",
-    "email": "sarajohnson@gmail.com",
+    "student_id": "44444",
+    "status": false,
+    "first_name": "Samantha",
+    "last_name": "Williams",
+    "email": "samanthawilliams@example.com",
     "gender": "female",
-    "professor_name": "Dr. Williams",
-    "project": "Face2Face application",
-    "programming_language": "Swift"
+    "professor_name": "Dr. Johnson",
+    "year_of_graduation": "2023",
+    "degree": "Bachelor of Science in Biomedical Engineering",
+    "projectId": 6,
+    "programming_language": ["C", "C++", "Python"]
   },
+  
   {
-    "id": 7,
-    "first_name": "David",
-    "last_name": "Miller",
-    "email": "davidmiller@gmail.com",
+    "student_id": "55555",
+    "status": true,
+    "first_name": "Chris",
+    "last_name": "Brown",
+    "email": "chrisbrown@example.com",
     "gender": "male",
-    "professor_name": "Dr. Brown",
-    "project": "Data minning service",
-    "programming_language": "Ruby"
-  },
-  {
-    "id": 8,
-    "first_name": "Emily",
-    "last_name": "Miller",
-    "email": "emilymiller@gmail.com",
-    "gender": "female",
-    "professor_name": "Dr. Brown",
-    "project": "Arduino skyrocket",
-    "programming_language": "C++"
-  },
-  {
-    "id": 9,
-    "first_name": "Victor",
-    "last_name": "Ssuto",
-    "email": "VictorSsuto@gmail.com",
-    "gender": "Male",
-    "professor_name": "Dr.Williams",
-    "project": "Hello World",
-    "programming_language": "Pearl"
+    "professor_name": "Dr. Smith",
+    "year_of_graduation": "2022",
+    "degree": "Bachelor of Science in Mechanical Engineering",
+    "projectId": 7,
+    "programming_language": ["JavaScript", "PHP", "Ruby"]
   }
-  ,
-  {
-    "id": 10,
-    "first_name": "Carolina",
-    "last_name": "Wang Chen",
-    "email": "Carolinawang02@gmail.com",
-    "gender": "Female",
-    "professor_name": "Dr.James",
-    "project": "Bomb",
-    "programming_language": "Malbolge"
-  } 
 ]
