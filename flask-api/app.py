@@ -40,6 +40,7 @@ def put_an_existing_student():
         request.json["gender"],
         request.json["professor_name"],
         request.json["project"],
+        request.json["programming_language"]
     )
 
 
