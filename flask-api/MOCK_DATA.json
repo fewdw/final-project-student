@@ -15,18 +15,17 @@
   
  
 {
-
-  "student_id": "33",
-  "status":"Pending",
-  "first_name": "Michael",
-  "last_name":"Wang",
-  "email":"michael_wang@outlook.com",
-  "gender":"male",
-  "professor_name":"Dr.John Johnson",
-  "year_of_graduation":"2021",
-  "degree":["masters"],
-  "projectId": "9",
-  "programming_language":["C++","Java"]
+  "student_id": "11111",
+  "status": true,
+  "first_name": "Bob",
+  "last_name": "Smith",
+  "email": "bobsmith@example.com",
+  "gender": "male",
+  "professor_name": "Dr. Williams",
+  "year_of_graduation": "2023",
+  "degree": "Bachelor of Science in Electrical Engineering",
+  "projectId": 3,
+  "programming_language": ["C", "C++", "Python"]
 
  },
   
