@@ -2,7 +2,7 @@ from marshmallow import Schema, fields, validate
 
 
 class schemaPost(Schema):
-    student_id = fields.Int(required=True)
+    id = fields.String(required=True)
     status = fields.Bool(required=True)
     first_name = fields.String(required=True)
     last_name = fields.String(required=True)
