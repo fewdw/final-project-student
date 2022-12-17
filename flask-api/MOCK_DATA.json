@@ -44,7 +44,17 @@
   },
   
   {
-
+    "student_id": "33333",
+    "status": true,
+    "first_name": "Tom",
+    "last_name": "Taylor",
+    "email": "tomtaylor@example.com",
+    "gender": "male",
+    "professor_name": "Dr. Davis",
+    "year_of_graduation": "2021",
+    "degree": "Bachelor of Science in Computer Science",
+    "projectId": 5,
+    "programming_language": ["Java", "C++", "Python"]
   },
   
   {
