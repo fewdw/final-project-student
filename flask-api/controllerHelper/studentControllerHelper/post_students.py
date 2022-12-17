@@ -13,7 +13,7 @@ client = MongoClient(connection_string)
 database = client.StudentDB
 student_collection = database.StudentCollection
 
-def post_a_new_student(first_name, last_name, email, gender, professor_name, project, programming_language):
+def post_a_new_student_helper_method(first_name, last_name, email, gender, professor_name, project, programming_language):
     new_student = {
         "first_name":first_name,
         "last_name":last_name,
@@ -24,4 +24,4 @@ def post_a_new_student(first_name, last_name, email, gender, professor_name, pro
         "programming_language":programming_language
     }
     _id = student_collection.insert_one(new_student).inserted_id
-    return {"student successfully created with id":_id}
+    return {"student successfully created": str(_id)}
