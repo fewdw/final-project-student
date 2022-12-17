@@ -12,3 +12,5 @@ connection_string = f"mongodb+srv://fewdw:{MONGODB_PASS}@student.kslusvd.mongodb
 client = MongoClient(connection_string)
 database = client.StudentDB
 student_collection = database.studentCollection
+
+def put_an_existing_student_helper_method(id,first_name, last_name, email, gender, professor_name, project, programming_language):
