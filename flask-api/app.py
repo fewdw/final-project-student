@@ -34,7 +34,7 @@ def delete_one_student():
 def put_an_existing_student():
     return put_an_existing_student_helper_method(
          request.json["id"],
-
+        request.json["first_name"],
 
 
     )
