@@ -45,8 +45,8 @@ def post_new_student():
         request.json["gender"],
         request.json["professor_name"],
         request.json["year_of_graduation"],
-        request.json["c"],
-        request.json["project"],
+        request.json["degree"],
+        request.json["projectId"],
         request.json["programming_language"]
     )
 
