@@ -7,7 +7,7 @@ from Schema import schemaPost
 from bson import json_util
 
 # import for other files
-
+from controllerHelper.studentControllerHelper.get_students import get_all_students_helper_method
 
 app = Flask(__name__)
 
@@ -25,7 +25,7 @@ student_collection = database.StudentCollection
 # get list of all students
 @app.route('/students/', methods=['GET'])
 def get_all_students():
-    pass
+    return get_all_students_helper_method()
 
 
 # get a specific student by id

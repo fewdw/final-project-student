@@ -12,6 +12,7 @@ client = MongoClient(connection_string)
 database = client.StudentDB
 student_collection = database.StudentCollection
 
+# get all
 def get_all_students_helper_method():
     all_students = student_collection.find()
     return json.loads(json_util.dumps(all_students))
