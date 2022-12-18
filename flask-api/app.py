@@ -20,7 +20,20 @@ USE 'flask run' IN TERMNIAL TO START THE API
 client = pymongo.MongoClient(f"mongodb://{MONGODB_USER}:{MONGODB_PASS}@{MONGODB_LINK}/?retryWrites=true&w=majority")
 db = client.StudentDB
 
+#get all students
+@app.route('/students/', methods=['GET'])
+def get_all_students():
+    return get_all_students_helper_method()
 
+#get student by id
+@app.route('/students/<id>', methods=['GET'])
+def get_one_students(id):
+    return get_one_student_helper_method(id)
+
+#delete student by id
+@app.route('/students/', methods=['DELETE'])
+def delete_one_student():
+    return delete_one_student_helper_method(request.json["id"])
 
 #put student by id 
 @app.route('/students/', methods=['PUT'])
