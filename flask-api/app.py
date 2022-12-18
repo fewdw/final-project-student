@@ -52,6 +52,22 @@ def put_an_existing_student():
         request.json["year_of_graduation"]
     )
 
+#post a new student
+@app.route('/students/', methods=['POST'])
+def post_new_student():
+    return post_a_new_student_helper_method(
+        request.json["student_id"],
+        request.json["status"],
+        request.json["first_name"],
+        request.json["last_name"],
+        request.json["email"],
+        request.json["gender"],
+        request.json["professor_name"],
+        request.json["year_of_graduation"],
+        request.json["degree"],
+        request.json["projectId"],
+        request.json["programming_language"]
+    )
 
 
 data = open('MOCK_DATA.json')
