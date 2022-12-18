@@ -30,4 +30,4 @@ def put_an_existing_student_helper_method(id,student_Id, status, first_name, las
 
  _id = student_collection.replace_one({"_id":ObjectId(id)},replace_student)
 
- return {"student is successfully updated": str(_id)}
+ return {"student successfully updated": str(_id)}
