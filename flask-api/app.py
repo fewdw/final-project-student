@@ -54,12 +54,16 @@ def post_new_student():
 def put_an_existing_student():
     return put_an_existing_student_helper_method(
         request.json["id"],
+        request.json["student_id"],
+        request.json["status"],
         request.json["first_name"],
         request.json["last_name"],
         request.json["email"],
         request.json["gender"],
         request.json["professor_name"],
-        request.json["project"],
+        request.json["year_of_graduation"],
+        request.json["degree"],
+        request.json["projectId"],
         request.json["programming_language"]
     )
 
