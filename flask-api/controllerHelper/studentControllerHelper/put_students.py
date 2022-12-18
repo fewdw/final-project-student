@@ -13,8 +13,9 @@ client = MongoClient(connection_string)
 database = client.StudentDB
 student_collection = database.studentCollection
 
-def put_an_existing_student_helper_method(id,first_name, last_name, email, gender, professor_name, project, programming_language,year_of_graduation,projectId):
+def put_an_existing_student_helper_method(id,first_name, last_name, email, gender, professor_name, project, programming_language,year_of_graduation,projectId,status, degree):
  replace_student = {
+
     "first_name": first_name,
     "last_name":last_name,
     "email":email,
@@ -23,7 +24,9 @@ def put_an_existing_student_helper_method(id,first_name, last_name, email, gende
     "project": project,
     "programming_language":programming_language,
     "year_of_graduation": year_of_graduation,
-    "projectId": projectId
+    "projectId": projectId,
+    "degree": degree,
+    "status": status,
  }
 
  _id = student_collection.replace_one({"_id":ObjectId(id)},replace_student)
