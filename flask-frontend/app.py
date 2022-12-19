@@ -71,7 +71,7 @@ def add_student_staff():
     return render_template("addstudent/add-student-staff.html")
 
 
-@app.route("/admin/list/student/studentadded",methods=["POST"])
+@app.route("/staff/list/student/studentadded",methods=["POST"])
 def student_added_from_form():
 
     #call function to post to student api
@@ -89,7 +89,7 @@ def student_added_from_form():
     )
 
     # redirect to /admin/list
-    return redirect("/admin/list")
+    return redirect("/staff/list")
 
 
 if __name__ == '__main__':
