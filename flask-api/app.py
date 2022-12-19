@@ -50,9 +50,10 @@ def post_new_student():
     )
 
 @app.route('/students/', methods=['PUT'])
-def put_an_existing_student():
-    return put_an_existing_student_helper_method(
-        request.json["id"],
+def put_a_student_to_mongodb():
+
+    delete_one_student_helper_method(request.json['id'])
+    post_a_new_student_helper_method(        
         request.json["student_id"],
         request.json["status"],
         request.json["first_name"],
@@ -63,8 +64,8 @@ def put_an_existing_student():
         request.json["year_of_graduation"],
         request.json["degree"],
         request.json["projectId"],
-        request.json["programming_language"]
-    )
+        request.json["programming_language"])
+    return {"user updated with id: ":request.json['id']}
 
 
 
