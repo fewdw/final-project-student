@@ -72,7 +72,7 @@ def add_student_staff():
 
 
 @app.route("/staff/list/student/studentadded",methods=["POST"])
-def student_added_from_form():
+def student_added_from_form_staff():
 
     #call function to post to student api
     add_student_to_list(
@@ -87,9 +87,26 @@ def student_added_from_form():
     request.form.get("projectId"),
     request.form.get("programming_language")
     )
-
-    # redirect to /admin/list
     return redirect("/staff/list")
+
+
+@app.route("/admin/list/student/studentadded",methods=["POST"])
+def student_added_from_form_admin():
+
+    #call function to post to student api
+    add_student_to_list(
+    request.form.get("student_Id"),
+    request.form.get("first_name"),
+    request.form.get("last_name"),
+    request.form.get("email"),
+    request.form.get("gender"),
+    request.form.get("professor_name"),
+    request.form.get("year_of_graduation"),
+    request.form.get("degree"),
+    request.form.get("projectId"),
+    request.form.get("programming_language")
+    )
+    return redirect("/admin/list")
 
 
 if __name__ == '__main__':
