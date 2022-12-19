@@ -1,4 +1,4 @@
-from flask import Flask, render_template,redirect
+from flask import Flask, render_template,redirect, request
 import requests, json
 
 from student_api_request import get_all_students_from_api, get_one_student_from_api, delete_student_from_api
@@ -70,6 +70,23 @@ def add_student_admin():
 def add_student_staff():
     return render_template("addstudent/add-student-staff.html")
 
+
+@app.route("/admin/list/student/studentadded",methods=["POST"])
+def student_added_from_form():
+    request.form.get("student_Id")
+    request.form.get("first_name")
+    request.form.get("last_name")
+    request.form.get("student_Id")
+    request.form.get("student_Id")
+    request.form.get("student_Id")
+    request.form.get("student_Id")
+    request.form.get("student_Id")
+    request.form.get("student_Id")
+
+
+    #call function to post to student api
+    # redirect to /admin/list
+    return 
 
 
 if __name__ == '__main__':
