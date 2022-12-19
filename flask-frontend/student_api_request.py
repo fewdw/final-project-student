@@ -22,3 +22,9 @@ def delete_student_from_api(id):
     url = "http://127.0.0.1:5001/students/"
     payload = {"id":_id}
     requests.delete(url, json=payload)
+
+# put one student
+def update_student_from_api(id):
+    _id = id[10:34]
+    url = "http://127.0.0.1:5001/students/{_id}"
+    response = request.get()
