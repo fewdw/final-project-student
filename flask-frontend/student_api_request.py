@@ -24,4 +24,4 @@ def delete_student_from_api(id):
     requests.delete(url, json=payload)
 
     #add student 
-    def add_student_to_list(student_Id,):
+    def add_student_to_list(student_Id,status):
