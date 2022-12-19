@@ -15,7 +15,7 @@ table, th, td {
     border-collapse: collapse;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 50px;
+    margin-top: 150px;
     text-align: center;
 
 
@@ -49,10 +49,16 @@ tbody:nth-child(odd){
     }
 .object1{
     height: 125px;
-    width: 1500px;
+    width: 1510px;
     background-color:  #912338;
 
     position:absolute;
     top:0px;
     right: 0px;
+}
+
+.image{
+    position:absolute;
+    top:0px;
+    left: 0px;
 }
