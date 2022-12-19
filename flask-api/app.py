@@ -52,8 +52,9 @@ def post_new_student():
 @app.route('/students/', methods=['PUT'])
 def put_a_student_to_mongodb():
 
-    delete_one_student_helper_method(request.json['id'])
-    post_a_new_student_helper_method(        
+    
+    post_a_new_student_helper_method(       
+         
         request.json["student_id"],
         request.json["status"],
         request.json["first_name"],
@@ -65,6 +66,7 @@ def put_a_student_to_mongodb():
         request.json["degree"],
         request.json["projectId"],
         request.json["programming_language"])
+    delete_one_student_helper_method(request.json['id'])
     return {"user updated with id: ":request.json['id']}
 
 
