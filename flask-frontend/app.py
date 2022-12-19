@@ -1,7 +1,7 @@
-from flask import Flask, render_template,redirect
+from flask import Flask, render_template,redirect, request
 import requests, json
 
-from student_api_request import get_all_students_from_api, get_one_student_from_api, delete_student_from_api
+from student_api_request import get_all_students_from_api, get_one_student_from_api, delete_student_from_api,add_student_to_list
 
 app = Flask(__name__)
 
@@ -70,6 +70,43 @@ def add_student_admin():
 def add_student_staff():
     return render_template("addstudent/add-student-staff.html")
 
+
+@app.route("/staff/list/student/studentadded",methods=["POST"])
+def student_added_from_form_staff():
+
+    #call function to post to student api
+    add_student_to_list(
+    request.form.get("student_Id"),
+    request.form.get("first_name"),
+    request.form.get("last_name"),
+    request.form.get("email"),
+    request.form.get("gender"),
+    request.form.get("professor_name"),
+    request.form.get("year_of_graduation"),
+    request.form.get("degree"),
+    request.form.get("projectId"),
+    request.form.get("programming_language")
+    )
+    return redirect("/staff/list")
+
+
+@app.route("/admin/list/student/studentadded",methods=["POST"])
+def student_added_from_form_admin():
+
+    #call function to post to student api
+    add_student_to_list(
+    request.form.get("student_Id"),
+    request.form.get("first_name"),
+    request.form.get("last_name"),
+    request.form.get("email"),
+    request.form.get("gender"),
+    request.form.get("professor_name"),
+    request.form.get("year_of_graduation"),
+    request.form.get("degree"),
+    request.form.get("projectId"),
+    request.form.get("programming_language")
+    )
+    return redirect("/admin/list")
 
 
 if __name__ == '__main__':
