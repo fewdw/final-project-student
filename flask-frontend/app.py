@@ -95,6 +95,24 @@ def edited_student_admin():
         request.form.get("programming_language")
     )
     return redirect ("/admin/list")
+
+@app.route("/staff/list/studentUpdated/", methods=["POST"])
+def edited_student_staff():
+    edited_student_admin_api_request(
+        request.form.get("id"),
+        request.form.get("student_id"),
+        request.form.get("status"),
+        request.form.get("first_name"),
+        request.form.get("last_name"),
+        request.form.get("email"),
+        request.form.get("gender"),
+        request.form.get("professor_name"),
+        request.form.get("year_of_graduation"),
+        request.form.get("degree"),
+        request.form.get("projectId"),
+        request.form.get("programming_language")
+    )
+    return redirect ("/staff/list")
     
     
 
