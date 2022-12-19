@@ -75,7 +75,7 @@ def edit_student_admin(id):
     return render_template("editstudent/edit-student-admin.html", STUDENT = get_one_student_from_api(id))
 
 @app.route("/staff/list/student/editstudent/<id>")
-def edit_student_admin(id):
+def edit_student_staff(id):
     return render_template("editstudent/edit-student-staff.html", STUDENT = get_one_student_from_api(id))
 
 @app.route("/admin/list/studentUpdated/", methods=["POST"])
