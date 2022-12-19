@@ -2,17 +2,50 @@
 
 {% block body %}
 <h1>Edit a student from the admin view</h1>
-<ul>
-    <li>{{STUDENT.student_id}}</li>
-    <li>{{STUDENT.status}}</li>
-    <li>{{STUDENT.first_name}}</li>
-    <li>{{STUDENT.last_name}}</li>
-    <li>{{STUDENT.email}}</li>
-    <li>{{STUDENT.gender}}</li>
-    <li>{{STUDENT.professor_name}}</li>
-    <li>{{STUDENT.year_of_graduation}}</li>
-    <li>{{STUDENT.degree}}</li>
-    <li>{{STUDENT.projectId}}</li>
-    <li>{{STUDENT.programming_language}}</li>
-</ul>
+<form method="post" action = "">
+
+    Enter Student Id
+    <input type="text" name  = "student_Id">
+     <br>
+
+    
+    Enter Students First Name
+    <input type="text", name = "first_name"> <br>
+
+    
+    Enter Students Last Name
+    <input type="text", name = "last_name"> <br>
+
+    
+    Enter Students Email
+    <input type="text", name= "email"> <br>
+
+    
+    Enter Students Gender
+    <select type = "text"name = "gender">
+        <option>Male</option>
+        <option>Female</option>
+
+
+    </select>
+
+    
+    Enter Students Professor Name 
+    <input type="text", name= "professor_name"> <br>
+
+
+    Enter Students Year of Graduation
+    <input type="text", name = "year_of_graduation"> <br>
+
+    Enter Students Degree
+    <input type="text", name= "degree"> <br>
+
+    Enter Students Project Id
+    <input type="text", name="project_Id"> <br>
+
+    Enter Students Programming Language
+    <input type="text", name= "programming_language"> <br>
+
+
+  </form>
 {% endblock %}
