@@ -1,5 +1,54 @@
 {% extends "react-template.html" %}
 {% block body %}
     <h1>Add a student from the admin view</h1>
-    enter form here...
+  <form method="post" action = "/admin/list/student/studentadded">
+
+    Enter Student Id
+    <input type="text" name  = "student_Id">
+     <br>
+
+    
+    Enter Students First Name
+    <input type="text", name = "first_name"> <br>
+
+    
+    Enter Students Last Name
+    <input type="text", name = "last_name"> <br>
+
+    
+    Enter Students Email
+    <input type="text", name = "email"> <br>
+
+    
+    Enter Students Gender
+    <select name = "gender">
+        <option>Male</option>
+        <option>Female</option>
+        <option>I prefer not to say </option>
+      </select>
+
+    
+    Enter Students Professor Name 
+    <input type="text", name= "professor_name"> <br>
+
+
+    Enter Students Year of Graduation
+    <input type="text" , name= "year_of_graduation"> <br>
+
+    Enter Students Degree
+    <input type="text", name= "degree"> <br>
+
+    Enter Students Project Id
+    <input type="text", name= "projectId" > <br>
+
+    Enter Students Programming Language
+    <input type="text", name= "programming_language"> <br>
+
+
+    <input type= "submit" value="Add Students"/>
+
+  </form>
+
+
+   
 {% endblock %}

@@ -1,7 +1,7 @@
 from flask import Flask, render_template,redirect,request
 import requests, json
 
-from student_api_request import get_all_students_from_api, get_one_student_from_api, delete_student_from_api,edited_student_admin_api_request
+from student_api_request import get_all_students_from_api, get_one_student_from_api, delete_student_from_api,edited_student_admin_api_request,add_student_to_list
 
 app = Flask(__name__)
 
@@ -78,43 +78,45 @@ def edit_student_admin(id):
 def edit_student_staff(id):
     return render_template("editstudent/edit-student-staff.html", STUDENT = get_one_student_from_api(id))
 
-@app.route("/admin/list/studentUpdated/", methods=["POST"])
-def edited_student_admin():
-    edited_student_admin_api_request(
-        request.form.get("id"),
-        request.form.get("student_id"),
-        request.form.get("status"),
-        request.form.get("first_name"),
-        request.form.get("last_name"),
-        request.form.get("email"),
-        request.form.get("gender"),
-        request.form.get("professor_name"),
-        request.form.get("year_of_graduation"),
-        request.form.get("degree"),
-        request.form.get("projectId"),
-        request.form.get("programming_language")
-    )
-    return redirect ("/admin/list")
 
-@app.route("/staff/list/studentUpdated/", methods=["POST"])
-def edited_student_staff():
-    edited_student_admin_api_request(
-        request.form.get("id"),
-        request.form.get("student_id"),
-        request.form.get("status"),
-        request.form.get("first_name"),
-        request.form.get("last_name"),
-        request.form.get("email"),
-        request.form.get("gender"),
-        request.form.get("professor_name"),
-        request.form.get("year_of_graduation"),
-        request.form.get("degree"),
-        request.form.get("projectId"),
-        request.form.get("programming_language")
+    
+@app.route("/staff/list/student/studentadded",methods=["POST"])
+def student_added_from_form_staff():
+
+    #call function to post to student api
+    add_student_to_list(
+    request.form.get("student_Id"),
+    request.form.get("first_name"),
+    request.form.get("last_name"),
+    request.form.get("email"),
+    request.form.get("gender"),
+    request.form.get("professor_name"),
+    request.form.get("year_of_graduation"),
+    request.form.get("degree"),
+    request.form.get("projectId"),
+    request.form.get("programming_language")
     )
-    return redirect ("/staff/list")
-    
-    
+    return redirect("/staff/list")
+
+
+@app.route("/admin/list/student/studentadded",methods=["POST"])
+def student_added_from_form_admin():
+
+    #call function to post to student api
+    add_student_to_list(
+    request.form.get("student_Id"),
+    request.form.get("first_name"),
+    request.form.get("last_name"),
+    request.form.get("email"),
+    request.form.get("gender"),
+    request.form.get("professor_name"),
+    request.form.get("year_of_graduation"),
+    request.form.get("degree"),
+    request.form.get("projectId"),
+    request.form.get("programming_language")
+    )
+    return redirect("/admin/list")
+
 
 if __name__ == '__main__':
     app.run()
