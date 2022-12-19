@@ -23,6 +23,25 @@ def delete_student_from_api(id):
     payload = {"id":_id}
     requests.delete(url, json=payload)
 
+# put one student
+def edited_student_admin_api_request(id,student_id, status, first_name, last_name, email, gender, professor_name, year_of_graduation, degree, projectId, programming_language):
+    _id = id[10:34]
+    url = "http://127.0.0.1:5001/students/"
+    payload = {
+        "id": _id,
+        "student_id":student_id,
+        "status" : status,
+        "first_name" : first_name,
+        "last_name" : last_name,
+        "email" : email,
+        "gender" :  gender,
+        "professor_name" : professor_name,
+        "year_of_graduation" : year_of_graduation,
+        "degree" : degree,
+        "projectId" : projectId,
+        "programming_language" : programming_language    
+    }
+    requests.put(url, json=payload)
     #add student 
 def add_student_to_list(student_Id,first_name,last_name,email,gender, professor_name, year_of_graduation, degree, projectId, programming_language):
         url = "http://127.0.0.1:5001/students"
@@ -39,16 +58,3 @@ def add_student_to_list(student_Id,first_name,last_name,email,gender, professor_
         "projectId":projectId,
         "programming_language":programming_language}
         requests.post(url, json=payload)
-"""
-        request.json["student_id"],
-        request.json["status"],
-        request.json["first_name"],
-        request.json["last_name"],
-        request.json["email"],
-        request.json["gender"],
-        request.json["professor_name"],
-        request.json["year_of_graduation"],
-        request.json["degree"],
-        request.json["projectId"],
-        request.json["programming_language"]
-"""

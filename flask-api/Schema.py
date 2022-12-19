@@ -13,6 +13,7 @@ class schemaPost(Schema):
     university = fields.String(required=True)
 
 class schemaPut(schemaPost):
+    
     student_id = fields.String(required=True)
     first_name = fields.String(required=True)
     last_name = fields.String(required=True)

@@ -22,13 +22,12 @@
         </tr>
         </thead>
         {% for s in STUDENTS %}
-
-        <tbody>
-            <tr>
-            <td><a href="/admin/list/student/id/delete/{{s._id}}"><img  alt="Delete" src="../static/trash.jpg" width="25" height="25"></a></td> 
-            <td><a href=""><img  alt="archive" src="../static/archive-outline.png" width="25" height="25"> </a></td> <!-- ADD FUNCTIONALITY TO ARCHIVE A STUDENT -->
-            <td><a href=""><img  alt="Update" src="../static/edit-outline.png" width="25" height="25"></a> </td> <!-- ADD FUNCTIONALITY TO EDIT A STUDENT -->
-            <td>{{s.first_name}} {{s.last_name}}</td>
+        <tr>
+            <td><a href="/admin/list/student/id/delete/{{s._id}}">delete</a></td> <!-- ADD FUNCTIONALITY TO DELETE A STUDENT -->
+            <td><a href="">archive</a></td> <!-- ADD FUNCTIONALITY TO ARCHIVE A STUDENT -->
+            <td><a href="">unarchive</a></td> <!-- ADD FUNCTIONALITY TO UN-ARCHIVE A STUDENT -->
+            <td><a href="/admin/list/student/editstudent/{{s._id}}">edit</a></td> <!-- ADD FUNCTIONALITY TO EDIT A STUDENT -->
+            <td>{{s.first_name}},{{s.last_name}}</td>
             <td>{{s.degree}}, {{s.year_of_graduation}}</td>
             <td>
             {% for p in s.programming_language%}
@@ -41,7 +40,7 @@
         </tbody>
         {% endfor %}
         <tr>
-            <td><a href="/admin/list/student/addstudent"><img  alt="addStudent" src="../static/person-add-outline.png" width="25" height="25"></a></td>
+            <td><a href="/admin/list/student/addstudent">Add User</a></td>
         </tr>
     </table>
 

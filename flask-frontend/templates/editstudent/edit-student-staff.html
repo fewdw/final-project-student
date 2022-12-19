@@ -1,0 +1,51 @@
+{% extends "react-template.html" %}
+
+{% block body %}
+<h1>Edit a student from the staff view</h1>
+<form method="post" action = "/staff/list/studentUpdated/">
+
+    <input type ="hidden" value = {{STUDENT._id}} name="id">
+    Student Id
+    <input type="text" value ="{{STUDENT.student_id}}" name = "student_id">
+     <br>
+
+    
+    First Name
+    <input type="text" value ="{{STUDENT.first_name}}" name = "first_name"> <br>
+
+    
+    Last Name
+    <input type="text" value ="{{STUDENT.last_name}}"name = "last_name"> <br>
+
+    
+    Email
+    <input type="text" value ="{{STUDENT.email}}" name= "email"> <br>
+
+    
+    Gender
+    <select type = "text" value ="{{STUDENT.gender}}" name = "gender">
+        <option>Male</option>
+        <option>Female</option>
+        <option>Prefer to not display</option>
+
+
+    </select>
+    Professor Name 
+    <input type="text" value ="{{STUDENT.professor_name}}" name= "professor_name"> <br>
+
+
+    Year of Graduation
+    <input type="text" value ="{{STUDENT.year_of_graduation}}" name = "year_of_graduation"> <br>
+
+    Degree
+    <input type="text" value ="{{STUDENT.degree}}"name= "degree"> <br>
+
+    Project Id
+    <input type="text" value ="{{STUDENT.projectId}}" name="project_Id"> <br>
+
+    Programming Language
+    <input type="text" value ="{{STUDENT.programming_language}}" name= "programming_language"> <br>
+
+    <button type="Submit">Update Student</button>
+  </form>
+{% endblock %}
