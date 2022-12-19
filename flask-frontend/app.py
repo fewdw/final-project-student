@@ -76,9 +76,22 @@ def edit_student_admin(id):
 
 @app.route("/admin/list/studentUpdated/", methods=["POST"])
 def edited_student_admin():
+    (
+        request.form.get("id"),
+        request.form.get("student_id"),
+        request.form.get("status"),
+        request.form.get("first_name"),
+        request.form.get("last_name"),
+        request.form.get("email"),
+        request.form.get("gender"),
+        request.form.get("professor_name"),
+        request.form.get("year_of_graduation"),
+        request.form.get("degree"),
+        request.form.get("projectId"),
+        request.form.get("programming_language")
+    )
     
     
-    return request.form.get("student_id")
 
 if __name__ == '__main__':
     app.run()
