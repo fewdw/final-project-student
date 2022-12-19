@@ -76,8 +76,9 @@ def edit_student_admin(id):
 
 @app.route("/admin/list/studentUpdated/", methods=["POST"])
 def edited_student_admin():
+    
     student_id = request.args.get("student_Id")
-    return render_template("")
+    return student_id
 
 if __name__ == '__main__':
     app.run()
