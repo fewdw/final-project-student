@@ -79,7 +79,7 @@ def student_added_from_form():
     request.form.get("last_name")
     request.form.get("email")
     request.form.get("gender")
-    request.form.get("student_Id")
+    request.form.get("professor_name")
     request.form.get("student_Id")
     request.form.get("student_Id")
     request.form.get("student_Id")
