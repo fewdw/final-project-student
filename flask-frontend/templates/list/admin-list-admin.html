@@ -1,8 +1,13 @@
 {% extends "react-template.html" %}
 {% block body %}
-<h1>list of students from view of admin</h1>
+
+<div class = "logo">   
+    <img src="../static/concordia-logo.jpg" alt="Logo" >
+</div>
+
+
     
-    <table>
+    <table class= "table" >
         {% for s in STUDENTS %}
         <tr>
             <td><a href="/admin/list/student/id/delete/{{s._id}}">delete</a></td> <!-- ADD FUNCTIONALITY TO DELETE A STUDENT -->
