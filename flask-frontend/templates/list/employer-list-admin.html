@@ -4,32 +4,25 @@
     
     <table>
         <tr>
-            <th>student_id</th>
-            <th>status</th>
-            <th>first_name</th>
-            <th>last_name</th>
-            <th>email</th>
-            <th>gender</th>
-            <th>professor_name</th>
-            <th>year_of_graduation</th>
-            <th>degree</th>
-            <th>projectId</th>
-            <th>programming_language</th>
+            <td>email</td>
+            <td>favorite</td>
         </tr>
         {% for s in STUDENTS %}
         <tr>
-            <td>{{s.student_id}}</td>
-            <td>{{s.status}}</td>
-            <td>{{s.first_name}}</td>
-            <td>{{s.last_name}}</td>
-            <td>{{s.email}}</td>
-            <td>{{s.gender}}</td>
-            <td>{{s.professor_name}}</td>
-            <td>{{s.year_of_graduation}}</td>
-            <td>{{s.degree}}</td>
-            <td>{{s.projectId}}</td>
+            <td>
+                <form>
+                    <input type="checkbox" name="emailMe">
+                    <input type="hidden" name="{{s._id}}">
+                </form>
+            </td>
+            <td>
+                <!-- IF s._id is in the employers favorite list make it checked, else unchecked -->
+                <input type="checkbox" name="favored">
+            </td>
+            <td>{{s.first_name}},{{s.last_name}}</td>
+            <td>{{s.degree}}, {{s.year_of_graduation}}</td>
             <td>{{s.programming_language}}</td>
-
+            <td><a href="/employer/list/student/id/{{s._id}}">More Info</a></td>
         </tr>
         {% endfor %}
     </table>

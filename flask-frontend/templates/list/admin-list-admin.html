@@ -3,35 +3,21 @@
 <h1>list of students from view of admin</h1>
     
     <table>
-        <tr>
-            <th>student_id</th>
-            <th>status</th>
-            <th>first_name</th>
-            <th>last_name</th>
-            <th>email</th>
-            <th>gender</th>
-            <th>professor_name</th>
-            <th>year_of_graduation</th>
-            <th>degree</th>
-            <th>projectId</th>
-            <th>programming_language</th>
-        </tr>
         {% for s in STUDENTS %}
         <tr>
-            <td>{{s.student_id}}</td>
-            <td>{{s.status}}</td>
-            <td>{{s.first_name}}</td>
-            <td>{{s.last_name}}</td>
-            <td>{{s.email}}</td>
-            <td>{{s.gender}}</td>
-            <td>{{s.professor_name}}</td>
-            <td>{{s.year_of_graduation}}</td>
-            <td>{{s.degree}}</td>
-            <td>{{s.projectId}}</td>
+            <td><a href="/admin/list/student/id/delete/{{s._id}}">delete</a></td> <!-- ADD FUNCTIONALITY TO DELETE A STUDENT -->
+            <td><a href="">archive</a></td> <!-- ADD FUNCTIONALITY TO ARCHIVE A STUDENT -->
+            <td><a href="">unarchive</a></td> <!-- ADD FUNCTIONALITY TO UN-ARCHIVE A STUDENT -->
+            <td><a href="">edit</a></td> <!-- ADD FUNCTIONALITY TO EDIT A STUDENT -->
+            <td>{{s.first_name}},{{s.last_name}}</td>
+            <td>{{s.degree}}, {{s.year_of_graduation}}</td>
             <td>{{s.programming_language}}</td>
-
+            <td><a href="/admin/list/student/id/{{s._id}}">More Info</a></td>
         </tr>
         {% endfor %}
+        <tr>
+            <td><a href="/admin/list/student/addstudent">Add User</a></td>
+        </tr>
     </table>
 
 {% endblock %}
