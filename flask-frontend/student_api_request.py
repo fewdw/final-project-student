@@ -25,7 +25,7 @@ def delete_student_from_api(id):
 
 # put one student
 def edited_student_admin_api_request(id,student_id, status, first_name, last_name, email, gender, professor_name, year_of_graduation, degree, projectId, programming_language):
-    print(_id = id[10:34])
+    _id = id[10:34]
     all_students_api_link = "http://127.0.0.1:5001/students/"
     payload = {
         "_id":_id,
