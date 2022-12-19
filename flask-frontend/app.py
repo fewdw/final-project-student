@@ -83,7 +83,7 @@ def student_added_from_form():
     request.form.get("year_of_graduation")
     request.form.get("degree")
     request.form.get("projectId")
-
+    request.form.get("programming_language")
 
     #call function to post to student api
     # redirect to /admin/list
