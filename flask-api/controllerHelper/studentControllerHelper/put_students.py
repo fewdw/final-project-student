@@ -14,7 +14,7 @@ student_collection = database.studentCollection
 
 def put_an_existing_student_helper_method(id,student_id, status, first_name, last_name, email, gender, professor_name, year_of_graduation, degree, projectId, programming_language):
     replace_student = {
-    
+    "_id": id,
     "student_id": student_id,
     "status": status,
     "first_name":first_name,
@@ -29,4 +29,4 @@ def put_an_existing_student_helper_method(id,student_id, status, first_name, las
     }
 
     student_collection.find_one_and_update({"_id":ObjectId(id)},replace_student)
-    return {"Updated ID":id}
+    return {"Updated ID":student_id}
