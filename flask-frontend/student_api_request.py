@@ -22,3 +22,6 @@ def delete_student_from_api(id):
     url = "http://127.0.0.1:5001/students/"
     payload = {"id":_id}
     requests.delete(url, json=payload)
+
+    #add student 
+    def add_student_to_list(student_Id,):
