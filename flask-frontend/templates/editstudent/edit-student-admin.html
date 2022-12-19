@@ -2,8 +2,9 @@
 
 {% block body %}
 <h1>Edit a student from the admin view</h1>
-<form method="post" action = "/admin/list/studentUpdated">
+<form method="post" action = "/admin/list/studentUpdated/">
 
+    <input type ="hidden" value = {{STUDENT._id}} name="_id">
     Enter Student Id
     <input type="text" value ="{{STUDENT.student_id}}" name = "student_Id">
      <br>

@@ -1,4 +1,4 @@
-from flask import Flask, render_template,redirect
+from flask import Flask, render_template,redirect,request
 import requests, json
 
 from student_api_request import get_all_students_from_api, get_one_student_from_api, delete_student_from_api
@@ -74,6 +74,10 @@ def add_student_staff():
 def edit_student_admin(id):
     return render_template("editstudent/edit-student-admin.html", STUDENT = get_one_student_from_api(id))
 
+@app.route("/admin/list/studentUpdated/", methods=["POST"])
+def edited_student_admin():
+    student_id = request.args.get("student_Id")
+    return render_template("")
 
 if __name__ == '__main__':
     app.run()
