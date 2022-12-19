@@ -24,7 +24,7 @@ def delete_student_from_api(id):
     requests.delete(url, json=payload)
 
 # put one student
-#def update_student_from_api(id):
-  #  _id = id[10:34]
-   # url = "http://127.0.0.1:5001/students/{_id}"
-    #response = 
+def update_student_from_api(id,student_Id, status, first_name, last_name, email, gender, professor_name, year_of_graduation, degree, projectId, programming_language):
+    _id = id[10:34]
+    all_students_api_link = "http://127.0.0.1:5001/students/"
+    response = requests.get(all_students_api_link)
