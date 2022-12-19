@@ -74,9 +74,10 @@ def add_student_staff():
 @app.route("/admin/list/student/studentadded",methods=["POST"])
 def student_added_from_form():
     request.form.get("student_Id")
+    request.form.get("Status: True")
     request.form.get("first_name")
     request.form.get("last_name")
-    request.form.get("student_Id")
+    request.form.get("")
     request.form.get("student_Id")
     request.form.get("student_Id")
     request.form.get("student_Id")
