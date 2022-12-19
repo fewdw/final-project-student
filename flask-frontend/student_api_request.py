@@ -24,8 +24,18 @@ def delete_student_from_api(id):
     requests.delete(url, json=payload)
 
     #add student 
-    def add_student_to_list(student_Id,status,first_name,last_name,email,gender, professor_name, year_of_graduation, degree, project_Id, programming_language):
+def add_student_to_list(student_Id,first_name,last_name,email,gender, professor_name, year_of_graduation, degree, projectId, programming_language):
         url = "http://127.0.0.1:5001/students"
-        payload = {"student_Id":student_Id,"status":status,"first_name":first_name, "last_name":last_name, "email":email, "gender":gender,
-        "professor_name":professor_name, "year_of_graduation": year_of_graduation, "degree":degree, "project_Id":project_Id,"programming_language":programming_language}
+        payload = {
+        "student_id":student_Id,
+        "status":True,
+        "first_name":first_name,
+        "last_name":last_name,
+        "email":email, 
+        "gender":gender,
+        "professor_name":professor_name, 
+        "year_of_graduation": year_of_graduation, 
+        "degree":degree,
+        "projectId":projectId,
+        "programming_language":programming_language}
         requests.post(url, json=payload)
