@@ -1,13 +1,9 @@
-from flask import Flask, render_template
+from flask import Flask, render_template,redirect
 import requests, json
 
+from student_api_request import get_all_students_from_api, get_one_student_from_api, delete_student_from_api
+
 app = Flask(__name__)
-
-student_list = "http://127.0.0.1:5001/students/"
-
-# get all students
-response = requests.get(student_list)
-students = json.loads(response.text)
 
 # login routes
 @app.route('/')
@@ -28,17 +24,52 @@ def staff_index():
 # list routes
 @app.route('/employer/list')
 def employer_list_home():
-    return render_template("list/employer-list-admin.html", STUDENTS = students)
+    return render_template("list/employer-list-admin.html", STUDENTS = get_all_students_from_api())
 
 
 @app.route('/staff/list')
 def staff_list_home():
-    return render_template("list/staff-list-admin.html", STUDENTS = students)
+    return render_template("list/staff-list-admin.html", STUDENTS = get_all_students_from_api())
 
 
 @app.route('/admin/list')
 def admin_list_home():
-    return render_template("list/admin-list-admin.html", STUDENTS = students)
+    return render_template("list/admin-list-admin.html", STUDENTS = get_all_students_from_api())
+
+
+# more info route
+@app.route('/admin/list/student/id/<id>')
+def admin_more_info(id):
+    return render_template('moreinfo/student-more-info-admin.html', STUDENT = get_one_student_from_api(id))
+
+
+@app.route('/employer/list/student/id/<id>')
+def employer_more_info(id):
+    return render_template('moreinfo/student-more-info-employer.html', STUDENT = get_one_student_from_api(id))
+
+
+@app.route('/staff/list/student/id/<id>')
+def staff_more_info(id):
+    return render_template('moreinfo/student-more-info-staff.html', STUDENT = get_one_student_from_api(id))
+
+
+# delete route
+@app.route("/admin/list/student/id/delete/<id>")
+def admin_delete_student(id):
+    delete_student_from_api(id)
+    return redirect("/admin/list")
+
+
+# add student
+@app.route("/admin/list/student/addstudent")
+def add_student_admin():
+    return render_template("addstudent/add-student-admin.html")
+
+
+@app.route("/staff/list/student/addstudent")
+def add_student_staff():
+    return render_template("addstudent/add-student-staff.html")
+
 
 
 if __name__ == '__main__':
