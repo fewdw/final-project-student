@@ -1,4 +1,8 @@
+body{
 
+font-family: "Gill Sans" sans-serif	;
+    
+}
 h1{
     color:aqua;
 }
@@ -26,24 +30,22 @@ thead{
 background-color: #912338;
 padding:0.75rem 2rem;
 text-transform: uppercase;
-letter-spacing: 0.1rem;
-font-size: 0.7rem;
-font-weight: 900;
+font-size: 0.9em;
+font-weight: bold;
 color: #cbb576;
 text-align: center;
-
 }
 tbody:nth-child(even){
 
 padding: 1rem 2rem; 
-background-color: #c8c8c8;
+background-color:  #f0f0f0;
 
 
 }
 tbody:nth-child(odd){
 
     padding: 1rem 2rem; 
-    background-color: #f0f0f0;
+    background-color: #e0dede ;
     
     
     }
