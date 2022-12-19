@@ -90,6 +90,7 @@ def edited_student_admin():
         request.form.get("projectId"),
         request.form.get("programming_language")
     )
+    redirect ("/admin/list")
     
     
 
