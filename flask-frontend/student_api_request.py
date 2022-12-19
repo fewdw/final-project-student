@@ -41,5 +41,5 @@ def edited_student_admin(id,student_id, status, first_name, last_name, email, ge
         "projectId" : projectId,
         "programming_language" : programming_language    
     }
-    response = requests.put(all_students_api_link,payload)
+    requests.put(all_students_api_link,payload)
     
