@@ -3,9 +3,10 @@
 {% block body %}
 <h1>Edit a student from the admin view</h1>
 <form method="post" action = "">
+    {% for s in STUDENTS %}
 
     Enter Student Id
-    <input type="text" name  = "student_Id">
+    <input type="text" value ="{{STUDENT" name  = "student_Id">
      <br>
 
     
