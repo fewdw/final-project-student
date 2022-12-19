@@ -72,8 +72,8 @@ def add_student_staff():
 
 @app.route("/admin/list/student/editstudent/<id>")
 def edit_student_admin(id):
-    return id
+    return render_template("editstudent/edit-student-admin.html")
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
