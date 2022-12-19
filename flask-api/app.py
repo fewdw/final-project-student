@@ -51,8 +51,8 @@ def post_new_student():
 
 @app.route('/students/', methods=['PUT'])
 def put_an_existing_student():
-    pass
     return put_an_existing_student_helper_method(
+        request.json["id"],
         request.json["student_id"],
         request.json["status"],
         request.json["first_name"],
