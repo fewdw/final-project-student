@@ -49,11 +49,10 @@ def post_new_student():
         request.json["programming_language"]
     )
 
-#put a new student
 @app.route('/students/', methods=['PUT'])
 def put_an_existing_student():
+    pass
     return put_an_existing_student_helper_method(
-        request.json["_id"],
         request.json["student_id"],
         request.json["status"],
         request.json["first_name"],
