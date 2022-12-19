@@ -1,7 +1,7 @@
 from flask import Flask, render_template,redirect,request
 import requests, json
 
-from student_api_request import get_all_students_from_api, get_one_student_from_api, delete_student_from_api
+from student_api_request import get_all_students_from_api, get_one_student_from_api, delete_student_from_api,edited_student_admin_api_request
 
 app = Flask(__name__)
 
@@ -76,7 +76,7 @@ def edit_student_admin(id):
 
 @app.route("/admin/list/studentUpdated/", methods=["POST"])
 def edited_student_admin():
-    (
+    edited_student_admin_api_request(
         request.form.get("id"),
         request.form.get("student_id"),
         request.form.get("status"),
