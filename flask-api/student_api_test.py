@@ -1,4 +1,30 @@
- # put test
+from app import app
+import unittest
+import json
+from flask import Flask, jsonify
+import requests
+
+class TestDefaultRoute(unittest.TestCase):
+
+    #app setup test!
+    def setUp(self):
+        self.client = app.test_client()
+        self.client.testing = True
+
+    # return 200 test!
+    def test_default_route_200(self):
+        response = app.test_client().get('/')
+        self.assertEqual(response.status_code, 200)
+# get by id
+    def test_students_route_get_by_id(self):
+        response = requests.get('http://127.0.0.1:5000/students/63a1453dd4c253b8774b74b4')
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.json()['first_name'],'Agnes')
+    # get all
+    def test_students_route_get_all(self):
+        response = requests.get('http://127.0.0.1:5000/students')
+        self.assertGreater(len(response.json()),1,"test")
+# put test
     def test_put_should_work(self):
         url = "http://127.0.0.1:5000/students/"
         payload = {
