@@ -13,3 +13,7 @@ class TestDefaultRoute(unittest.TestCase):
     def test_default_route_200(self):
         response = app.test_client().get('/')
         self.assertEqual(response.status_code, 200)
+          # get all
+    def test_students_route_get_all(self):
+        response = requests.get('http://127.0.0.1:5000/students')
+        self.assertGreater(len(response.json()),1,"test")
