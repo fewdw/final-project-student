@@ -27,4 +27,4 @@ def post_a_new_student_helper_method(student_Id, status, first_name, last_name, 
         "programming_language":programming_language
     }
     _id = student_collection.insert_one(new_student).inserted_id
-    return {"student successfully created": str(_id)}
+    return jsonify({"added":str(_id)})
