@@ -20,7 +20,7 @@ USE 'flask run' IN TERMNIAL TO START THE API
 
 @app.route('/')
 def default_route():
-    return " "
+    return {"json":"type"}
 
 #get all students
 @app.route('/students/', methods=['GET'])
