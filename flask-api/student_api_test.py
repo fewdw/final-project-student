@@ -1,6 +1,5 @@
 from app import app
 import unittest
-import json
 from flask import Flask, jsonify
 import requests
 
