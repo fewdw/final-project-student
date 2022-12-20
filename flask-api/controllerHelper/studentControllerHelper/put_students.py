@@ -28,6 +28,6 @@ def put_an_existing_student_helper_method(id,student_id, status, first_name, las
         'programming_language':programming_language
     }
     if student_collection.replace_one(filter,updated_student):
-        return ":D"
+        return "Updated successfully"
     else:
         return {"error": "resource not found"}, 404
