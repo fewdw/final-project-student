@@ -130,11 +130,8 @@ def student_added_from_form_staff():
     request.form.get("programming_language")
     )
     return redirect("/staff/list")
-
-
 @app.route("/admin/list/student/studentadded",methods=["POST"])
 def student_added_from_form_admin():
-
     #call function to post to student api
     add_student_to_list(
     request.form.get("student_Id"),
