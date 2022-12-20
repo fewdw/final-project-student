@@ -18,10 +18,14 @@ from controllerHelper.studentControllerHelper.post_students import post_a_new_st
 USE 'flask run' IN TERMNIAL TO START THE API
 '''
 
+@app.route('/')
+def default_route():
+    return " "
+
 #get all students
 @app.route('/students/', methods=['GET'])
 def get_all_students():
-    return get_all_students_helper_method()
+    return jsonify(get_all_students_helper_method())
 
 #get student by id
 @app.route('/students/<id>', methods=['GET'])
