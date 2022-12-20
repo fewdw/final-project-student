@@ -9,3 +9,7 @@ class TestDefaultRoute(unittest.TestCase):
     def setUp(self):
         self.client = app.test_client()
         self.client.testing = True
+     # return 200 test!
+    def test_default_route_200(self):
+        response = app.test_client().get('/')
+        self.assertEqual(response.status_code, 200)
