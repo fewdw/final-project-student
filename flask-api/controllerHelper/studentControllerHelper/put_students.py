@@ -13,20 +13,19 @@ database = client.StudentDB
 student_collection = database.studentCollection
 
 def put_an_existing_student_helper_method(id,student_id, status, first_name, last_name, email, gender, professor_name, year_of_graduation, degree, projectId, programming_language):
-    replace_student = {
-    "_id": id,
-    "student_id": student_id,
-    "status": status,
-    "first_name":first_name,
-    "last_name":last_name,
-    "email":email,
-    "gender":gender,
-    "professor_name":professor_name,
-    "year_of_graduation": year_of_graduation,
-    "degree":degree,
-    "projectId":projectId,
-    "programming_language":programming_language
+    filter = {"_id":ObjectId(id)}
+    updated_student = {
+        'student_id':student_id,
+        'status':status,
+        'first_name':first_name,
+        'last_name':last_name,
+        'email':email,
+        'gender':gender,
+        'professor_name':professor_name,
+        'year_of_graduation':year_of_graduation,
+        'degree':degree,
+        'projectId':projectId,
+        'programming_language':programming_language
     }
-
-    student_collection.find_one_and_update({"_id":ObjectId(id)},replace_student)
-    return {"Updated ID":student_id}
+    student_collection.replace_one(filter,updated_student)
+    return ":D"
