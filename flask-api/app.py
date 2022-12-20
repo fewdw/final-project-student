@@ -5,6 +5,7 @@ import json
 import os
 from bson import json_util
 from bson.objectid import ObjectId
+
 app = Flask(__name__)
 
 from controllerHelper.studentControllerHelper.get_students import get_all_students_helper_method, get_one_student_helper_method
@@ -51,23 +52,20 @@ def post_new_student():
 
 @app.route('/students/', methods=['PUT'])
 def put_a_student_to_mongodb():
-
-    
-    post_a_new_student_helper_method(       
-         
-        request.json["student_id"],
-        request.json["status"],
-        request.json["first_name"],
-        request.json["last_name"],
-        request.json["email"],
-        request.json["gender"],
-        request.json["professor_name"],
-        request.json["year_of_graduation"],
-        request.json["degree"],
-        request.json["projectId"],
-        request.json["programming_language"])
-    delete_one_student_helper_method(request.json['id'])
-    return {"user updated with id: ":request.json['id']}
+        return put_an_existing_student_helper_method(
+            request.json['id'],
+            request.json['student_id'],
+            request.json['status'],
+            request.json['first_name'],
+            request.json['last_name'],
+            request.json['email'],
+            request.json['gender'],
+            request.json['professor_name'],
+            request.json['year_of_graduation'],
+            request.json['degree'],
+            request.json['projectId'],
+            request.json['programming_language']
+        )
 
 
 

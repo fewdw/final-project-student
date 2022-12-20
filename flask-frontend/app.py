@@ -80,10 +80,9 @@ def edit_student_staff(id):
 
 @app.route("/admin/list/studentUpdated/", methods=["POST"])
 def edited_student_admin():
-    edited_student_admin_api_request(
-        request.form.get("id"),
+    delete_student_from_api(request.form.get("id"))
+    add_student_to_list(
         request.form.get("student_id"),
-        request.form.get("status"),
         request.form.get("first_name"),
         request.form.get("last_name"),
         request.form.get("email"),
@@ -98,10 +97,9 @@ def edited_student_admin():
 
 @app.route("/staff/list/studentUpdated/", methods=["POST"])
 def edited_student_staff():
-    edited_student_admin_api_request(
-        request.form.get("id"),
+    delete_student_from_api(request.form.get("id"))
+    add_student_to_list(
         request.form.get("student_id"),
-        request.form.get("status"),
         request.form.get("first_name"),
         request.form.get("last_name"),
         request.form.get("email"),
