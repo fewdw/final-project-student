@@ -27,5 +27,7 @@ def put_an_existing_student_helper_method(id,student_id, status, first_name, las
         'projectId':projectId,
         'programming_language':programming_language
     }
-    student_collection.replace_one(filter,updated_student)
-    return ":D"
+    if student_collection.replace_one(filter,updated_student):
+        return ":D"
+    else:
+        return {"error": "resource not found"}, 404
