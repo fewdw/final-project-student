@@ -16,3 +16,19 @@ connection_string = f"mongodb+srv://fewdw:{MONGODB_PASS}@student.kslusvd.mongodb
 client = MongoClient(connection_string, tlsCAFile=ca)
 database = client.StudentDB
 degree_collection = database.DegreeCollection
+
+
+#new degree
+def post_new_degree_helper_method(degree_Id, name_degree, description):
+     new_degree={
+
+        "degree_id": degree_Id,
+        "name_degree": name_degree,
+        "description": description
+
+
+
+    }
+
+     _id = degree_collection.insert_one(new_degree).inserted_id
+     return jsonify({"added": str(_id)})
