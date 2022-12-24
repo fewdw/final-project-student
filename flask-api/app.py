@@ -12,6 +12,9 @@ from controllerHelper.studentControllerHelper.get_students import get_all_studen
 from controllerHelper.studentControllerHelper.delete_students import delete_one_student_helper_method
 from controllerHelper.studentControllerHelper.put_students import put_an_existing_student_helper_method
 from controllerHelper.studentControllerHelper.post_students import post_a_new_student_helper_method
+from degreeControllerHelper.post_degrees import post_new_degree_helper_method 
+
+
 
 
 '''
@@ -53,6 +56,17 @@ def post_new_student():
         request.json["projectId"],
         request.json["programming_language"]
     )
+
+    # post a new degree
+@app.route('/degrees/', methods=['POST'])
+def post_new_degree():
+    return post_new_degree_helper_method(
+        request.json["degree_id"],
+        request.json["name_degree"],
+        request.json["description"],
+
+    )
+
 
 @app.route('/students/', methods=['PUT'])
 def put_a_student_to_mongodb():
