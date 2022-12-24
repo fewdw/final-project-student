@@ -7,11 +7,12 @@ from bson import json_util
 from bson.objectid import ObjectId
 
 app = Flask(__name__)
-
+#Student
 from controllerHelper.studentControllerHelper.get_students import get_all_students_helper_method, get_one_student_helper_method
 from controllerHelper.studentControllerHelper.delete_students import delete_one_student_helper_method
 from controllerHelper.studentControllerHelper.put_students import put_an_existing_student_helper_method
 from controllerHelper.studentControllerHelper.post_students import post_a_new_student_helper_method
+#Degrees
 from degreeControllerHelper.get_degrees import get_all_degrees_helper_method
 
 '''
@@ -30,7 +31,7 @@ def get_all_students():
 #get all degrees
 @app.route('/degrees/', methods=['GET'])
 def get_all_degrees():
-    return jsonify(get_all_degrees_helper_method)
+    return jsonify(get_all_degrees_helper_method())
 
 
 #get student by id
