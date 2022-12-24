@@ -12,7 +12,7 @@ from controllerHelper.studentControllerHelper.get_students import get_all_studen
 from controllerHelper.studentControllerHelper.delete_students import delete_one_student_helper_method
 from controllerHelper.studentControllerHelper.put_students import put_an_existing_student_helper_method
 from controllerHelper.studentControllerHelper.post_students import post_a_new_student_helper_method
-
+from degreeControllerHelper.get_degrees import get_all_degrees_helper_method
 
 '''
 USE 'flask run' IN TERMNIAL TO START THE API
@@ -26,6 +26,12 @@ def default_route():
 @app.route('/students/', methods=['GET'])
 def get_all_students():
     return jsonify(get_all_students_helper_method())
+
+#get all degrees
+@app.route('/degrees/', methods=['GET'])
+def get_all_degrees():
+    return jsonify(get_all_degrees_helper_method)
+
 
 #get student by id
 @app.route('/students/<id>', methods=['GET'])
