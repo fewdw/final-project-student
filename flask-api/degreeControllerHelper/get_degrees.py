@@ -21,3 +21,7 @@ degree_collection = database.DegreeCollection
 def get_all_degrees_helper_method():
     all_degrees = degree_collection.find()
     return json.loads(json_util.dumps(all_degrees))
+
+def get_degree_by_id(degree_id):
+    degree = degree_collection.find_one({"_id":ObjectId(degree_id)})
+    return json.loads(json_util.dumps(degree))
