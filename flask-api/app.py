@@ -60,10 +60,7 @@ def get_one_degree(id):
 def delete_one_student():
     return delete_one_student_helper_method(request.json["id"])
 
-#delete degree by is
-@app.route('/degrees/', methods=['DELETE'])
-def delete_one_degree():
-    return delete_one_degree_helper_method(request.json["id"])
+
 
 #post a new student
 @app.route('/students/', methods=['POST'])
