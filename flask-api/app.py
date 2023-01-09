@@ -17,6 +17,12 @@ from degreeControllerHelper.get_degrees import get_all_degrees_helper_method
 from degreeControllerHelper.get_degrees import get_degree_by_id
 
 
+
+
+#Degree
+from degreeControllerHelper.post_degrees import post_new_degree_helper_method 
+
+
 '''
 USE 'flask run' IN TERMNIAL TO START THE API
 '''
@@ -69,6 +75,17 @@ def post_new_student():
         request.json["projectId"],
         request.json["programming_language"]
     )
+
+    # post a new degree
+@app.route('/degrees/', methods=['POST'])
+def post_new_degree():
+    return post_new_degree_helper_method(
+        request.json["degree_id"],
+        request.json["name_degree"],
+        request.json["description"],
+
+    )
+
 
 @app.route('/students/', methods=['PUT'])
 def put_a_student_to_mongodb():
