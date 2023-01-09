@@ -59,11 +59,6 @@ def get_one_degree(id):
 def delete_one_student():
     return delete_one_student_helper_method(request.json["id"])
 
-#get project id
-@app.route('/project/<id>', methods=['GET'])
-def get_one_degree(id):
-    return jsonify(get_project_by_id(project_id))
-
 #post a new student
 @app.route('/students/', methods=['POST'])
 def post_new_student():
