@@ -19,6 +19,7 @@ from controllerHelper.degreeControllerHelper.delete_degrees import delete_one_de
 #projects
 from controllerHelper.projectControllerHelper.delete_project import delete_one_project_helper_method
 from controllerHelper.degreeControllerHelper.update_degrees import put_an_existing_degree_helper_method
+from controllerHelper.projectControllerHelper.get_project import get_project_by_id, get_all_projects_helper_method
 
 
 
@@ -51,6 +52,18 @@ def get_all_degrees():
 @app.route('/students/<id>', methods=['GET'])
 def get_one_students(id):
     return get_one_student_helper_method(id)
+
+
+#get project by id
+@app.route('/project/<id>', methods=['GET'])
+def get_one_project(id):
+    return get_project_by_id(id)
+
+#get all projects
+@app.route('/project/', methods=['GET'])
+def get_all_project():
+    return jsonify(get_all_projects_helper_method())
+
 
 # get degree by id
 @app.route('/degrees/<id>', methods=['GET'])
