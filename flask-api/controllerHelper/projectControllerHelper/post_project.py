@@ -15,7 +15,7 @@ MONGODB_PASS = os.environ.get("MONGODB_PASS")
 connection_string = f"mongodb+srv://fewdw:{MONGODB_PASS}@student.kslusvd.mongodb.net/?retryWrites=true&w=majority"
 client = MongoClient(connection_string, tlsCAFile=ca)
 database = client.StudentDB
-degree_collection = database.DegreeCollection
+project_collection = database.ProjectCollection
 
 
 #new degree
@@ -30,5 +30,5 @@ def post_new_project_helper_method(project_Id, project_name, project_description
 
     }
 
-     _id = degree_collection.insert_one(new_degree).inserted_id
+     _id = project_collection.insert_one(new_degree).inserted_id
      return jsonify({"added": str(_id)})
