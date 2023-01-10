@@ -138,6 +138,7 @@ def put_a_degree():
         request.json['name_degree'],
         request.json['description']
     )
+
 @app.route('/projects/', methods=['PUT'])
 def put_a_project():
     return put_an_existing_project_helper_method(
