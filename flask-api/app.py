@@ -20,6 +20,7 @@ from controllerHelper.degreeControllerHelper.delete_degrees import delete_one_de
 from controllerHelper.projectControllerHelper.delete_project import delete_one_project_helper_method
 from controllerHelper.degreeControllerHelper.update_degrees import put_an_existing_degree_helper_method
 from controllerHelper.projectControllerHelper.get_project import get_project_by_id, get_all_projects_helper_method
+from controllerHelper.projectControllerHelper.post_project import post_new_project_helper_method
 
 
 
@@ -113,6 +114,8 @@ def post_new_degree():
         request.json["description"],
 
     )
+
+    
 
 
 @app.route('/students/', methods=['PUT'])
