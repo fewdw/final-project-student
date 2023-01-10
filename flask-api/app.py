@@ -16,6 +16,8 @@ from controllerHelper.studentControllerHelper.post_students import post_a_new_st
 from controllerHelper.degreeControllerHelper.get_degrees import get_all_degrees_helper_method
 from controllerHelper.degreeControllerHelper.get_degrees import get_degree_by_id
 from controllerHelper.degreeControllerHelper.delete_degrees import delete_one_degree_helper_method
+from controllerHelper.degreeControllerHelper.update_degrees import put_an_existing_degree_helper_method
+
 
 
 
@@ -82,7 +84,7 @@ def post_new_student():
         request.json["programming_language"]
     )
 
-    # post a new degree
+# post a new degree
 @app.route('/degrees/', methods=['POST'])
 def post_new_degree():
     return post_new_degree_helper_method(
@@ -110,7 +112,14 @@ def put_a_student_to_mongodb():
             request.json['programming_language']
         )
 
-
+@app.route('/degrees/', methods=['PUT'])
+def put_a_degree():
+    return put_an_existing_degree_helper_method(
+        request.json['id'],
+        request.json['degree_id'],
+        request.json['name_degree'],
+        request.json['description']
+    )
 
 if __name__ == "__main__":
     app.run(debug=True)
