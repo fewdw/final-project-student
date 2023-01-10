@@ -13,4 +13,12 @@ MONGODB_PASS = os.environ.get("MONGODB_PASS")
 connection_string = f"mongodb+srv://fewdw:{MONGODB_PASS}@student.kslusvd.mongodb.net/?retryWrites=true&w=majority"
 client = MongoClient(connection_string, tlsCAFile=ca)
 database = client.StudentDB
-degree_collection = database.DegreeCollection
+project_collection = database.ProjectCollection
+
+def put_an_existing_project_helper_method(id, project_id, project_name, project_description):
+    filter = {"_id":ObjectId(id)}
+    updated_student = {
+        "project_id":project_id,
+        "project_name":project_name,
+        "project_description":project_description,
+    }
