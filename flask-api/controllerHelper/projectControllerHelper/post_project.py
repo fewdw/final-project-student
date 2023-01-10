@@ -22,7 +22,7 @@ degree_collection = database.DegreeCollection
 def post_new_project_helper_method(project_Id, name_degree, description):
      new_degree={
 
-        "degree_id": degree_Id,
+        "project_id": project_Id,
         "name_degree": name_degree,
         "description": description
 
