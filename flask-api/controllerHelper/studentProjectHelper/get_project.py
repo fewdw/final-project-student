@@ -19,7 +19,7 @@ project_collection = database.ProjectCollection
 
 # get all 
 def get_all_degrees_helper_method():
-    all_degrees = degree_collection.find()
+    all_degrees = project_collection.find()
     return json.loads(json_util.dumps(all_degrees))
 
 def get_degree_by_id(degree_id):
