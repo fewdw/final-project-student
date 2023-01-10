@@ -108,7 +108,7 @@ def post_new_degree():
     )
 
 #post a new project
-@app.route('/project/', methods=['POST'])
+@app.route('/projects/', methods=['POST'])
 def post_new_project():
     return post_new_project_helper_method(
         request.json["project_id"],
