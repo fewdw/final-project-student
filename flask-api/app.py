@@ -19,7 +19,7 @@ from controllerHelper.degreeControllerHelper.delete_degrees import delete_one_de
 #projects
 from controllerHelper.projectControllerHelper.delete_project import delete_one_project_helper_method
 from controllerHelper.degreeControllerHelper.update_degrees import put_an_existing_degree_helper_method
-from controllerHelper.studentProjectHelper.get_project import get_project_by_id, get_all_projects_helper_method
+from controllerHelper.projectControllerHelper.get_project import get_project_by_id, get_all_projects_helper_method
 
 
 
