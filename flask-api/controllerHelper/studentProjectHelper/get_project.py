@@ -18,10 +18,10 @@ database = client.StudentDB
 project_collection = database.ProjectCollection
 
 # get all 
-def get_all_degrees_helper_method():
-    all_degrees = project_collection.find()
-    return json.loads(json_util.dumps(all_degrees))
+def get_all_projects_helper_method():
+    all_projects = project_collection.find()
+    return json.loads(json_util.dumps(all_projects))
 
-def get_degree_by_id(degree_id):
+def get_project_by_id(degree_id):
     degree = project_collection.find_one({"_id":ObjectId(degree_id)})
     return json.loads(json_util.dumps(degree))
