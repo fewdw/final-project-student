@@ -16,6 +16,7 @@ from controllerHelper.studentControllerHelper.post_students import post_a_new_st
 from controllerHelper.degreeControllerHelper.get_degrees import get_all_degrees_helper_method
 from controllerHelper.degreeControllerHelper.get_degrees import get_degree_by_id
 from controllerHelper.degreeControllerHelper.delete_degrees import delete_one_degree_helper_method
+from controllerHelper.degreeControllerHelper.post_degrees import post_new_degree_helper_method 
 #projects
 from controllerHelper.projectControllerHelper.delete_project import delete_one_project_helper_method
 from controllerHelper.degreeControllerHelper.update_degrees import put_an_existing_degree_helper_method
@@ -23,15 +24,6 @@ from controllerHelper.projectControllerHelper.get_project import get_project_by_
 from controllerHelper.projectControllerHelper.post_project import post_new_project_helper_method
 
 
-
-
-#Degree
-from controllerHelper.degreeControllerHelper.post_degrees import post_new_degree_helper_method 
-
-
-'''
-USE 'flask run' IN TERMNIAL TO START THE API
-'''
 
 @app.route('/')
 def default_route():
