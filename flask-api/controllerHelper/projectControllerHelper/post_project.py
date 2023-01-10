@@ -20,7 +20,7 @@ project_collection = database.ProjectCollection
 
 #new degree
 def post_new_project_helper_method(project_Id, project_name, project_description):
-     new_degree={
+     new_project={
 
         "project_id": project_Id,
         "project_name": project_name,
@@ -30,5 +30,5 @@ def post_new_project_helper_method(project_Id, project_name, project_description
 
     }
 
-     _id = project_collection.insert_one(new_degree).inserted_id
+     _id = project_collection.insert_one(new_project).inserted_id
      return jsonify({"added": str(_id)})
