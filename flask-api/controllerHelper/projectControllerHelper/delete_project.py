@@ -17,4 +17,4 @@ project_collection = database.ProjectCollection
 # delete by id
 def delete_one_project_helper_method(project_id):
     degree = project_collection.delete_one({"_id":ObjectId(project_id)})
-    return jsonify({"msg":"degree successfully deleted"})
+    return jsonify({"msg":"project successfully deleted"})
