@@ -16,6 +16,8 @@ from controllerHelper.studentControllerHelper.post_students import post_a_new_st
 from controllerHelper.degreeControllerHelper.get_degrees import get_all_degrees_helper_method
 from controllerHelper.degreeControllerHelper.get_degrees import get_degree_by_id
 from controllerHelper.degreeControllerHelper.delete_degrees import delete_one_degree_helper_method
+#projects
+from controllerHelper.projectControllerHelper.delete_project import delete_one_project_helper_method
 
 
 
@@ -64,6 +66,12 @@ def delete_one_student():
 @app.route('/degrees/', methods=['DELETE'])
 def delete_one_degree():
     return delete_one_degree_helper_method(request.json["id"])
+
+
+#delete project by id
+@app.route('/projects/', methods=['DELETE'])
+def delete_one_project():
+    return delete_one_project_helper_method(request.json["id"])
 
 #post a new student
 @app.route('/students/', methods=['POST'])
