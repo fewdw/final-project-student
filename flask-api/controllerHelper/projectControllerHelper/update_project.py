@@ -17,8 +17,12 @@ project_collection = database.ProjectCollection
 
 def put_an_existing_project_helper_method(id, project_id, project_name, project_description):
     filter = {"_id":ObjectId(id)}
-    updated_student = {
+    updated_project = {
         "project_id":project_id,
         "project_name":project_name,
         "project_description":project_description,
     }
+    if project_collection.replace_one(filter,updated_project):
+        return "Updated successfully"
+    else:
+        return {"error": "resource not found"}, 404
