@@ -19,11 +19,11 @@ degree_collection = database.DegreeCollection
 
 
 #new degree
-def post_new_project_helper_method(project_Id, name_degree, description):
+def post_new_project_helper_method(project_Id, project_name, description):
      new_degree={
 
         "project_id": project_Id,
-        "name_degree": name_degree,
+        "project_name": project_name,
         "description": description
 
 
