@@ -2,6 +2,7 @@ from flask import Flask, render_template,redirect,request
 import requests, json
 
 from student_api_request import get_all_students_from_api, get_one_student_from_api, delete_student_from_api,edited_student_admin_api_request, add_student_to_list
+from degree_api_request import get_all_degrees_from_api
 
 app = Flask(__name__)
 
@@ -37,7 +38,6 @@ def admin_list_home():
     return render_template("list/admin-list-admin.html", STUDENTS = get_all_students_from_api())
 
 
-
 # more info route
 @app.route('/admin/list/student/id/<id>')
 def admin_more_info(id):
@@ -54,9 +54,6 @@ def staff_more_info(id):
     return render_template('moreinfo/student-more-info-staff.html', STUDENT = get_one_student_from_api(id))
 
 
-
-
-
 # delete route
 @app.route("/admin/list/student/id/delete/<id>")
 def admin_delete_student(id):
@@ -67,20 +64,20 @@ def admin_delete_student(id):
 # add student
 @app.route("/admin/list/student/addstudent")
 def add_student_admin():
-    return render_template("addstudent/add-student-admin.html")
+    return render_template("addstudent/add-student-admin.html", DEGREES=get_all_degrees_from_api())
 
 
 @app.route("/staff/list/student/addstudent")
 def add_student_staff():
-    return render_template("addstudent/add-student-staff.html")
+    return render_template("addstudent/add-student-staff.html", DEGREES=get_all_degrees_from_api())
 
 @app.route("/admin/list/student/editstudent/<id>")
 def edit_student_admin(id):
-    return render_template("editstudent/edit-student-admin.html", STUDENT = get_one_student_from_api(id))
+    return render_template("editstudent/edit-student-admin.html", STUDENT = get_one_student_from_api(id),DEGREES=get_all_degrees_from_api())
 
 @app.route("/staff/list/student/editstudent/<id>")
 def edit_student_staff(id):
-    return render_template("editstudent/edit-student-staff.html", STUDENT = get_one_student_from_api(id))
+    return render_template("editstudent/edit-student-staff.html", STUDENT = get_one_student_from_api(id),DEGREES=get_all_degrees_from_api())
 
 @app.route("/admin/list/studentUpdated/", methods=["POST"])
 def edited_student_admin():

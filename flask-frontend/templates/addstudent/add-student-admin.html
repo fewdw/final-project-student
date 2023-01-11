@@ -21,12 +21,18 @@
     <input type="text", name= "professor_name"> <br>
     Enter Students Year of Graduation
     <input type="text" , name= "year_of_graduation"> <br>
-    Enter Students Degree
-    <input type="text", name= "degree"> <br>
+    Choose Students Degree
+    <select name = "degree">
+      {%for d in DEGREES%}
+        <option>{{d["name_degree"]}}</option>
+      {%endfor%}
+    </select><br>
     Enter Students Project Id
     <input type="text", name= "projectId" > <br>
     Enter Students Programming Language
     <input type="text", name= "programming_language"> <br>
     <input type= "submit" value="Add Students"/>
   </form>  
+
+
 {% endblock %}

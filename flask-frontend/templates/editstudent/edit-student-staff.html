@@ -24,7 +24,12 @@
     Year of Graduation
     <input type="text" value ="{{STUDENT.year_of_graduation}}" name = "year_of_graduation"> <br>
     Degree
-    <input type="text" value ="{{STUDENT.degree}}"name= "degree"> <br>
+    <select name="degree">
+      <option value="{{STUDENT.degree}}">{{STUDENT.degree}}</option>
+      {%for d in DEGREES%}
+        <option>{{d["name_degree"]}}</option>
+      {%endfor%}
+    </select><br>
     Project Id
     <input type="text" value ="{{STUDENT.projectId}}" name="project_Id"> <br>
     Programming Language
