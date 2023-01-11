@@ -37,6 +37,7 @@ def admin_list_home():
     return render_template("list/admin-list-admin.html", STUDENTS = get_all_students_from_api())
 
 
+
 # more info route
 @app.route('/admin/list/student/id/<id>')
 def admin_more_info(id):
@@ -51,6 +52,9 @@ def employer_more_info(id):
 @app.route('/staff/list/student/id/<id>')
 def staff_more_info(id):
     return render_template('moreinfo/student-more-info-staff.html', STUDENT = get_one_student_from_api(id))
+
+
+
 
 
 # delete route
