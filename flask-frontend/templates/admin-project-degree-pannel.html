@@ -25,7 +25,7 @@
 <ul>
     {%for p in PROJECTS%}
         <li>{{p["project_name"]}}</li>
-        <form action="/admin/pannel/deletedegree" method="POST">
+        <form action="/admin/pannel/deleteproject" method="POST">
             <input type="hidden" name="id" value='{{p["_id"]}}'>
             <button type="Submit">DELETE</button>
         </form>
