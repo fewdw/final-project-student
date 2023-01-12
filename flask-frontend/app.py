@@ -199,28 +199,28 @@ def post_a_degree_staff_route():
 ##
 @app.route("/admin/pannel/deleteproject",methods=["POST"])
 def delete_a_project_by_id_route():
-    delete_project_from_api(request.form.get("id"))
+    delete_project_from_api(request.form.get("project_id"))
     return redirect("/admin/pannel")
 
 @app.route("/admin/pannel/addproject",methods=["POST"])
 def post_a_project_route():
     post_a_project_to_api(
         request.form.get("project_id"),
-        request.form.get("project_degree"),
+        request.form.get("project_name"),
         request.form.get("project_description")
     )
     return redirect("/admin/pannel")
 
 @app.route("/staff/pannel/deleteproject",methods=["POST"])
-def delete_a_project_by_id_staff_route():
-    delete_project_from_api(request.form.get("id"))
+def delete_a_project_by_id_route_staff():
+    delete_project_from_api(request.form.get("project_id"))
     return redirect("/staff/pannel")
 
-@app.route("/staff/pannel/deleteproject",methods=["POST"])
-def post_a_project_staff_route():
+@app.route("/staff/pannel/addproject",methods=["POST"])
+def post_a_project_route_staff():
     post_a_project_to_api(
         request.form.get("project_id"),
-        request.form.get("project_degree"),
+        request.form.get("project_name"),
         request.form.get("project_description")
     )
     return redirect("/staff/pannel")
