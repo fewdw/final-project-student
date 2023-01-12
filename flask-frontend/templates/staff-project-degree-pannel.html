@@ -1,0 +1,30 @@
+{% extends "react-template.html" %}
+
+{% block body %}
+<h1>ADMIN PANNEL</h1>
+<h3>all degrees</h3><br>
+<ul>
+    {%for d in DEGREES%}
+        <li>{{d["name_degree"]}}</li>
+        <form action="/staff/pannel/deletedegree" method="POST">
+            <input type="hidden" name="id" value='{{d["_id"]}}'>
+            <button type="Submit">DELETE</button>
+        </form>
+    {%endfor%}
+
+    <form action="/staff/pannel/adddegree" method="POST">
+        <input type="hidden" name="degree_id" value="1"></input><br>
+        name of degree:<input type="text" name="name_degree"></input><br>
+        description:<input type="text" name="description"></input><br>
+        <input type="Submit" value="add">
+    </form>
+
+</ul><br>
+
+<h3>all projects</h3><br>
+<ul>
+    {%for p in PROJECTS%}
+        <li>{{p["project_name"]}}</li>
+    {%endfor%}
+</ul><br>
+{% endblock %}

@@ -2,7 +2,7 @@ from flask import Flask, render_template,redirect,request
 import requests, json
 
 from student_api_request import get_all_students_from_api, get_one_student_from_api, delete_student_from_api,edited_student_admin_api_request, add_student_to_list
-from degree_api_request import get_all_degrees_from_api
+from degree_api_request import get_all_degrees_from_api, delete_degree_from_api,post_a_degree_to_api
 from project_api_request import get_all_projects_from_api
 
 app = Flask(__name__)
@@ -159,6 +159,42 @@ def student_added_from_form_admin():
     request.form.get("programming_language")
     )
     return redirect("/admin/list")
+
+@app.route("/admin/pannel")
+def admin_pannel():
+    return render_template("admin-project-degree-pannel.html",DEGREES=get_all_degrees_from_api(),PROJECTS = get_all_projects_from_api())
+
+@app.route("/staff/pannel")
+def staff_pannel():
+    return render_template("staff-project-degree-pannel.html",DEGREES=get_all_degrees_from_api(),PROJECTS = get_all_projects_from_api())
+
+@app.route("/admin/pannel/deletedegree",methods=["POST"])
+def delete_a_degree_by_id_route():
+    delete_degree_from_api(request.form.get("id"))
+    return redirect("/admin/pannel")
+
+@app.route("/admin/pannel/adddegree",methods=["POST"])
+def post_a_degree_route():
+    post_a_degree_to_api(
+        request.form.get("degree_id"),
+        request.form.get("name_degree"),
+        request.form.get("description")
+    )
+    return redirect("/admin/pannel")
+
+@app.route("/staff/pannel/deletedegree",methods=["POST"])
+def delete_a_degree_by_id_staff_route():
+    delete_degree_from_api(request.form.get("id"))
+    return redirect("/staff/pannel")
+
+@app.route("/staff/pannel/adddegree",methods=["POST"])
+def post_a_degree_staff_route():
+    post_a_degree_to_api(
+        request.form.get("degree_id"),
+        request.form.get("name_degree"),
+        request.form.get("description")
+    )
+    return redirect("/staff/pannel")
 
 
 if __name__ == '__main__':
