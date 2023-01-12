@@ -38,6 +38,20 @@ def admin_list_home():
     return render_template("list/admin-list-admin.html", STUDENTS = get_all_students_from_api())
 
 
+# get student by specific fields route. 
+@app.route('/teacher/<professor_name>')
+def admin_list_teacher(professor_name):
+    filter_student_by_teacher = []
+    all_students = get_all_students_from_api()
+    for i in all_students: 
+        if i["professor_name"] == professor_name:
+            filter_student_by_teacher.append(i)
+    return render_template("list/admin-list-admin.html", STUDENTS = filter_student_by_teacher)
+
+
+
+
+
 # more info route
 @app.route('/admin/list/student/id/<id>')
 def admin_more_info(id):
