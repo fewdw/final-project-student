@@ -3,7 +3,7 @@ import requests, json
 
 from student_api_request import get_all_students_from_api, get_one_student_from_api, delete_student_from_api,edited_student_admin_api_request, add_student_to_list
 from degree_api_request import get_all_degrees_from_api, delete_degree_from_api,post_a_degree_to_api
-from project_api_request import get_all_projects_from_api
+from project_api_request import get_all_projects_from_api, delete_project_from_api, post_a_project_to_api
 
 app = Flask(__name__)
 
@@ -193,6 +193,35 @@ def post_a_degree_staff_route():
         request.form.get("degree_id"),
         request.form.get("name_degree"),
         request.form.get("description")
+    )
+    return redirect("/staff/pannel")
+
+##
+@app.route("/admin/pannel/deleteproject",methods=["POST"])
+def delete_a_project_by_id_route():
+    delete_project_from_api(request.form.get("project_id"))
+    return redirect("/admin/pannel")
+
+@app.route("/admin/pannel/addproject",methods=["POST"])
+def post_a_project_route():
+    post_a_project_to_api(
+        request.form.get("project_id"),
+        request.form.get("project_name"),
+        request.form.get("project_description")
+    )
+    return redirect("/admin/pannel")
+
+@app.route("/staff/pannel/deleteproject",methods=["POST"])
+def delete_a_project_by_id_route_staff():
+    delete_project_from_api(request.form.get("project_id"))
+    return redirect("/staff/pannel")
+
+@app.route("/staff/pannel/addproject",methods=["POST"])
+def post_a_project_route_staff():
+    post_a_project_to_api(
+        request.form.get("project_id"),
+        request.form.get("project_name"),
+        request.form.get("project_description")
     )
     return redirect("/staff/pannel")
 
