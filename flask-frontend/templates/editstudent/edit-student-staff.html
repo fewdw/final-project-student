@@ -31,7 +31,12 @@
       {%endfor%}
     </select><br>
     Project Id
-    <input type="text" value ="{{STUDENT.projectId}}" name="project_Id"> <br>
+    <select name="projectId">
+      <option value="{{STUDENT.projectId}}">{{STUDENT.projectId}}</option>
+      {%for p in PROJECTS%}
+        <option>{{p["project_name"]}}</option>
+      {%endfor%}
+    </select>
     Programming Language
     <input type="text" value ="{{STUDENT.programming_language}}" name= "programming_language"> <br>
     <button type="Submit">Update Student</button>

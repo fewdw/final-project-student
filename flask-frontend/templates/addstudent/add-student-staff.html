@@ -29,7 +29,11 @@
     {%endfor%}
   </select><br>
   Enter Students Project Id
-  <input type="text", name= "projectId" > <br>
+  <select name = "projectId">
+    {%for p in PROJECTS%}
+      <option>{{p["project_name"]}}</option>
+    {%endfor%}
+  </select>
   Enter Students Programming Language
   <input type="text", name= "programming_language"> <br>
   <input type= "submit" value="Add Students"/>
