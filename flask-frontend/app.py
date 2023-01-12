@@ -148,6 +148,5 @@ def student_added_from_form_admin():
     )
     return redirect("/admin/list")
 
-
 if __name__ == '__main__':
     app.run()
