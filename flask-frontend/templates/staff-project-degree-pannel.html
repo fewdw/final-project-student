@@ -1,7 +1,18 @@
 {% extends "react-template.html" %}
 
 {% block body %}
+<h1>STAFF PANNEL</h1>
+<h3>all degrees</h3><br>
+<ul>
+    {%for d in DEGREES%}
+        <li>{{d["name_degree"]}}</li>
+    {%endfor%}
+</ul><br>
 
-STAFF PANNEL
-
+<h3>all projects</h3><br>
+<ul>
+    {%for p in PROJECTS%}
+        <li>{{p["project_name"]}}</li>
+    {%endfor%}
+</ul><br>
 {% endblock %}

@@ -162,11 +162,11 @@ def student_added_from_form_admin():
 
 @app.route("/admin/pannel")
 def admin_pannel():
-    return render_template("admin-project-degree-pannel.html")
+    return render_template("admin-project-degree-pannel.html",DEGREES=get_all_degrees_from_api(),PROJECTS = get_all_projects_from_api())
 
 @app.route("/staff/pannel")
 def staff_pannel():
-    return render_template("staff-project-degree-pannel.html")
+    return render_template("staff-project-degree-pannel.html",DEGREES=get_all_degrees_from_api(),PROJECTS = get_all_projects_from_api())
 
 
 if __name__ == '__main__':
