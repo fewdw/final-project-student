@@ -50,7 +50,10 @@ def admin_list_teacher(professor_name):
             filter_student_by_teacher.append(i)
     return render_template("list/admin-list-admin.html", STUDENTS = filter_student_by_teacher)
 
-# more info route
+
+
+
+# more info route 
 @app.route('/admin/list/student/id/<id>')
 def admin_more_info(id):
     return render_template('moreinfo/student-more-info-admin.html', STUDENT = get_one_student_from_api(id))
@@ -72,9 +75,9 @@ def admin_delete_student(id):
     delete_student_from_api(id)
     return redirect("/admin/list")
 
-
+#Changed the route to load the css 
 # add student
-@app.route("/admin/list/student/addstudent")
+@app.route("/student/addstudent")
 def add_student_admin():
     return render_template("addstudent/add-student-admin.html", DEGREES=get_all_degrees_from_api(), PROJECTS = get_all_projects_from_api())
 
