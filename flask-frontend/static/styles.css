@@ -62,9 +62,11 @@ tbody:nth-child(odd){
     
 }
 .title  {
-
     text-align: center;
 
+}
+.createStudent{
 
 
+    text-align:center; 
 }
