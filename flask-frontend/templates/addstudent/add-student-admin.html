@@ -7,10 +7,12 @@
 
 <div class ="object1">    
 </div>
-
+<div class="Title">
+<h1>New Student Profile</h1>
+</div>
 <div class = createStudent>
 
-    <h1 class="title" >New Student Profile</h1>
+   
 
   <form method="post" action = "/admin/list/student/studentadded">
 
@@ -42,6 +44,7 @@
         <option>{{p["project_name"]}}</option>
       {%endfor%}
     </select>
+    <br>
     Enter Students Technological Aptitudes
     <input type="text", name= "programming_language" placeholder="Technological Aptitudes"> <br>
     <input type= "submit" value="Add Students"/>
