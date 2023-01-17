@@ -12,29 +12,31 @@
 </div>
 <div class = createStudent>
 
-   
+  
 
   <form method="post" action = "/admin/list/student/studentadded">
 
-    Enter Student Id
+    <fieldset>
+      <table>
+    <label for="student_Id">Enter Student Id: </label>
     <input type="text" name= "student_Id" placeholder="Student ID ">
 <br>
-    Enter Students First Name
-    <input type="text", name = "first_name" placeholder="First name"> <br>
+<label for="first_name">Enter Student First Name: </label>
+<input type="text", name = "first_name" placeholder="First name"> <br>
 
-    Enter Students Last Name
+<label for="last_name">Enter Student Last Name: </label>
     <input type="text", name = "last_name" placeholder="Last Name"> <br>
 
-    Enter Students Email
+    <label for="email">Enter Student Email: </label>
     <input type="text", name = "email" placeholder="Email Address"> <br>
 
-    Enter Students Professor Name 
+    <label for="professor_name">Enter Professor Name: </label>
     <input type="text", name= "professor_name" placeholder="Professor Name"> <br>
 
-    Enter Students Year of Graduation
+    <label for="year_of_graduation">Enter Student Year Of Graduation: </label>
     <input type="text" , name= "year_of_graduation" placeholder="Graduation Year"> <br>
 
-    Choose Students Degree
+    <label for="degree">Select a Student Degree: </label>
     <select name = "degree">
       {%for d in DEGREES%}
         <option>{{d["name_degree"]}}</option>
@@ -42,8 +44,9 @@
     </select>
     <br>
     
+    
 
-    Enter Students Project Id
+    <label for="projectId">Enter Student Project: </label>
     <select name = "projectId">
       {%for p in PROJECTS%}
         <option>{{p["project_name"]}}</option>
@@ -51,14 +54,14 @@
     </select>
     <br>
 
-    Enter Students Technological Aptitudes
-    <br>
+    <label for="Technological">Enter Student Technological Aptitudes: </label>
     
     <textarea name="textarea" rows="7" cols="30", placeholder="List Technological Aptitudes"></textarea>
 
     <br>
     <input type= "submit" value="Add Students"/>
-
+  </table>
+    </fieldset>
   </form>  
 </div>
 {% endblock %}
