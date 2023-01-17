@@ -28,7 +28,7 @@
             <td>{{s.first_name}} {{s.last_name}}</td>
             <td>{{s.degree}}, {{s.year_of_graduation}}</td>
             <td>{{s.programming_language}}</td>
-            <td><a href=""><img  alt="Update" src="../static/more-horizontal-outline.png" width="25" height="25"></a> </td> <!-- ADD FUNCTIONALITY TO EDIT A STUDENT -->
+            <td><a href="/staff/list/student/id/{{s._id}}"><img  alt="Update" src="../static/more-horizontal-outline.png" width="25" height="25"></a> </td> <!-- ADD FUNCTIONALITY TO EDIT A STUDENT -->
         </tr>
         </tbody>
         {% endfor %}
