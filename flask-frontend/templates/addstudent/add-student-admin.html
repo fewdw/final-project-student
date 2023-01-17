@@ -17,27 +17,32 @@
   <form method="post" action = "/admin/list/student/studentadded">
 
     Enter Student Id
-
     <input type="text" name= "student_Id" placeholder="Student ID ">
-     <br>
+<br>
     Enter Students First Name
     <input type="text", name = "first_name" placeholder="First name"> <br>
+
     Enter Students Last Name
     <input type="text", name = "last_name" placeholder="Last Name"> <br>
+
     Enter Students Email
     <input type="text", name = "email" placeholder="Email Address"> <br>
-    
+
     Enter Students Professor Name 
     <input type="text", name= "professor_name" placeholder="Professor Name"> <br>
+
     Enter Students Year of Graduation
     <input type="text" , name= "year_of_graduation" placeholder="Graduation Year"> <br>
+
     Choose Students Degree
     <select name = "degree">
       {%for d in DEGREES%}
         <option>{{d["name_degree"]}}</option>
       {%endfor%}
-    </select><br>
+    </select>
+    <br>
     
+
     Enter Students Project Id
     <select name = "projectId">
       {%for p in PROJECTS%}
@@ -45,9 +50,16 @@
       {%endfor%}
     </select>
     <br>
+
     Enter Students Technological Aptitudes
-    <input type="text", name= "programming_language" placeholder="Technological Aptitudes"> <br>
+    <input type="text", name= "programming_language" placeholder="Technological Aptitudes">
+    <br>
+    
+    <textarea name="textarea" rows="10" cols="30", placeholder="List Technological Aptitudes"></textarea>
+
+    <br>
     <input type= "submit" value="Add Students"/>
+
   </form>  
 </div>
 {% endblock %}
