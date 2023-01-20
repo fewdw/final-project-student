@@ -1,6 +1,6 @@
-from flask import Flask, render_template,redirect,request
+from flask import Flask, render_template,redirect,request,jsonify
 import requests, json
-
+import bcrypt
 from student_api_request import get_all_students_from_api, get_one_student_from_api, delete_student_from_api,edited_student_admin_api_request, add_student_to_list
 from degree_api_request import get_all_degrees_from_api, delete_degree_from_api,post_a_degree_to_api
 from project_api_request import get_all_projects_from_api, delete_project_from_api, post_a_project_to_api
@@ -225,6 +225,28 @@ def post_a_project_route_staff():
     )
     return redirect("/staff/pannel")
 
+@app.route("/admin/login",methods=["POST"])
+def validate_admin_login():
+    email = request.form.get("email",None)
+    password = request.form.get("password",None)
+    
+    if not email or not password:
+        return redirect("/admin")
+
+    hashed_pw = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
+    
+    return jsonify({email:str(hashed_pw)})
+    
+    
+
+
+@app.route("/staff/login",methods=["POST"])
+def validate_staff_login():
+    pass
+
+@app.route("/employer/login",methods=["POST"])
+def validate_employer_login():
+    pass
 
 if __name__ == '__main__':
     app.run()
