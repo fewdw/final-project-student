@@ -5,18 +5,25 @@
 <h3>all degrees</h3><br>
 <ul>
     {%for d in DEGREES%}
-        <li>{{d["name_degree"]}}</li>
+        <li id="degreeNameFromList">{{d["name_degree"]}}</li>
+        <li id="degreeDescriptionFromList">{{d["description"]}}</li>
         <form action="/admin/pannel/deletedegree" method="POST">
             <input type="hidden" name="id" value='{{d["_id"]}}'>
-            <button type="Submit">DELETE</button>
+            <li>
+                <button type="Submit">DELETE</button>
+            </li>
         </form>
+        <button onclick="updateStudentDegree('{{d["name_degree"]}}','{{d["description"]}}','{{d["_id"]["$oid"]}}')">UPDATE</button>
+
     {%endfor%}
 
-    <form action="/admin/pannel/adddegree" method="POST">
+    <form method="POST">
+        <input type="hidden" name="id" id="degreeIdFormInput" value=''>
         <input type="hidden" name="degree_id" value="1"></input><br>
-        name of degree:<input type="text" name="name_degree"></input><br>
-        description:<input type="text" name="description"></input><br>
-        <input type="Submit" value="add">
+        name of degree:<input type="text" name="name_degree" id="degreeNameInputField" value=""></input><br>
+        description:<input type="text" name="description" id="degreeDescriptionInputField" value=""></input><br>
+        <input type="Submit" value="add" formaction="/admin/pannel/adddegree">
+        <input type="Submit" value="update" formaction="/admin/pannel/updatedegree">
     </form>
 
 </ul><br>
