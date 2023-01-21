@@ -3,7 +3,7 @@ import requests, json
 
 from student_api_request import get_all_students_from_api, get_one_student_from_api, delete_student_from_api,edited_student_admin_api_request, add_student_to_list
 from degree_api_request import get_all_degrees_from_api, delete_degree_from_api,post_a_degree_to_api, put_a_degree_to_api
-from project_api_request import get_all_projects_from_api, delete_project_from_api, post_a_project_to_api
+from project_api_request import get_all_projects_from_api, delete_project_from_api, post_a_project_to_api, put
 
 app = Flask(__name__)
 
