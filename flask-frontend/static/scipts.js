@@ -12,10 +12,11 @@ function updateStudentDegree(name,desc,id){
 function updateStudentProject(name,desc,id){
     let projectNameInputField = document.getElementByIdById("projectNameInputField");
     let projectDescriptionInputField = document.getElementById("projectDescriptionInputField");
-    let projectIdFromInput = document.getElementById("projectIdFromInput");
+    let projectIdFormInput = document.getElementById("projectIdFromInput");
 
-    
+    projectIdFormInput.value = id.toString();
+    projectNameInputField.value = name.toString();
+    projectDescriptionInputField.value = desc.toString();
 
 
 }
-//enter function to update project here.
