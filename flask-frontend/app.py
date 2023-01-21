@@ -1,4 +1,5 @@
-from flask import Flask, render_template,redirect,request,jsonify
+from flask import Flask, render_template,redirect,request,jsonify,session
+from flask_session import Session
 import requests, json
 import bcrypt
 
@@ -8,6 +9,9 @@ from project_api_request import get_all_projects_from_api, delete_project_from_a
 from credential_api_request import get_credentials_from_api, post_credentials_from_api, put_credentials_from_api, delete_credentials_from_api, get_credentials_by_id_from_api
 
 app = Flask(__name__)
+app.config["SESSION_PERMANENT"] = False
+app.config["SESSION_TYPE"] = "filesystem"
+Session(app)
 
 # login routes
 @app.route('/')
@@ -249,28 +253,80 @@ def add_credential_route():
     lang = request.form.get("lang")
     session_type = request.form.get("type")
 
-    hashed_pw = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
-    post_credentials_from_api(email,str(hashed_pw),lang,session_type)
+    hashed_pw = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt()).decode()
+
+    post_credentials_from_api(email,hashed_pw,lang,session_type)
 
     return redirect("/admin/pannel")
 
 @app.route("/admin/login", methods=["POST"])
-def validate admin_login():
-    request.form.get("email")
-    request.form.get("password")
-    pass
+def validate_admin_login():
+    email = request.form.get("email")
+    password = request.form.get("password")
+    
+    if not email or not password:
+        return redirect("/admin")
+    
+    credentials = get_credentials_from_api()
 
-@app.route("/employer/login", methods=["POST"])
-def validate employer_login():
-    request.form.get("email")
-    request.form.get("password")
-    pass
+    for obj in credentials:
+        if obj["email"] == email and obj["type"] == "admin":
+            if bcrypt.checkpw(password.encode('utf-8'), obj["hash"].encode('utf-8')):
+                #CREATE SESSION!
+                session["name"] = obj["email"]
+                session["lang"] = obj["lang"]
+                session["type"] = obj["type"]
+                return redirect("/admin/list")
+    return redirect("/admin")
+
 
 @app.route("/staff/login", methods=["POST"])
-def validate staff_login():
-    request.form.get("email")
-    request.form.get("password")
-    pass
+def validate_staff_login():
+    email = request.form.get("email")
+    password = request.form.get("password")
+    
+    if not email or not password:
+        return redirect("/staff")
+    
+    credentials = get_credentials_from_api()
+
+    for obj in credentials:
+        if obj["email"] == email and obj["type"] == "staff":
+            if bcrypt.checkpw(password.encode('utf-8'), obj["hash"].encode('utf-8')):
+                #CREATE SESSION!
+                session["name"] = obj["email"]
+                session["lang"] = obj["lang"]
+                session["type"] = obj["type"]
+                return redirect("/staff/list")
+    return redirect("/staff")
+
+@app.route("/employer/login", methods=["POST"])
+def validate_employer_login():
+    email = request.form.get("email")
+    password = request.form.get("password")
+    
+    if not email or not password:
+        return redirect("/")
+    
+    credentials = get_credentials_from_api()
+
+    for obj in credentials:
+        if obj["email"] == email and obj["type"] == "employer":
+            if bcrypt.checkpw(password.encode('utf-8'), obj["hash"].encode('utf-8')):
+                #CREATE SESSION!
+                session["name"] = obj["email"]
+                session["lang"] = obj["lang"]
+                session["type"] = obj["type"]
+                return redirect("/employer/list")
+    return redirect("/")
+
+@app.route("/clearsession",methods=["POST"])
+def clear_session():
+    session["name"] = None
+    session["lang"] = None
+    session["type"] = None
+    return redirect("/")
+
 
 
 if __name__ == '__main__':
