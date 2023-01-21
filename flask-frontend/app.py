@@ -32,71 +32,96 @@ def staff_index():
 # list routes
 @app.route('/employer/list')
 def employer_list_home():
-    return render_template("list/employer-list-admin.html", STUDENTS = get_all_students_from_api())
+    
+    if session.get("type") == "employer":
+        return render_template("list/employer-list-admin.html", STUDENTS = get_all_students_from_api())
+    return redirect("/")
 
 
 @app.route('/staff/list')
 def staff_list_home():
-    return render_template("list/staff-list-admin.html", STUDENTS = get_all_students_from_api())
+    if session.get("type") == "staff":
+        return render_template("list/staff-list-admin.html", STUDENTS = get_all_students_from_api())
+    return redirect("/staff")
 
 
 @app.route('/admin/list')
 def admin_list_home():
-    return render_template("list/admin-list-admin.html", STUDENTS = get_all_students_from_api())
-
+    if session.get("type") == "admin":
+        return render_template("list/admin-list-admin.html", STUDENTS = get_all_students_from_api())
+    return redirect("/admin")
 
 # routing for student by specific fields
-
 @app.route('/teacher/<professor_name>')
 def admin_list_teacher(professor_name):
-    filter_student_by_teacher = []
-    all_students = get_all_students_from_api()
-    for i in all_students: 
-        if i["professor_name"] == professor_name:
-            filter_student_by_teacher.append(i)
-    return render_template("list/admin-list-admin.html", STUDENTS = filter_student_by_teacher)
+    if session.get("type") == "admin":
+        filter_student_by_teacher = []
+        all_students = get_all_students_from_api()
+        for i in all_students: 
+            if i["professor_name"] == professor_name:
+                filter_student_by_teacher.append(i)
+        return render_template("list/admin-list-admin.html", STUDENTS = filter_student_by_teacher)
+    return redirect("/admin")
 
 # more info route
 @app.route('/admin/list/student/id/<id>')
 def admin_more_info(id):
-    return render_template('moreinfo/student-more-info-admin.html', STUDENT = get_one_student_from_api(id))
+    if session.get("type") == "admin":
+        return render_template('moreinfo/student-more-info-admin.html', STUDENT = get_one_student_from_api(id))
+    return redirect("/admin")
 
 
 @app.route('/employer/list/student/id/<id>')
 def employer_more_info(id):
-    return render_template('moreinfo/student-more-info-employer.html', STUDENT = get_one_student_from_api(id))
+    if session.get("type") == "employer":
+        return render_template('moreinfo/student-more-info-employer.html', STUDENT = get_one_student_from_api(id))
+    return redirect("/")
 
 
 @app.route('/staff/list/student/id/<id>')
 def staff_more_info(id):
-    return render_template('moreinfo/student-more-info-staff.html', STUDENT = get_one_student_from_api(id))
+    if session.get("type") == "staff":
+        return render_template('moreinfo/student-more-info-staff.html', STUDENT = get_one_student_from_api(id))
+    return redirect("/staff")
 
 
 # delete route
 @app.route("/admin/list/student/id/delete/<id>")
 def admin_delete_student(id):
-    delete_student_from_api(id)
-    return redirect("/admin/list")
+    if session.get("type") == "admin":
+        delete_student_from_api(id)
+        return redirect("/admin/list")
+    return redirect("/admin")
 
 
 # add student
 @app.route("/admin/list/student/addstudent")
 def add_student_admin():
-    return render_template("addstudent/add-student-admin.html", DEGREES=get_all_degrees_from_api(), PROJECTS = get_all_projects_from_api())
+    if session.get("type") == "admin":
+        return render_template("addstudent/add-student-admin.html", DEGREES=get_all_degrees_from_api(), PROJECTS = get_all_projects_from_api())
+    return redirect("/admin")
 
 
 @app.route("/staff/list/student/addstudent")
 def add_student_staff():
-    return render_template("addstudent/add-student-staff.html", DEGREES=get_all_degrees_from_api(),PROJECTS = get_all_projects_from_api())
+    if session.get("type") == "staff":
+        return render_template("addstudent/add-student-staff.html", DEGREES=get_all_degrees_from_api(),PROJECTS = get_all_projects_from_api())
+    return redirect("/staff")
 
 @app.route("/admin/list/student/editstudent/<id>")
 def edit_student_admin(id):
-    return render_template("editstudent/edit-student-admin.html", STUDENT = get_one_student_from_api(id),DEGREES=get_all_degrees_from_api(),PROJECTS = get_all_projects_from_api())
+    if session.get("type") == "admin":
+        return render_template("editstudent/edit-student-admin.html", STUDENT = get_one_student_from_api(id),DEGREES=get_all_degrees_from_api(),PROJECTS = get_all_projects_from_api())
+    return redirect("/")
 
 @app.route("/staff/list/student/editstudent/<id>")
 def edit_student_staff(id):
-    return render_template("editstudent/edit-student-staff.html", STUDENT = get_one_student_from_api(id),DEGREES=get_all_degrees_from_api(),PROJECTS = get_all_projects_from_api())
+    if session.get("type") == "staff":
+        return render_template("editstudent/edit-student-staff.html", STUDENT = get_one_student_from_api(id),DEGREES=get_all_degrees_from_api(),PROJECTS = get_all_projects_from_api())
+    return redirect("/staff")
 
+
+############ TAKE A LOOK!!!!!!!!!!!!!!!!
 @app.route("/admin/list/studentUpdated/", methods=["POST"])
 def edited_student_admin():
     delete_student_from_api(request.form.get("id"))
@@ -114,6 +139,7 @@ def edited_student_admin():
     )
     return redirect ("/admin/list")
 
+############ TAKE A LOOK!!!!!!!!!!!!!!!!
 @app.route("/staff/list/studentUpdated/", methods=["POST"])
 def edited_student_staff():
     delete_student_from_api(request.form.get("id"))
@@ -131,7 +157,7 @@ def edited_student_staff():
     )
     return redirect ("/staff/list")
     
-    
+############ TAKE A LOOK!!!!!!!!!!!!!!!!
 @app.route("/staff/list/student/studentadded",methods=["POST"])
 def student_added_from_form_staff():
 
@@ -149,6 +175,8 @@ def student_added_from_form_staff():
     request.form.get("programming_language")
     )
     return redirect("/staff/list")
+
+############ TAKE A LOOK!!!!!!!!!!!!!!!!
 @app.route("/admin/list/student/studentadded",methods=["POST"])
 def student_added_from_form_admin():
     #call function to post to student api
@@ -168,17 +196,23 @@ def student_added_from_form_admin():
 
 @app.route("/admin/pannel")
 def admin_pannel():
-    return render_template("admin-project-degree-pannel.html",DEGREES=get_all_degrees_from_api(),PROJECTS = get_all_projects_from_api(), CREDENTIALS=get_credentials_from_api())
+    if session.get("type") == "admin":
+        return render_template("admin-project-degree-pannel.html",DEGREES=get_all_degrees_from_api(),PROJECTS = get_all_projects_from_api(), CREDENTIALS=get_credentials_from_api())
+    return redirect("/admin")
 
 @app.route("/staff/pannel")
 def staff_pannel():
-    return render_template("staff-project-degree-pannel.html",DEGREES=get_all_degrees_from_api(),PROJECTS = get_all_projects_from_api())
+    if session.get("type") == "staff":
+        return render_template("staff-project-degree-pannel.html",DEGREES=get_all_degrees_from_api(),PROJECTS = get_all_projects_from_api())
+    return redirect("/staff")
 
+# TAKE A LOOK AT THIS!!!!!!!!!!!!
 @app.route("/admin/pannel/deletedegree",methods=["POST"])
 def delete_a_degree_by_id_route():
     delete_degree_from_api(request.form.get("id"))
     return redirect("/admin/pannel")
 
+# TAKE A LOOK AT THIS!!!!!!!!!!!!!!!!!!!!
 @app.route("/admin/pannel/adddegree",methods=["POST"])
 def post_a_degree_route():
     post_a_degree_to_api(
@@ -188,11 +222,13 @@ def post_a_degree_route():
     )
     return redirect("/admin/pannel")
 
+# TAKE A LOOK AT THIS!
 @app.route("/staff/pannel/deletedegree",methods=["POST"])
 def delete_a_degree_by_id_staff_route():
     delete_degree_from_api(request.form.get("id"))
     return redirect("/staff/pannel")
 
+# TAKE A LOOK AT THIS!
 @app.route("/staff/pannel/adddegree",methods=["POST"])
 def post_a_degree_staff_route():
     post_a_degree_to_api(
@@ -202,12 +238,13 @@ def post_a_degree_staff_route():
     )
     return redirect("/staff/pannel")
 
-##
+# TAKE A LOOK AT THIS!
 @app.route("/admin/pannel/deleteproject",methods=["POST"])
 def delete_a_project_by_id_route():
     delete_project_from_api(request.form.get("project_id"))
     return redirect("/admin/pannel")
 
+# TAKE A LOOK AT THIS!
 @app.route("/admin/pannel/addproject",methods=["POST"])
 def post_a_project_route():
     post_a_project_to_api(
@@ -217,11 +254,13 @@ def post_a_project_route():
     )
     return redirect("/admin/pannel")
 
+# TAKE A LOOK AT THIS!
 @app.route("/staff/pannel/deleteproject",methods=["POST"])
 def delete_a_project_by_id_route_staff():
     delete_project_from_api(request.form.get("project_id"))
     return redirect("/staff/pannel")
 
+# TAKE A LOOK AT THIS!
 @app.route("/staff/pannel/addproject",methods=["POST"])
 def post_a_project_route_staff():
     post_a_project_to_api(
@@ -231,6 +270,7 @@ def post_a_project_route_staff():
     )
     return redirect("/staff/pannel")
 
+# TAKE A LOOK AT THIS!
 @app.route("/admin/pannel/updatedegree",methods=["POST"])
 def update_a_degree_route_admin():
     put_a_degree_to_api(
@@ -241,11 +281,13 @@ def update_a_degree_route_admin():
     )
     return redirect("/admin/pannel")
 
+# TAKE A LOOK AT THIS!
 @app.route("/admin/credentials/deletecredential", methods=["POST"])
 def delete_a_credential_route():
     delete_credentials_from_api(request.form.get("id"))
     return redirect("/admin/pannel")
 
+# TAKE A LOOK AT THIS!
 @app.route("/admin/credentials/addcredential", methods=["POST"])
 def add_credential_route():
     email = request.form.get("email")
@@ -259,6 +301,7 @@ def add_credential_route():
 
     return redirect("/admin/pannel")
 
+# TAKE A LOOK AT THIS!
 @app.route("/admin/login", methods=["POST"])
 def validate_admin_login():
     email = request.form.get("email")
@@ -279,7 +322,7 @@ def validate_admin_login():
                 return redirect("/admin/list")
     return redirect("/admin")
 
-
+# TAKE A LOOK AT THIS!
 @app.route("/staff/login", methods=["POST"])
 def validate_staff_login():
     email = request.form.get("email")
@@ -300,6 +343,7 @@ def validate_staff_login():
                 return redirect("/staff/list")
     return redirect("/staff")
 
+# TAKE A LOOK AT THIS!
 @app.route("/employer/login", methods=["POST"])
 def validate_employer_login():
     email = request.form.get("email")
@@ -320,14 +364,16 @@ def validate_employer_login():
                 return redirect("/employer/list")
     return redirect("/")
 
-@app.route("/clearsession",methods=["POST"])
+@app.route("/clearsession")
 def clear_session():
     session["name"] = None
     session["lang"] = None
     session["type"] = None
     return redirect("/")
 
-
+@app.route("/test")
+def test():
+    return jsonify({"name": session["name"], "lang": session["lang"], "type": session["type"]})
 
 if __name__ == '__main__':
     app.run()
