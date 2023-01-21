@@ -22,3 +22,13 @@ def post_a_degree_to_api(d_id,name,desc):
             "description":desc
         }
         requests.post(url, json=payload)
+    
+def put_a_degree_to_api(_id,d_id,name,desc):
+    url = "http://127.0.0.1:5001/degrees"
+    payload= {
+        "id":_id,
+        "degree_id":d_id,
+        "name_degree":name,
+        "description":desc
+    }
+    requests.put(url,json=payload)
