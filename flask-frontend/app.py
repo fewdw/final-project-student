@@ -1,9 +1,11 @@
-from flask import Flask, render_template,redirect,request
+from flask import Flask, render_template,redirect,request,jsonify
 import requests, json
+import bcrypt
 
 from student_api_request import get_all_students_from_api, get_one_student_from_api, delete_student_from_api,edited_student_admin_api_request, add_student_to_list
 from degree_api_request import get_all_degrees_from_api, delete_degree_from_api,post_a_degree_to_api, put_a_degree_to_api
 from project_api_request import get_all_projects_from_api, delete_project_from_api, post_a_project_to_api
+from credential_api_request import get_credentials_from_api, post_credentials_from_api, put_credentials_from_api, delete_credentials_from_api, get_credentials_by_id_from_api
 
 app = Flask(__name__)
 
@@ -162,7 +164,7 @@ def student_added_from_form_admin():
 
 @app.route("/admin/pannel")
 def admin_pannel():
-    return render_template("admin-project-degree-pannel.html",DEGREES=get_all_degrees_from_api(),PROJECTS = get_all_projects_from_api())
+    return render_template("admin-project-degree-pannel.html",DEGREES=get_all_degrees_from_api(),PROJECTS = get_all_projects_from_api(), CREDENTIALS=get_credentials_from_api())
 
 @app.route("/staff/pannel")
 def staff_pannel():
@@ -234,6 +236,42 @@ def update_a_degree_route_admin():
         request.form.get("description")
     )
     return redirect("/admin/pannel")
+
+@app.route("/admin/credentials/deletecredential", methods=["POST"])
+def delete_a_credential_route():
+    delete_credentials_from_api(request.form.get("id"))
+    return redirect("/admin/pannel")
+
+@app.route("/admin/credentials/addcredential", methods=["POST"])
+def add_credential_route():
+    email = request.form.get("email")
+    password = request.form.get("password")
+    lang = request.form.get("lang")
+    session_type = request.form.get("type")
+
+    hashed_pw = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
+    post_credentials_from_api(email,str(hashed_pw),lang,session_type)
+
+    return redirect("/admin/pannel")
+
+@app.route("/admin/login", methods=["POST"])
+def validate admin_login():
+    request.form.get("email")
+    request.form.get("password")
+    pass
+
+@app.route("/employer/login", methods=["POST"])
+def validate employer_login():
+    request.form.get("email")
+    request.form.get("password")
+    pass
+
+@app.route("/staff/login", methods=["POST"])
+def validate staff_login():
+    request.form.get("email")
+    request.form.get("password")
+    pass
+
 
 if __name__ == '__main__':
     app.run()
