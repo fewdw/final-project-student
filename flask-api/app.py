@@ -17,16 +17,18 @@ from controllerHelper.degreeControllerHelper.get_degrees import get_all_degrees_
 from controllerHelper.degreeControllerHelper.get_degrees import get_degree_by_id
 from controllerHelper.degreeControllerHelper.delete_degrees import delete_one_degree_helper_method
 from controllerHelper.degreeControllerHelper.update_degrees import put_an_existing_degree_helper_method
+from controllerHelper.degreeControllerHelper.post_degrees import post_new_degree_helper_method 
 #projects
 from controllerHelper.projectControllerHelper.delete_project import delete_one_project_helper_method
 from controllerHelper.projectControllerHelper.update_project import put_an_existing_project_helper_method
 from controllerHelper.projectControllerHelper.get_project import get_project_by_id, get_all_projects_helper_method
 from controllerHelper.projectControllerHelper.post_project import post_new_project_helper_method
+#credentials
+from controllerHelper.credentialsControllerHelper.delete_credentials import delete_one_credential_to_db
+from controllerHelper.credentialsControllerHelper.put_credentials import update_an_existing_credential_to_db
+from controllerHelper.credentialsControllerHelper.get_credentials import get_all_credentials_from_db, get_credential_by_id
+from controllerHelper.credentialsControllerHelper.post_credentials import post_a_new_credential_to_db
 
-
-
-#Degree
-from controllerHelper.degreeControllerHelper.post_degrees import post_new_degree_helper_method 
 
 
 '''
@@ -161,5 +163,36 @@ def put_a_project():
         request.json['project_description'],
     )
 
+
+@app.route("/credentials", methods=['GET', 'POST', 'DELETE', 'PUT'])
+def credentials_url():
+    if request.method == 'GET':
+        return jsonify(get_all_credentials_from_db())
+
+    if request.method == 'POST':
+        return post_a_new_credential_to_db(
+            request.json['email'],
+            request.json['hash'],
+            request.json['lang'],
+            request.json['type']
+        )
+
+    if request.method == 'DELETE':
+        return delete_one_credential_to_db(request.json['id'])
+
+    if request.method == 'PUT':
+        return update_an_existing_credential_to_db(
+            request.json['id'],
+            request.json['email'],
+            request.json['hash'],
+            request.json['lang'],
+            request.json['type']
+        ) 
+
+@app.route("/credentials/<cred_id>", methods=["GET"])
+def credential_by_id_route(cred_id):
+    return get_credential_by_id(cred_id)
+
 if __name__ == "__main__":
     app.run(debug=True)
+    
