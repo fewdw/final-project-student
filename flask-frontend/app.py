@@ -13,6 +13,9 @@ app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
+with open('i18n.json') as f:
+    i18n = json.load(f)
+
 # login routes
 @app.route('/')
 def employer_index():
@@ -25,7 +28,7 @@ def employer_index():
     if session.get("type") == "admin":
         return redirect("/admin/list")
 
-    return render_template("logins/employer-login.html")
+    return render_template("logins/employer-login.html", I18N=i18n)
 
 
 @app.route('/admin')
@@ -39,7 +42,7 @@ def admin_index():
     if session.get("type") == "admin":
         return redirect("/admin/list")
 
-    return render_template("logins/admin-login.html")
+    return render_template("logins/admin-login.html", I18N=i18n)
 
 
 @app.route('/staff')
@@ -53,7 +56,7 @@ def staff_index():
     if session.get("type") == "admin":
         return redirect("/admin/list")
         
-    return render_template("logins/staff-login.html")
+    return render_template("logins/staff-login.html", I18N=i18n)
 
 
 # list routes
@@ -61,21 +64,21 @@ def staff_index():
 def employer_list_home():
     
     if session.get("type") == "employer":
-        return render_template("list/employer-list-admin.html", STUDENTS = get_all_students_from_api())
+        return render_template("list/employer-list-admin.html", STUDENTS = get_all_students_from_api(), I18N=i18n)
     return redirect("/")
 
 
 @app.route('/staff/list')
 def staff_list_home():
     if session.get("type") == "staff":
-        return render_template("list/staff-list-admin.html", STUDENTS = get_all_students_from_api())
+        return render_template("list/staff-list-admin.html", STUDENTS = get_all_students_from_api(), I18N=i18n)
     return redirect("/staff")
 
 
 @app.route('/admin/list')
 def admin_list_home():
     if session.get("type") == "admin":
-        return render_template("list/admin-list-admin.html", STUDENTS = get_all_students_from_api())
+        return render_template("list/admin-list-admin.html", STUDENTS = get_all_students_from_api(), I18N=i18n)
     return redirect("/admin")
 
 # routing for student by specific fields
@@ -87,28 +90,28 @@ def admin_list_teacher(professor_name):
         for i in all_students: 
             if i["professor_name"] == professor_name:
                 filter_student_by_teacher.append(i)
-        return render_template("list/admin-list-admin.html", STUDENTS = filter_student_by_teacher)
+        return render_template("list/admin-list-admin.html", STUDENTS = filter_student_by_teacher, I18N=i18n)
     return redirect("/admin")
 
 # more info route
 @app.route('/admin/list/student/id/<id>')
 def admin_more_info(id):
     if session.get("type") == "admin":
-        return render_template('moreinfo/student-more-info-admin.html', STUDENT = get_one_student_from_api(id))
+        return render_template('moreinfo/student-more-info-admin.html', STUDENT = get_one_student_from_api(id), I18N=i18n)
     return redirect("/admin")
 
 
 @app.route('/employer/list/student/id/<id>')
 def employer_more_info(id):
     if session.get("type") == "employer":
-        return render_template('moreinfo/student-more-info-employer.html', STUDENT = get_one_student_from_api(id))
+        return render_template('moreinfo/student-more-info-employer.html', STUDENT = get_one_student_from_api(id), I18N=i18n)
     return redirect("/")
 
 
 @app.route('/staff/list/student/id/<id>')
 def staff_more_info(id):
     if session.get("type") == "staff":
-        return render_template('moreinfo/student-more-info-staff.html', STUDENT = get_one_student_from_api(id))
+        return render_template('moreinfo/student-more-info-staff.html', STUDENT = get_one_student_from_api(id), I18N=i18n)
     return redirect("/staff")
 
 
@@ -125,26 +128,26 @@ def admin_delete_student(id):
 @app.route("/admin/list/student/addstudent")
 def add_student_admin():
     if session.get("type") == "admin":
-        return render_template("addstudent/add-student-admin.html", DEGREES=get_all_degrees_from_api(), PROJECTS = get_all_projects_from_api())
+        return render_template("addstudent/add-student-admin.html", DEGREES=get_all_degrees_from_api(), PROJECTS = get_all_projects_from_api(), I18N=i18n)
     return redirect("/admin")
 
 
 @app.route("/staff/list/student/addstudent")
 def add_student_staff():
     if session.get("type") == "staff":
-        return render_template("addstudent/add-student-staff.html", DEGREES=get_all_degrees_from_api(),PROJECTS = get_all_projects_from_api())
+        return render_template("addstudent/add-student-staff.html", DEGREES=get_all_degrees_from_api(),PROJECTS = get_all_projects_from_api(), I18N=i18n)
     return redirect("/staff")
 
 @app.route("/admin/list/student/editstudent/<id>")
 def edit_student_admin(id):
     if session.get("type") == "admin":
-        return render_template("editstudent/edit-student-admin.html", STUDENT = get_one_student_from_api(id),DEGREES=get_all_degrees_from_api(),PROJECTS = get_all_projects_from_api())
+        return render_template("editstudent/edit-student-admin.html", STUDENT = get_one_student_from_api(id),DEGREES=get_all_degrees_from_api(),PROJECTS = get_all_projects_from_api(), I18N=i18n)
     return redirect("/")
 
 @app.route("/staff/list/student/editstudent/<id>")
 def edit_student_staff(id):
     if session.get("type") == "staff":
-        return render_template("editstudent/edit-student-staff.html", STUDENT = get_one_student_from_api(id),DEGREES=get_all_degrees_from_api(),PROJECTS = get_all_projects_from_api())
+        return render_template("editstudent/edit-student-staff.html", STUDENT = get_one_student_from_api(id),DEGREES=get_all_degrees_from_api(),PROJECTS = get_all_projects_from_api(), I18N=i18n)
     return redirect("/staff")
 
 
@@ -225,13 +228,13 @@ def student_added_from_form_admin():
 @app.route("/admin/pannel")
 def admin_pannel():
     if session.get("type") == "admin":
-        return render_template("admin-project-degree-pannel.html",DEGREES=get_all_degrees_from_api(),PROJECTS = get_all_projects_from_api(), CREDENTIALS=get_credentials_from_api())
+        return render_template("admin-project-degree-pannel.html",DEGREES=get_all_degrees_from_api(),PROJECTS = get_all_projects_from_api(), CREDENTIALS=get_credentials_from_api(), I18N=i18n)
     return redirect("/admin")
 
 @app.route("/staff/pannel")
 def staff_pannel():
     if session.get("type") == "staff":
-        return render_template("staff-project-degree-pannel.html",DEGREES=get_all_degrees_from_api(),PROJECTS = get_all_projects_from_api())
+        return render_template("staff-project-degree-pannel.html",DEGREES=get_all_degrees_from_api(),PROJECTS = get_all_projects_from_api(), I18N=i18n)
     return redirect("/staff")
 
 @app.route("/admin/pannel/deletedegree",methods=["POST"])

@@ -1,6 +1,6 @@
 {% extends "react-template.html" %}
 {% block body %}
-<h1>ADMIN PANNEL</h1>
+<h1>ADMIN PANEL</h1>
 <h3>all degrees</h3>
 <br>
 <ul>
@@ -37,7 +37,7 @@
    {%endfor%}
    <form action="/admin/pannel/addproject" method="POST">
       <input type="hidden" name="project_id" value="1"></input><br>
-      name of degree:<input type="text" name="project_name"></input><br>
+      name of project:<input type="text" name="project_name"></input><br>
       description:<input type="text" name="project_description"></input><br>
       <input type="Submit" value="add">
    </form>
