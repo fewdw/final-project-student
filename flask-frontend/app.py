@@ -124,11 +124,16 @@ def admin_delete_student(id):
 
 
 # add student
-@app.route("/admin/list/student/addstudent")
+@app.route("/student/addstudent")
 def add_student_admin():
     if session.get("type") == "admin":
         return render_template("addstudent/add-student-admin.html", DEGREES=get_all_degrees_from_api(), PROJECTS = get_all_projects_from_api(), I18N=i18n, LANG=session.get("lang"))
     return redirect("/admin")
+
+
+
+
+
 
 
 @app.route("/staff/list/student/addstudent")
