@@ -1,7 +1,6 @@
 {% extends "react-template.html" %}
 {% block body %}
 
-
 <div class ="image">   
   <img src="../static/concordia-logo.jpg" alt="Logo" width="400"  height="125";>
 </div>
@@ -12,6 +11,7 @@
 <div class="title">
 <h1>New Student Profile</h1>
 </div>
+<div class = createStudent>
 
 
   <form method="post" action = "/admin/list/student/studentadded">
@@ -66,7 +66,7 @@
         <option>{{p["project_name"]}}</option>
       {%endfor%}
     </select>
-
+    <br>
     <label for="Technological">  {{ I18N["Enter Students Technological Aptitudes"][LANG]}} </label>
     <textarea name="textarea" rows="7" cols="30", placeholder="List Technological Aptitudes"></textarea>
 
@@ -76,4 +76,5 @@
 </table>
   </fieldset>
   </form>  
+  </div>
 {% endblock %}
