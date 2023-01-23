@@ -62,23 +62,22 @@ def staff_index():
 # list routes
 @app.route('/employer/list')
 def employer_list_home():
-    
     if session.get("type") == "employer":
-        return render_template("list/employer-list-admin.html", STUDENTS = get_all_students_from_api(), I18N=i18n, LANG=session.get("lang"))
+        return render_template("list/employer-list-admin.html", STUDENTS = get_all_students_from_api(), I18N=i18n, LANG=session.get("lang"), EMAIL=session.get("name"))
     return redirect("/")
 
 
 @app.route('/staff/list')
 def staff_list_home():
     if session.get("type") == "staff":
-        return render_template("list/staff-list-admin.html", STUDENTS = get_all_students_from_api(), I18N=i18n, LANG=session.get("lang"))
+        return render_template("list/staff-list-admin.html", STUDENTS = get_all_students_from_api(), I18N=i18n, LANG=session.get("lang"), EMAIL=session.get("name"))
     return redirect("/staff")
 
 
 @app.route('/admin/list')
 def admin_list_home():
     if session.get("type") == "admin":
-        return render_template("list/admin-list-admin.html", STUDENTS = get_all_students_from_api(), I18N=i18n, LANG=session.get("lang"))
+        return render_template("list/admin-list-admin.html", STUDENTS = get_all_students_from_api(), I18N=i18n, LANG=session.get("lang"), EMAIL=session.get("name"))
     return redirect("/admin")
 
 # routing for student by specific fields
@@ -412,6 +411,66 @@ def clear_session():
 @app.route("/test")
 def test():
     return jsonify({"name": session["name"], "lang": session["lang"], "type": session["type"]})
+
+@app.route("/admin/changelang", methods=["POST"])
+def admin_changelang_route():
+    lang = request.form.get("lang")
+    email = request.form.get("email")
+
+    credentials = get_credentials_from_api()
+
+    for obj in credentials:
+        if obj["email"] == email:
+            put_credentials_from_api(
+                obj["_id"]["$oid"],
+                obj["email"],
+                obj["hash"],
+                lang,
+                obj["type"]
+            )
+            session["lang"] = lang
+            return redirect("/admin/list")
+    return redirect("/admin/list")
+
+@app.route("/employer/changelang", methods=["POST"])
+def employer_changelang_route():
+    lang = request.form.get("lang")
+    email = request.form.get("email")
+
+    credentials = get_credentials_from_api()
+
+    for obj in credentials:
+        if obj["email"] == email:
+            put_credentials_from_api(
+                obj["_id"]["$oid"],
+                obj["email"],
+                obj["hash"],
+                lang,
+                obj["type"]
+            )
+            session["lang"] = lang
+            return redirect("/admin/list")
+    return redirect("/admin/list")
+
+@app.route("/staff/changelang", methods=["POST"])
+def staff_changelang_route():
+    lang = request.form.get("lang")
+    email = request.form.get("email")
+
+    credentials = get_credentials_from_api()
+
+    for obj in credentials:
+        if obj["email"] == email:
+            put_credentials_from_api(
+                obj["_id"]["$oid"],
+                obj["email"],
+                obj["hash"],
+                lang,
+                obj["type"]
+            )
+            session["lang"] = lang
+            return redirect("/admin/list")
+    return redirect("/admin/list")
 
 if __name__ == '__main__':
     app.run()

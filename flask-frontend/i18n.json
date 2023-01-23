@@ -211,10 +211,6 @@
         "en": "logins",
         "fr": "connexions"
     },
-    "language:": {
-        "en": "language:",
-        "fr": "langue:"
-    },
     "English": {
         "en": "English",
         "fr": "Anglais"
@@ -254,6 +250,14 @@
     "ADD":{
         "en": "add",
         "fr": "Ajouter"
+    },
+    "CHANGE":{
+        "en": "change",
+        "fr": "Changer"
+    },
+    "language:": {
+        "en": "language:",
+        "fr": "langue:"
     }
     
     

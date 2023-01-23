@@ -38,5 +38,13 @@
     </table>
     <a href="/staff/pannel">{{ I18N["VISIT STAFF PANNEL"][LANG]}}</a>.
     <a href="/clearsession">{{ I18N["LOGOUT"][LANG]}}</a>
+    <form action="/staff/changelang" method="POST">
+        <select name="lang">
+            <option value="en">{{ I18N["English"][LANG]}}</option>
+            <option value="fr">{{ I18N["French"][LANG]}}</option>
+        </select>
+        <input type="hidden" name="email" value="{{EMAIL}}">
+        <button type="submit">{{ I18N["CHANGE"][LANG]}}</button>
+    </form>
 
 {% endblock %}
