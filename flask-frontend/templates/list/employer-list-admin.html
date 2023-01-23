@@ -12,12 +12,12 @@
     <table class = "table">
         <thead>
         <tr>
-            <td>email</td>
-            <td>favorite</td>
-            <th>Full name</th>
-            <th>Degree</th>
-            <th>Technologies</th>
-            <th>More Info </th>
+            <td>{{ I18N["email"][LANG]}}</td>
+            <td>favorit</td>
+            <th>{{ I18N["Full name"][LANG]}}</th>
+            <th>{{ I18N["Degree"][LANG]}}</th>
+            <th>{{ I18N["Technologies"][LANG]}}</th>
+            <th>{{ I18N["More Info"][LANG]}}</th>
 
         </tr>
         </thead>
@@ -42,5 +42,5 @@
         </tbody>>
         {% endfor %}
     </table>
-    <a href="/clearsession">LOGOUT</a>
+    <a href="/clearsession">{{ I18N["LOGOUT"][LANG]}}</a>
 {% endblock %}

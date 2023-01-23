@@ -12,13 +12,13 @@
     <table class= "table" >
         <thead>
         <tr>
-            <th>Delete</th>
-            <th>Archive</th>
-            <th>Edit</th>
-            <th>Full name</th>
-            <th>Degree</th>
-            <th>Technologies</th>
-            <th>More Info </th>
+            <th>{{ I18N["Delete"][LANG]}}</th>
+            <th>{{ I18N["Archive"][LANG]}}</th>
+            <th>{{ I18N["Edit"][LANG]}}</th>
+            <th>{{ I18N["Full name"][LANG]}}</th>
+            <th>{{ I18N["Degree"][LANG]}}</th>
+            <th>{{ I18N["Technologies"][LANG]}}</th>
+            <th>{{ I18N["More Info"][LANG]}}</th>
         </tr>
         </thead>
         {% for s in STUDENTS %}
@@ -38,6 +38,6 @@
             <td><a href="/admin/list/student/addstudent"><img  alt="More" src="../static/person-add-outline.png" width="25" height="25"></a></td>
         </tr>
     </table>
-    <a href="/admin/pannel">VISIT ADMIN PANNEL</a>.
-    <a href="/clearsession">LOGOUT</a>
+    <a href="/admin/pannel">{{ I18N["VISIT ADMIN PANNEL"][LANG]}}</a>.
+    <a href="/clearsession">{{ I18N["LOGOUT"][LANG]}}</a>
 {% endblock %}

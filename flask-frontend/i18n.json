@@ -246,5 +246,15 @@
     "EMPLOYER PANEL": {
         "en": "EMPLOYER PANEL",
         "fr": "PANNEAU DE L'EMPLOYEUR"
+    },
+    "UPDATE":{
+        "en": "UPDATE",
+        "fr": "Mettre à jour"
+    },
+    "ADD":{
+        "en": "add",
+        "fr": "Ajouter"
     }
+    
+    
 }

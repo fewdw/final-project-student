@@ -12,12 +12,12 @@
     <table class = "table">
         <thead>
             <tr>
-                <th>Archive</th>
-                <th>Edit</th>
-                <th>Full name</th>
-                <th>Degree</th>
-                <th>Technologies</th>
-                <th>More Info </th>
+                <th>{{ I18N["Archive"][LANG]}}</th>
+                <th>{{ I18N["Edit"][LANG]}}</th>
+                <th>{{ I18N["Full name"][LANG]}}</th>
+                <th>{{ I18N["Degree"][LANG]}}</th>
+                <th>{{ I18N["Technologies"][LANG]}}</th>
+                <th>{{ I18N["More Info"][LANG]}}</th>
             </tr>
             </thead>
         {% for s in STUDENTS %}
@@ -36,7 +36,7 @@
             <td><a href="/staff/list/student/addstudent"><img  alt="addStudent" src="../static/person-add-outline.png" width="25" height="25"></a></td>
         </tr>
     </table>
-    <a href="/staff/pannel">VISIT STAFF PANNEL</a>.
-    <a href="/clearsession">LOGOUT</a>
+    <a href="/staff/pannel">{{ I18N["VISIT STAFF PANNEL"][LANG]}}</a>.
+    <a href="/clearsession">{{ I18N["LOGOUT"][LANG]}}</a>
 
 {% endblock %}

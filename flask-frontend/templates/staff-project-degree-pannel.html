@@ -1,8 +1,7 @@
 {% extends "react-template.html" %}
 
 {% block body %}
-<h1>STAFF PANEL</h1>
-<h3>all degrees</h3><br>
+<h3>'{{ I18N["all degrees"][LANG]}}'</h3><br>
 <ul>
     {%for d in DEGREES%}
         <li>{{d["name_degree"]}}</li>
@@ -13,14 +12,14 @@
 
     <form action="/staff/pannel/adddegree" method="POST">
         <input type="hidden" name="degree_id" value="1"></input><br>
-        name of degree:<input type="text" name="name_degree"></input><br>
-        description:<input type="text" name="description"></input><br>
+        {{ I18N["name of degree"][LANG]}}:<input type="text" name="name_degree"></input><br>
+        {{ I18N["description"][LANG]}}:<input type="text" name="description"></input><br>
         <input type="Submit" value="add">
     </form>
 
 </ul><br>
 
-<h3>all projects</h3><br>
+<h3>{{ I18N["all projects"][LANG]}}</h3><br>
 <ul>
     {%for p in PROJECTS%}
         <li>{{p["project_name"]}}</li>
@@ -31,9 +30,9 @@
 
     <form action="/staff/pannel/addproject" method="POST">
         <input type="hidden" name="project_id" value="1"></input><br>
-        name of degree:<input type="text" name="project_name"></input><br>
-        description:<input type="text" name="project_description"></input><br>
-        <input type="Submit" value="add">
+        {{ I18N["name of project"][LANG]}}:<input type="text" name="project_name"></input><br>
+        {{ I18N["description"][LANG]}}:<input type="text" name="project_description"></input><br>
+        <input type="Submit" value='{{ I18N["ADD"][LANG]}}'>
     </form>
 </ul><br>
 {% endblock %}
