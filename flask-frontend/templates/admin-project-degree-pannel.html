@@ -1,6 +1,6 @@
 {% extends "react-template.html" %}
 {% block body %}
-<h1>ADMIN PANNEL</h1>
+<h1>ADMIN PANEL</h1>
 <h3>all degrees</h3>
 <br>
 <ul>
@@ -10,71 +10,71 @@
    <form action="/admin/pannel/deletedegree" method="POST">
       <input type="hidden" name="id" value='{{d["_id"]}}'>
       <li>
-         <button type="Submit">DELETE</button>
+         <button type="Submit">{{ I18N["DELETE"][LANG]}}</button>
       </li>
    </form>
-   <button onclick="updateStudentDegree('{{d["name_degree"]}}','{{d["description"]}}','{{d["_id"]["$oid"]}}')">UPDATE</button>
+   <button onclick="updateStudentDegree('{{d["name_degree"]}}','{{d["description"]}}','{{d["_id"]["$oid"]}}')">{{ I18N["UPDATE"][LANG]}}</button>
    {%endfor%}
    <form method="POST">
       <input type="hidden" name="id" id="degreeIdFormInput" value=''>
       <input type="hidden" name="degree_id" value="1"></input><br>
-      name of degree:<input type="text" name="name_degree" id="degreeNameInputField" value=""></input><br>
-      description:<input type="text" name="description" id="degreeDescriptionInputField" value=""></input><br>
-      <input type="Submit" value="add" formaction="/admin/pannel/adddegree">
-      <input type="Submit" value="update" formaction="/admin/pannel/updatedegree">
+      {{ I18N["name of degree"][LANG]}}:<input type="text" name="name_degree" id="degreeNameInputField" value=""></input><br>
+      {{ I18N["description"][LANG]}}:<input type="text" name="description" id="degreeDescriptionInputField" value=""></input><br>
+      <input type="Submit" value='{{ I18N["ADD"][LANG]}}' formaction="/admin/pannel/adddegree">
+      <input type="Submit" value='{{ I18N["UPDATE"][LANG]}}' formaction="/admin/pannel/updatedegree">
    </form>
 </ul>
 <br>
-<h3>all projects</h3>
+<h3>{{ I18N["all projects"][LANG]}}</h3>
 <br>
 <ul>
    {%for p in PROJECTS%}
    <li>{{p["project_name"]}}</li>
    <form action="/admin/pannel/deleteproject" method="POST">
       <input type="hidden" name="project_id" value='{{p["_id"]["$oid"]}}'>
-      <button type="Submit">DELETE</button>
+      <button type="Submit">{{ I18N["Delete"][LANG]}}</button>
    </form>
    {%endfor%}
    <form action="/admin/pannel/addproject" method="POST">
       <input type="hidden" name="project_id" value="1"></input><br>
-      name of degree:<input type="text" name="project_name"></input><br>
-      description:<input type="text" name="project_description"></input><br>
-      <input type="Submit" value="add">
+      {{ I18N["name of project"][LANG]}}:<input type="text" name="project_name"></input><br>
+      {{ I18N["description"][LANG]}}:<input type="text" name="project_description"></input><br>
+      <input type="Submit" value='{{ I18N["ADD"][LANG]}}'>
    </form>
 </ul>
 <br>
-<h3>logins</h3>
+<h3>{{ I18N["logins"][LANG]}}</h3>
 <ul>
    {%for c in CREDENTIALS%}
    <li>{{c["email"]}}, {{c["type"]}}</li>
    <li>
       <form action="/admin/credentials/deletecredential" method="POST">
          <input type="hidden" name="id" value='{{c["_id"]["$oid"]}}'>
-         <input type="Submit" value="delete">
+         <input type="Submit" value='{{ I18N["Delete"][LANG]}}'>
       </form>
    </li>
    {%endfor%}
 </ul>
 <form action="/admin/credentials/addcredential" method="POST">
    <ul>
-      <li>email:<input type="text" name="email"></li>
-      <li>password:<input type="text" name="password"></li>
+      <li>{{ I18N["Email"][LANG]}}<input type="text" name="email"></li>
+      <li>{{ I18N["password"][LANG]}}<input type="text" name="password"></li>
       <li>
-         lang:
+         
          <select name="lang">
-            <option value="en">English</option>
-            <option value="fr">French</option>
+            <option value="en">{{ I18N["French"][LANG]}}</option>
+            <option value="fr">{{ I18N["English"][LANG]}}</option>
          </select>
       </li>
       <li>
-         type:
+         {{ I18N["type"][LANG]}}
          <select name="type">
-            <option value="admin">Admin</option>
-            <option value="staff">Staff</option>
-            <option value="employer">Employer</option>
+            <option>{{ I18N["Admin"][LANG]}}</option>
+            <option>{{ I18N["Staff"][LANG]}}</option>
+            <option>{{ I18N["Employer"][LANG]}}</option>
          </select>
       </li>
-      <li><input type="submit" value="add"></li>
+      <li><input type="submit" value='{{ I18N["ADD"][LANG]}}'></li>
    </ul>
 </form>
 {% endblock %}

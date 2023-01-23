@@ -25,7 +25,7 @@ def put_credentials_from_api(_id, email, pw_hash, lang, session_type):
         "lang": lang,
         "type": session_type
     }
-    response = requests.put(f"{BASE_URL}/{id}", json=payload)
+    response = requests.put(BASE_URL, json=payload)
 
 def delete_credentials_from_api(_id):
     payload = {"id":_id}

@@ -1,29 +1,28 @@
 {% extends "react-template.html" %}
 
 {% block body %}
-<h1>Edit a student from the admin view</h1>
 <form method="post" action = "/admin/list/studentUpdated/">
     <input type ="hidden" value ="{{STUDENT._id}}" name="id">
-    Student Id
+    {{ I18N["Student Id"][LANG]}}
     <input type="text" value ="{{STUDENT.student_id}}" name = "student_id">
      <br>
-    First Name
+     {{ I18N["First Name"][LANG]}}
     <input type="text" value ="{{STUDENT.first_name}}" name = "first_name"> <br>
-    Last Name
+    {{ I18N["Last Name"][LANG]}}
     <input type="text" value ="{{STUDENT.last_name}}"name = "last_name"> <br>
-    Email
+    {{ I18N["Email"][LANG]}}
     <input type="text" value ="{{STUDENT.email}}" name= "email"> <br>
-    Gender
+    {{ I18N["Gender"][LANG]}}
     <select type = "text" value ="{{STUDENT.gender}}" name = "gender">
-        <option>Male</option>
-        <option>Female</option>
-        <option>Prefer to not display</option>
+        <option>{{ I18N["Male"][LANG]}}</option>
+        <option>{{ I18N["Female"][LANG]}}</option>
+        <option>{{ I18N["I prefer not to say"][LANG]}}</option>
     </select>
-    Professor Name 
+    {{ I18N["Professor Name"][LANG]}} 
     <input type="text" value ="{{STUDENT.professor_name}}" name= "professor_name"> <br>
-    Year of Graduation
+    {{ I18N["Year of Graduation"][LANG]}}
     <input type="text" value ="{{STUDENT.year_of_graduation}}" name = "year_of_graduation"> <br>
-    Degree
+    {{ I18N["Degree"][LANG]}} 
 
     <select name="degree">
       <option value="{{STUDENT.degree}}">{{STUDENT.degree}}</option>
@@ -32,7 +31,7 @@
       {%endfor%}
     </select><br>
     
-    Project Id
+    {{ I18N["Project Id"][LANG]}}
     <select name="projectId">
       <option value="{{STUDENT.projectId}}">{{STUDENT.projectId}}</option>
       {%for p in PROJECTS%}
@@ -40,8 +39,8 @@
       {%endfor%}
     </select>
 
-    Programming Language
+    {{ I18N["Programming Language"][LANG]}}
     <input type="text" value ="{{STUDENT.programming_language}}" name= "programming_language"> <br>
-    <button type="Submit">Update Student</button>
+    <button type="Submit">{{ I18N["Update Student"][LANG]}}</button>
   </form>
 {% endblock %}
