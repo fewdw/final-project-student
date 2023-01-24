@@ -1,80 +1,104 @@
-{% extends "react-template.html" %}
-{% block body %}
+{% extends "react-template.html" %} {% block body %}
 
-<div class ="image">   
-  <img src="../static/concordia-logo.jpg" alt="Logo" width="400"  height="125";>
+<div class="image">
+  <img
+    src="../static/concordia-logo.jpg"
+    alt="Logo"
+    width="400"
+    height="125"
+    ;
+  />
 </div>
 
-
-<div class ="object1">    
-</div>
+<div class="object1"></div>
 <div class="title">
-<h1>New Student Profile</h1>
+  <h1>New Student Profile</h1>
 </div>
-<div class = createStudent>
-
-
-  <form method="post" action = "/admin/list/student/studentadded">
+<div class="createStudent">
+  <form method="post" action="/admin/list/student/studentadded">
     <fieldset>
-<table>
+      <table>
+        <label for="student_Id">{{ I18N["Enter Student Id"][LANG]}} </label>
+        <input type="text" name="student_Id" placeholder="Student ID " />
 
-    <label for="student_Id">{{ I18N["Enter Student Id"][LANG]}} </label>
-    <input type="text" name= "student_Id" placeholder="Student ID ">
+        <br />
 
-     <br>
-     
-    <label for="first_name">{{ I18N["Enter Students First Name"][LANG]}} </label>
-    <input type="text", name = "first_name" placeholder="First name"> 
-    
-    <br>
- 
-    <label for="last_name"> {{ I18N["Enter Students Last Name"][LANG]}} </label>
-    <input type="text", name = "last_name" placeholder="Last Name"> 
-    
-    <br>
+        <label for="first_name"
+          >{{ I18N["Enter Students First Name"][LANG]}}
+        </label>
+        <input type="text" , name="first_name" placeholder="First name" />
 
-    <label for="email"> {{ I18N["Enter Students Email"][LANG]}} </label>
-    <input type="text", name = "email" placeholder="Email Address"> 
-    
-    <br>
+        <br />
 
-    <label for="professor_name"> {{ I18N["Enter Students Professor Name"][LANG]}}</label>
-    <input type="text", name= "professor_name" placeholder="Professor Name">
-    
-    <br>
-   
-    <label for="year_of_graduation">
-      {{ I18N["Enter Students Year of Graduation"][LANG]}} </label>
-    <input type="text" , name= "year_of_graduation" placeholder="Graduation Year"> 
-    
-    <br>
+        <label for="last_name">
+          {{ I18N["Enter Students Last Name"][LANG]}}
+        </label>
+        <input type="text" , name="last_name" placeholder="Last Name" />
 
+        <br />
 
-    <label for="degree">{{ I18N["Choose Students Degree"][LANG]}} </label>
-    <select name = "degree">
-      {%for d in DEGREES%}
-        <option>{{d["name_degree"]}}</option>
-      {%endfor%}
-    </select>
-    <br>
+        <label for="email"> {{ I18N["Enter Students Email"][LANG]}} </label>
+        <input type="text" , name="email" placeholder="Email Address" />
 
+        <br />
 
-   
-    <label for="projectId"> {{ I18N["Enter Students Project Id"][LANG]}} </label>
-    <select name = "projectId">
-      {%for p in PROJECTS%}
-        <option>{{p["project_name"]}}</option>
-      {%endfor%}
-    </select>
-    <br>
-    <label for="Technological">  {{ I18N["Enter Students Technological Aptitudes"][LANG]}} </label>
-    <textarea name="textarea" rows="7" cols="30", placeholder="List Technological Aptitudes"></textarea>
+        <label for="professor_name">
+          {{ I18N["Enter Students Professor Name"][LANG]}}</label
+        >
+        <input
+          type="text"
+          ,
+          name="professor_name"
+          placeholder="Professor Name"
+        />
 
-    <br>
-  
-    <input type= "submit" value='{{ I18N["ADD"][LANG]}}'/>
-</table>
-  </fieldset>
-  </form>  
-  </div>
+        <br />
+
+        <label for="year_of_graduation">
+          {{ I18N["Enter Students Year of Graduation"][LANG]}}
+        </label>
+        <input
+          type="text"
+          ,
+          name="year_of_graduation"
+          placeholder="Graduation Year"
+        />
+
+        <br />
+
+        <label for="degree">{{ I18N["Choose Students Degree"][LANG]}} </label>
+        <select name="degree">
+          {%for d in DEGREES%}
+          <option>{{d["name_degree"]}}</option>
+          {%endfor%}
+        </select>
+        <br />
+
+        <label for="projectId">
+          {{ I18N["Enter Students Project Id"][LANG]}}
+        </label>
+        <select name="projectId">
+          {%for p in PROJECTS%}
+          <option>{{p["project_name"]}}</option>
+          {%endfor%}
+        </select>
+        <br />
+        <label for="Technological">
+          {{ I18N["Enter Students Technological Aptitudes"][LANG]}}
+        </label>
+        <textarea
+          name="programming_language"
+          rows="7"
+          cols="30"
+          ,
+          placeholder="List Technological Aptitudes"
+        ></textarea>
+
+        <br />
+
+        <input type="submit" value='{{ I18N["ADD"][LANG]}}' />
+      </table>
+    </fieldset>
+  </form>
+</div>
 {% endblock %}

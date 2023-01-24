@@ -22,16 +22,46 @@
         </tr>
         </thead>
         {% for s in STUDENTS %}
+        
+        {% if s["status"] == "archived" %}
+
+        <tr>
+            Add table row for an archived student.....
+        </tr>
+
+        {% else %}
+
         <tr>
             <td><a href="/admin/list/student/id/delete/{{s._id}}"><img  alt="More" src="../static/trash.jpg" width="25" height="25"></a></td> <!-- ADD FUNCTIONALITY TO DELETE A STUDENT -->
-            <td><a href=""></a><img  alt="More" src="../static/archive-outline.png" width="25" height="25"></td> <!-- ADD FUNCTIONALITY TO ARCHIVE A STUDENT -->
+            <td>
+                <form method="POST" action="/admin/archive">
+
+                    <input type="hidden" name="_id" value="{{s['_id']}}">
+                    <input type="hidden" name="degree" value="{{s['degree']}}">
+                    <input type="hidden" name="email" value="{{s['email']}}">
+                    <input type="hidden" name="first_name" value="{{s['first_name']}}">
+                    <input type="hidden" name="gender" value="{{s['gender']}}">
+                    <input type="hidden" name="last_name" value="{{s['last_name']}}">
+                    <input type="hidden" name="professor_name" value="{{s['professor_name']}}">
+                    <input type="hidden" name="programming_language" value="{{s['programming_language']}}">
+                    <input type="hidden" name="projectId" value="{{s['projectId']}}">
+                    <input type="hidden" name="status" value="{{s['status']}}">
+                    <input type="hidden" name="student_id" value="{{s['student_id']}}">
+                    <input type="hidden" name="projectId" value="{{s['projectId']}}">
+                    <input type="hidden" name="year_of_graduation" value="{{s['year_of_graduation']}}">
+                    <button type="submit"> Archive</button>
+                </form>
+                <img  alt="More" src="../static/archive-outline.png" width="25" height="25">
+            </td>
             <td><a href="/admin/list/student/editstudent/{{s._id}}"><img  alt="More" src="../static/edit-outline.png" width="25" height="25"></a></td> <!-- ADD FUNCTIONALITY TO EDIT A STUDENT -->
             <td>{{s.first_name}},{{s.last_name}}</td>
             <td>{{s.degree}}, {{s.year_of_graduation}}</td>
             <td>{{s.programming_language}}</td>
-            
             <td><a href="/admin/list/student/id/{{s._id}}"><img  alt="More" src="../static/more-horizontal-outline.png" width="25" height="25"></a></td> <!-- ADD FUNCTIONALITY TO ADD A STUDENT -->
         </tr>
+
+        {% endif %}
+
         </tbody>
         {% endfor %}
         <tr>
