@@ -499,9 +499,29 @@ def archive_student_route():
             request.form.get("degree"),
             request.form.get("projectId"),
             request.form.get("programming_language"),
-            status="archived"
+            status=request.form.get("status")
         )
         return redirect('/admin/list')
+    return redirect("/")
+
+@app.route("/staff/archive", methods=["POST"])
+def archive_student_route_staff():
+    if request.method == "POST" and session.get("type") == "staff":
+        delete_student_from_api(request.form.get("_id"))
+        add_student_to_list(
+            request.form.get("student_id"),
+            request.form.get("first_name"),
+            request.form.get("last_name"),
+            request.form.get("email"),
+            request.form.get("gender"),
+            request.form.get("professor_name"),
+            request.form.get("year_of_graduation"),
+            request.form.get("degree"),
+            request.form.get("projectId"),
+            request.form.get("programming_language"),
+            status=request.form.get("status")
+        )
+        return redirect('/staff/list')
     return redirect("/")
 
 if __name__ == '__main__':
