@@ -13,3 +13,9 @@ connection_string = f"mongodb+srv://fewdw:{MONGODB_PASS}@student.kslusvd.mongodb
 client = MongoClient(connection_string, tlsCAFile=ca)
 database = client.StudentDB
 student_collection = database.StudentCollection
+
+
+def archive_student():
+    student_id = request.form["student_id"]
+    student_collection.update_one({"_id": student_id}, {"$set": {"archived": True}})
+    return "Student archived successfully"
