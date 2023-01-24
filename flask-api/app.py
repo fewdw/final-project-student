@@ -12,6 +12,7 @@ from controllerHelper.studentControllerHelper.get_students import get_all_studen
 from controllerHelper.studentControllerHelper.delete_students import delete_one_student_helper_method
 from controllerHelper.studentControllerHelper.put_students import put_an_existing_student_helper_method
 from controllerHelper.studentControllerHelper.post_students import post_a_new_student_helper_method
+from controllerHelper.studentControllerHelper.archive_students import archive_student
 #Degrees
 from controllerHelper.degreeControllerHelper.get_degrees import get_all_degrees_helper_method
 from controllerHelper.degreeControllerHelper.get_degrees import get_degree_by_id
@@ -43,6 +44,12 @@ def default_route():
 @app.route('/students/', methods=['GET'])
 def get_all_students():
     return jsonify(get_all_students_helper_method())
+
+
+@app.route("/archive_student", methods=["POST"])
+def archive_studebts():
+    return jsonify(archive_student())
+
 
 #get all degrees
 @app.route('/degrees/', methods=['GET'])
