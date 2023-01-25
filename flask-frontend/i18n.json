@@ -1,0 +1,264 @@
+{
+    "Add a student from the admin view": {
+        "en": "Add a student from the admin view",
+        "fr": "Ajouter un élève de la vue d'un administrateur"
+    },
+    "Enter Student Id": {
+        "en": "Enter Student Id",
+        "fr": "Entrer l'Id de l'élève"
+    },
+    "Enter Students First Name": {
+        "en": "Enter Students First Name",
+        "fr": "Entrer le prénom de l'élève"
+    },
+    "Enter Students Last Name": {
+        "en": "Enter Students Last Name",
+        "fr": "Entrer le nom de famille de l'élève"
+    },
+    "Enter Students Email": {
+        "en": "Enter Students Email",
+        "fr": "Entrer l'adresse email de l'élève"
+    },
+    "Enter Students Gender": {
+        "en": "Enter Students Gender",
+        "fr": "Entrer le genre de l'élève"
+    },
+    "Male": {
+        "en": "Male",
+        "fr": "Masculin"
+    },
+    "Female": {
+        "en": "Female",
+        "fr": "Féminin"
+    },
+    "I prefer not to say": {
+        "en": "I prefer not to say",
+        "fr": "Je préfère ne pas dire"
+    },
+    "Enter Students Professor Name": {
+        "en": "Enter Students Professor Name",
+        "fr": "Entrer le nom du professeur de l'élève"
+    },
+    "Enter Students Year of Graduation": {
+        "en": "Enter Students Year of Graduation",
+        "fr": "Entrer l'année de graduation de l'élève"
+    },
+    "Choose Students Degree": {
+        "en": "Choose Students Degree",
+        "fr": "Choisir le diplôme de l'élève"
+    },
+    "Enter Students Project Id": {
+        "en": "Enter Students Project Id",
+        "fr": "Entrer l'Id du projet de l'élève"
+    },
+    "Enter Students Technological Aptitudes": {
+        "en": "Enter Students Technological Aptitudes",
+        "fr": "Entrer les aptitudes technologiques de l'élève"
+    },
+    "Edit a student from the admin view": {
+        "en": "Edit a student from the admin view",
+        "fr": "Modifier un élève de la vue d'un administrateur"
+    },
+    "Student Id": {
+        "en": "Student Id",
+        "fr": "Id de l'élève"
+    },
+    "First Name": {
+        "en": "First Name",
+        "fr": "Prénom"
+    },
+    "Last Name": {
+        "en": "Last Name",
+        "fr": "Nom de famille"
+    },
+    "Email": {
+        "en": "Email",
+        "fr": "Email"
+    },
+    "Gender": {
+        "en": "Gender",
+        "fr": "Genre"
+    },
+    "Professor Name": {
+        "en": "Professor Name",
+        "fr": "Nom du professeur"
+    },
+    "Year of Graduation": {
+        "en": "Year of Graduation",
+        "fr": "Année de graduation"
+    },
+    "Degree": {
+        "en": "Degree",
+        "fr": "Diplôme"
+    },
+    "Project Id": {
+        "en": "Project Id",
+        "fr": "Id de projet"
+    },
+    "Programming Language": {
+        "en": "Programming Language",
+        "fr": "Langage de programmation"
+    },
+    "Update Student": {
+        "en": "Update Student",
+        "fr": "Mettre à jour l'élève"
+    },
+    "Delete": {
+        "en": "Delete",
+        "fr": "Supprimer"
+    },
+    "Archive": {
+        "en": "Archive",
+        "fr": "Archiver"
+    },
+    "Edit": {
+        "en": "Edit",
+        "fr": "Modifier"
+    },
+    "Full name": {
+        "en": "Full name",
+        "fr": "Nom complet"
+    },
+    "Technologies": {
+        "en": "Technologies",
+        "fr": "Technologies"
+    },
+    "More Info": {
+        "en": "More Info",
+        "fr": "Plus d'informations"
+    },
+    "VISIT ADMIN PANNEL": {
+        "en": "VISIT ADMIN PANNEL",
+        "fr": "VISITEZ LE PANNEAU D'ADMIN"
+    },
+    "LOGOUT": {
+        "en": "LOGOUT",
+        "fr": "SE DÉCONNECTER"
+    },
+    "email": {
+        "en": "email",
+        "fr": "email"
+    },
+    "VISIT STAFF PANNEL": {
+        "en": "VISIT STAFF PANNEL",
+        "fr": "VISITEZ LE PANNEAU DU PERSONNEL"
+    },
+    "This is Admin Login": {
+        "en": "This is Admin Login",
+        "fr": "Ceci est la connexion d'administrateur"
+    },
+    "Staff Login": {
+        "en": "Staff Login",
+        "fr": "Connexion du personnel"
+    },
+    "Employer Login": {
+        "en": "Employer Login",
+        "fr": "Connexion employeur"
+    },
+    "password": {
+        "en": "password",
+        "fr": "mot de passe"
+    },
+    "Log In": {
+        "en": "Log In",
+        "fr": "Se connecter"
+    },
+    "admin login": {
+        "en": "admin login",
+        "fr": "connexion administrateur"
+    },
+    "more student info from admin view": {
+        "en": "more student info from admin view",
+        "fr": "plus d'informations sur l'élève de la vue d'administrateur"
+    },
+    "more student info from employer view": {
+        "en": "more student info from employer view",
+        "fr": "plus d'informations sur l'élève de la vue employeur"
+    },
+    "more student info from staff view": {
+        "en": "more student info from staff view",
+        "fr": "plus d'informations sur l'élève de la vue du personnel"
+    },
+    "ADMIN PANEL": {
+        "en": "ADMIN PANEL",
+        "fr": "PANNEAU D'ADMIN"
+    },
+    "all degrees": {
+        "en": "all degrees",
+        "fr": "tous les diplômes"
+    },
+    "DELETE": {
+        "en": "DELETE",
+        "fr": "SUPPRIMER"
+    },
+    "name of degree": {
+        "en": "name of degree",
+        "fr": "nom du diplôme"
+    },
+    "description": {
+        "en": "description",
+        "fr": "description"
+    },
+    "all projects": {
+        "en": "all projects",
+        "fr": "tous les projets"
+    },
+    "name of project": {
+        "en": "name of project",
+        "fr": "nom du projet"
+    },
+    "logins": {
+        "en": "logins",
+        "fr": "connexions"
+    },
+    "English": {
+        "en": "English",
+        "fr": "Anglais"
+    },
+    "French": {
+        "en": "French",
+        "fr": "Français"
+    },
+    "type": {
+        "en": "type",
+        "fr": "type"
+    },
+    "Admin": {
+        "en": "Admin",
+        "fr": "Administrateur"
+    },
+    "Staff": {
+        "en": "Staff",
+        "fr": "Personnel"
+    },
+    "Employer": {
+        "en": "Employer",
+        "fr": "Employeur"
+    },
+    "STAFF PANEL": {
+        "en": "STAFF PANEL",
+        "fr": "PANNEAU DU PERSONNEL"
+    },
+    "EMPLOYER PANEL": {
+        "en": "EMPLOYER PANEL",
+        "fr": "PANNEAU DE L'EMPLOYEUR"
+    },
+    "UPDATE":{
+        "en": "UPDATE",
+        "fr": "Mettre à jour"
+    },
+    "ADD":{
+        "en": "add",
+        "fr": "Ajouter"
+    },
+    "CHANGE":{
+        "en": "change",
+        "fr": "Changer"
+    },
+    "language:": {
+        "en": "language:",
+        "fr": "langue:"
+    }
+    
+    
+}

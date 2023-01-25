@@ -1,5 +1,5 @@
 h1{
-    color:aqua;
+    color:#cbb576;
 }
 table, th, td {
     padding: 15px;
@@ -48,7 +48,7 @@ tbody:nth-child(odd){
     height: 125px;
     width: 1510px;
     background-color:  #912338;
-
+    z-index: -1;
     position:absolute;
     top:0px;
     right: 0px;
@@ -60,4 +60,33 @@ tbody:nth-child(odd){
     left: 0px;
 
     
+}
+.title{
+    text-align: center;
+    padding: 12px;
+}
+
+.createStudent{
+    text-align:center; 
+    padding: 85px;
+}
+fieldset{
+    margin: 2em 0;
+    padding: 1em 2em;
+    border: solid 1px #ccc;
+    border-radius:6px;
+    min-width: 200;
+
+
+}
+label{
+
+    display: block;
+    margin-top: 1em;
+
+}
+.checks label{
+
+    margin-top: 0;
+
 }

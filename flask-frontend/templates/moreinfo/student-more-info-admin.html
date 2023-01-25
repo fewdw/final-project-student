@@ -1,19 +1,17 @@
-{% extends "react-template.html" %}
-{% block body %}
+{% extends "react-template.html" %} {% block body %}
 
-<h1 style="color:blue;">more student info from admin view</h1>
-    <ul>
-        <li>{{STUDENT.student_id}}</li>
-        <li>{{STUDENT.status}}</li>
-        <li>{{STUDENT.first_name}}</li>
-        <li>{{STUDENT.last_name}}</li>
-        <li>{{STUDENT.email}}</li>
-        <li>{{STUDENT.gender}}</li>
-        <li>{{STUDENT.professor_name}}</li>
-        <li>{{STUDENT.year_of_graduation}}</li>
-        <li>{{STUDENT.degree}}</li>
-        <li>{{STUDENT.projectId}}</li>
-        <li>{{STUDENT.programming_language}}</li>
-    </ul>
+<ul>
+  <li>{{STUDENT.student_id}}</li>
+  <li>{{STUDENT.status}}</li>
+  <li>{{STUDENT.first_name}}</li>
+  <li>{{STUDENT.last_name}}</li>
+  <li>{{STUDENT.email}}</li>
+  <li>{{STUDENT.gender}}</li>
+  <li>{{STUDENT.professor_name}}</li>
+  <li>{{STUDENT.year_of_graduation}}</li>
+  <li>{{STUDENT.degree}}</li>
+  <li>{{STUDENT.projectId}}</li>
+  <li>{{STUDENT.programming_language}}</li>
+</ul>
 
 {% endblock %}

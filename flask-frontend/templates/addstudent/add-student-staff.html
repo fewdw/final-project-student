@@ -1,41 +1,38 @@
-{% extends "react-template.html" %}
-{% block body %}
-<h1>Add a student from the staff view</h1>
+{% extends "react-template.html" %} {% block body %}
 <form method="post" action="/staff/list/student/studentadded">
-
-  Enter Student Id
-  <input type="text" name  = "student_Id">
-   <br>
-  Enter Students First Name
-  <input type="text", name = "first_name"> <br>
-  Enter Students Last Name
-  <input type="text", name = "last_name"> <br>
-  Enter Students Email
-  <input type="text", name = "email"> <br>
-  Enter Students Gender
-  <select name = "gender">
-      <option>Male</option>
-      <option>Female</option>
-      <option>I prefer not to say </option>
-    </select>
-  Enter Students Professor Name 
-  <input type="text", name= "professor_name"> <br>
-  Enter Students Year of Graduation
-  <input type="text" , name= "year_of_graduation"> <br>
-  Enter Students Degree
-  <select name = "degree">
+  {{ I18N["Enter Student Id"][LANG]}}
+  <input type="text" name="student_Id" />
+  <br />
+  {{ I18N["Enter Students First Name"][LANG]}}
+  <input type="text" , name="first_name" /> <br />
+  {{ I18N["Enter Students Last Name"][LANG]}}
+  <input type="text" , name="last_name" /> <br />
+  {{ I18N["Enter Students Email"][LANG]}}
+  <input type="text" , name="email" /> <br />
+  {{ I18N["Enter Students Gender"][LANG]}}
+  <select name="gender">
+    <option>{{ I18N["Male"][LANG]}}</option>
+    <option>{{ I18N["Female"][LANG]}}</option>
+    <option>{{ I18N["I prefer not to say"][LANG]}}</option>
+  </select>
+  {{ I18N["Enter Students Professor Name"][LANG]}}
+  <input type="text" , name="professor_name" /> <br />
+  {{ I18N["Enter Students Year of Graduation"][LANG]}}
+  <input type="text" , name="year_of_graduation" /> <br />
+  {{ I18N["Choose Students Degree"][LANG]}}
+  <select name="degree">
     {%for d in DEGREES%}
-      <option>{{d["name_degree"]}}</option>
-    {%endfor%}
-  </select><br>
-  Enter Students Project Id
-  <select name = "projectId">
+    <option>{{d["name_degree"]}}</option>
+    {%endfor%}</select
+  ><br />
+  {{ I18N["Enter Students Project Id"][LANG]}}
+  <select name="projectId">
     {%for p in PROJECTS%}
-      <option>{{p["project_name"]}}</option>
+    <option>{{p["project_name"]}}</option>
     {%endfor%}
   </select>
-  Enter Students Technological Aptitudes
-  <input type="text", name= "programming_language"> <br>
-  <input type= "submit" value="Add Students"/>
+  {{ I18N["Enter Students Technological Aptitudes"][LANG]}}
+  <input type="text" , name="programming_language" /> <br />
+  <input type="submit" value="Add Students" />
 </form>
 {% endblock %}

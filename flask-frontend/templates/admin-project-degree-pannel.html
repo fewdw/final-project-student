@@ -1,25 +1,22 @@
 {% extends "react-template.html" %}
-
 {% block body %}
-<h1>ADMIN PANNEL</h1>
-<h3>all degrees</h3><br>
+<h1>ADMIN PANEL</h1>
+<h3>all degrees</h3>
+<br>
 <ul>
     {%for d in DEGREES%}
-        
         <li id="degreeNameFromList">{{d["name_degree"]}}</li>
         <li id="degreeDescriptionFromList">{{d["description"]}}</li>
         <form action="/admin/pannel/deletedegree" method="POST">
             <input type="hidden" name="id" value='{{d["_id"]}}'>
             <li>
                 <button type="Submit">DELETE</button>
-                
             </li>
         </form>
         <button onclick="updateStudentDegree('{{d["name_degree"]}}','{{d["description"]}}','{{d["_id"]["$oid"]}}')">UPDATE</button>
 
     {%endfor%}
 
-   
     <form method="POST">
         <input type="hidden" name="id" id="degreeIdFormInput" value=''>
         <input type="hidden" name="degree_id" value="1"></input><br>
@@ -29,33 +26,23 @@
         <input type="Submit" value="update" formaction="/admin/pannel/updatedegree">
     </form>
 
-
-
+</ul><br>
 
 <h3>all projects</h3><br>
 <ul>
     {%for p in PROJECTS%}
-        
-        <li id="projectNameFromList">{{d["name_project"]}}</li>
-        <li id="projectDescriptionFromList">{{d["description"]}}</li>
+        <li>{{p["project_name"]}}</li>
         <form action="/admin/pannel/deleteproject" method="POST">
-            <input type="hidden" name="id" value='{{d["_id"]}}'>
-            <li>
-                <button type="Submit">DELETE</button>
-                
-            </li>
+            <input type="hidden" name="project_id" value='{{p["_id"]["$oid"]}}'>
+            <button type="Submit">DELETE</button>
         </form>
-        <button onclick="updateStudentProject('{{d["name_degree"]}}','{{d["description"]}}','{{d["_id"]["$oid"]}}')">UPDATE</button>
-
     {%endfor%}
 
-   
-    <form method="POST">
-        <input type="hidden" name="id" id="projectIdFormInput" value=''>
+    <form action="/admin/pannel/addproject" method="POST">
         <input type="hidden" name="project_id" value="1"></input><br>
-        name of project:<input type="text" name="name_project" id="projectNameInputField" value=""></input><br>
-        description:<input type="text" name="description" id="projectDescriptionInputField" value=""></input><br>
-        <input type="Submit" value="add" formaction="/admin/pannel/addproject">
-        <input type="Submit" value="update" formaction="/admin/pannel/updateproject">
+        name of degree:<input type="text" name="project_name"></input><br>
+        description:<input type="text" name="project_description"></input><br>
+        <input type="Submit" value="add">
     </form>
+</ul><br>
 {% endblock %}
