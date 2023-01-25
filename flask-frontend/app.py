@@ -325,6 +325,18 @@ def update_a_degree_route_admin():
         return redirect("/admin/pannel")
     return redirect("/")
 
+@app.route("/admin/pannel/updateproject",methods=["POST"])
+def update_a_project_route_admin():
+    if request.method == "POST" and session.get("type") == "admin":
+        put_a_degree_to_api(
+            request.form.get("id"),
+            request.form.get("project_id"),
+            request.form.get("name_project"),
+            request.form.get("description")
+        )
+        return redirect("/admin/pannel")
+    return redirect("/")
+
 @app.route("/admin/credentials/deletecredential", methods=["POST"])
 def delete_a_credential_route():
     if request.method == "POST" and session.get("type") == "admin":
