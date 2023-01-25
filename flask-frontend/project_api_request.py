@@ -23,3 +23,13 @@ def post_a_project_to_api(d_id,name,desc):
             "project_description":desc
         }
         requests.post(url, json=payload)
+
+def put_a_project_to_api(_id,d_id,name,desc):
+    url = "http://127.0.0.1:5001/projects"
+    payload= {
+        "id":_id,
+        "project_id":d_id,
+        "project_name":name,
+        "project_description":desc
+    }
+    requests.put(url,json=payload)

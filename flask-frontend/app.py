@@ -6,7 +6,7 @@ import ast
 
 from student_api_request import get_all_students_from_api, get_one_student_from_api, delete_student_from_api,edited_student_admin_api_request, add_student_to_list
 from degree_api_request import get_all_degrees_from_api, delete_degree_from_api,post_a_degree_to_api, put_a_degree_to_api
-from project_api_request import get_all_projects_from_api, delete_project_from_api, post_a_project_to_api
+from project_api_request import get_all_projects_from_api, delete_project_from_api, post_a_project_to_api, put_a_project_to_api
 from credential_api_request import get_credentials_from_api, post_credentials_from_api, put_credentials_from_api, delete_credentials_from_api, get_credentials_by_id_from_api
 
 app = Flask(__name__)
@@ -281,7 +281,7 @@ def post_a_degree_staff_route():
 @app.route("/admin/pannel/deleteproject",methods=["POST"])
 def delete_a_project_by_id_route():
     if request.method == "POST" and session.get("type") == "admin":
-        delete_project_from_api(request.form.get("project_id"))
+        delete_project_from_api(request.form.get("id"))
         return redirect("/admin/pannel")
     return redirect("/")
 
@@ -328,7 +328,7 @@ def update_a_degree_route_admin():
 @app.route("/admin/pannel/updateproject",methods=["POST"])
 def update_a_project_route_admin():
     if request.method == "POST" and session.get("type") == "admin":
-        put_a_degree_to_api(
+        put_a_project_to_api(
             request.form.get("id"),
             request.form.get("project_id"),
             request.form.get("name_project"),
@@ -336,6 +336,7 @@ def update_a_project_route_admin():
         )
         return redirect("/admin/pannel")
     return redirect("/")
+
 
 @app.route("/admin/credentials/deletecredential", methods=["POST"])
 def delete_a_credential_route():
