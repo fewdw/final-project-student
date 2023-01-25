@@ -30,7 +30,7 @@
 <ul>
     {%for p in PROJECTS%}
     <li id="projectNameFromList">{{p["project_name"]}}</li>
-    <li id="projectDescriptionFromList">{{p["project_description)"]}}</li>
+    <li id="projectDescriptionFromList">{{p["project_description"]}}</li>
     <form action="/admin/pannel/deleteproject" method="POST">
        <input type="hidden" name="id" value='{{p["_id"]}}'>
        <li>
