@@ -2,6 +2,7 @@ from flask import Flask, render_template,redirect,request,jsonify,session
 from flask_session import Session
 import requests, json
 import bcrypt
+import ast
 
 from student_api_request import get_all_students_from_api, get_one_student_from_api, delete_student_from_api,edited_student_admin_api_request, add_student_to_list
 from degree_api_request import get_all_degrees_from_api, delete_degree_from_api,post_a_degree_to_api, put_a_degree_to_api
@@ -419,63 +420,109 @@ def test():
 
 @app.route("/admin/changelang", methods=["POST"])
 def admin_changelang_route():
-    lang = request.form.get("lang")
-    email = request.form.get("email")
+    if request.method == "POST" and session.get("type") == "admin":
+        lang = request.form.get("lang")
+        email = request.form.get("email")
 
-    credentials = get_credentials_from_api()
+        credentials = get_credentials_from_api()
 
-    for obj in credentials:
-        if obj["email"] == email:
-            put_credentials_from_api(
-                obj["_id"]["$oid"],
-                obj["email"],
-                obj["hash"],
-                lang,
-                obj["type"]
-            )
-            session["lang"] = lang
-            return redirect("/admin/list")
-    return redirect("/admin/list")
+        for obj in credentials:
+            if obj["email"] == email:
+                put_credentials_from_api(
+                    obj["_id"]["$oid"],
+                    obj["email"],
+                    obj["hash"],
+                    lang,
+                    obj["type"]
+                )
+                session["lang"] = lang
+                return redirect("/admin/list")
+        return redirect("/admin/list")
+    return redirect("/")
 
 @app.route("/employer/changelang", methods=["POST"])
 def employer_changelang_route():
-    lang = request.form.get("lang")
-    email = request.form.get("email")
+    if request.method == "POST" and session.get("type") == "employer":
+        lang = request.form.get("lang")
+        email = request.form.get("email")
 
-    credentials = get_credentials_from_api()
+        credentials = get_credentials_from_api()
 
-    for obj in credentials:
-        if obj["email"] == email:
-            put_credentials_from_api(
-                obj["_id"]["$oid"],
-                obj["email"],
-                obj["hash"],
-                lang,
-                obj["type"]
-            )
-            session["lang"] = lang
-            return redirect("/admin/list")
-    return redirect("/admin/list")
+        for obj in credentials:
+            if obj["email"] == email:
+                put_credentials_from_api(
+                    obj["_id"]["$oid"],
+                    obj["email"],
+                    obj["hash"],
+                    lang,
+                    obj["type"]
+                )
+                session["lang"] = lang
+                return redirect("/admin/list")
+        return redirect("/admin/list")
+    return redirect("/")
 
 @app.route("/staff/changelang", methods=["POST"])
 def staff_changelang_route():
-    lang = request.form.get("lang")
-    email = request.form.get("email")
+    if request.method == "POST" and session.get("type") == "admin":
+        lang = request.form.get("lang")
+        email = request.form.get("email")
 
-    credentials = get_credentials_from_api()
+        credentials = get_credentials_from_api()
 
-    for obj in credentials:
-        if obj["email"] == email:
-            put_credentials_from_api(
-                obj["_id"]["$oid"],
-                obj["email"],
-                obj["hash"],
-                lang,
-                obj["type"]
-            )
-            session["lang"] = lang
-            return redirect("/admin/list")
-    return redirect("/admin/list")
+        for obj in credentials:
+            if obj["email"] == email:
+                put_credentials_from_api(
+                    obj["_id"]["$oid"],
+                    obj["email"],
+                    obj["hash"],
+                    lang,
+                    obj["type"]
+                )
+                session["lang"] = lang
+                return redirect("/admin/list")
+        return redirect("/admin/list")
+    return redirect("/")
+
+@app.route("/admin/archive", methods=["POST"])
+def archive_student_route():
+    if request.method == "POST" and session.get("type") == "admin":
+        delete_student_from_api(request.form.get("_id"))
+        add_student_to_list(
+            request.form.get("student_id"),
+            request.form.get("first_name"),
+            request.form.get("last_name"),
+            request.form.get("email"),
+            request.form.get("gender"),
+            request.form.get("professor_name"),
+            request.form.get("year_of_graduation"),
+            request.form.get("degree"),
+            request.form.get("projectId"),
+            request.form.get("programming_language"),
+            status=request.form.get("status")
+        )
+        return redirect('/admin/list')
+    return redirect("/")
+
+@app.route("/staff/archive", methods=["POST"])
+def archive_student_route_staff():
+    if request.method == "POST" and session.get("type") == "staff":
+        delete_student_from_api(request.form.get("_id"))
+        add_student_to_list(
+            request.form.get("student_id"),
+            request.form.get("first_name"),
+            request.form.get("last_name"),
+            request.form.get("email"),
+            request.form.get("gender"),
+            request.form.get("professor_name"),
+            request.form.get("year_of_graduation"),
+            request.form.get("degree"),
+            request.form.get("projectId"),
+            request.form.get("programming_language"),
+            status=request.form.get("status")
+        )
+        return redirect('/staff/list')
+    return redirect("/")
 
 if __name__ == '__main__':
     app.run()

@@ -39,15 +39,15 @@ def edited_student_admin_api_request(id,student_id, status, first_name, last_nam
         "year_of_graduation" : year_of_graduation,
         "degree" : degree,
         "projectId" : projectId,
-        "programming_language" : programming_language    
+        "programming_language" : programming_language
     }
     requests.put(url, json=payload)
     #add student 
-def add_student_to_list(student_Id,first_name,last_name,email,gender, professor_name, year_of_graduation, degree, projectId, programming_language):
+def add_student_to_list(student_Id,first_name,last_name,email,gender, professor_name, year_of_graduation, degree, projectId, programming_language,status=True):
         url = "http://127.0.0.1:5001/students"
         payload = {
         "student_id":student_Id,
-        "status":True,
+        "status":status,
         "first_name":first_name,
         "last_name":last_name,
         "email":email, 

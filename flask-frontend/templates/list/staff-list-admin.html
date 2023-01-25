@@ -1,50 +1,176 @@
-{% extends "react-template.html" %}
-{% block body %}
-<div class ="image">   
-    <img src="../static/concordia-logo.jpg" alt="Logo" width="400"  height="125";>
+{% extends "react-template.html" %} {% block body %}
+<div class="image">
+  <img
+    src="../static/concordia-logo.jpg"
+    alt="Logo"
+    width="400"
+    height="125"
+    ;
+  />
 </div>
 
-<div class ="object1">    
-    </div>
+<div class="object1"></div>
 
+<table class="table">
+  <thead>
+    <tr>
+      <th>{{ I18N["Archive"][LANG]}}</th>
+      <th>{{ I18N["Edit"][LANG]}}</th>
+      <th>{{ I18N["Full name"][LANG]}}</th>
+      <th>{{ I18N["Degree"][LANG]}}</th>
+      <th>{{ I18N["Technologies"][LANG]}}</th>
+      <th>{{ I18N["More Info"][LANG]}}</th>
+    </tr>
+  </thead>
+  {% for s in STUDENTS %}
+  <tbody>
+    {% if s["status"] == "archived" %}
 
+    <tr>
+      <td>
+        <form method="POST" action="/staff/archive">
+          <input type="hidden" name="_id" value="{{s['_id']}}" />
+          <input type="hidden" name="degree" value="{{s['degree']}}" />
+          <input type="hidden" name="email" value="{{s['email']}}" />
+          <input type="hidden" name="first_name" value="{{s['first_name']}}" />
+          <input type="hidden" name="gender" value="{{s['gender']}}" />
+          <input type="hidden" name="last_name" value="{{s['last_name']}}" />
+          <input
+            type="hidden"
+            name="professor_name"
+            value="{{s['professor_name']}}"
+          />
+          <input
+            type="hidden"
+            name="programming_language"
+            value="{{s['programming_language']}}"
+          />
+          <input type="hidden" name="projectId" value="{{s['projectId']}}" />
+          <input type="hidden" name="status" value="active" />
+          <input type="hidden" name="student_id" value="{{s['student_id']}}" />
+          <input type="hidden" name="projectId" value="{{s['projectId']}}" />
+          <input
+            type="hidden"
+            name="year_of_graduation"
+            value="{{s['year_of_graduation']}}"
+          />
+          <button type="submit">Unarchive</button>
+        </form>
+        <img alt="More" src="" width="25" height="25" />
+      </td>
+      <td>
+        <a href="/staff/list/student/editstudent/{{s._id}}"
+          ><img
+            alt="Update"
+            src="../static/edit-outline.png"
+            width="25"
+            height="25"
+        /></a>
+      </td>
+      <!-- ADD FUNCTIONALITY TO EDIT A STUDENT -->
+      <td>{{s.first_name}} {{s.last_name}}</td>
+      <td>{{s.degree}}, {{s.year_of_graduation}}</td>
+      <td>{{s.programming_language}}</td>
+      <td>
+        <a href="/staff/list/student/id/{{s._id}}"
+          ><img
+            alt="Update"
+            src="../static/more-horizontal-outline.png"
+            width="25"
+            height="25"
+        /></a>
+      </td>
+      <!-- ADD FUNCTIONALITY TO EDIT A STUDENT -->
+    </tr>
 
-    <table class = "table">
-        <thead>
-            <tr>
-                <th>{{ I18N["Archive"][LANG]}}</th>
-                <th>{{ I18N["Edit"][LANG]}}</th>
-                <th>{{ I18N["Full name"][LANG]}}</th>
-                <th>{{ I18N["Degree"][LANG]}}</th>
-                <th>{{ I18N["Technologies"][LANG]}}</th>
-                <th>{{ I18N["More Info"][LANG]}}</th>
-            </tr>
-            </thead>
-        {% for s in STUDENTS %}
-        <tbody>
-        <tr>
-            <td><a href=""><img  alt="archive" src="../static/archive-outline.png" width="25" height="25"> </a></td> <!-- ADD FUNCTIONALITY TO ARCHIVE A STUDENT -->
-            <td><a href="/staff/list/student/editstudent/{{s._id}}"><img  alt="Update" src="../static/edit-outline.png" width="25" height="25"></a> </td> <!-- ADD FUNCTIONALITY TO EDIT A STUDENT -->
-            <td>{{s.first_name}} {{s.last_name}}</td>
-            <td>{{s.degree}}, {{s.year_of_graduation}}</td>
-            <td>{{s.programming_language}}</td>
-            <td><a href="/staff/list/student/id/{{s._id}}"><img  alt="Update" src="../static/more-horizontal-outline.png" width="25" height="25"></a> </td> <!-- ADD FUNCTIONALITY TO EDIT A STUDENT -->
-        </tr>
-        </tbody>
-        {% endfor %}
-        <tr>
-            <td><a href="/staff/list/student/addstudent"><img  alt="addStudent" src="../static/person-add-outline.png" width="25" height="25"></a></td>
-        </tr>
-    </table>
-    <a href="/staff/pannel">{{ I18N["VISIT STAFF PANNEL"][LANG]}}</a>.
-    <a href="/clearsession">{{ I18N["LOGOUT"][LANG]}}</a>
-    <form action="/staff/changelang" method="POST">
-        <select name="lang">
-            <option value="en">{{ I18N["English"][LANG]}}</option>
-            <option value="fr">{{ I18N["French"][LANG]}}</option>
-        </select>
-        <input type="hidden" name="email" value="{{EMAIL}}">
-        <button type="submit">{{ I18N["CHANGE"][LANG]}}</button>
-    </form>
+    {% else %}
+
+    <tr>
+      <td>
+        <form method="POST" action="/staff/archive">
+          <input type="hidden" name="_id" value="{{s['_id']}}" />
+          <input type="hidden" name="degree" value="{{s['degree']}}" />
+          <input type="hidden" name="email" value="{{s['email']}}" />
+          <input type="hidden" name="first_name" value="{{s['first_name']}}" />
+          <input type="hidden" name="gender" value="{{s['gender']}}" />
+          <input type="hidden" name="last_name" value="{{s['last_name']}}" />
+          <input
+            type="hidden"
+            name="professor_name"
+            value="{{s['professor_name']}}"
+          />
+          <input
+            type="hidden"
+            name="programming_language"
+            value="{{s['programming_language']}}"
+          />
+          <input type="hidden" name="projectId" value="{{s['projectId']}}" />
+          <input type="hidden" name="status" value="archived" />
+          <input type="hidden" name="student_id" value="{{s['student_id']}}" />
+          <input type="hidden" name="projectId" value="{{s['projectId']}}" />
+          <input
+            type="hidden"
+            name="year_of_graduation"
+            value="{{s['year_of_graduation']}}"
+          />
+          <button type="submit">archive</button>
+        </form>
+        <img
+          alt="archive"
+          src="../static/archive-outline.png"
+          width="25"
+          height="25"
+        />
+      </td>
+      <td>
+        <a href="/staff/list/student/editstudent/{{s._id}}"
+          ><img
+            alt="Update"
+            src="../static/edit-outline.png"
+            width="25"
+            height="25"
+        /></a>
+      </td>
+      <!-- ADD FUNCTIONALITY TO EDIT A STUDENT -->
+      <td>{{s.first_name}} {{s.last_name}}</td>
+      <td>{{s.degree}}, {{s.year_of_graduation}}</td>
+      <td>{{s.programming_language}}</td>
+      <td>
+        <a href="/staff/list/student/id/{{s._id}}"
+          ><img
+            alt="Update"
+            src="../static/more-horizontal-outline.png"
+            width="25"
+            height="25"
+        /></a>
+      </td>
+      <!-- ADD FUNCTIONALITY TO EDIT A STUDENT -->
+    </tr>
+
+    {% endif %}
+  </tbody>
+  {% endfor %}
+  <tr>
+    <td>
+      <a href="/staff/list/student/addstudent"
+        ><img
+          alt="addStudent"
+          src="../static/person-add-outline.png"
+          width="25"
+          height="25"
+      /></a>
+    </td>
+  </tr>
+</table>
+<a href="/staff/pannel">{{ I18N["VISIT STAFF PANNEL"][LANG]}}</a>.
+<a href="/clearsession">{{ I18N["LOGOUT"][LANG]}}</a>
+<form action="/staff/changelang" method="POST">
+  <select name="lang">
+    <option value="en">{{ I18N["English"][LANG]}}</option>
+    <option value="fr">{{ I18N["French"][LANG]}}</option>
+  </select>
+  <input type="hidden" name="email" value="{{EMAIL}}" />
+  <button type="submit">{{ I18N["CHANGE"][LANG]}}</button>
+</form>
 
 {% endblock %}
