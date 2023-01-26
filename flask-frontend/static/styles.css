@@ -108,4 +108,5 @@ label{
   text-align: center;
   transition: all 200ms;
   vertical-align: baseline;
+  white-space: nowrap;
 }
