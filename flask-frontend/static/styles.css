@@ -93,5 +93,6 @@ label{
 
 .button-2 {
   background-color: rgba(51, 51, 51, 0.05);
+  border-radius: 8px;
 
 }
