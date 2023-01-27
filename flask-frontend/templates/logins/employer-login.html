@@ -1,10 +1,52 @@
-{% extends "react-template.html" %}
-{% block body %}
-    <a href="/staff">Staff Login</a><a href="/">Employer Login</a>
-    <form action="/employer/login" method="POST">
-        email:<input name="email" type="text"><br>
-        password:<input name="password" type="password"><br>
-        <button type="submit">Log In</button>
-    </form>
-    <small><a href="/admin">admin login</a></small>
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <link rel="stylesheet" href="../static/styles.css">
+    <script src="../static/scipts.js"></script>
+    <link rel="stylesheet" href="../../static/login-styles.css"></link>
+
+
+</head>
+<body>
+<div id="container">
+
+    <div id="left-side">
+      <img src="../static/concordia.jpg" alt="Background Image">
+    </div>
+
+    <div id="right-side">
+
+      <form action="/employer/login" method="POST">
+        <h1>Welcome to Concordia ISRS</h1>
+        <div id="pill">
+            <a id="half-one" href="/staff" style="background-color:#912338">Staff Login</a>
+            <a id="half-two" href="/" style="background-color:#e5a712">Employer Login</a>
+          </div>
+
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input name="email" type="text" id="email" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input name="password" type="password" id="password" class="form-control">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Log In</button>
+        
+        <small><a href="/admin">admin login</a></small>
+
+      </form>
+    </div>
+  </div>
+
+</body>
+
+</html>
