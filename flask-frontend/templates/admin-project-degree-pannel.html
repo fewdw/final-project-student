@@ -10,18 +10,18 @@
    <form action="/admin/pannel/deletedegree" method="POST">
       <input type="hidden" name="id" value='{{d["_id"]}}'>
       <li>
-         <button type="Submit">{{ I18N["DELETE"][LANG]}}</button>
+         <button class="button delete" type="Submit">{{ I18N["DELETE"][LANG]}}</button>
       </li>
    </form>
-   <button onclick="updateStudentDegree('{{d["name_degree"]}}','{{d["description"]}}','{{d["_id"]["$oid"]}}')">{{ I18N["UPDATE"][LANG]}}</button>
+   <button class="button update_add" onclick="updateStudentDegree('{{d["name_degree"]}}','{{d["description"]}}','{{d["_id"]["$oid"]}}')">{{ I18N["UPDATE"][LANG]}}</button>
    {%endfor%}
    <form method="POST">
       <input type="hidden" name="id" id="degreeIdFormInput" value=''>
       <input type="hidden" name="degree_id" value="1"></input><br>
       {{ I18N["name of degree"][LANG]}}:<input type="text" name="name_degree" id="degreeNameInputField" value=""></input><br>
       {{ I18N["description"][LANG]}}:<input type="text" name="description" id="degreeDescriptionInputField" value=""></input><br>
-      <input type="Submit" value='{{ I18N["ADD"][LANG]}}' formaction="/admin/pannel/adddegree">
-      <input type="Submit" value='{{ I18N["UPDATE"][LANG]}}' formaction="/admin/pannel/updatedegree">
+      <input type="Submit" class="button update_add" value='{{ I18N["ADD"][LANG]}}' formaction="/admin/pannel/adddegree">
+      <input type="Submit" class="button update_add" value='{{ I18N["UPDATE"][LANG]}}' formaction="/admin/pannel/updatedegree">
    </form>
 </ul>
 <br>
@@ -34,18 +34,18 @@
     <form action="/admin/pannel/deleteproject" method="POST">
        <input type="hidden" name="id" value='{{p["_id"]["$oid"]}}'>
        <li>
-          <button type="Submit">{{ I18N["DELETE"][LANG]}}</button>
+          <button class="button delete" type="Submit">{{ I18N["DELETE"][LANG]}}</button>
        </li>
     </form>
-    <button onclick="updateStudentProject('{{p["project_name"]}}','{{p["project_description"]}}','{{p["_id"]["$oid"]}}')">{{ I18N["UPDATE"][LANG]}}</button>
+    <button class="button update_add" onclick="updateStudentProject('{{p["project_name"]}}','{{p["project_description"]}}','{{p["_id"]["$oid"]}}')">{{ I18N["UPDATE"][LANG]}}</button>
     {%endfor%}
     <form method="POST">
        <input type="hidden" name="id" id="projectIdFormInput" value=''>
        <input type="hidden" name="project_id" value="1"></input><br>
        {{ I18N["name of project"][LANG]}}:<input type="text" name="name_project" id="projectNameInputField" value=""></input><br>
        {{ I18N["description"][LANG]}}:<input type="text" name="description" id="projectDescriptionInputField" value=""></input><br>
-       <input type="Submit" value='{{ I18N["ADD"][LANG]}}' formaction="/admin/pannel/addproject">
-       <input type="Submit" value='{{ I18N["UPDATE"][LANG]}}' formaction="/admin/pannel/updateproject">
+       <input type="Submit" class="button update_add" value='{{ I18N["ADD"][LANG]}}' formaction="/admin/pannel/addproject">
+       <input type="Submit" class="button update_add" value='{{ I18N["UPDATE"][LANG]}}' formaction="/admin/pannel/updateproject">
     </form>
 </ul>
 <br>
@@ -56,7 +56,7 @@
    <li>
       <form action="/admin/credentials/deletecredential" method="POST">
          <input type="hidden" name="id" value='{{c["_id"]["$oid"]}}'>
-         <input type="Submit" value='{{ I18N["Delete"][LANG]}}'>
+         <input class="button delete" type="Submit" value='{{ I18N["Delete"][LANG]}}'>
       </form>
    </li>
    {%endfor%}
@@ -80,7 +80,7 @@
             <option>{{ I18N["Employer"][LANG]}}</option>
          </select>
       </li>
-      <li><input type="submit" value='{{ I18N["ADD"][LANG]}}'></li>
+      <li><input class="button update_add" type="submit" value='{{ I18N["ADD"][LANG]}}'></li>
    </ul>
 </form>
 {% endblock %}
