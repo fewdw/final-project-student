@@ -1,0 +1,107 @@
+html{
+  font-family: Gill Sans,Gill Sans MT,Calibri,sans-serif;
+  }
+  a{
+  text-decoration: none;
+  color:#e5a712;
+  }
+  html, body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  }
+  
+  #pill {
+  padding-top:100px;
+  }
+  #half-one, #half-two {
+  width: 40%;
+  padding: 10px;
+  border-radius: 20px 0 0 20px;
+  text-align: center;
+  margin:0;
+  position:relative;
+  top:-20px;
+  }
+  #half-two {
+  border-radius: 0 20px 20px 0;
+  }
+  #half-one {
+  background-color: #912338;
+  color: white;
+  }
+  
+  #half-two {
+  background-color: #912338;
+  color: white;
+  }
+  
+  .form-group {
+  margin-bottom: 1rem;
+  }
+  
+  input.form-control {
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  border: 1px solid #ccc;
+  background-color: #f0f0f0;
+  }
+  
+  button.btn {
+  padding: 0.5rem 1rem;
+  background-color: #c8c8c8;
+  color: #fff;
+  border-radius: 0.25rem;
+  }
+  
+  #left-side {
+  width: 50%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  }
+  
+  #right-side {
+  width: 50%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  }
+  
+  img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  }
+  
+  form {
+  width: 100%;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  }
+  
+  #logo-container{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  }
+  
+  #logo-container img{
+  width: 100%;
+  height: auto;
+  }
+  
+  form{
+  margin-top: 100px;
+  }
