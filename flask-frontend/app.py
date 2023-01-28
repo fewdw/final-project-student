@@ -541,7 +541,7 @@ def archive_student_route_staff():
 def adminFilterRoute():
     Technologies = request.form.get("Technologies")
     list = Technologies.split(" ")
-    return(request.form.get("Technologies"))
+   
     
 
 if __name__ == '__main__':
