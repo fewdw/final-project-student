@@ -255,10 +255,13 @@
         "en": "change",
         "fr": "Changer"
     },
-    "language:": {
+    "language": {
         "en": "language:",
         "fr": "langue:"
-    }
+    },
     
-    
+    "Back To List":{
+        "en": "Back To List",
+        "fr": "retour à la liste"
+ }
 }
