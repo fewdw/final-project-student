@@ -1,0 +1,69 @@
+{% extends "react-template.html" %} {% block body %}
+
+<div class="image">
+  <img
+    src="../static/concordia-logo.jpg"
+    alt="Logo"
+    width="400"
+    height="125"
+    ;
+  />
+</div>
+
+<div class="object1"></div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <td>{{ I18N["email"][LANG]}}</td>
+      <td>favorit</td>
+      <th>{{ I18N["Full name"][LANG]}}</th>
+      <th>{{ I18N["Degree"][LANG]}}</th>
+      <th>{{ I18N["Technologies"][LANG]}}</th>
+      <th>{{ I18N["More Info"][LANG]}}</th>
+    </tr>
+  </thead>
+  {% for s in STUDENTS %}
+  <tbody>
+    {% if s["status"] == "active" %}
+
+    <tr>
+      <td>
+        <form>
+          <input type="checkbox" name="emailMe" />
+          <input type="hidden" name="{{s._id}}" />
+        </form>
+      </td>
+      <td>
+        <!-- IF s._id is in the employers favorite list make it checked, else unchecked -->
+        <input type="checkbox" name="favored" />
+      </td>
+      <td>{{s.first_name}},{{s.last_name}}</td>
+      <td>{{s.degree}}, {{s.year_of_graduation}}</td>
+      <td>{{s.programming_language}}</td>
+      <td>
+        <a href="/admin/list/student/id/{{s._id}}"
+          ><img
+            alt="More"
+            src="../static/more-horizontal-outline.png"
+            width="25"
+            height="25"
+        /></a>
+      </td>
+    </tr>
+
+    {% endif %}
+  </tbody>
+  > {% endfor %}
+</table>
+<div>
+    <form action= "/employer/filter" method ="POST">
+        {{I18N["Enter Students Technologies"][LANG]}}
+        <textarea name="Technologies"></textarea>
+        <button type="submit">{{I18N["Submit"][LANG]}}</button>
+        
+    </form>
+  </div>
+<a href="/employer/list">{{I18N["Back To List"][LANG]}} </a>
+
+{% endblock %}

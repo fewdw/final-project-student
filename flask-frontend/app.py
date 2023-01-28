@@ -549,5 +549,29 @@ def adminFilterRoute():
                filteredStudents.append(s)
     return render_template("list/filtered-admin-list.html", STUDENTS = filteredStudents, I18N=i18n, LANG=session.get("lang"), EMAIL=session.get("name"))
 
+@app.route("/staff/filter", methods=["POST"])
+def adminFilterRoute():
+    filteredStudents = []
+    Technologies = request.form.get("Technologies").strip().lower()
+    list = Technologies.split(" ")
+    students=get_all_students_from_api()
+    for s in students:
+        for t in list:
+            if t in s["programming_language"].lower():
+               filteredStudents.append(s)
+    return render_template("list/filtered-staff-list.html", STUDENTS = filteredStudents, I18N=i18n, LANG=session.get("lang"), EMAIL=session.get("name"))
+
+@app.route("/employer/filter", methods=["POST"])
+def adminFilterRoute():
+    filteredStudents = []
+    Technologies = request.form.get("Technologies").strip().lower()
+    list = Technologies.split(" ")
+    students=get_all_students_from_api()
+    for s in students:
+        for t in list:
+            if t in s["programming_language"].lower():
+               filteredStudents.append(s)
+    return render_template("list/filtered-employer-list.html", STUDENTS = filteredStudents, I18N=i18n, LANG=session.get("lang"), EMAIL=session.get("name"))
+
 if __name__ == '__main__':
     app.run()
