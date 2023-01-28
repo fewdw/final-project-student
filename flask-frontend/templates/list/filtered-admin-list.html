@@ -85,24 +85,9 @@
             <td>{{s.programming_language}}</td>
             <td><a href="/admin/list/student/id/{{s._id}}"><img  alt="More" src="../static/more-horizontal-outline.png" width="25" height="25"></a></td>
         </tr>
-
         {% endif %}
-
         </tbody>
         {% endfor %}
-        <tr>
-            <td><a href="/student/addstudent"><img  alt="More" src="../static/person-add-outline.png" width="25" height="25"></a></td>
-        </tr>
     </table>
-    <a href="/admin/pannel">{{ I18N["VISIT ADMIN PANNEL"][LANG]}}</a>.
-    <a href="/clearsession">{{ I18N["LOGOUT"][LANG]}}</a>
-    <form action="/admin/changelang" method="POST">
-        <select name="lang">
-            <option value="en">{{ I18N["English"][LANG]}}</option>
-            <option value="fr">{{ I18N["French"][LANG]}}</option>
-        </select>
-        <input type="hidden" name="email" value="{{EMAIL}}">
-        <button type="submit">{{ I18N["CHANGE"][LANG]}}</button>
-    </form>
 <a href="/admin/list">{{I18N["Back To List"][LANG]}} </a>
 {% endblock %}
