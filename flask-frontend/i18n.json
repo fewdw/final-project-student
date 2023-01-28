@@ -263,5 +263,10 @@
     "Back To List":{
         "en": "Back To List",
         "fr": "retour à la liste"
- }
+ },
+
+ "Submit":{
+    "en": "Submit",
+    "fr": "soumettre"
+    }
 }
