@@ -290,8 +290,8 @@ def post_a_project_route():
     if request.method == "POST" and session.get("type") == "admin":
         post_a_project_to_api(
             request.form.get("project_id"),
-            request.form.get("project_name"),
-            request.form.get("project_description")
+            request.form.get("name_project"),
+            request.form.get("description")
         )
         return redirect("/admin/pannel")
     return redirect("/")
@@ -536,6 +536,42 @@ def archive_student_route_staff():
         )
         return redirect('/staff/list')
     return redirect("/")
+
+@app.route("/admin/filter", methods=["POST"])
+def adminFilterRoute():
+    filteredStudents = []
+    Technologies = request.form.get("Technologies").strip().lower()
+    list = Technologies.split(" ")
+    students=get_all_students_from_api()
+    for s in students:
+        for t in list:
+            if t in s["programming_language"].lower():
+               filteredStudents.append(s)
+    return render_template("list/filtered-admin-list.html", STUDENTS = filteredStudents, I18N=i18n, LANG=session.get("lang"), EMAIL=session.get("name"))
+
+@app.route("/staff/filter", methods=["POST"])
+def staffFilterRoute():
+    filteredStudents = []
+    Technologies = request.form.get("Technologies").strip().lower()
+    list = Technologies.split(" ")
+    students=get_all_students_from_api()
+    for s in students:
+        for t in list:
+            if t in s["programming_language"].lower():
+               filteredStudents.append(s)
+    return render_template("list/filtered-staff-list.html", STUDENTS = filteredStudents, I18N=i18n, LANG=session.get("lang"), EMAIL=session.get("name"))
+
+@app.route("/employer/filter", methods=["POST"])
+def employerFilterRoute():
+    filteredStudents = []
+    Technologies = request.form.get("Technologies").strip().lower()
+    list = Technologies.split(" ")
+    students=get_all_students_from_api()
+    for s in students:
+        for t in list:
+            if t in s["programming_language"].lower():
+               filteredStudents.append(s)
+    return render_template("list/filtered-employer-list.html", STUDENTS = filteredStudents, I18N=i18n, LANG=session.get("lang"), EMAIL=session.get("name"))
 
 if __name__ == '__main__':
     app.run()

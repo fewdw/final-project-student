@@ -56,24 +56,6 @@
   </tbody>
   > {% endfor %}
 </table>
-<a href="/clearsession">{{ I18N["LOGOUT"][LANG]}}</a>
-<form action="/employer/changelang" method="POST">
-  <select name="lang">
-    <option value="en">{{ I18N["English"][LANG]}}</option>
-    <option value="fr">{{ I18N["French"][LANG]}}</option>
-  </select>
-  <input type="hidden" name="email" value="{{EMAIL}}" />
-  <button type="submit">{{ I18N["CHANGE"][LANG]}}</button>
-</form>
-
-<div>
-  <form action= "/employer/filter" method ="POST">
-      {{I18N["Enter Students Technologies"][LANG]}}
-      <textarea name="Technologies"></textarea>
-      <button type="submit">{{I18N["Submit"][LANG]}}</button>
-      
-  </form>
-</div>
-
+<a href="/employer/list">{{I18N["Back To List"][LANG]}} </a>
 
 {% endblock %}

@@ -1,0 +1,74 @@
+html{
+    font-family: Gill Sans,Gill Sans MT,Calibri,sans-serif;
+    }
+#container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    margin-top:170px;
+    }
+    
+    #degree-container, #project-container, #credentials-container {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 75px;
+    max-width: 25%;
+    }
+
+    input {
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+      }
+      
+      select {
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        background-color: #f1f1f1;
+      }
+      
+      option {
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        background-color: #f1f1f1;
+      }
+
+      .image{
+        position:absolute;
+        top:0px;
+        left: 0px;
+    
+        
+    }
+    .object1{
+        height: 125px;
+        width: 1510px;
+        background-color:  #912338;
+        z-index: -1;
+        position:absolute;
+        top:0px;
+        right: 0px;
+    }
+      
+    .list {
+      display: flex;
+      justify-content: flex-end;
+      list-style-type: none; /* remove bullet points */
+      padding: 0; /* remove any default padding */
+      margin: 50px; /* remove any default margin */
+
+    }
+    
+    .list li {
+      margin-left: 10px; /* add some spacing between the items */
+    }
+    
+      

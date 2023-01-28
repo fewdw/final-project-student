@@ -255,10 +255,24 @@
         "en": "change",
         "fr": "Changer"
     },
-    "language:": {
+    "language": {
         "en": "language:",
         "fr": "langue:"
+    },
+    
+    "Back To List":{
+        "en": "Back To List",
+        "fr": "retour à la liste"
+ },
+
+ "Submit":{
+    "en": "Submit",
+    "fr": "soumettre"
+    },
+
+    "Enter Students Technologies":{
+        "en": "Enter Students Technologies",
+        "fr": "entrez les technologies de l'étudiant"
+        
     }
-    
-    
 }
