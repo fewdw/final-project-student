@@ -537,5 +537,10 @@ def archive_student_route_staff():
         return redirect('/staff/list')
     return redirect("/")
 
+@app.route("/admin/filter", methods=["POST"])
+def adminFilterRoute():
+    return(request.form.get("Technologies"))
+    
+
 if __name__ == '__main__':
     app.run()

@@ -8,6 +8,8 @@
 <div class ="object1">    
     </div>
 
+   
+
     
     <table class= "table" >
         <thead>
@@ -102,5 +104,13 @@
         <input type="hidden" name="email" value="{{EMAIL}}">
         <button type="submit">{{ I18N["CHANGE"][LANG]}}</button>
     </form>
-
+    <div>
+        <form action= "/admin/filter" method ="POST">
+            Enter Students Technologies:
+            <textarea name= "Technologies">
+            
+            </textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
 {% endblock %}
