@@ -268,5 +268,11 @@
  "Submit":{
     "en": "Submit",
     "fr": "soumettre"
+    },
+
+    "Enter Students Technologies":{
+        "en": "Enter Students Technologies",
+        "fr": "entrez les technologies de l'étudiant"
+        
     }
 }
