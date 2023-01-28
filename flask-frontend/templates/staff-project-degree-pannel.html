@@ -6,33 +6,40 @@
     {%for d in DEGREES%}
         <li>{{d["name_degree"]}}</li>
         <form action="/staff/pannel/deletedegree" method="POST">
-            <input type="hidden" name="id" value='{{d["_id"]}}'>
+            <input class="button delete" type="hidden" name="id" value='{{d["_id"]}}'>
         </form>
     {%endfor%}
 
     <form action="/staff/pannel/adddegree" method="POST">
-        <input type="hidden" name="degree_id" value="1"></input><br>
+        <input class="button update_add" type="hidden" name="degree_id" value="1"></input><br>
         {{ I18N["name of degree"][LANG]}}:<input type="text" name="name_degree"></input><br>
         {{ I18N["description"][LANG]}}:<input type="text" name="description"></input><br>
-        <input type="Submit" value="add">
+        <input class="button update_add" type="Submit" value="add">
     </form>
 
 </ul><br>
 
-<h3>{{ I18N["all projects"][LANG]}}</h3><br>
+<h3>{{ I18N["all projects"][LANG]}}</h3>
+<br>
 <ul>
     {%for p in PROJECTS%}
-        <li>{{p["project_name"]}}</li>
-        <form action="/staff/pannel/deleteproject" method="POST">
-            <input type="hidden" name="project_id" value='{{p["_id"]["$oid"]}}'>
-        </form>
+    <li id="projectNameFromList">{{p["project_name"]}}</li>
+    <li id="projectDescriptionFromList">{{p["project_description"]}}</li>
+    <form action="/admin/pannel/deleteproject" method="POST">
+       <input type="hidden" name="id" value='{{p["_id"]["$oid"]}}'>
+       <li>
+          <button class="button delete" type="Submit">{{ I18N["DELETE"][LANG]}}</button>
+       </li>
+    </form>
+    <button class="button update_add" onclick="updateStudentProject('{{p["project_name"]}}','{{p["project_description"]}}','{{p["_id"]["$oid"]}}')">{{ I18N["UPDATE"][LANG]}}</button>
     {%endfor%}
-
-    <form action="/staff/pannel/addproject" method="POST">
-        <input type="hidden" name="project_id" value="1"></input><br>
-        {{ I18N["name of project"][LANG]}}:<input type="text" name="project_name"></input><br>
-        {{ I18N["description"][LANG]}}:<input type="text" name="project_description"></input><br>
-        <input type="Submit" value='{{ I18N["ADD"][LANG]}}'>
+    <form method="POST">
+       <input type="hidden" name="id" id="projectIdFormInput" value=''>
+       <input type="hidden" name="project_id" value="1"></input><br>
+       {{ I18N["name of project"][LANG]}}:<input type="text" name="name_project" id="projectNameInputField" value=""></input><br>
+       {{ I18N["description"][LANG]}}:<input type="text" name="description" id="projectDescriptionInputField" value=""></input><br>
+       <input type="Submit" class="button update_add" value='{{ I18N["ADD"][LANG]}}' formaction="/admin/pannel/addproject">
+       <input type="Submit" class="button update_add" value='{{ I18N["UPDATE"][LANG]}}' formaction="/admin/pannel/updateproject">
     </form>
 </ul><br>
 {% endblock %}
