@@ -547,7 +547,7 @@ def adminFilterRoute():
         for t in list:
             if t in s["programming_language"]:
                filteredStudents.append(s)
-    
+    return render_template("list/admin-list-admin.html", STUDENTS = filteredStudents, I18N=i18n, LANG=session.get("lang"), EMAIL=session.get("name"))
 
 if __name__ == '__main__':
     app.run()
