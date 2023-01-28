@@ -540,12 +540,12 @@ def archive_student_route_staff():
 @app.route("/admin/filter", methods=["POST"])
 def adminFilterRoute():
     filteredStudents = []
-    Technologies = request.form.get("Technologies").strip()
+    Technologies = request.form.get("Technologies").strip().lower()
     list = Technologies.split(" ")
     students=get_all_students_from_api()
     for s in students:
         for t in list:
-            if t in s["programming_language"]:
+            if t in s["programming_language"].lower():
                filteredStudents.append(s)
     return render_template("list/filtered-admin-list.html", STUDENTS = filteredStudents, I18N=i18n, LANG=session.get("lang"), EMAIL=session.get("name"))
 
