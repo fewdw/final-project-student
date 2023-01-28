@@ -550,7 +550,7 @@ def adminFilterRoute():
     return render_template("list/filtered-admin-list.html", STUDENTS = filteredStudents, I18N=i18n, LANG=session.get("lang"), EMAIL=session.get("name"))
 
 @app.route("/staff/filter", methods=["POST"])
-def adminFilterRoute():
+def staffFilterRoute():
     filteredStudents = []
     Technologies = request.form.get("Technologies").strip().lower()
     list = Technologies.split(" ")
@@ -562,7 +562,7 @@ def adminFilterRoute():
     return render_template("list/filtered-staff-list.html", STUDENTS = filteredStudents, I18N=i18n, LANG=session.get("lang"), EMAIL=session.get("name"))
 
 @app.route("/employer/filter", methods=["POST"])
-def adminFilterRoute():
+def employerFilterRoute():
     filteredStudents = []
     Technologies = request.form.get("Technologies").strip().lower()
     list = Technologies.split(" ")
