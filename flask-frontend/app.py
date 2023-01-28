@@ -539,6 +539,8 @@ def archive_student_route_staff():
 
 @app.route("/admin/filter", methods=["POST"])
 def adminFilterRoute():
+    Technologies = request.form.get("Technologies")
+    list = Technologies.split(" ")
     return(request.form.get("Technologies"))
     
 
