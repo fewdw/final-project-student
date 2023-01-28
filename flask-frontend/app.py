@@ -290,8 +290,8 @@ def post_a_project_route():
     if request.method == "POST" and session.get("type") == "admin":
         post_a_project_to_api(
             request.form.get("project_id"),
-            request.form.get("project_name"),
-            request.form.get("project_description")
+            request.form.get("name_project"),
+            request.form.get("description")
         )
         return redirect("/admin/pannel")
     return redirect("/")
