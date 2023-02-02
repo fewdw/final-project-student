@@ -36,8 +36,9 @@ background-color:  #f0f0f0;
 
 }
 textarea {
-    width: 400px;
-    height: 200px;
+    width: 200px;
+    height: 100px;
+    resize: none;
   }
 tbody:nth-child(odd){
 
