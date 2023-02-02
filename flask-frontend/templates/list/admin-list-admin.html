@@ -13,6 +13,14 @@
 </div>
 
 
+<div class ="form">    
+
+    <form action= "/admin/filter" method ="POST">
+        {{I18N["Enter Students Technologies"][LANG]}}
+        <textarea name="Technologies"></textarea>
+        <button type="submit">{{I18N["Submit"][LANG]}}</button>
+        
+    </form>
 
 
     
@@ -32,14 +40,6 @@
         
         {% if s["status"] == "archived" %}
         
-<div class ="form">    
-
-    <form action= "/admin/filter" method ="POST">
-        {{I18N["Enter Students Technologies"][LANG]}}
-        <textarea name="Technologies"></textarea>
-        <button type="submit">{{I18N["Submit"][LANG]}}</button>
-        
-    </form>
 </div>
 
         <tr>
