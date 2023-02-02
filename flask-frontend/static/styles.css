@@ -22,7 +22,7 @@ table, th, td {
     border-collapse: collapse;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 100px;
+    margin-top: 150px;
     text-align: center;
     
 }
@@ -62,7 +62,7 @@ tbody:nth-child(odd){
     }
 .object1{
     height: 125px;
-    width: 1510px;
+    width: 100%;
     background-color:  #912338;
     z-index: -1;
     position:absolute;
