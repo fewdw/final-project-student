@@ -35,6 +35,10 @@ background-color:  #f0f0f0;
 
 
 }
+textarea {
+    width: 400px;
+    height: 200px;
+  }
 tbody:nth-child(odd){
 
     padding: 1rem 2rem; 
