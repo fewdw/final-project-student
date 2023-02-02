@@ -73,10 +73,12 @@ p {
 
 
   form {
-    position: relative;
+
+    
     z-index: 1;
-    top:250px;
+    
   }
+
 
 
 .image{
