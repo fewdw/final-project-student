@@ -8,11 +8,24 @@
 <div class ="object1">    
     </div>
     
-<div class ="object2">    
+<div class ="object2">  
+   <p> Search for a specific student</p>
+   
+    
+   <form action= "/admin/filter" method ="POST">
+
+    {{I18N["Enter Students Technologies"][LANG]}}
+
+    <textarea name="Technologies"></textarea>
+
+    <button type="submit">{{I18N["Submit"][LANG]}}</button>
+</form>
+
 </div>
 
 
-   
+
+
 
     
     <table class= "table" >
@@ -108,12 +121,5 @@
         <input type="hidden" name="email" value="{{EMAIL}}">
         <button type="submit">{{ I18N["CHANGE"][LANG]}}</button>
     </form>
-    <div>
-        <form action= "/admin/filter" method ="POST">
-            {{I18N["Enter Students Technologies"][LANG]}}
-            <textarea name="Technologies"></textarea>
-            <button type="submit">{{I18N["Submit"][LANG]}}</button>
-            
-        </form>
-    </div>
+   
 {% endblock %}
