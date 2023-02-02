@@ -35,10 +35,15 @@ background-color:  #f0f0f0;
 
 
 }
+
+
 textarea {
-    width: 300px;
-    height: 100px;
+    width: 250px;
+    height: 50px;
     resize: none;
+    margin-left: 60px;
+    margin-top: 5px;
+
   }
 tbody:nth-child(odd){
 
@@ -71,19 +76,23 @@ p {
     margin-top: 150px;
     color: #cbb576;
     text-align: center;
-    font-size: 28px;
+    font-size: 30px;
     font-weight: bold;
   }
 
 
   .form {
-    margin-top: 250px;
+    margin-top: 200px;
     font-size: 20px;
     font-weight: bold;
     z-index: 2;
 
   }
 
+
+  label {
+    margin-left: 20px;
+  }
 
 
 .image{
