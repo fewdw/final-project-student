@@ -9,7 +9,7 @@
     </div>
     
 <div class ="object2">  
-   <p> Search for specific Students</p>
+   <p> Search students by</p>
 </div>
 
 
@@ -18,12 +18,21 @@
 
     <form action= "/admin/filter" method ="POST">
         <label for="Technological">
-          {{ I18N["Enter Students Technological Aptitudes"][LANG]}}
+          {{ I18N["Technologies"][LANG]}}
         </label>
         <textarea name="Technologies" placeholder="List Technological Aptitudes"></textarea>
 
+<br>
+<label for="Technological">
+    Teachers
+  </label>
+  <textarea name="Technologies" placeholder="Teachers"></textarea>
 
-
+  <br>
+  <label for="Technological">
+    Year of graduation
+  </label>
+  <textarea name="Technologies" placeholder="Year of graduation"></textarea>
         <br>
 
 
