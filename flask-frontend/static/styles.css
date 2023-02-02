@@ -54,6 +54,19 @@ tbody:nth-child(odd){
     right: 0px;
 }
 
+.object2{
+    width: 400px;
+    height: 100vh;
+    background-color: #f0f0f0;
+    z-index: -1;
+
+    position:absolute;
+    left: 0px;
+    top:0px;
+    
+}
+
+
 .image{
     position:absolute;
     top:0px;
