@@ -22,21 +22,20 @@
         </label>
         <textarea name="Technologies" placeholder="List Technological Aptitudes"></textarea>
 
-<br>
-        <label for="Technological">
+        <br>
+        <label for="professor_name">
              Teachers
          </label>
-        <textarea name="Technologies" placeholder="Teachers"></textarea>
+        <textarea name="professor_name" placeholder="Teachers"></textarea>
 
         <br>
         <div class="slidecontainer">
             <label>Year of graduation</label>
-            <label>Minimum year: <br><span id="minimum"></span></label>
-            
+            <label class="minmax">Minimum year: <br><span id="minimum"></span></label>
             <input name="minimum" type="range" min="2000" max="2030" value="2000" class="slider" id="min">
             <br>
             
-            <label>Maximum year: <br><span id="maximum"></span></label>
+            <label class="minmax">Maximum year: <br><span id="maximum"></span></label>
             <input name="maximum"type="range" min="2000" max="2030" value="2030" class="slider" id="max">
             
             </div>
@@ -124,6 +123,7 @@
             <td><a href="/admin/list/student/editstudent/{{s._id}}"><img  alt="More" src="../static/edit-outline.png" width="25" height="25"></a></td>
             <td>{{s.first_name}},{{s.last_name}}</td>
             <td>{{s.degree}}, {{s.year_of_graduation}}</td>
+
             <td>{{s.programming_language}}</td>
             <td><a href="/admin/list/student/id/{{s._id}}"><img  alt="More" src="../static/more-horizontal-outline.png" width="25" height="25"></a></td>
         </tr>
