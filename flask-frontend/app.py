@@ -598,7 +598,33 @@ def employerFilterRoute():
         for s in filteredStudents:
             if s["year_of_graduation"] >= min and s["year_of_graduation"] <= max:
                 filteredByYear.append(s)
+    
     return render_template("list/filtered-admin-list.html", STUDENTS = filteredByYear, I18N=i18n, LANG=session.get("lang"), EMAIL=session.get("name"))
+
+
+
+
+@app.route("/admin/filter", methods=["POST"])
+def adminFilterRoute():
+    filteredStudents = []
+    filteredByYear=[]
+    if request.form.get("professor_name") is not None:
+        professor_name = request.form.get("professor_name").strip().lower()
+        list = professor_name.split(" ")
+        students=get_all_students_from_api()
+        for s in students:
+            for t in list:
+                if t in s["professor_name"].lower():
+                    filteredStudents.append(s)
+
+    if request.form.get("minimum") is not None and request.form.get("maximum") is not None:
+        min = request.form.get("minimum")
+        max = request.form.get("maximum")
+        for s in filteredStudents:
+            if s["year_of_graduation"] >= min and s["year_of_graduation"] <= max:
+                filteredByYear.append(s)
+    return render_template("list/filtered-admin-list.html", STUDENTS = filteredByYear, I18N=i18n, LANG=session.get("lang"), EMAIL=session.get("name"))
+
 
 if __name__ == '__main__':
     app.run()
