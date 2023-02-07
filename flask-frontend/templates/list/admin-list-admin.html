@@ -7,10 +7,49 @@
 
 <div class ="object1">    
     </div>
-
-   
-
     
+<div class ="object2">  
+   <p> Search students by</p>
+</div>
+
+
+
+<div class ="form">    
+
+    <form action= "/admin/filter" method ="POST">
+        <label for="Technological">
+          {{ I18N["Technologies"][LANG]}}
+        </label>
+        <textarea name="Technologies" placeholder="List Technological Aptitudes"></textarea>
+
+        <br>
+        <label for="professor_name">
+             Teachers
+         </label>
+        <textarea name="professor_name" placeholder="Teachers"></textarea>
+
+        <br>
+        <div class="slidecontainer">
+            <label>Year of graduation</label>
+            <label class="minmax">Minimum year: <br><span id="minimum"></span></label>
+            <input name="minimum" type="range" min="2000" max="2030" value="2000" class="slider" id="min">
+            <br>
+            
+            <label class="minmax">Maximum year: <br><span id="maximum"></span></label>
+            <input name="maximum"type="range" min="2000" max="2030" value="2030" class="slider" id="max">
+            
+            </div>
+        <br>
+
+
+        
+        <button type="submit">{{I18N["Submit"][LANG]}}</button>
+        
+    </form>
+</div>
+
+    <div class ="table">    
+
     <table class= "table" >
         <thead>
         <tr>
@@ -27,6 +66,8 @@
         
         {% if s["status"] == "archived" %}
         
+
+
         <tr>
             <td><a href="/admin/list/student/id/delete/{{s._id}}"><img  alt="More" src="../static/trash.jpg" width="25" height="25"></a></td>
             <td>
@@ -82,6 +123,7 @@
             <td><a href="/admin/list/student/editstudent/{{s._id}}"><img  alt="More" src="../static/edit-outline.png" width="25" height="25"></a></td>
             <td>{{s.first_name}},{{s.last_name}}</td>
             <td>{{s.degree}}, {{s.year_of_graduation}}</td>
+
             <td>{{s.programming_language}}</td>
             <td><a href="/admin/list/student/id/{{s._id}}"><img  alt="More" src="../static/more-horizontal-outline.png" width="25" height="25"></a></td>
         </tr>
@@ -94,6 +136,7 @@
             <td><a href="/student/addstudent"><img  alt="More" src="../static/person-add-outline.png" width="25" height="25"></a></td>
         </tr>
     </table>
+    </div>
     <a href="/admin/pannel">{{ I18N["VISIT ADMIN PANNEL"][LANG]}}</a>.
     <a href="/clearsession">{{ I18N["LOGOUT"][LANG]}}</a>
     <form action="/admin/changelang" method="POST">
@@ -104,22 +147,9 @@
         <input type="hidden" name="email" value="{{EMAIL}}">
         <button type="submit">{{ I18N["CHANGE"][LANG]}}</button>
     </form>
-    <div>
-        <form action= "/admin/filter" method ="POST">
-            {{I18N["Enter Students Technologies"][LANG]}}
-            <textarea name="Technologies"></textarea>
-            <div class="slidecontainer">
-                <p>Minimum year: <span id="minimum"></span></p>
-                <input name="minimum" type="range" min="2000" max="2030" value="2000" class="slider" id="min">
-                
-                <p>Maximum year: <span id="maximum"></span></p>
-                <input name="maximum"type="range" min="2000" max="2030" value="2030" class="slider" id="max">
-                
-                </div>
-            <button type="submit">{{I18N["Submit"][LANG]}}</button>
-            
-        </form>
-    </div>
+
+
+  
     <script>
         var slider1 = document.getElementById("min");
         var output1 = document.getElementById("minimum");

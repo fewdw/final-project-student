@@ -14,11 +14,36 @@ table, th, td {
     border-collapse: collapse;
     margin-left: auto;
     margin-right: auto;
+    margin-top: -500px;
+    text-align: center;
+    
+}
+.table2 {
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
     margin-top: 150px;
     text-align: center;
+    
+}
+.tableStaff{
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -450px;
+  text-align: center;
+  
 
 
 
+}
+.tableEmployer{
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -450px;
+  text-align: center;
+  
 }
 thead{
 
@@ -37,6 +62,16 @@ background-color:  #f0f0f0;
 
 
 }
+
+
+textarea {
+    width: 250px;
+    height: 50px;
+    resize: none;
+    margin-left: 20px;
+    margin-top: 5px;
+
+  }
 tbody:nth-child(odd){
 
     padding: 1rem 2rem; 
@@ -46,13 +81,57 @@ tbody:nth-child(odd){
     }
 .object1{
     height: 125px;
-    width: 1510px;
+    width: 100%;
     background-color:  #912338;
     z-index: -1;
     position:absolute;
     top:0px;
     right: 0px;
 }
+
+.object2{
+    width: 400px;
+    height: 700px;
+    background-color: #f0f0f0;
+    z-index: -1;
+    position:absolute;
+    left: 0px;
+    top:0px;
+  
+
+}
+.minmax{
+
+  font-size: 18px;
+  display: block;
+  margin-top: 1em;
+
+
+}
+
+p {
+    margin-top: 150px;
+    color: #cbb576;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+
+
+  .form {
+    margin-top: 200px;
+    font-size: 20px;
+    font-weight: bold;
+    z-index: 2;
+
+  }
+
+
+  label {
+    margin-left: 20px;
+  }
+
 
 .image{
     position:absolute;
@@ -130,33 +209,39 @@ label{
 
 
 
-  .slider {
-    -webkit-appearance: none;
-    width: 10%;
-    height: 15px;
-    border-radius: 5px;  
-    background: #d3d3d3;
-    outline: none;
-    opacity: 0.7;
-    -webkit-transition: .2s;
-    transition: opacity .2s;
-  }
+.slidecontainer {
+  width: 100%;
+}
 
-  .slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%; 
-    background: #aa0404;
-    cursor: pointer;
-  }
 
-  .slider::-moz-range-thumb {
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    background: #aa0404;
-    cursor: pointer;
-  }
-  
+.slider {
+  -webkit-appearance: none;
+  width: 10%;
+  height: 15px;
+  border-radius: 5px;  
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+  margin-left: 20px;
+
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%; 
+  background: #aa0404;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #aa0404;
+  cursor: pointer;
+}

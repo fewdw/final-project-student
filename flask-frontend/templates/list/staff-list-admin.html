@@ -11,7 +11,47 @@
 
 <div class="object1"></div>
 
-<table class="table">
+<div class ="object2">  
+  <p> Search students by</p>
+</div>
+
+
+
+<div class ="form">    
+
+   <form action= "/admin/filter" method ="POST">
+       <label for="Technological">
+         {{ I18N["Technologies"][LANG]}}
+       </label>
+       <textarea name="Technologies" placeholder="List Technological Aptitudes"></textarea>
+
+       <br>
+       <label for="professor_name">
+            Teachers
+        </label>
+       <textarea name="professor_name" placeholder="Teachers"></textarea>
+
+       <br>
+       <div class="slidecontainer">
+           <label>Year of graduation</label>
+           <label class="minmax">Minimum year: <br><span id="minimum"></span></label>
+           <input name="minimum" type="range" min="2000" max="2030" value="2000" class="slider" id="min">
+           <br>
+           
+           <label class="minmax">Maximum year: <br><span id="maximum"></span></label>
+           <input name="maximum"type="range" min="2000" max="2030" value="2030" class="slider" id="max">
+           
+           </div>
+       <br>
+
+
+       
+       <button type="submit">{{I18N["Submit"][LANG]}}</button>
+       
+   </form>
+</div>
+
+<table class="tableStaff">
   <thead>
     <tr>
       <th>{{ I18N["Archive"][LANG]}}</th>
@@ -172,37 +212,6 @@
   <input type="hidden" name="email" value="{{EMAIL}}" />
   <button type="submit">{{ I18N["CHANGE"][LANG]}}</button>
 </form>
-<div>
-  <form action= "/staff/filter" method ="POST">
-      {{I18N["Enter Students Technologies"][LANG]}}
-      <textarea name="Technologies"></textarea>
-      <div class="slidecontainer">
-        <p>Minimum year: <span id="minimum"></span></p>
-        <input name="minimum" type="range" min="2000" max="2030" value="2000" class="slider" id="min">
-        
-        <p>Maximum year: <span id="maximum"></span></p>
-        <input name="maximum"type="range" min="2000" max="2030" value="2030" class="slider" id="max">
-        
-        </div>
-    <button type="submit">{{I18N["Submit"][LANG]}}</button>
-    
-</form>
-</div>
-<script>
-var slider1 = document.getElementById("min");
-var output1 = document.getElementById("minimum");
-
-var slider2 = document.getElementById("max");
-var output2 = document.getElementById("maximum");
 
 
-output1.innerHTML = slider1.value;
-slider1.oninput = function() {
-  output1.innerHTML = this.value;
-}
-
-output2.innerHTML = slider2.value;
-slider2.oninput = function() {
-  output2.innerHTML = this.value;
-}
-</script>
+{% endblock %}
