@@ -132,11 +132,6 @@ def add_student_admin():
     return redirect("/admin")
 
 
-
-
-
-
-
 @app.route("/staff/list/student/addstudent")
 def add_student_staff():
     if session.get("type") == "staff":
@@ -400,6 +395,25 @@ def validate_staff_login():
                 return redirect("/staff/list")
     return redirect("/staff")
 
+@app.route("/employer/login", methods=["POST"])
+def validate_employer_login():
+    email = request.form.get("email")
+    password = request.form.get("password")
+    
+    if not email or not password:
+        return redirect("/")
+    
+    credentials = get_credentials_from_api()
+
+    for obj in credentials:
+        if obj["email"] == email and obj["type"] == "employer":
+            if bcrypt.checkpw(password.encode('utf-8'), obj["hash"].encode('utf-8')):
+                #CREATE SESSION!
+                session["name"] = obj["email"]
+                session["lang"] = obj["lang"]
+                session["type"] = obj["type"]
+                return redirect("/employer/list")
+    return redirect("/")
 
 @app.route("/clearsession")
 def clear_session():
