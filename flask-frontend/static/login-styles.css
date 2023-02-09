@@ -51,13 +51,13 @@ body {
 
 
 #admin-link {
-  display: inline-block;
   padding: 12px 20px;
   border-radius: 25px;
   background-color: #912338;
   color: white;
   font-size: 16px;
   font-weight: bold;
+  float: auto;;
   text-decoration: none;
   transition: all 0.3s ease;
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
@@ -71,13 +71,13 @@ body {
 }
 
 #half-one {
-  border-radius: 0 20px 20px 0;
-  
+  border-radius: 20px 0 20px 20px;
 }
-#half-two {
-  border-radius: 0 20px 20px 0;
 
+#half-two {
+  border-radius: 20px 20px 20px 0;
 }
+
 #half-one {
   background-color: #912338;
   color: white;
@@ -111,6 +111,7 @@ button.btn {
   letter-spacing: 1px;
   transition: all 0.3s ease;
   cursor: pointer;
+  float: auto;
 }
 
 button.btn:hover {
