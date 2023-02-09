@@ -68,10 +68,14 @@ body {
 
 #half-one {
   border-radius: 20px;
+  margin-right: .5rem;
+
 }
 
 #half-two {
   border-radius: 20px;
+  margin-left: .5rem;
+
 }
 
 #half-one {
