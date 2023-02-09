@@ -24,3 +24,31 @@
       <div id="logo-container">
         <img src="../../static/concordia-logo.jpg" alt="">
       </div>
+
+      <form action="/employer/login" method="POST">
+        <div id="pill">
+            <a id="half-one" href="/staff" style="background-color:#912338">Staff Login</a>
+            <a id="half-two" href="/" style="background-color:#e5a712">Employer Login</a>
+          </div>
+
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input name="email" type="text" id="email" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input name="password" type="password" id="password" class="form-control">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Log In</button>
+        
+        <small><a href="/admin" style="color: #912338">admin login</a></small>
+
+      </form>
+    </div>
+  </div>
+
+</body>
+
+</html>
