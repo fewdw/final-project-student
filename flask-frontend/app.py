@@ -405,7 +405,18 @@ def validate_employer_login():
     
     if not email or not password:
         return redirect("/")
+    
+    credentials = get_credentials_from_api()
 
+    for obj in credentials:
+        if obj["email"] == email and obj["type"] == "employer":
+            if bcrypt.checkpw(password.encode('utf-8'), obj["hash"].encode('utf-8')):
+                #CREATE SESSION!
+                session["name"] = obj["email"]
+                session["lang"] = obj["lang"]
+                session["type"] = obj["type"]
+                return redirect("/employer/list")
+    return redirect("/")
 
 
 @app.route("/clearsession")
