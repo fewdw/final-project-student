@@ -1,54 +1,84 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
-    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
-    <link rel="stylesheet" href="../static/styles.css">
-    <script src="../static/scipts.js"></script>
-    <link rel="stylesheet" href="../../static/login-styles.css"></link>
-
-</head>
-<body>
-<div id="container">
-
-    <div id="left-side">
-      <img src="../static/concordia.jpg" alt="Background Image">
-    </div>
-
-    <div id="right-side">
-
-      <div id="logo-container">
-        <img src="../../static/concordia-logo.jpg" alt="">
-      </div>
-
-      <form action="/employer/login" method="POST">
-        <div id="pill">
-            <a id="half-one" href="/staff" style="background-color:#912338">Staff Login</a>
-            <a id="half-two" href="/" style="background-color:#e5a712">Employer Login</a>
-          </div>
-
-        <div class="form-group">
-          <label for="email">Email:</label>
-          <input name="email" type="text" id="email" class="form-control">
-        </div>
-
-        <div class="form-group">
-          <label for="password">Password:</label>
-          <input name="password" type="password" id="password" class="form-control">
-        </div>
-
-        <button type="submit" class="btn btn-primary">Log In</button>
-        
-        <small><a href="/admin" style="color: #912338">admin login</a></small>
-
-      </form>
-    </div>
-  </div>
-
-</body>
-
-</html>
+<html>
+  <head>
+    <style>
+      #pill {
+        display: flex;
+        justify-content: center;
+        margin: 20px 0;
+      }
+      #half-one, #half-two {
+        width: 45%;
+        padding: 10px;
+        text-align: center;
+        border-radius: 25px;
+        font-size: 18px;
+        color: white;
+        text-decoration: none;
+        margin: 0 10px;
+      }
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        margin: 20px 0;
+      }
+      label {
+        font-size: 16px;
+        margin-bottom: 5px;
+      }
+      input[type="text"], input[type="password"] {
+        padding: 10px;
+        border-radius: 25px;
+        border: 1px solid gray;
+        font-size: 16px;
+        margin-bottom: 10px;
+        transition: all 0.5s ease-in-out;
+      }
+      input[type="text"]:focus, input[type="password"]:focus {
+        border: 1px solid blue;
+        box-shadow: 0 0 10px blue;
+      }
+      .btn-primary {
+        padding: 10px 20px;
+        border-radius: 25px;
+        background-color: #912338;
+        color: white;
+        font-size: 16px;
+        margin-top: 10px;
+        cursor: pointer;
+        border: none;
+      }
+      small {
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+      }
+      .admin-btn {
+        padding: 10px 20px;
+        border-radius: 25px;
+        background-color: #e5a712;
+        color: white;
+        font-size: 16px;
+        margin-left: 10px;
+        cursor: pointer;
+        border: none;
+      }
+      .password-field {
+        position: relative;
+      }
+      .password-field input[type="password"] {
+        padding-right: 35px;
+      }
+      .password-field .toggle-password {
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 30px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
+    </style>
+   
