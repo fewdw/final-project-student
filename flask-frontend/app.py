@@ -398,6 +398,15 @@ def validate_staff_login():
     return redirect("/staff")
 
 
+@app.route("/employer/login", methods=["POST"])
+def validate_employer_login():
+    email = request.form.get("email")
+    password = request.form.get("password")
+    
+    if not email or not password:
+        return redirect("/")
+
+
 
 @app.route("/clearsession")
 def clear_session():
