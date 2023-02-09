@@ -18,6 +18,7 @@ with open('i18n.json', encoding='utf-8') as f:
     i18n = json.load(f)
 
 # login routes
+@app.route('/')
 
 
     if session.get("type") == "staff":
