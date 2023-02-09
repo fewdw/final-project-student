@@ -23,6 +23,8 @@ def employer_index():
     if session.get("type") == "employer":
         return redirect("/employer/list")
 
+
+
     if session.get("type") == "staff":
         return redirect("/staff/list")
 
@@ -130,11 +132,6 @@ def add_student_admin():
     if session.get("type") == "admin":
         return render_template("addstudent/add-student-admin.html", DEGREES=get_all_degrees_from_api(), PROJECTS = get_all_projects_from_api(), I18N=i18n, LANG=session.get("lang"))
     return redirect("/admin")
-
-
-
-
-
 
 
 @app.route("/staff/list/student/addstudent")
@@ -400,6 +397,7 @@ def validate_staff_login():
                 return redirect("/staff/list")
     return redirect("/staff")
 
+
 @app.route("/employer/login", methods=["POST"])
 def validate_employer_login():
     email = request.form.get("email")
@@ -419,6 +417,7 @@ def validate_employer_login():
                 session["type"] = obj["type"]
                 return redirect("/employer/list")
     return redirect("/")
+
 
 @app.route("/clearsession")
 def clear_session():
