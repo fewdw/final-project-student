@@ -17,21 +17,16 @@ body {
 }
 #half-one,
 #half-two {
-  width: 40%;
   padding: 12px 20px;
-  border-radius: 10px;
-  text-align: center;
-  margin: 0;
-  position: relative;
-  top: -20px;
+  border-radius: 25px;
   background-color: #912338;
   color: white;
   font-size: 16px;
   font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  border: 2px solid #912338;
+  float: left;
+  text-decoration: none;
   transition: all 0.3s ease;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
 
