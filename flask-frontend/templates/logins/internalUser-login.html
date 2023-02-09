@@ -1,69 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-    <style>
-        .form-control {
-            background-color: #912338; 
-            border-radius: 10px; 
-            border: 1px solid lightgray;
-            padding: 10px;
-            width: 100%;
-            transition: all 0.3s ease-in-out;
-        }
-    
-        .form-control:focus {
-            background-color: blue;
-            box-shadow: 0 0 10px blue;
-            border: 1px solid blue;
-        }
-    
-    .btn-primary {
-        background-color: #912338;
-        color: white;
-        border-radius: 24px;
-        margin-top: 10px;
-        font-size: 22px;
-        padding: 12px 25px;
-        transition: all 0.3s ease-in-out;
-        border: none;
-        cursor: pointer;
-    }
-    
-    .btn-primary:hover {
-        background-color: blue;
-        color: white;
-    }
-    
-    
-    .admin-button {
-      background-color: #912338;
-      border: none;
-      color: white;
-      padding: 10px 20px;
-      text-align: center;
-      float: right;
-      text-decoration: none;
-      font-size: 16px;
-      margin: 4px 2px;
-      cursor: pointer;
-      border-radius: 5px;
-    }
-    
-    .admin-button:hover{
-    background-color: blue;
-     cursor: pointer;
-    }
-    
-    </style>
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
-    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
-    <link rel="stylesheet" href="../static/styles.css">
-    <script src="../static/scipts.js"></script>
-    <link rel="stylesheet" href="../../static/login-styles.css"></link>
 
 
 </head>
@@ -80,11 +14,12 @@
         <img src="../../static/concordia-logo.jpg" alt="">
       </div>
 
-      <form action="/employer/login" method="POST">
+      <form action="/internalUser/login" method="POST">
         <div id="pill">
-            <a href="/staff" class="button">Staff Login</a>
-            <a href="/" class="button">Employer Login</a>
+            <a id="half-one" href="/internalUser" style="background-color:#e5a712">Internal User Login</a>
+            <a id="half-two" href="/" style="background-color:#912338">Employer Login</a>
           </div>
+
         <div class="form-group">
           <label for="email">Email:</label>
           <input name="email" type="text" id="email" class="form-control">
@@ -95,13 +30,16 @@
           <input name="password" type="password" id="password" class="form-control">
         </div>
 
-        <button type="submit" class="btn-primary">Log In</button>
-        
-        <button class="admin-button">admin login</button>
+        <button type="submit" class="btn btn-primary">Log In</button>
+        <div class="slidecontainer">
+        <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+        <p>Value: <span id="demo"></span></p>
+        </div>
+        <small><a href="/admin" style="color: #912338">admin login</a></small>
+
       </form>
     </div>
   </div>
-
+ 
 </body>
-
 </html>
