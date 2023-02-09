@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,15 +13,31 @@
     <link rel="stylesheet" href="../../static/login-styles.css"></link>
     <style>
         .form-control {
-            background-color: lightblue; 
+            background-color: white; 
             border-radius: 10px; 
+            
+        }
+
+        .form-control:focus {
+            background-color: white;
             box-shadow: 0 0 10px blue;
         }
+
         .btn-admin {
-            background-color: blue;
+            background-color: red;
             color: white;
             border-radius: 10px;
             margin-left: 10px;
+            box-shadow: 0 0 10px blue;
+            font-size: 16px;
+            padding: 8px 20px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .btn-admin:hover {
+            background-color: white;
+            color: blue;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -49,7 +66,9 @@
         <button type="submit" class="btn btn-primary">Log In</button>
 
         <button type="button" class="btn btn-admin">Admin Login</button>
-      </form>
+     
+
+</form>
     </div>
   </div>
 </body>
