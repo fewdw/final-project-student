@@ -1,19 +1,14 @@
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
-    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
     <link rel="stylesheet" href="../static/styles.css">
-    <script src="../static/scipts.js"></script>
-    <link rel="stylesheet" href="../../static/login-styles.css"></link>
-
-
-</head>
-<body>
+    <link rel="stylesheet" href="../../static/login-styles.css">
+  </head>
+  <body>
     <style>
+      /* Better to put CSS inside the style tags in the head section */
       #pill {
         display: flex;
         justify-content: center;
@@ -94,24 +89,9 @@
         cursor: pointer;
       }
     </style>
-  </head>
-  <body>
-   
-        <div id="container">
-        
-            <div id="left-side">
-              <img src="../static/concordia.jpg" alt="Background Image">
-            </div>
-        
-            <div id="right-side">
-        
-              <div id="logo-container">
-                <img src="../../static/concordia-logo.jpg" alt="">
-              </div>
-
     <div id="container">
       <form action="/employer/login" method="POST">
-        <div id="pill">
+        <div id="left-side">
           <a id="half-one" href="/staff" style="background-color:#912338">Staff Login</a>
           <a id="half-two" href="/" style="background-color:#e5a712">Employer Login</a>
         </div>
