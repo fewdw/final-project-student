@@ -46,17 +46,18 @@ body {
 
 
 #admin-link {
-  padding: 12px 20px;
-  border-radius: 25px;
+  padding: 6px 10px;
+  border-radius: 10px;
   background-color: #912338;
   color: white;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
   float: left;
   text-decoration: none;
   transition: all 0.3s ease;
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
+
 
 #admin-link:hover {
   background-color: #e5a712;
@@ -95,12 +96,12 @@ input.form-control {
 }
 
 button.btn {
-  padding: 0.75rem 1.5rem;
+  padding: 0.5rem 1rem;
   background-color: #912338;
   color: #fff;
-  border-radius: 0.25rem;
+  border-radius: 1rem;
   border: none;
-  font-size: 1rem;
+  font-size: 0.875rem;
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -109,8 +110,9 @@ button.btn {
   float: auto;
 }
 
+
 button.btn:hover {
-  background-color: #e5a712;
+  background-color: blue;
   transform: translateY(-2px);
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
@@ -167,3 +169,32 @@ form {
 form {
   margin-top: 100px;
 }
+
+form input[type="text"], form textarea {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  box-shadow: 0 0 0 0 rgba(0, 0, 255, 0.7);
+  transition: all 0.3s ease-in-out;
+}
+
+form input[type="text"]:focus, form textarea:focus {
+  box-shadow: 0 0 10px 0 rgba(0, 0, 255, 0.7);
+}
+
+form input[type="email"], form textarea {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  box-shadow: 0 0 0 0 rgba(0, 0, 255, 0.7);
+  transition: all 0.3s ease-in-out;
+}
+
+form input[type="email"]:focus, form textarea:focus {
+  box-shadow: 0 0 10px 0 rgba(0, 0, 255, 0.7);
+}
+
