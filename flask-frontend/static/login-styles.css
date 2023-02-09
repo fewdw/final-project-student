@@ -37,10 +37,10 @@ body {
 
 #half-one:hover,
 #half-two:hover {
-  background-color: #d67600;
-  cursor: pointer;
+  background-color: #e5a712;
+  color: white;
   transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  cursor: pointer;
 }
 
 #half-one:focus,
@@ -57,7 +57,7 @@ body {
   color: white;
   font-size: 16px;
   font-weight: bold;
-  float: auto;;
+  float: left;
   text-decoration: none;
   transition: all 0.3s ease;
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
@@ -71,11 +71,11 @@ body {
 }
 
 #half-one {
-  border-radius: 20px 0 20px 20px;
+  border-radius: 20px;
 }
 
 #half-two {
-  border-radius: 20px 20px 20px 0;
+  border-radius: 20px;
 }
 
 #half-one {
