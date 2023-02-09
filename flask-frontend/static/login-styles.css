@@ -17,7 +17,7 @@ body {
 }
 #half-one,
 #half-two {
-  padding: 12px 20px;
+  padding: 14px 20px;
   border-radius: 25px;
   background-color: #912338;
   color: white;
@@ -46,8 +46,8 @@ body {
 
 
 #admin-link {
-  padding: 6px 10px;
-  border-radius: 10px;
+  padding: 14px 16px;
+  border-radius: 16px;
   background-color: #912338;
   color: white;
   font-size: 14px;
@@ -170,31 +170,9 @@ form {
   margin-top: 100px;
 }
 
-form input[type="text"], form textarea {
-  width: 100%;
-  padding: 1rem;
-  border-radius: 5px;
-  border: none;
-  outline: none;
-  box-shadow: 0 0 0 0 rgba(0, 0, 255, 0.7);
-  transition: all 0.3s ease-in-out;
-}
-
-form input[type="text"]:focus, form textarea:focus {
-  box-shadow: 0 0 10px 0 rgba(0, 0, 255, 0.7);
-}
-
-form input[type="email"], form textarea {
-  width: 100%;
-  padding: 1rem;
-  border-radius: 5px;
-  border: none;
-  outline: none;
-  box-shadow: 0 0 0 0 rgba(0, 0, 255, 0.7);
-  transition: all 0.3s ease-in-out;
-}
-
-form input[type="email"]:focus, form textarea:focus {
-  box-shadow: 0 0 10px 0 rgba(0, 0, 255, 0.7);
+.form-control:focus {
+  box-shadow: 0 0 0 0.2rem rgba(33, 150, 243, 0.25);
+  border-color: #2196f3;
+  outline: 0;
 }
 
