@@ -18,10 +18,7 @@ with open('i18n.json', encoding='utf-8') as f:
     i18n = json.load(f)
 
 # login routes
-@app.route('/')
-def employer_index():
-    if session.get("type") == "employer":
-        return redirect("/employer/list")
+
 
     if session.get("type") == "staff":
         return redirect("/staff/list")
@@ -400,25 +397,6 @@ def validate_staff_login():
                 return redirect("/staff/list")
     return redirect("/staff")
 
-@app.route("/employer/login", methods=["POST"])
-def validate_employer_login():
-    email = request.form.get("email")
-    password = request.form.get("password")
-    
-    if not email or not password:
-        return redirect("/")
-    
-    credentials = get_credentials_from_api()
-
-    for obj in credentials:
-        if obj["email"] == email and obj["type"] == "employer":
-            if bcrypt.checkpw(password.encode('utf-8'), obj["hash"].encode('utf-8')):
-                #CREATE SESSION!
-                session["name"] = obj["email"]
-                session["lang"] = obj["lang"]
-                session["type"] = obj["type"]
-                return redirect("/employer/list")
-    return redirect("/")
 
 @app.route("/clearsession")
 def clear_session():
@@ -630,9 +608,6 @@ def employerFilterRoute():
                     filteredStudents.append(s)
     
     return render_template("list/filtered-employer-list.html", STUDENTS = filteredByYear, I18N=i18n, LANG=session.get("lang"), EMAIL=session.get("name"))
-
-
-
 
 if __name__ == '__main__':
     app.run()
