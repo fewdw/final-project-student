@@ -66,21 +66,21 @@ def staff_index():
 @app.route('/employer/list')
 def employer_list_home():
     if session.get("type") == "employer":
-        return render_template("list/employer-list-admin.html", STUDENTS = get_all_students_from_api(), I18N=i18n, LANG=session.get("lang"), EMAIL=session.get("name"), DEGREES=get_all_degrees_from_api())
+        return render_template("list/employer-list-admin.html", STUDENTS = get_all_students_from_api(), I18N=i18n, LANG=session.get("lang"), EMAIL=session.get("name"), DEGREES=get_all_degrees_from_api(), PROJECTS=get_all_projects_from_api())
     return redirect("/")
 
 
 @app.route('/staff/list')
 def staff_list_home():
     if session.get("type") == "staff":
-        return render_template("list/staff-list-admin.html", STUDENTS = get_all_students_from_api(), I18N=i18n, LANG=session.get("lang"), EMAIL=session.get("name"), DEGREES=get_all_degrees_from_api())
+        return render_template("list/staff-list-admin.html", STUDENTS = get_all_students_from_api(), I18N=i18n, LANG=session.get("lang"), EMAIL=session.get("name"), DEGREES=get_all_degrees_from_api(),  PROJECTS=get_all_projects_from_api())
     return redirect("/staff")
 
 
 @app.route('/admin/list')
 def admin_list_home():
     if session.get("type") == "admin":
-        return render_template("list/admin-list-admin.html", STUDENTS = get_all_students_from_api(), I18N=i18n, LANG=session.get("lang"), EMAIL=session.get("name"), DEGREES=get_all_degrees_from_api())
+        return render_template("list/admin-list-admin.html", STUDENTS = get_all_students_from_api(), I18N=i18n, LANG=session.get("lang"), EMAIL=session.get("name"), DEGREES=get_all_degrees_from_api(), PROJECTS=get_all_projects_from_api())
     return redirect("/admin")
 
 # routing for student by specific fields
