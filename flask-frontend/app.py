@@ -1,8 +1,9 @@
-from flask import Flask, render_template,redirect,request,jsonify,session
+from flask import Flask, render_template,redirect,request,jsonify,session,make_response
 from flask_session import Session
 import requests, json
 import bcrypt
 import ast
+import base64
 
 from student_api_request import get_all_students_from_api, get_one_student_from_api, delete_student_from_api,edited_student_admin_api_request, add_student_to_list
 from degree_api_request import get_all_degrees_from_api, delete_degree_from_api,post_a_degree_to_api, put_a_degree_to_api
@@ -155,6 +156,19 @@ def edit_student_staff(id):
 @app.route("/admin/list/studentUpdated/", methods=["POST"])
 def edited_student_admin():
     if request.method == "POST" and session.get("type") == "admin":
+
+        old_pdf = request.form.get("old_pdf_string")
+
+        pdf_file = request.files.get("pdf_file")
+        pdf_data = pdf_file.read()
+        pdf_data_b64 = base64.b64encode(pdf_data).decode('utf-8')
+
+        if len(pdf_data_b64) > 10:
+            pdf_to_post = pdf_data_b64
+        else:
+            pdf_to_post = old_pdf
+        
+
         delete_student_from_api(request.form.get("id"))
         add_student_to_list(
             request.form.get("student_id"),
@@ -166,7 +180,8 @@ def edited_student_admin():
             request.form.get("year_of_graduation"),
             request.form.get("degree"),
             request.form.get("projectId"),
-            request.form.get("programming_language")
+            request.form.get("programming_language"),
+            pdf_to_post
         )
         return redirect ("/admin/list")
     return redirect("/")
@@ -174,6 +189,18 @@ def edited_student_admin():
 @app.route("/staff/list/studentUpdated/", methods=["POST"])
 def edited_student_staff():
     if request.method == "POST" and session.get("type") == "staff":
+
+        old_pdf = request.form.get("old_pdf_string")
+
+        pdf_file = request.files.get("pdf_file")
+        pdf_data = pdf_file.read()
+        pdf_data_b64 = base64.b64encode(pdf_data).decode('utf-8')
+
+        if len(pdf_data_b64) > 10:
+            pdf_to_post = pdf_data_b64
+        else:
+            pdf_to_post = old_pdf
+
         delete_student_from_api(request.form.get("id"))
         add_student_to_list(
             request.form.get("student_id"),
@@ -185,13 +212,19 @@ def edited_student_staff():
             request.form.get("year_of_graduation"),
             request.form.get("degree"),
             request.form.get("projectId"),
-            request.form.get("programming_language")
+            request.form.get("programming_language"),
+            pdf_to_post
         )
         return redirect ("/staff/list")
     return redirect("/")
     
 @app.route("/staff/list/student/studentadded",methods=["POST"])
 def student_added_from_form_staff():
+
+    pdf_file = request.files.get("pdf_file")
+    pdf_data = pdf_file.read()
+    pdf_data_b64 = base64.b64encode(pdf_data).decode('utf-8')
+
     if request.method == "POST" and session.get("type") == "staff":
         add_student_to_list(
         request.form.get("student_Id"),
@@ -203,13 +236,19 @@ def student_added_from_form_staff():
         request.form.get("year_of_graduation"),
         request.form.get("degree"),
         request.form.get("projectId"),
-        request.form.get("programming_language")
+        request.form.get("programming_language"),
+        pdf_data_b64
         )
         return redirect("/staff/list")
     return redirect("/")
 
 @app.route("/admin/list/student/studentadded",methods=["POST"])
 def student_added_from_form_admin():
+
+    pdf_file = request.files.get("pdf_file")
+    pdf_data = pdf_file.read()
+    pdf_data_b64 = base64.b64encode(pdf_data).decode('utf-8')
+
     if request.method == "POST" and session.get("type") == "admin":
         add_student_to_list(
         request.form.get("student_Id"),
@@ -221,7 +260,8 @@ def student_added_from_form_admin():
         request.form.get("year_of_graduation"),
         request.form.get("degree"),
         request.form.get("projectId"),
-        request.form.get("programming_language")
+        request.form.get("programming_language"),
+        pdf_data_b64
         )
         return redirect("/admin/list")
     return redirect("/")
@@ -510,6 +550,7 @@ def archive_student_route():
             request.form.get("degree"),
             request.form.get("projectId"),
             request.form.get("programming_language"),
+            request.form.get("pdf"),
             status=request.form.get("status")
         )
         return redirect('/admin/list')
@@ -530,6 +571,7 @@ def archive_student_route_staff():
             request.form.get("degree"),
             request.form.get("projectId"),
             request.form.get("programming_language"),
+            request.form.get("pdf"),
             status=request.form.get("status")
         )
         return redirect('/staff/list')
@@ -645,6 +687,42 @@ def email_students_route():
         student = get_one_student_from_api(request.form.get("student_id"))
         sent_bool = send_mail(session.get("name"),student)
         return render_template("email_sent.html", STUDENT_NAME=student["first_name"],EMAIL=session.get("name"),I18N=i18n,SENT=sent_bool,LANG=session.get("lang"))
+    return redirect("/")
+
+@app.route("/admin/list/resume",methods=["POST"])
+def admin_view_resume_route():
+    if session.get("type") == "admin":
+
+        base64_string = request.form.get("pdf")
+        pdf_data = base64.b64decode(base64_string)
+        response = make_response(pdf_data)
+        response.headers.set('Content-Disposition', 'inline', filename='file.pdf')
+        response.headers.set('Content-Type', 'application/pdf')
+        return response
+
+    return redirect("/")
+
+@app.route("/staff/list/resume",methods=["POST"])
+def staff_view_resume_route():
+    if session.get("type") == "staff":
+
+        base64_string = request.form.get("pdf")
+        pdf_data = base64.b64decode(base64_string)
+        response = make_response(pdf_data)
+        response.headers.set('Content-Disposition', 'inline', filename='file.pdf')
+        response.headers.set('Content-Type', 'application/pdf')
+        return response
+    return redirect("/")
+
+@app.route("/employer/list/resume",methods=["POST"])
+def employer_view_resume_route():
+    if session.get("type") == "employer":
+        base64_string = request.form.get("pdf")
+        pdf_data = base64.b64decode(base64_string)
+        response = make_response(pdf_data)
+        response.headers.set('Content-Disposition', 'inline', filename='file.pdf')
+        response.headers.set('Content-Type', 'application/pdf')
+        return response
     return redirect("/")
 
 if __name__ == '__main__':

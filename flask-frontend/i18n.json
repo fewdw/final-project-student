@@ -274,5 +274,10 @@
         "en": "Enter Students Technologies",
         "fr": "entrez les technologies de l'étudiant"
         
+    },
+
+    "Submit student Resume":{
+        "en":"Submit student Resume",
+        "fr":"Soumettre le CV de l'étudiant"
     }
 }
