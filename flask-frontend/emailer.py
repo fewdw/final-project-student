@@ -16,7 +16,7 @@ def send_mail(employer_email, student):
         msg = f"""
         Dear Customer,
 
-        You have requested information from {student["first_name"]} {student["first_name"]},
+        You have requested information from {student["first_name"]} {student["last_name"]},
 
         We have attached a PDF copy of the student's resume to this email. If you have any questions or require further information, please feel free to contact us at isrsteam19@gmail.com.
 
