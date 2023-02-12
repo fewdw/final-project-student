@@ -1,11 +1,16 @@
 h1{
     color:#cbb576;
 }
-table, th, td {
+table, td {
     padding: 15px;
+    color: black;
+}
+table, th{
+
+  padding: 15px;
+  color: white;
 
 }
-
 
 
 

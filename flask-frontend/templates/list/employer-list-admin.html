@@ -17,7 +17,7 @@
 
 <div class ="form">    
 
-  <form action= "/admin/filter" method ="POST">
+  <form action= "/employer/filter" method ="POST">
       <label for="Technological">
         {{ I18N["Technologies"][LANG]}}
       </label>
@@ -53,7 +53,6 @@
   <thead>
     <tr>
       <td>{{ I18N["email"][LANG]}}</td>
-      <td>favorit</td>
       <th>{{ I18N["Full name"][LANG]}}</th>
       <th>{{ I18N["Degree"][LANG]}}</th>
       <th>{{ I18N["Technologies"][LANG]}}</th>
@@ -66,20 +65,16 @@
 
     <tr>
       <td>
-        <form>
-          <input type="checkbox" name="emailMe" />
-          <input type="hidden" name="{{s._id}}" />
+        <form  method="post" action="/employer/email">
+          <input type="hidden" value="{{s._id}}" name="student_id" />
+          <input type="submit" value="Email Me This Student"/>
         </form>
-      </td>
-      <td>
-        <!-- IF s._id is in the employers favorite list make it checked, else unchecked -->
-        <input type="checkbox" name="favored" />
       </td>
       <td>{{s.first_name}},{{s.last_name}}</td>
       <td>{{s.degree}}, {{s.year_of_graduation}}</td>
       <td>{{s.programming_language}}</td>
       <td>
-        <a href="/admin/list/student/id/{{s._id}}"
+        <a href="/employer/list/student/id/{{s._id}}"
           ><img
             alt="More"
             src="../static/more-horizontal-outline.png"
@@ -113,7 +108,5 @@
   <input type="hidden" name="email" value="{{EMAIL}}" />
   <button type="submit">{{ I18N["CHANGE"][LANG]}}</button>
 </form>
-
-
 
 {% endblock %}
