@@ -8,6 +8,7 @@ from student_api_request import get_all_students_from_api, get_one_student_from_
 from degree_api_request import get_all_degrees_from_api, delete_degree_from_api,post_a_degree_to_api, put_a_degree_to_api
 from project_api_request import get_all_projects_from_api, delete_project_from_api, post_a_project_to_api, put_a_project_to_api
 from credential_api_request import get_credentials_from_api, post_credentials_from_api, put_credentials_from_api, delete_credentials_from_api, get_credentials_by_id_from_api
+from emailer import send_mail
 
 app = Flask(__name__)
 app.config["SESSION_PERMANENT"] = False
@@ -22,8 +23,6 @@ with open('i18n.json', encoding='utf-8') as f:
 def employer_index():
     if session.get("type") == "employer":
         return redirect("/employer/list")
-
-
 
     if session.get("type") == "staff":
         return redirect("/staff/list")
@@ -538,100 +537,115 @@ def archive_student_route_staff():
 
 @app.route("/admin/filter", methods=["POST"])
 def adminFilterRoute():
-    filteredStudents = []
-    filteredByYear=[]
-    if request.form.get("Technologies") is not None:
-        Technologies = request.form.get("Technologies").strip().lower()
-        list = Technologies.split(" ")
-        students=get_all_students_from_api()
-        for s in students:
-            for t in list:
-                if t in s["programming_language"].lower():
-                    filteredStudents.append(s)
+    if session.get("type") == "admin":
+        filteredStudents = []
+        filteredByYear=[]
+        if request.form.get("Technologies") is not None:
+            Technologies = request.form.get("Technologies").strip().lower()
+            list = Technologies.split(" ")
+            students=get_all_students_from_api()
+            for s in students:
+                for t in list:
+                    if t in s["programming_language"].lower():
+                        filteredStudents.append(s)
 
-    if request.form.get("minimum") is not None and request.form.get("maximum") is not None:
-        min = request.form.get("minimum")
-        max = request.form.get("maximum")
-        for s in filteredStudents:
-            if s["year_of_graduation"] >= min and s["year_of_graduation"] <= max:
-                filteredByYear.append(s)
+        if request.form.get("minimum") is not None and request.form.get("maximum") is not None:
+            min = request.form.get("minimum")
+            max = request.form.get("maximum")
+            for s in filteredStudents:
+                if s["year_of_graduation"] >= min and s["year_of_graduation"] <= max:
+                    filteredByYear.append(s)
 
-    if request.form.get("professor_name") is not None:
-        professor_name = request.form.get("professor_name").strip().lower()
-        list = professor_name.split(" ")
-        students=get_all_students_from_api()
-        for s in students:
-            for t in list:
-                if t in s["professor_name"].lower():
-                    filteredStudents.append(s)
-    return render_template("list/filtered-admin-list.html", STUDENTS = filteredByYear, I18N=i18n, LANG=session.get("lang"), EMAIL=session.get("name"))
+        if request.form.get("professor_name") is not None:
+            professor_name = request.form.get("professor_name").strip().lower()
+            list = professor_name.split(" ")
+            students=get_all_students_from_api()
+            for s in students:
+                for t in list:
+                    if t in s["professor_name"].lower():
+                        filteredStudents.append(s)
+        return render_template("list/filtered-admin-list.html", STUDENTS = filteredByYear, I18N=i18n, LANG=session.get("lang"), EMAIL=session.get("name"))
+    
+    return redirect("/")
 
 
 
 
 @app.route("/staff/filter", methods=["POST"])
 def staffFilterRoute():
-    filteredStudents = []
-    filteredByYear=[]
-    if request.form.get("Technologies") is not None:
-        Technologies = request.form.get("Technologies").strip().lower()
-        list = Technologies.split(" ")
-        students=get_all_students_from_api()
-        for s in students:
-            for t in list:
-                if t in s["programming_language"].lower():
-                    filteredStudents.append(s)
+    if session.get("type") == "staff":
+        filteredStudents = []
+        filteredByYear=[]
+        if request.form.get("Technologies") is not None:
+            Technologies = request.form.get("Technologies").strip().lower()
+            list = Technologies.split(" ")
+            students=get_all_students_from_api()
+            for s in students:
+                for t in list:
+                    if t in s["programming_language"].lower():
+                        filteredStudents.append(s)
 
-    if request.form.get("minimum") is not None and request.form.get("maximum") is not None:
-        min = request.form.get("minimum")
-        max = request.form.get("maximum")
-        for s in filteredStudents:
-            if s["year_of_graduation"] >= min and s["year_of_graduation"] <= max:
-                filteredByYear.append(s)
-                
-    if request.form.get("professor_name") is not None:
-        professor_name = request.form.get("professor_name").strip().lower()
-        list = professor_name.split(" ")
-        students=get_all_students_from_api()
-        for s in students:
-            for t in list:
-                if t in s["professor_name"].lower():
-                    filteredStudents.append(s)
-    return render_template("list/filtered-staff-list.html", STUDENTS = filteredByYear, I18N=i18n, LANG=session.get("lang"), EMAIL=session.get("name"))
+        if request.form.get("minimum") is not None and request.form.get("maximum") is not None:
+            min = request.form.get("minimum")
+            max = request.form.get("maximum")
+            for s in filteredStudents:
+                if s["year_of_graduation"] >= min and s["year_of_graduation"] <= max:
+                    filteredByYear.append(s)
+                    
+        if request.form.get("professor_name") is not None:
+            professor_name = request.form.get("professor_name").strip().lower()
+            list = professor_name.split(" ")
+            students=get_all_students_from_api()
+            for s in students:
+                for t in list:
+                    if t in s["professor_name"].lower():
+                        filteredStudents.append(s)
+        return render_template("list/filtered-staff-list.html", STUDENTS = filteredByYear, I18N=i18n, LANG=session.get("lang"), EMAIL=session.get("name"))
+    
+    return redirect("/")
 
 @app.route("/employer/filter", methods=["POST"])
 def employerFilterRoute():
-    filteredStudents = []
-    filteredByYear=[]
-    if request.form.get("Technologies") is not None:
-        Technologies = request.form.get("Technologies").strip().lower()
-        list = Technologies.split(" ")
-        students=get_all_students_from_api()
-        for s in students:
-            for t in list:
-                if t in s["programming_language"].lower():
-                    filteredStudents.append(s)
+    if session.get("type") == "employer":
+        filteredStudents = []
+        filteredByYear=[]
+        if request.form.get("Technologies") is not None:
+            Technologies = request.form.get("Technologies").strip().lower()
+            list = Technologies.split(" ")
+            students=get_all_students_from_api()
+            for s in students:
+                for t in list:
+                    if t in s["programming_language"].lower():
+                        filteredStudents.append(s)
 
-    if request.form.get("minimum") is not None and request.form.get("maximum") is not None:
-        min = request.form.get("minimum")
-        max = request.form.get("maximum")
-        for s in filteredStudents:
-            if s["year_of_graduation"] >= min and s["year_of_graduation"] <= max:
-                filteredByYear.append(s)
-                
-    if request.form.get("professor_name") is not None:
-        professor_name = request.form.get("professor_name").strip().lower()
-        list = professor_name.split(" ")
-        students=get_all_students_from_api()
-        for s in students:
-            for t in list:
-                if t in s["professor_name"].lower():
-                    filteredStudents.append(s)
+        if request.form.get("minimum") is not None and request.form.get("maximum") is not None:
+            min = request.form.get("minimum")
+            max = request.form.get("maximum")
+            for s in filteredStudents:
+                if s["year_of_graduation"] >= min and s["year_of_graduation"] <= max:
+                    filteredByYear.append(s)
+                    
+        if request.form.get("professor_name") is not None:
+            professor_name = request.form.get("professor_name").strip().lower()
+            list = professor_name.split(" ")
+            students=get_all_students_from_api()
+            for s in students:
+                for t in list:
+                    if t in s["professor_name"].lower():
+                        filteredStudents.append(s)
+        
+        return render_template("list/filtered-employer-list.html", STUDENTS = filteredByYear, I18N=i18n, LANG=session.get("lang"), EMAIL=session.get("name"))
     
-    return render_template("list/filtered-employer-list.html", STUDENTS = filteredByYear, I18N=i18n, LANG=session.get("lang"), EMAIL=session.get("name"))
+    return redirect("/")
 
+@app.route("/employer/email", methods=["POST"])
+def email_students_route():
+    if session.get("type") == "employer":
 
-
+        student = get_one_student_from_api(request.form.get("student_id"))
+        sent_bool = send_mail(session.get("name"),student)
+        return render_template("email_sent.html", STUDENT_NAME=student["first_name"],EMAIL=session.get("name"),I18N=i18n,SENT=sent_bool,LANG=session.get("lang"))
+    return redirect("/")
 
 if __name__ == '__main__':
     app.run()
