@@ -19,7 +19,7 @@ with open('i18n.json', encoding='utf-8') as f:
     i18n = json.load(f)
 
 # login routes
-@app.route('/Employer')
+@app.route('/')
 def employer_index():
     if session.get("type") == "employer":
         return redirect("/employer/list")
@@ -33,7 +33,7 @@ def employer_index():
     return render_template("logins/employer-login.html", I18N=i18n, LANG=session.get("lang"))
 
 
-@app.route('/Admin')
+@app.route('/admin')
 def admin_index():
     if session.get("type") == "employer":
         return redirect("/employer/list")
@@ -47,7 +47,7 @@ def admin_index():
     return render_template("logins/admin-login.html", I18N=i18n, LANG=session.get("lang"))
 
 
-@app.route('/Staff')
+@app.route('/staff')
 def staff_index():
     if session.get("type") == "employer":
         return redirect("/employer/list")
