@@ -13,11 +13,17 @@
         <li>{{STUDENT.degree}}</li>
         <li>{{STUDENT.projectId}}</li>
         <li>{{STUDENT.programming_language}}</li>
+        
+        {% if STUDENT.resume|length > 10 %}
         <form action="/staff/list/resume" method="POST">
             <input type="hidden" name="pdf" value="{{STUDENT.resume}}">
             <input type="submit" value="view resume">
-          </form>
-        </ul>
+        </form>
+        {% else %}
+            <li>student has no resume</li>
+        {% endif %}
+
     </ul>
 
 {% endblock %}
+
