@@ -39,9 +39,10 @@
     {{ I18N["Programming Language"][LANG]}}
     <input type="text" value ="{{STUDENT.programming_language}}" name= "programming_language"> <br>
 
+    <input type="hidden" name="old_pdf_string" value="{{STUDENT.resume}}">
+
     {{ I18N["Submit student Resume"][LANG]}}
-    </label>
-    <input type="file" name="pdf_file" value="{{STUDENT.resume}}">
+    <input type="file" name="pdf_file">
     <br />
 
     <button type="Submit">{{ I18N["Update Student"][LANG]}}</button>
