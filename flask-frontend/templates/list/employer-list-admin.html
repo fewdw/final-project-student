@@ -18,35 +18,41 @@
 <div class ="form">    
 
   <form action= "/employer/filter" method ="POST">
-      <label for="Technological">
-        {{ I18N["Technologies"][LANG]}}
-      </label>
-      <textarea name="Technologies" placeholder="List Technological Aptitudes"></textarea>
+    <label for="Technological">
+      {{ I18N["Technologies"][LANG]}}
+    </label>
+    <textarea name="Technologies" placeholder="List Technological Aptitudes"></textarea>
 
-      <br>
-      <label for="professor_name">
-           Teachers
-       </label>
-      <textarea name="professor_name" placeholder="Teachers"></textarea>
+    <br>
+    <label for="professor_name">
+         Teachers
+     </label>
+    <textarea name="professor_name" placeholder="Teachers"></textarea>
 
-      <br>
-      <div class="slidecontainer">
-          <label>Year of graduation</label>
-          <label class="minmax">Minimum year: <br><span id="minimum"></span></label>
-          <input name="minimum" type="range" min="2000" max="2030" value="2000" class="slider" id="min">
-          <br>
-          
-          <label class="minmax">Maximum year: <br><span id="maximum"></span></label>
-          <input name="maximum"type="range" min="2000" max="2030" value="2030" class="slider" id="max">
-          
-          </div>
-      <br>
-
-
-      
-      <button type="submit">{{I18N["Submit"][LANG]}}</button>
-      
-  </form>
+    <br>
+    <div class="slidecontainer">
+        <label>Year of graduation</label>
+        <label class="minmax">Minimum year: <br><span id="minimum"></span></label>
+        <input name="minimum" type="range" min="2000" max="2030" value="2000" class="slider" id="min">
+        <br>
+        
+        <label class="minmax">Maximum year: <br><span id="maximum"></span></label>
+        <input name="maximum"type="range" min="2000" max="2030" value="2030" class="slider" id="max">
+        
+        </div>
+    <br>
+    
+    <label>Degree</label>
+    <select name="degree" id="" style="width: 8%;">
+        <option value="">Degree</option>
+        {% for d in DEGREES%}
+        <option>{{d['name_degree']}}</option>
+        {%endfor%}
+    </select><br>
+    
+    <button type="submit">{{I18N["Submit"][LANG]}}</button>
+    
+</form>
 </div>
 
 <table class="tableEmployer">

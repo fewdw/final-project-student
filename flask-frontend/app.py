@@ -66,21 +66,21 @@ def staff_index():
 @app.route('/employer/list')
 def employer_list_home():
     if session.get("type") == "employer":
-        return render_template("list/employer-list-admin.html", STUDENTS = get_all_students_from_api(), I18N=i18n, LANG=session.get("lang"), EMAIL=session.get("name"))
+        return render_template("list/employer-list-admin.html", STUDENTS = get_all_students_from_api(), I18N=i18n, LANG=session.get("lang"), EMAIL=session.get("name"), DEGREES=get_all_degrees_from_api())
     return redirect("/")
 
 
 @app.route('/staff/list')
 def staff_list_home():
     if session.get("type") == "staff":
-        return render_template("list/staff-list-admin.html", STUDENTS = get_all_students_from_api(), I18N=i18n, LANG=session.get("lang"), EMAIL=session.get("name"))
+        return render_template("list/staff-list-admin.html", STUDENTS = get_all_students_from_api(), I18N=i18n, LANG=session.get("lang"), EMAIL=session.get("name"), DEGREES=get_all_degrees_from_api())
     return redirect("/staff")
 
 
 @app.route('/admin/list')
 def admin_list_home():
     if session.get("type") == "admin":
-        return render_template("list/admin-list-admin.html", STUDENTS = get_all_students_from_api(), I18N=i18n, LANG=session.get("lang"), EMAIL=session.get("name"))
+        return render_template("list/admin-list-admin.html", STUDENTS = get_all_students_from_api(), I18N=i18n, LANG=session.get("lang"), EMAIL=session.get("name"), DEGREES=get_all_degrees_from_api())
     return redirect("/admin")
 
 # routing for student by specific fields
@@ -580,33 +580,30 @@ def archive_student_route_staff():
 @app.route("/admin/filter", methods=["POST"])
 def adminFilterRoute():
     if session.get("type") == "admin":
-        filteredStudents = []
-        filteredByYear=[]
-        if request.form.get("Technologies") is not None:
-            Technologies = request.form.get("Technologies").strip().lower()
-            list = Technologies.split(" ")
-            students=get_all_students_from_api()
-            for s in students:
-                for t in list:
-                    if t in s["programming_language"].lower():
-                        filteredStudents.append(s)
 
-        if request.form.get("minimum") is not None and request.form.get("maximum") is not None:
-            min = request.form.get("minimum")
-            max = request.form.get("maximum")
-            for s in filteredStudents:
-                if s["year_of_graduation"] >= min and s["year_of_graduation"] <= max:
-                    filteredByYear.append(s)
+        minimum = request.form.get("minimum")
+        maximum = request.form.get("maximum")
+        technologies = request.form.get("Technologies")
+        degree = request.form.get("degree")
+        professor_name = request.form.get("professor_name")
 
-        if request.form.get("professor_name") is not None:
-            professor_name = request.form.get("professor_name").strip().lower()
-            list = professor_name.split(" ")
-            students=get_all_students_from_api()
-            for s in students:
-                for t in list:
-                    if t in s["professor_name"].lower():
-                        filteredStudents.append(s)
-        return render_template("list/filtered-admin-list.html", STUDENTS = filteredByYear, I18N=i18n, LANG=session.get("lang"), EMAIL=session.get("name"))
+        filtered_students = get_all_students_from_api()
+
+        if minimum != "":
+            filtered_students = filter(lambda s: s["year_of_graduation"] >= minimum, filtered_students)
+        if maximum  != "":
+            filtered_students = filter(lambda s: s["year_of_graduation"] <= maximum, filtered_students)
+        if professor_name  != "":
+            filtered_students = filter(lambda s: professor_name.lower() in s["professor_name"].lower(), filtered_students)
+        if technologies  != "":
+            tech_list = technologies.lower().split()
+            filtered_students = filter(lambda s: any(lang in s["programming_language"].lower().split() for lang in tech_list), filtered_students)
+        if degree  != "":
+            filtered_students = filter(lambda s: s["degree"] == degree, filtered_students)
+
+        result = list(filtered_students)
+
+        return render_template("list/filtered-admin-list.html", STUDENTS = result, I18N=i18n, LANG=session.get("lang"), EMAIL=session.get("name"))
     
     return redirect("/")
 
@@ -616,67 +613,60 @@ def adminFilterRoute():
 @app.route("/staff/filter", methods=["POST"])
 def staffFilterRoute():
     if session.get("type") == "staff":
-        filteredStudents = []
-        filteredByYear=[]
-        if request.form.get("Technologies") is not None:
-            Technologies = request.form.get("Technologies").strip().lower()
-            list = Technologies.split(" ")
-            students=get_all_students_from_api()
-            for s in students:
-                for t in list:
-                    if t in s["programming_language"].lower():
-                        filteredStudents.append(s)
+        
+        minimum = request.form.get("minimum")
+        maximum = request.form.get("maximum")
+        technologies = request.form.get("Technologies")
+        degree = request.form.get("degree")
+        professor_name = request.form.get("professor_name")
 
-        if request.form.get("minimum") is not None and request.form.get("maximum") is not None:
-            min = request.form.get("minimum")
-            max = request.form.get("maximum")
-            for s in filteredStudents:
-                if s["year_of_graduation"] >= min and s["year_of_graduation"] <= max:
-                    filteredByYear.append(s)
-                    
-        if request.form.get("professor_name") is not None:
-            professor_name = request.form.get("professor_name").strip().lower()
-            list = professor_name.split(" ")
-            students=get_all_students_from_api()
-            for s in students:
-                for t in list:
-                    if t in s["professor_name"].lower():
-                        filteredStudents.append(s)
-        return render_template("list/filtered-staff-list.html", STUDENTS = filteredByYear, I18N=i18n, LANG=session.get("lang"), EMAIL=session.get("name"))
+        filtered_students = get_all_students_from_api()
+
+        if minimum != "":
+            filtered_students = filter(lambda s: s["year_of_graduation"] >= minimum, filtered_students)
+        if maximum  != "":
+            filtered_students = filter(lambda s: s["year_of_graduation"] <= maximum, filtered_students)
+        if professor_name  != "":
+            filtered_students = filter(lambda s: professor_name.lower() in s["professor_name"].lower(), filtered_students)
+        if technologies  != "":
+            tech_list = technologies.lower().split()
+            filtered_students = filter(lambda s: any(lang in s["programming_language"].lower().split() for lang in tech_list), filtered_students)
+        if degree  != "":
+            filtered_students = filter(lambda s: s["degree"] == degree, filtered_students)
+
+        result = list(filtered_students)
+
+        return render_template("list/filtered-staff-list.html", STUDENTS = result, I18N=i18n, LANG=session.get("lang"), EMAIL=session.get("name"))
     
     return redirect("/")
 
 @app.route("/employer/filter", methods=["POST"])
 def employerFilterRoute():
     if session.get("type") == "employer":
-        filteredStudents = []
-        filteredByYear=[]
-        if request.form.get("Technologies") is not None:
-            Technologies = request.form.get("Technologies").strip().lower()
-            list = Technologies.split(" ")
-            students=get_all_students_from_api()
-            for s in students:
-                for t in list:
-                    if t in s["programming_language"].lower():
-                        filteredStudents.append(s)
-
-        if request.form.get("minimum") is not None and request.form.get("maximum") is not None:
-            min = request.form.get("minimum")
-            max = request.form.get("maximum")
-            for s in filteredStudents:
-                if s["year_of_graduation"] >= min and s["year_of_graduation"] <= max:
-                    filteredByYear.append(s)
-                    
-        if request.form.get("professor_name") is not None:
-            professor_name = request.form.get("professor_name").strip().lower()
-            list = professor_name.split(" ")
-            students=get_all_students_from_api()
-            for s in students:
-                for t in list:
-                    if t in s["professor_name"].lower():
-                        filteredStudents.append(s)
         
-        return render_template("list/filtered-employer-list.html", STUDENTS = filteredByYear, I18N=i18n, LANG=session.get("lang"), EMAIL=session.get("name"))
+        minimum = request.form.get("minimum")
+        maximum = request.form.get("maximum")
+        technologies = request.form.get("Technologies")
+        degree = request.form.get("degree")
+        professor_name = request.form.get("professor_name")
+
+        filtered_students = get_all_students_from_api()
+
+        if minimum != "":
+            filtered_students = filter(lambda s: s["year_of_graduation"] >= minimum, filtered_students)
+        if maximum  != "":
+            filtered_students = filter(lambda s: s["year_of_graduation"] <= maximum, filtered_students)
+        if professor_name  != "":
+            filtered_students = filter(lambda s: professor_name.lower() in s["professor_name"].lower(), filtered_students)
+        if technologies  != "":
+            tech_list = technologies.lower().split()
+            filtered_students = filter(lambda s: any(lang in s["programming_language"].lower().split() for lang in tech_list), filtered_students)
+        if degree  != "":
+            filtered_students = filter(lambda s: s["degree"] == degree, filtered_students)
+
+        result = list(filtered_students)
+
+        return render_template("list/filtered-employer-list.html", STUDENTS = result, I18N=i18n, LANG=session.get("lang"), EMAIL=session.get("name"))
     
     return redirect("/")
 

@@ -14,7 +14,7 @@
 
 
 
-<div class ="form">    
+<div class ="form">
 
     <form action= "/admin/filter" method ="POST">
         <label for="Technological">
@@ -40,8 +40,14 @@
             
             </div>
         <br>
-
-
+        
+        <label>Degree</label>
+        <select name="degree" id="" style="width: 8%;">
+            <option value="">Degree</option>
+            {% for d in DEGREES%}
+            <option>{{d['name_degree']}}</option>
+            {%endfor%}
+        </select><br>
         
         <button type="submit">{{I18N["Submit"][LANG]}}</button>
         
