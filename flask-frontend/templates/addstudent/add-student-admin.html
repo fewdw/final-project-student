@@ -15,7 +15,7 @@
   <h1>New Student Profile</h1>
 </div>
 <div class="createStudent">
-  <form method="post" action="/admin/list/student/studentadded">
+  <form method="post" action="/admin/list/student/studentadded" enctype="multipart/form-data">
     <fieldset>
       <table>
         <label for="student_Id">{{ I18N["Enter Student Id"][LANG]}} </label>
@@ -97,6 +97,14 @@
         ></textarea>
 
         <br />
+        
+        <label for="resume">
+          {{ I18N["Submit student Resume"][LANG]}}
+        </label>
+        <input type="file" name="pdf_file">
+
+        <br />
+        
 
         <input type="submit" value='{{ I18N["ADD"][LANG]}}' />
       </table>

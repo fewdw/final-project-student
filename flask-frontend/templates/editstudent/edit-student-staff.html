@@ -1,7 +1,7 @@
 {% extends "react-template.html" %}
 
 {% block body %}
-<form method="post" action = "/staff/list/studentUpdated/">
+<form method="post" action = "/staff/list/studentUpdated/" enctype="multipart/form-data">
     <input type ="hidden" value = "{{STUDENT._id}}" name="id">
     {{ I18N["Student Id"][LANG]}}
     <input type="text" value ="{{STUDENT.student_id}}" name = "student_id">
@@ -38,6 +38,12 @@
     </select>
     {{ I18N["Programming Language"][LANG]}}
     <input type="text" value ="{{STUDENT.programming_language}}" name= "programming_language"> <br>
+
+    {{ I18N["Submit student Resume"][LANG]}}
+    </label>
+    <input type="file" name="pdf_file" value="{{STUDENT.resume}}">
+    <br />
+
     <button type="Submit">{{ I18N["Update Student"][LANG]}}</button>
   </form>
 {% endblock %}

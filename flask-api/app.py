@@ -104,7 +104,8 @@ def post_new_student():
         request.json["year_of_graduation"],
         request.json["degree"],
         request.json["projectId"],
-        request.json["programming_language"]
+        request.json["programming_language"],
+        request.json["resume"]
     )
 
 # post a new degree
