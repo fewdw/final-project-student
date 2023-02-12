@@ -41,14 +41,16 @@
             </div>
         <br>
         
+        
         <label>Degree</label>
         <select name="degree" id="" style="width: 8%;">
             <option value="">Degree</option>
             {% for d in DEGREES%}
             <option>{{d['name_degree']}}</option>
             {%endfor%}
-        </select><br>
+        </select>
         <br>
+
 
         <label>Projects</label>
         <select name="project" id="" style="width: 8%;">
@@ -56,8 +58,8 @@
             {% for p in PROJECTS%}
             <option>{{p['project_name']}}</option>
             {%endfor%}
-        </select><br>
-        
+        </select>
+        <br>
         <button type="submit">{{I18N["Submit"][LANG]}}</button>
         
     </form>
