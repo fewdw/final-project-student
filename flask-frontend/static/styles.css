@@ -212,7 +212,11 @@ label{
     color: white;
   }
 
+.dropdowns{
 
+  margin-left: 15px;
+
+}
 
 .slidecontainer {
   width: 100%;
