@@ -18,7 +18,7 @@ with open('i18n.json', encoding='utf-8') as f:
     i18n = json.load(f)
 
 # login routes
-@app.route('/')
+@app.route('/employer')
 def employer_index():
     if session.get("type") == "employer":
         return redirect("/employer/list")
