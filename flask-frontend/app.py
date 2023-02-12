@@ -66,21 +66,21 @@ def staff_index():
 @app.route('/employer/list')
 def employer_list_home():
     if session.get("type") == "employer":
-        return render_template("list/employer-list-admin.html", STUDENTS = get_all_students_from_api(), I18N=i18n, LANG=session.get("lang"), EMAIL=session.get("name"), DEGREES=get_all_degrees_from_api())
+        return render_template("list/employer-list-admin.html", STUDENTS = get_all_students_from_api(), I18N=i18n, LANG=session.get("lang"), EMAIL=session.get("name"), DEGREES=get_all_degrees_from_api(), PROJECTS=get_all_projects_from_api())
     return redirect("/")
 
 
 @app.route('/staff/list')
 def staff_list_home():
     if session.get("type") == "staff":
-        return render_template("list/staff-list-admin.html", STUDENTS = get_all_students_from_api(), I18N=i18n, LANG=session.get("lang"), EMAIL=session.get("name"), DEGREES=get_all_degrees_from_api())
+        return render_template("list/staff-list-admin.html", STUDENTS = get_all_students_from_api(), I18N=i18n, LANG=session.get("lang"), EMAIL=session.get("name"), DEGREES=get_all_degrees_from_api(),  PROJECTS=get_all_projects_from_api())
     return redirect("/staff")
 
 
 @app.route('/admin/list')
 def admin_list_home():
     if session.get("type") == "admin":
-        return render_template("list/admin-list-admin.html", STUDENTS = get_all_students_from_api(), I18N=i18n, LANG=session.get("lang"), EMAIL=session.get("name"), DEGREES=get_all_degrees_from_api())
+        return render_template("list/admin-list-admin.html", STUDENTS = get_all_students_from_api(), I18N=i18n, LANG=session.get("lang"), EMAIL=session.get("name"), DEGREES=get_all_degrees_from_api(), PROJECTS=get_all_projects_from_api())
     return redirect("/admin")
 
 # routing for student by specific fields
@@ -586,6 +586,7 @@ def adminFilterRoute():
         technologies = request.form.get("Technologies")
         degree = request.form.get("degree")
         professor_name = request.form.get("professor_name")
+        project = request.form.get("project")
 
         filtered_students = get_all_students_from_api()
 
@@ -600,6 +601,8 @@ def adminFilterRoute():
             filtered_students = filter(lambda s: any(lang in s["programming_language"].lower().split() for lang in tech_list), filtered_students)
         if degree  != "":
             filtered_students = filter(lambda s: s["degree"] == degree, filtered_students)
+        if project  != "":
+            filtered_students = filter(lambda s: s["projectId"] == project, filtered_students)
 
         result = list(filtered_students)
 
@@ -619,6 +622,7 @@ def staffFilterRoute():
         technologies = request.form.get("Technologies")
         degree = request.form.get("degree")
         professor_name = request.form.get("professor_name")
+        project = request.form.get("project")
 
         filtered_students = get_all_students_from_api()
 
@@ -633,6 +637,8 @@ def staffFilterRoute():
             filtered_students = filter(lambda s: any(lang in s["programming_language"].lower().split() for lang in tech_list), filtered_students)
         if degree  != "":
             filtered_students = filter(lambda s: s["degree"] == degree, filtered_students)
+        if project  != "":
+            filtered_students = filter(lambda s: s["projectId"] == project, filtered_students)
 
         result = list(filtered_students)
 
@@ -649,6 +655,7 @@ def employerFilterRoute():
         technologies = request.form.get("Technologies")
         degree = request.form.get("degree")
         professor_name = request.form.get("professor_name")
+        project = request.form.get("project")
 
         filtered_students = get_all_students_from_api()
 
@@ -663,6 +670,8 @@ def employerFilterRoute():
             filtered_students = filter(lambda s: any(lang in s["programming_language"].lower().split() for lang in tech_list), filtered_students)
         if degree  != "":
             filtered_students = filter(lambda s: s["degree"] == degree, filtered_students)
+        if project  != "":
+            filtered_students = filter(lambda s: s["projectId"] == project, filtered_students)
 
         result = list(filtered_students)
 

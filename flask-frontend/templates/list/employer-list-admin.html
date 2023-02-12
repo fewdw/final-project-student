@@ -50,6 +50,15 @@
         {%endfor%}
     </select><br>
     
+    <label>Projects</label>
+    <select name="project" id="" style="width: 8%;">
+        <option value="">Projects</option>
+        {% for p in PROJECTS%}
+        <option>{{p['project_name']}}</option>
+        {%endfor%}
+    </select><br>
+    
+    
     <button type="submit">{{I18N["Submit"][LANG]}}</button>
     
 </form>
