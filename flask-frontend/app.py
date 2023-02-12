@@ -602,7 +602,7 @@ def adminFilterRoute():
         if degree  != "":
             filtered_students = filter(lambda s: s["degree"] == degree, filtered_students)
         if project  != "":
-            filtered_students = filter(lambda s: s["project"] == project, filtered_students)
+            filtered_students = filter(lambda s: s["projectId"] == project, filtered_students)
 
         result = list(filtered_students)
 
@@ -638,7 +638,7 @@ def staffFilterRoute():
         if degree  != "":
             filtered_students = filter(lambda s: s["degree"] == degree, filtered_students)
         if project  != "":
-            filtered_students = filter(lambda s: s["project"] == project, filtered_students)
+            filtered_students = filter(lambda s: s["projectId"] == project, filtered_students)
 
         result = list(filtered_students)
 
@@ -671,7 +671,7 @@ def employerFilterRoute():
         if degree  != "":
             filtered_students = filter(lambda s: s["degree"] == degree, filtered_students)
         if project  != "":
-            filtered_students = filter(lambda s: s["project"] == project, filtered_students)
+            filtered_students = filter(lambda s: s["projectId"] == project, filtered_students)
 
         result = list(filtered_students)
 
