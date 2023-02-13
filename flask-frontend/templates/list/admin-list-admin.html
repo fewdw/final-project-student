@@ -43,24 +43,27 @@
         
         <label>Degree</label>
         <select name="degree" id="" style="width: 8%;">
-            <option value="">Degree</option>
+            <option value="dropdown">Degree</option>
             {% for d in DEGREES%}
             <option>{{d['name_degree']}}</option>
             {%endfor%}
-        </select><br>
-        <br>
+        </select>
 
         <label>Projects</label>
         <select name="project" id="" style="width: 8%;">
-            <option value="">Projects</option>
+            <option value="dropdown">Projects</option>
             {% for p in PROJECTS%}
             <option>{{p['project_name']}}</option>
             {%endfor%}
-        </select><br>
+        </select>
         
-        <button type="submit">{{I18N["Submit"][LANG]}}</button>
+        <br>
+        <br>
+        <br>
         
     </form>
+    <button type="submit">{{I18N["Submit"][LANG]}}</button>
+
 </div>
 
     <div class ="table">    
