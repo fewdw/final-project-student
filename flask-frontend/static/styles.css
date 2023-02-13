@@ -105,6 +105,18 @@ tbody:nth-child(odd){
   
 
 }
+.drop{
+
+  margin-left: 15px;
+
+
+}
+.dropdown{
+
+  margin-left: 50px;
+
+
+}
 .minmax{
 
   font-size: 18px;
