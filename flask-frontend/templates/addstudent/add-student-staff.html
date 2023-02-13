@@ -1,44 +1,53 @@
 {% extends "react-template.html" %} {% block body %}
-<form method="post" action="/staff/list/student/studentadded" enctype="multipart/form-data">
+<form
+  method="post"
+  action="/staff/list/student/studentadded"
+  enctype="multipart/form-data"
+>
   {{ I18N["Enter Student Id"][LANG]}}
-  <input type="text" name="student_Id" />
+  <input type="text" name="student_Id" required />
   <br />
   {{ I18N["Enter Students First Name"][LANG]}}
-  <input type="text" , name="first_name" /> <br />
+  <input type="text" , name="first_name" required /> <br />
   {{ I18N["Enter Students Last Name"][LANG]}}
-  <input type="text" , name="last_name" /> <br />
+  <input type="text" , name="last_name" required /> <br />
   {{ I18N["Enter Students Email"][LANG]}}
-  <input type="text" , name="email" /> <br />
+  <input type="email" , name="email" required /> <br />
   {{ I18N["Enter Students Gender"][LANG]}}
-  <select name="gender">
+  <select name="gender" required>
     <option>{{ I18N["Male"][LANG]}}</option>
     <option>{{ I18N["Female"][LANG]}}</option>
     <option>{{ I18N["I prefer not to say"][LANG]}}</option>
   </select>
   {{ I18N["Enter Students Professor Name"][LANG]}}
-  <input type="text" , name="professor_name" /> <br />
+  <input type="text" , name="professor_name" required /> <br />
   {{ I18N["Enter Students Year of Graduation"][LANG]}}
-  <input type="text" , name="year_of_graduation" /> <br />
+  <input type="text" , name="year_of_graduation" required /> <br />
   {{ I18N["Choose Students Degree"][LANG]}}
-  <select name="degree">
+  <select name="degree" required>
     {%for d in DEGREES%}
     <option>{{d["name_degree"]}}</option>
     {%endfor%}</select
   ><br />
   {{ I18N["Enter Students Project Id"][LANG]}}
-  <select name="projectId">
+  <select name="projectId" required>
+    <option>None Yet</option>
     {%for p in PROJECTS%}
     <option>{{p["project_name"]}}</option>
     {%endfor%}
   </select>
   {{ I18N["Enter Students Technological Aptitudes"][LANG]}}
-  <input type="text" , name="programming_language" /> <br />
+  <textarea
+    type="text"
+    ,
+    name="programming_language"
+    value=""
+    required
+  ></textarea>
+  <br />
 
-
-  <label for="resume">
-    {{ I18N["Submit student Resume"][LANG]}}
-  </label>
-  <input type="file" name="pdf_file">
+  <label for="resume"> {{ I18N["Submit student Resume"][LANG]}} </label>
+  <input type="file" name="pdf_file" accept="application/pdf" required />
   <br />
 
   <input type="submit" value="Add Students" />

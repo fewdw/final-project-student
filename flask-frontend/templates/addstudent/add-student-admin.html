@@ -15,30 +15,57 @@
   <h1>New Student Profile</h1>
 </div>
 <div class="createStudent">
-  <form method="post" action="/admin/list/student/studentadded" enctype="multipart/form-data">
+  <form
+    method="post"
+    action="/admin/list/student/studentadded"
+    enctype="multipart/form-data"
+  >
     <fieldset>
       <table>
         <label for="student_Id">{{ I18N["Enter Student Id"][LANG]}} </label>
-        <input type="text" name="student_Id" placeholder="Student ID " />
+        <input
+          type="text"
+          name="student_Id"
+          placeholder="Student ID "
+          required
+        />
 
         <br />
 
         <label for="first_name"
           >{{ I18N["Enter Students First Name"][LANG]}}
         </label>
-        <input type="text" , name="first_name" placeholder="First name" />
+        <input
+          type="text"
+          ,
+          name="first_name"
+          placeholder="First name"
+          required
+        />
 
         <br />
 
         <label for="last_name">
           {{ I18N["Enter Students Last Name"][LANG]}}
         </label>
-        <input type="text" , name="last_name" placeholder="Last Name" />
+        <input
+          type="text"
+          ,
+          name="last_name"
+          placeholder="Last Name"
+          required
+        />
 
         <br />
 
         <label for="email"> {{ I18N["Enter Students Email"][LANG]}} </label>
-        <input type="text" , name="email" placeholder="Email Address" />
+        <input
+          type="email"
+          ,
+          name="email"
+          placeholder="Email Address"
+          required
+        />
 
         <br />
 
@@ -47,9 +74,9 @@
         >
         <input
           type="text"
-          ,
           name="professor_name"
           placeholder="Professor Name"
+          required
         />
 
         <br />
@@ -59,15 +86,15 @@
         </label>
         <input
           type="text"
-          ,
           name="year_of_graduation"
           placeholder="Graduation Year"
+          required
         />
 
         <br />
 
         <label for="degree">{{ I18N["Choose Students Degree"][LANG]}} </label>
-        <select name="degree">
+        <select name="degree" required>
           {%for d in DEGREES%}
           <option>{{d["name_degree"]}}</option>
           {%endfor%}
@@ -77,14 +104,14 @@
         <label for="projectId">
           {{ I18N["Enter Students Project Id"][LANG]}}
         </label>
-        <select name="projectId">
+        <select name="projectId" required>
+          <option>None Yet</option>
           {%for p in PROJECTS%}
           <option>{{p["project_name"]}}</option>
           {%endfor%}
         </select>
         <br />
 
-        
         <label for="Technological">
           {{ I18N["Enter Students Technological Aptitudes"][LANG]}}
         </label>
@@ -92,19 +119,16 @@
           name="programming_language"
           rows="7"
           cols="30"
-          ,
           placeholder="List Technological Aptitudes"
+          required
         ></textarea>
 
         <br />
-        
-        <label for="resume">
-          {{ I18N["Submit student Resume"][LANG]}}
-        </label>
-        <input type="file" name="pdf_file">
+
+        <label for="resume"> {{ I18N["Submit student Resume"][LANG]}} </label>
+        <input type="file" name="pdf_file" accept="application/pdf" required />
 
         <br />
-        
 
         <input type="submit" value='{{ I18N["ADD"][LANG]}}' />
       </table>
