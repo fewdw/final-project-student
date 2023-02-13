@@ -47,8 +47,8 @@
             {% for d in DEGREES%}
             <option>{{d['name_degree']}}</option>
             {%endfor%}
-        </select><br>
-        <br>
+        </select>
+        
 
         <label>Projects</label>
         <select name="project" id="" style="width: 8%;">
@@ -57,7 +57,8 @@
             <option>{{p['project_name']}}</option>
             {%endfor%}
         </select><br>
-        
+        <br>
+        <br>
         <button type="submit">{{I18N["Submit"][LANG]}}</button>
         
     </form>
