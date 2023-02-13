@@ -1,10 +1,13 @@
 import requests, json
 from bson.objectid import ObjectId
+import os
+
+auth = requests.auth.HTTPBasicAuth(os.environ.get("api_user"), os.environ.get("api_pass"))
 
 # get all students
 def get_all_students_from_api():
     all_students_api_link = "http://127.0.0.1:5001/students/"
-    response = requests.get(all_students_api_link)
+    response = requests.get(all_students_api_link, auth=auth)
     students = json.loads(response.text)
     return students
 
@@ -12,7 +15,7 @@ def get_all_students_from_api():
 def get_one_student_from_api(id):
     _id = id[10:34]
     all_students_api_link = f"http://127.0.0.1:5001/students/{_id}"
-    response = requests.get(all_students_api_link)
+    response = requests.get(all_students_api_link, auth=auth)
     student = json.loads(response.text)
     return student
 
@@ -21,7 +24,7 @@ def delete_student_from_api(id):
     _id = id[10:34]
     url = "http://127.0.0.1:5001/students/"
     payload = {"id":_id}
-    requests.delete(url, json=payload)
+    requests.delete(url, json=payload, auth=auth)
 
 # put one student
 def edited_student_admin_api_request(id,student_id, status, first_name, last_name, email, gender, professor_name, year_of_graduation, degree, projectId, programming_language):
@@ -41,7 +44,7 @@ def edited_student_admin_api_request(id,student_id, status, first_name, last_nam
         "projectId" : projectId,
         "programming_language" : programming_language
     }
-    requests.put(url, json=payload)
+    requests.put(url, json=payload, auth=auth)
     #add student 
 def add_student_to_list(student_Id,first_name,last_name,email,gender, professor_name, year_of_graduation, degree, projectId, programming_language,resume,status="active"):
         url = "http://127.0.0.1:5001/students"
@@ -59,4 +62,4 @@ def add_student_to_list(student_Id,first_name,last_name,email,gender, professor_
         "programming_language":programming_language,
         "resume":resume
         }
-        requests.post(url, json=payload)
+        requests.post(url, json=payload, auth=auth)

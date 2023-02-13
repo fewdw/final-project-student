@@ -1,10 +1,13 @@
 import requests
 import requests, json
+import os
+
+auth = requests.auth.HTTPBasicAuth(os.environ.get("api_user"), os.environ.get("api_pass"))
 
 BASE_URL = "http://127.0.0.1:5001/credentials"
 
 def get_credentials_from_api():
-    response = requests.get(BASE_URL)
+    response = requests.get(BASE_URL, auth=auth)
     creds = json.loads(response.text)
     return creds
 
@@ -15,7 +18,7 @@ def post_credentials_from_api(email, pw_hash, lang, session_type):
         "lang": lang,
         "type": session_type
     }
-    response = requests.post(BASE_URL, json=payload)
+    response = requests.post(BASE_URL, json=payload, auth=auth)
 
 def put_credentials_from_api(_id, email, pw_hash, lang, session_type):
     payload = {
@@ -25,13 +28,13 @@ def put_credentials_from_api(_id, email, pw_hash, lang, session_type):
         "lang": lang,
         "type": session_type
     }
-    response = requests.put(BASE_URL, json=payload)
+    response = requests.put(BASE_URL, json=payload, auth=auth)
 
 def delete_credentials_from_api(_id):
     payload = {"id":_id}
-    requests.delete(BASE_URL, json=payload)
+    requests.delete(BASE_URL, json=payload, auth=auth)
 
 def get_credentials_by_id_from_api(id):
-    response = requests.get(f"{BASE_URL}/{id}")
+    response = requests.get(f"{BASE_URL}/{id}", auth=auth)
     creds = json.loads(response.text)
     return creds
