@@ -13,45 +13,45 @@
 <div class="object1"></div>
 
 <div class="table2">
-<table class="table2">
-  <thead>
-    <tr>
-      <td>{{ I18N["email"][LANG]}}</td>
-      <th>{{ I18N["Full name"][LANG]}}</th>
-      <th>{{ I18N["Degree"][LANG]}}</th>
-      <th>{{ I18N["Technologies"][LANG]}}</th>
-      <th>{{ I18N["More Info"][LANG]}}</th>
-    </tr>
-  </thead>
-  {% for s in STUDENTS %}
-  <tbody>
-    {% if s["status"] == "active" %}
+  <table class="table2">
+    <thead>
+      <tr>
+        <td>{{ I18N["email"][LANG]}}</td>
+        <th>{{ I18N["Full name"][LANG]}}</th>
+        <th>{{ I18N["Degree"][LANG]}}</th>
+        <th>{{ I18N["Technologies"][LANG]}}</th>
+        <th>{{ I18N["More Info"][LANG]}}</th>
+      </tr>
+    </thead>
+    {% for s in STUDENTS %}
+    <tbody>
+      {% if s["status"] == "active" %}
 
-    <tr>
-      <td>
-        <form  method="post" action="/employer/email">
-          <input type="hidden" value="{{s._id}}" name="student_id" />
-          <input type="submit" value="Email Me This Student"/>
-        </form>
-      </td>
-      <td>{{s.first_name}},{{s.last_name}}</td>
-      <td>{{s.degree}}, {{s.year_of_graduation}}</td>
-      <td>{{s.programming_language}}</td>
-      <td>
-        <a href="/admin/list/student/id/{{s._id}}"
-          ><img
-            alt="More"
-            src="../static/more-horizontal-outline.png"
-            width="25"
-            height="25"
-        /></a>
-      </td>
-    </tr>
+      <tr>
+        <td>
+          <form method="post" action="/employer/email">
+            <input type="hidden" value="{{s._id}}" name="student_id" />
+            <input type="submit" value="Email Me This Student" />
+          </form>
+        </td>
+        <td>{{s.first_name}},{{s.last_name}}</td>
+        <td>{{s.degree}}, {{s.year_of_graduation}}</td>
+        <td>{{s.programming_language}}</td>
+        <td>
+          <a href="/employer/list/student/id/{{s._id}}"
+            ><img
+              alt="More"
+              src="../static/more-horizontal-outline.png"
+              width="25"
+              height="25"
+          /></a>
+        </td>
+      </tr>
 
-    {% endif %}
-  </tbody>
-  {% endfor %}
-</table>
+      {% endif %}
+    </tbody>
+    {% endfor %}
+  </table>
 </div>
 <a href="/employer/list">{{I18N["Back To List"][LANG]}} </a>
 

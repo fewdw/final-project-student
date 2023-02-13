@@ -1,47 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://unpkg.com/react@16/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
+      crossorigin
+    ></script>
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
-    <link rel="stylesheet" href="../static/styles.css">
+    <link rel="stylesheet" href="../static/styles.css" />
     <script src="../static/scipts.js"></script>
-    <link rel="stylesheet" href="../static/panel-styles.css">
-    <link rel="stylesheet" href="../static/email-page.css">
+    <link rel="stylesheet" href="../static/panel-styles.css" />
+    <link rel="stylesheet" href="../static/email-page.css" />
+  </head>
 
-</head>
-
-
-<body style="background-color: #e9e3d3">
-<div class="image">
-    <img
-      src="../static/concordia-logo.jpg"
-      alt="Logo"
-      width="400"
-      height="125"
-      ;
-    />
-  </div>
-
-  <div class ="object1">   
+  <body style="background-color: #e9e3d3">
+    <div class="image">
+      <img
+        src="../static/concordia-logo.jpg"
+        alt="Logo"
+        width="400"
+        height="125"
+        ;
+      />
     </div>
 
-  <div class="center">
+    <div class="object1"></div>
 
-    {% if SENT == False %}
-    <p style="color: firebrick;">THERE WAS AN ERROR EMAILING {{EMAIL}} ABOUT {{STUDENT_NAME}}</p> <!--ADD I18N -->
-    {% else %}
-    <p style="color:chartreuse">{{EMAIL}} was sent all information about {{STUDENT_NAME}}</p> <!--ADD I18N -->
-    {%endif%}
+    <div class="center">
+      {% if SENT == False %}
+      <p style="color: firebrick">
+        THERE WAS AN ERROR EMAILING {{EMAIL}} ABOUT {{STUDENT_NAME}}
+      </p>
+      <!--ADD I18N -->
+      {% else %}
+      <p style="color: rgb(45, 164, 51)">
+        {{EMAIL}} was sent all information about {{STUDENT_NAME}}
+      </p>
+      <!--ADD I18N -->
+      {%endif%}
+    </div>
 
-  </div>
-
-  <a href="/employer/list">{{ I18N["Back To List"][LANG]}}</a>
-  <a href="/clearsession">{{ I18N["LOGOUT"][LANG]}}</a>
-
-</body>
-
+    <a href="/employer/list">{{ I18N["Back To List"][LANG]}}</a>
+    <a href="/clearsession">{{ I18N["LOGOUT"][LANG]}}</a>
+  </body>
 </html>
