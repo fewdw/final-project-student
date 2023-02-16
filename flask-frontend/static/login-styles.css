@@ -117,7 +117,7 @@ button.btn {
 
 
 button.btn:hover {
-  background-color: blue;
+  background-color: #e5a712;
   transform: translateY(-2px);
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
@@ -179,4 +179,11 @@ form {
   box-shadow: 0 0 0 0.2rem rgba(33, 150, 243, 0.25);
   border-color: #2196f3;
   outline: 0;
+}
+
+small{
+  max-width: 175px;
+  color: rgb(107, 18, 18);
+  margin-top:1em;
+  text-align: center;
 }
