@@ -52,6 +52,7 @@ def staff_list_home():
 @app.route('/admin/list')
 def admin_list_home():
     if session.get("type") == "admin":
+        #[0:2]
         return render_template("list/admin-list-admin.html", STUDENTS = get_all_students_from_api(), I18N=i18n, LANG=session.get("lang"), EMAIL=session.get("name"), DEGREES=get_all_degrees_from_api(), PROJECTS=get_all_projects_from_api())
     return redirect("/")
 
