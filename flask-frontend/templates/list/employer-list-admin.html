@@ -102,7 +102,7 @@
             </div>
          </div>
       </div>
-      
+<form action="/emailtest" method="POST">
       <table class="tableEmployer">
          <thead>
             <tr>
@@ -117,12 +117,19 @@
          <tbody>
             {% if s["status"] == "active" %}
             <tr>
-               <td>
+              <!--
+                <td>
                   <form  method="post" action="/employer/email">
                      <input type="hidden" value="{{s._id}}" name="student_id" />
                      <input type="submit" value="Email Me This Student"/>
                   </form>
                </td>
+              -->
+
+              <td>
+                <input type="checkbox" name="student" value="{{s._id}}">
+              </td>
+
                <td>{{s.first_name}},{{s.last_name}}</td>
                <td>{{s.degree}}, {{s.year_of_graduation}}</td>
                <td>{{s.programming_language}}</td>
@@ -135,6 +142,8 @@
          </tbody>
          {% endfor %}
       </table>
+    <input type="submit" value="email me">
+    </form>
       <script>
          var slider1 = document.getElementById("min");
          var output1 = document.getElementById("minimum");

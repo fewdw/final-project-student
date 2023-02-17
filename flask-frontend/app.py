@@ -728,5 +728,9 @@ def employer_view_resume_route():
         return response
     return redirect("/")
 
+@app.route("/emailtest",methods=["POST"])
+def testing_new_email():
+    return request.form.getlist('student')
+
 if __name__ == '__main__':
     app.run()
