@@ -1,29 +1,77 @@
-{% extends "react-template.html" %}
-{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">      <link rel="stylesheet" href="../static/list-style.css">
+      <script src="../static/scipts.js"></script>
+      <link rel="stylesheet" href="../../../../static/add-style.css">
+   </head>
+   <body style="background-color: #e9e3d3">
 
-    <ul>
-        <li>{{STUDENT.student_id}}</li>
-        <li>{{STUDENT.status}}</li>
-        <li>{{STUDENT.first_name}}</li>
-        <li>{{STUDENT.last_name}}</li>
-        <li>{{STUDENT.email}}</li>
-        <li>{{STUDENT.gender}}</li>
-        <li>{{STUDENT.professor_name}}</li>
-        <li>{{STUDENT.year_of_graduation}}</li>
-        <li>{{STUDENT.degree}}</li>
-        <li>{{STUDENT.projectId}}</li>
-        <li>{{STUDENT.programming_language}}</li>
-        
-        {% if STUDENT.resume|length > 10 %}
-        <form action="/staff/list/resume" method="POST">
-            <input type="hidden" name="pdf" value="{{STUDENT.resume}}">
-            <input type="submit" value="view resume">
-        </form>
-        {% else %}
-            <li>student has no resume</li>
-        {% endif %}
 
-    </ul>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">
+        <img src="../../../../static/concordia-logo-nav.png" width="172" height="52" class="d-inline-block align-top" alt="Logo">
+      </a>
+      <span class="navbar-text font-weight-bold">Concordia ISRS</span>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+  
+          <li class="nav-item">
+            <a class="nav-link" href="/staff/list">BACK</a>
+          </li>
+  
+          <li class="nav-item">
+            <a class="nav-link" href="/clearsession">{{ I18N["LOGOUT"][LANG] }}</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
 
-{% endblock %}
+    <div class="container" id="create-student-container">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="card">
+            <div class="card-header">{{STUDENT.first_name}} {{STUDENT.last_name}}</div>
+            <div class="card-body">
+              <ul class="list-group">
+                <li class="list-group-item"><strong>Student ID: </strong>{{STUDENT.student_id}}</li>
+                <li class="list-group-item"><strong>Status: </strong>{{STUDENT.status}}</li>
+                <li class="list-group-item"><strong>First Name: </strong>{{STUDENT.first_name}}</li>
+                <li class="list-group-item"><strong>Last Name: </strong>{{STUDENT.last_name}}</li>
+                <li class="list-group-item"><strong>Email: </strong>{{STUDENT.email}}</li>
+                <li class="list-group-item"><strong>Gender: </strong>{{STUDENT.gender}}</li>
+                <li class="list-group-item"><strong>Professor Name: </strong>{{STUDENT.professor_name}}</li>
+                <li class="list-group-item"><strong>Year of Graduation: </strong>{{STUDENT.year_of_graduation}}</li>
+                <li class="list-group-item"><strong>Degree: </strong>{{STUDENT.degree}}</li>
+                <li class="list-group-item"><strong>Project ID: </strong>{{STUDENT.projectId}}</li>
+                <li class="list-group-item"><strong>Programming Language: </strong>{{STUDENT.programming_language}}</li>
+                {% if STUDENT.resume|length > 10 %}
+                <li class="list-group-item">
+                  <form action="/staff/list/resume" method="POST">
+                    <input type="hidden" name="pdf" value="{{STUDENT.resume}}">
+                    <button type="submit" class="btn btn-link">View Resume</button>
+                  </form>
+                </li>
+                {% else %}
+                <li class="list-group-item">Student has no resume</li>
+                {% endif %}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+      </body>
+</html>

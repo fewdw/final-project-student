@@ -272,7 +272,8 @@ def post_a_degree_route():
 @app.route("/staff/pannel/deletedegree",methods=["POST"])
 def delete_a_degree_by_id_staff_route():
     if request.method == "POST" and session.get("type") == "staff":
-        delete_degree_from_api(request.form.get("id"))
+        print(request.form.get("degree_id"))
+        delete_degree_from_api(request.form.get("degree_id"))
         return redirect("/staff/pannel")
     return redirect("/")
 
@@ -317,8 +318,8 @@ def post_a_project_route_staff():
     if request.method == "POST" and session.get("type") == "staff":
         post_a_project_to_api(
             request.form.get("project_id"),
-            request.form.get("project_name"),
-            request.form.get("project_description")
+            request.form.get("name_project"),
+            request.form.get("description")
         )
         return redirect("/staff/pannel")
 
@@ -334,6 +335,18 @@ def update_a_degree_route_admin():
         return redirect("/admin/pannel")
     return redirect("/")
 
+@app.route("/staff/pannel/updatedegree",methods=["POST"])
+def update_a_degree_route_staff():
+    if request.method == "POST" and session.get("type") == "staff":
+        put_a_degree_to_api(
+            request.form.get("id"),
+            request.form.get("degree_id"),
+            request.form.get("name_degree"),
+            request.form.get("description")
+        )
+        return redirect("/staff/pannel")
+    return redirect("/")
+
 @app.route("/admin/pannel/updateproject",methods=["POST"])
 def update_a_project_route_admin():
     if request.method == "POST" and session.get("type") == "admin":
@@ -344,6 +357,18 @@ def update_a_project_route_admin():
             request.form.get("description")
         )
         return redirect("/admin/pannel")
+    return redirect("/")
+
+@app.route("/staff/pannel/updateproject",methods=["POST"])
+def update_a_project_route_staff():
+    if request.method == "POST" and session.get("type") == "staff":
+        put_a_project_to_api(
+            request.form.get("id"),
+            request.form.get("project_id"),
+            request.form.get("name_project"),
+            request.form.get("description")
+        )
+        return redirect("/staff/pannel")
     return redirect("/")
 
 
@@ -494,7 +519,7 @@ def employer_changelang_route():
 
 @app.route("/staff/changelang", methods=["POST"])
 def staff_changelang_route():
-    if request.method == "POST" and session.get("type") == "admin":
+    if request.method == "POST" and session.get("type") == "staff":
         lang = request.form.get("lang")
         email = request.form.get("email")
 
@@ -510,8 +535,8 @@ def staff_changelang_route():
                     obj["type"]
                 )
                 session["lang"] = lang
-                return redirect("/admin/list")
-        return redirect("/admin/list")
+                return redirect("/staff/list")
+        return redirect("/staff/list")
     return redirect("/")
 
 @app.route("/admin/archive", methods=["POST"])

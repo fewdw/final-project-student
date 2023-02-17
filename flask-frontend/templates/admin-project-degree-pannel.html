@@ -62,12 +62,12 @@
                            {%for d in DEGREES%}
                            <li class="list-group-item">{{d["name_degree"]}}</li>
                            <li class="list-group-item">{{d["description"]}}</li>
-                           <form action="/admin/pannel/deletedegree" method="POST" id="delete-degree-form">
+                           <form action="/admin/pannel/deletedegree" method="POST" id="delete-degree-form-{{d['_id']}}">
                               <input type="hidden" name="id" value='{{d["_id"]}}'>
                            </form>
                            <li class="list-group-item">
                               <div class="btn-group" role="group">
-                                 <button class="btn btn-danger" type="Submit" form="delete-degree-form">{{ I18N["DELETE"][LANG]}}</button>
+                                 <button class="btn btn-danger" type="Submit" form="delete-degree-form-{{d['_id']}}">{{ I18N["DELETE"][LANG]}}</button>
                                  <button class="btn btn-warning update_add" onclick="updateStudentDegree('{{d["name_degree"]}}','{{d["description"]}}','{{d["_id"]["$oid"]}}')">{{ I18N["UPDATE"][LANG]}}</button>
                               </div>
                            </li>
@@ -109,12 +109,12 @@
                            {%for p in PROJECTS%}
                            <li class="list-group-item">{{p["project_name"]}}</li>
                            <li class="list-group-item">{{p["project_description"]}}</li>
-                           <form action="/admin/pannel/deleteproject" method="POST" id="delete-project-form">
+                           <form action="/admin/pannel/deleteproject" method="POST" id="delete-project-form-{{p['_id']}}">
                               <input type="hidden" name="id" value='{{p["_id"]["$oid"]}}'>
                            </form>
                            <li class="list-group-item">
                               <div class="btn-group" role="group">
-                                 <button class="btn btn-danger" type="Submit" form="delete-project-form">{{ I18N["DELETE"][LANG]}}</button>
+                                 <button class="btn btn-danger" type="Submit" form="delete-project-form-{{p['_id']}}">{{ I18N["DELETE"][LANG]}}</button>
                                  <button class="btn btn-warning update_add" onclick="updateStudentProject('{{p["project_name"]}}','{{p["project_description"]}}','{{p["_id"]["$oid"]}}')">{{ I18N["UPDATE"][LANG]}}</button>
 
                               </div>

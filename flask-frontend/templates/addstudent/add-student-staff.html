@@ -1,55 +1,103 @@
-{% extends "react-template.html" %} {% block body %}
-<form
-  method="post"
-  action="/staff/list/student/studentadded"
-  enctype="multipart/form-data"
->
-  {{ I18N["Enter Student Id"][LANG]}}
-  <input type="text" name="student_Id" required />
-  <br />
-  {{ I18N["Enter Students First Name"][LANG]}}
-  <input type="text" , name="first_name" required /> <br />
-  {{ I18N["Enter Students Last Name"][LANG]}}
-  <input type="text" , name="last_name" required /> <br />
-  {{ I18N["Enter Students Email"][LANG]}}
-  <input type="email" , name="email" required /> <br />
-  {{ I18N["Enter Students Gender"][LANG]}}
-  <select name="gender" required>
-    <option>{{ I18N["Male"][LANG]}}</option>
-    <option>{{ I18N["Female"][LANG]}}</option>
-    <option>{{ I18N["I prefer not to say"][LANG]}}</option>
-  </select>
-  {{ I18N["Enter Students Professor Name"][LANG]}}
-  <input type="text" , name="professor_name" required /> <br />
-  {{ I18N["Enter Students Year of Graduation"][LANG]}}
-  <input type="text" , name="year_of_graduation" required /> <br />
-  {{ I18N["Choose Students Degree"][LANG]}}
-  <select name="degree" required>
-    {%for d in DEGREES%}
-    <option>{{d["name_degree"]}}</option>
-    {%endfor%}</select
-  ><br />
-  {{ I18N["Enter Students Project Id"][LANG]}}
-  <select name="projectId" required>
-    <option>None Yet</option>
-    {%for p in PROJECTS%}
-    <option>{{p["project_name"]}}</option>
-    {%endfor%}
-  </select>
-  {{ I18N["Enter Students Technological Aptitudes"][LANG]}}
-  <textarea
-    type="text"
-    ,
-    name="programming_language"
-    value=""
-    required
-  ></textarea>
-  <br />
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">      <link rel="stylesheet" href="../static/list-style.css">
+      <script src="../static/scipts.js"></script>
+      <link rel="stylesheet" href="../../../../static/add-style.css">
+   </head>
+<body style="background-color: #e9e3d3">
 
-  <label for="resume"> {{ I18N["Submit student Resume"][LANG]}} </label>
-  <input type="file" name="pdf_file" accept="application/pdf" required />
-  <br />
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+      <img src="../../../../static/concordia-logo-nav.png" width="172" height="52" class="d-inline-block align-top" alt="Logo">
+    </a>
+    <span class="navbar-text font-weight-bold">Concordia ISRS</span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
 
-  <input type="submit" value="Add Students" />
-</form>
-{% endblock %}
+        <li class="nav-item">
+          <a class="nav-link" href="/staff/list">BACK</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="/clearsession">{{ I18N["LOGOUT"][LANG] }}</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container" id="create-student-container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header">Create Student</div>
+          <div class="card-body">
+            <form method="post" action="/staff/list/student/studentadded" enctype="multipart/form-data">
+              <div class="form-group">
+                <label for="student_Id">{{ I18N["Enter Student Id"][LANG]}}</label>
+                <input type="text" name="student_Id" class="form-control" placeholder="Student ID" required>
+              </div>
+              <div class="form-group">
+                <label for="first_name">{{ I18N["Enter Students First Name"][LANG]}}</label>
+                <input type="text" name="first_name" class="form-control" placeholder="First Name" required>
+              </div>
+              <div class="form-group">
+                <label for="last_name">{{ I18N["Enter Students Last Name"][LANG]}}</label>
+                <input type="text" name="last_name" class="form-control" placeholder="Last Name" required>
+              </div>
+              <div class="form-group">
+                <label for="email">{{ I18N["Enter Students Email"][LANG]}}</label>
+                <input type="email" name="email" class="form-control" placeholder="Email Address" required>
+              </div>
+              <div class="form-group">
+                <label for="professor_name">{{ I18N["Enter Students Professor Name"][LANG]}}</label>
+                <input type="text" name="professor_name" class="form-control" placeholder="Professor Name" required>
+              </div>
+              <div class="form-group">
+                <label for="year_of_graduation">{{ I18N["Enter Students Year of Graduation"][LANG]}}</label>
+                <input type="text" name="year_of_graduation" class="form-control" placeholder="Graduation Year" required>
+              </div>
+              <div class="form-group">
+                <label for="degree">{{ I18N["Choose Students Degree"][LANG]}}</label>
+                <select name="degree" class="form-control" required>
+                  {%for d in DEGREES%}
+                  <option>{{d["name_degree"]}}</option>
+                  {%endfor%}
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="projectId">{{ I18N["Enter Students Project Id"][LANG]}}</label>
+                <select name="projectId" class="form-control" required>
+                  <option>None Yet</option>
+                  {%for p in PROJECTS%}
+                  <option>{{p["project_name"]}}</option>
+                  {%endfor%}
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="Technological">{{ I18N["Enter Students Technological Aptitudes"][LANG]}}</label>
+                <textarea name="programming_language" class="form-control" rows="7" cols="30" placeholder="List Technological Aptitudes" required></textarea>
+              </div>
+              <div class="form-group">
+                <label for="resume">{{ I18N["Submit student Resume"][LANG]}}</label>
+                <input type="file" name="pdf_file" class="form-control-file" accept="application/pdf" required>
+              </div>
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary">{{ I18N["ADD"][LANG]}}</button>
+              </div>
+            </form>
+          </div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+      </body>
+</html>
