@@ -13,7 +13,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">
-      <img src="../../static/concordia-logo.jpg" width="172" height="52" class="d-inline-block align-top" alt="Logo">
+      <img src="../../static/concordia-logo-nav.png" width="172" height="52" class="d-inline-block align-top" alt="Logo">
     </a>
     <span class="navbar-text font-weight-bold">Concordia ISRS</span>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -65,7 +65,7 @@
         <h4 class="card-title">Search Students By</h4>
       </div>
       <div class="card-body">
-        <form action="/admin/filter" method="POST">
+        <form action="/admin/filter" method="GET">
           <div class="form-group">
             <label for="Technological">{{ I18N["Technologies"][LANG] }}</label>
             <textarea class="form-control" name="Technologies" placeholder="List Technological Aptitudes"></textarea>
@@ -192,10 +192,6 @@
        </tbody>
     </table>
  </div>
-
-
-
-   
 
       <script>
          var slider1 = document.getElementById("min");
