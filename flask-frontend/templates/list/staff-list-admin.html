@@ -191,7 +191,24 @@
       {% endfor %}
     </table>
     
-
+    <script>
+      var slider1 = document.getElementById("min");
+      var output1 = document.getElementById("minimum");
+      
+      var slider2 = document.getElementById("max");
+      var output2 = document.getElementById("maximum");
+      
+      
+      output1.innerHTML = slider1.value;
+      slider1.oninput = function() {
+        output1.innerHTML = this.value;
+      }
+      
+      output2.innerHTML = slider2.value;
+      slider2.oninput = function() {
+        output2.innerHTML = this.value;
+      }
+   </script>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
