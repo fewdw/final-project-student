@@ -111,6 +111,10 @@
         "en": "Archive",
         "fr": "Archiver"
     },
+    "Unarchive": {
+        "en": "Archive",
+        "fr": "Désarchiver "
+    },
     "Edit": {
         "en": "Edit",
         "fr": "Modifier"
@@ -128,16 +132,16 @@
         "fr": "Plus d'informations"
     },
     "VISIT ADMIN PANNEL": {
-        "en": "VISIT ADMIN PANNEL",
-        "fr": "VISITEZ LE PANNEAU D'ADMIN"
+        "en": "visit admin panel",
+        "fr": "Visitez le panneau d'admin"
     },
     "LOGOUT": {
         "en": "Logout",
         "fr": "déconnecter"
     },
     "email": {
-        "en": "email",
-        "fr": "email"
+        "en": "Email",
+        "fr": "Email"
     },
     "VISIT STAFF PANNEL": {
         "en": "VISIT STAFF PANNEL",
@@ -361,6 +365,50 @@
     "Student has no resume": {
         "en": "Student has no resume",
         "fr": "L'étudiant n'a pas de CV"
+    },
+    "FILTER STUDENTS": {
+        "en": "Filter Students",
+        "fr": "Filtrer les étudiants"
+    },
+    "ADD STUDENT": {
+        "en": "Add Student",
+        "fr": "Ajouter un étudiant"
+    },
+    "Change Language": {
+        "en": "Change Language",
+        "fr": "Changer de langue"
+    },
+    "Search Students By": {
+        "en": "Search Students By",
+        "fr": "Rechercher des étudiants par"
+    },
+    "Teacher": {
+        "en": "Teacher",
+        "fr": "Professeur"
+    },
+    "Year Of Graduation": {
+        "en": "Year Of Graduation",
+        "fr": "Année d'obtention du diplôme"
+    },
+    "Minimum year": {
+        "en": "Minimum year",
+        "fr": "Année minimale"
+    },
+    "Maximum year": {
+        "en": "Maximum year",
+        "fr": "Année maximale"
+    },
+    "Project": {
+        "en": "Project",
+        "fr": "Projet"
+    },
+    "List Technological Aptitudes": {
+        "en": "List Technological Aptitudes",
+        "fr": "Liste des aptitudes technologiques"
+    },
+    "Email me student list": {
+        "en": "Email me student list",
+        "fr": "M'envoyer la liste des étudiants par e-mail"
     }
 
 }

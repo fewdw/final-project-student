@@ -13,7 +13,7 @@
          <a class="navbar-brand" href="/">
          <img src="../../static/concordia-logo-nav.png" width="172" height="52" class="d-inline-block align-top" alt="Logo">
          </a>
-         <span class="navbar-text font-weight-bold">Concordia ISRS</span>
+         <span class="navbar-text font-weight-bold">{{ I18N["CONCORDIA ISRS"][LANG] }}</span>
          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
          <span class="navbar-toggler-icon"></span>
          </button>
@@ -21,11 +21,11 @@
             <ul class="navbar-nav ml-auto">
                <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                  <input type="submit" value="email me" form="email-form" class="btn btn-primary my-2 my-sm-0">       
+                  <input type="submit" value="{{ I18N['Email me student list'][LANG] }}" form="email-form" class="btn btn-primary my-2 my-sm-0">       
                 </li>
                 <li class="nav-item">
                      <button class="btn btn-link nav-link" data-toggle="collapse" data-target="#filter-content" aria-expanded="false" aria-controls="filter-content">
-                     <span>Filter students
+                     <span>{{ I18N["FILTER STUDENTS"][LANG] }}
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-funnel-fill" viewBox="0 0 16 16">
                            <path d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5v-2z"/>
                          </svg>
@@ -34,7 +34,7 @@
                   </li>
                </ul>
                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="dropdownFormLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Change Language</a>
+                  <a class="nav-link dropdown-toggle" href="#" id="dropdownFormLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ I18N["Change Language"][LANG] }}</a>
                   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownFormLink">
                      <form class="px-4 py-3" action="/employer/changelang" method="POST">
                         <div class="form-group">
@@ -55,61 +55,62 @@
             </ul>
          </div>
       </nav>
-      <div id="filter-content" class="collapse">
-         <div class="card border-secondary">
-            <div class="card-header">
-               <h4 class="card-title">Search Students By</h4>
-            </div>
-            <div class="card-body">
-               <form action="/employer/filter" method="POST">
-                  <div class="form-group">
-                     <label for="Technological">{{ I18N["Technologies"][LANG] }}</label>
-                     <textarea class="form-control" name="Technologies" placeholder="List Technological Aptitudes"></textarea>
-                  </div>
-                  <div class="form-group">
-                     <label for="professor_name">Teachers</label>
-                     <textarea class="form-control" name="professor_name" placeholder="Teachers"></textarea>
-                  </div>
-                  <div class="form-group">
-                     <div class="row">
-                        <div class="col-12">
-                           <label>Year of Graduation</label>
-                        </div>
-                        <div class="col-6">
-                           <label class="minmax">Minimum year: <span id="minimum"></span></label>
-                           <input name="minimum" type="range" min="2000" max="2030" value="2000" class="form-control-range" id="min">
-                        </div>
-                        <div class="col-6">
-                           <label class="minmax">Maximum year: <span id="maximum"></span></label>
-                           <input name="maximum" type="range" min="2000" max="2030" value="2030" class="form-control-range" id="max">
-                        </div>
-                     </div>
-                  </div>
-                  <div class="form-row">
-                     <div class="form-group col-md-6">
-                        <label>Degree</label>
-                        <select name="degree" class="form-control">
-                           <option value="">Degree</option>
-                           {% for d in DEGREES %}
-                           <option>{{ d['name_degree'] }}</option>
-                           {% endfor %}
-                        </select>
-                     </div>
-                     <div class="form-group col-md-6">
-                        <label>Projects</label>
-                        <select name="project" class="form-control">
-                           <option value="">Projects</option>
-                           {% for p in PROJECTS %}
-                           <option>{{ p['project_name'] }}</option>
-                           {% endfor %}
-                        </select>
-                     </div>
-                  </div>
-                  <button type="submit" class="btn btn-primary">{{ I18N["Submit"][LANG] }}</button>
-               </form>
-            </div>
-         </div>
+
+        <div id="filter-content" class="collapse">
+    <div class="card border-secondary">
+      <div class="card-header">
+        <h4 class="card-title">{{ I18N["Search Students By"][LANG] }}</h4>
       </div>
+      <div class="card-body">
+        <form action="/employer/filter" method="POST">
+          <div class="form-group">
+            <label for="Technological">{{ I18N["Technologies"][LANG] }}</label>
+            <textarea class="form-control" name="Technologies" placeholder="{{ I18N['List Technological Aptitudes'][LANG] }}"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="professor_name">{{ I18N["Teacher"][LANG] }}</label>
+            <textarea class="form-control" name="professor_name" placeholder="{{ I18N['Teacher'][LANG] }}"></textarea>
+          </div>
+          <div class="form-group">
+            <div class="row">
+              <div class="col-12">
+                <label>{{ I18N["Year Of Graduation"][LANG] }}</label>
+              </div>
+              <div class="col-6">
+                <label class="minmax">{{ I18N["Minimum year"][LANG] }}: <span id="minimum"></span></label>
+                <input name="minimum" type="range" min="2000" max="2030" value="2000" class="form-control-range" id="min">
+              </div>
+              <div class="col-6">
+                <label class="minmax">{{ I18N["Maximum year"][LANG] }}: <span id="maximum"></span></label>
+                <input name="maximum" type="range" min="2000" max="2030" value="2030" class="form-control-range" id="max">
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label>Degree</label>
+              <select name="degree" class="form-control">
+                <option value="">{{ I18N["Degree"][LANG] }}</option>
+                {% for d in DEGREES %}
+                <option>{{ d['name_degree'] }}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <div class="form-group col-md-6">
+              <label>Projects</label>
+              <select name="project" class="form-control">
+                <option value="">{{ I18N["Project"][LANG] }}</option>
+                {% for p in PROJECTS %}
+                <option>{{ p['project_name'] }}</option>
+                {% endfor %}
+              </select>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">{{ I18N["Submit"][LANG] }}</button>
+        </form>
+      </div>
+    </div>
+  </div>
 
 <form action="/employer/email" method="POST" id="email-form">
 

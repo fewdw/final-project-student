@@ -22,7 +22,7 @@
         <ul class="navbar-nav ml-auto">
                 <ul class="navbar-nav mr-auto">
                   <li class="nav-item">
-                      <a class="nav-link" href="/staff/list/student/addstudent">ADD Student 
+                      <a class="nav-link" href="/staff/list/student/addstudent">{{ I18N["ADD STUDENT"][LANG] }}
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill-add" viewBox="0 0 16 16">
                           <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0Zm-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
                           <path d="M2 13c0 1 1 1 1 1h5.256A4.493 4.493 0 0 1 8 12.5a4.49 4.49 0 0 1 1.544-3.393C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4Z"/>
@@ -31,7 +31,7 @@
                   </li>
                   <li class="nav-item">
             <button class="btn btn-link nav-link" data-toggle="collapse" data-target="#filter-content" aria-expanded="false" aria-controls="filter-content">
-              <span>Filter students
+              <span>{{I18N["FILTER STUDENTS"][LANG]}}
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-funnel-fill" viewBox="0 0 16 16">
                   <path d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5v-2z"/>
                 </svg>
@@ -48,7 +48,7 @@
             </a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="dropdownFormLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Change Language</a>
+            <a class="nav-link dropdown-toggle" href="#" id="dropdownFormLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ I18N["Change Language"][LANG] }}</a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownFormLink">
               <form class="px-4 py-3" action="/staff/changelang" method="POST">
                 <div class="form-group">
@@ -72,29 +72,29 @@
     <div id="filter-content" class="collapse">
       <div class="card border-secondary">
         <div class="card-header">
-          <h4 class="card-title">Search Students By</h4>
+          <h4 class="card-title">{{ I18N["Search Students By"][LANG] }}</h4>
         </div>
         <div class="card-body">
           <form action="/staff/filter" method="POST">
             <div class="form-group">
               <label for="Technological">{{ I18N["Technologies"][LANG] }}</label>
-              <textarea class="form-control" name="Technologies" placeholder="List Technological Aptitudes"></textarea>
+              <textarea class="form-control" name="Technologies" placeholder="{{ I18N['List Technological Aptitudes'][LANG] }}"></textarea>
             </div>
             <div class="form-group">
-              <label for="professor_name">Teachers</label>
-              <textarea class="form-control" name="professor_name" placeholder="Teachers"></textarea>
+              <label for="professor_name">{{ I18N["Teacher"][LANG] }}</label>
+              <textarea class="form-control" name="professor_name" placeholder="{{ I18N['Teacher'][LANG] }}"></textarea>
             </div>
             <div class="form-group">
               <div class="row">
                 <div class="col-12">
-                  <label>Year of Graduation</label>
+                  <label>{{ I18N["Year Of Graduation"][LANG] }}</label>
                 </div>
                 <div class="col-6">
-                  <label class="minmax">Minimum year: <span id="minimum"></span></label>
+                  <label class="minmax">{{ I18N["Minimum year"][LANG] }}: <span id="minimum"></span></label>
                   <input name="minimum" type="range" min="2000" max="2030" value="2000" class="form-control-range" id="min">
                 </div>
                 <div class="col-6">
-                  <label class="minmax">Maximum year: <span id="maximum"></span></label>
+                  <label class="minmax">{{ I18N["Maximum year"][LANG] }}: <span id="maximum"></span></label>
                   <input name="maximum" type="range" min="2000" max="2030" value="2030" class="form-control-range" id="max">
                 </div>
               </div>
@@ -103,7 +103,7 @@
               <div class="form-group col-md-6">
                 <label>Degree</label>
                 <select name="degree" class="form-control">
-                  <option value="">Degree</option>
+                  <option value="">{{ I18N["Degree"][LANG] }}</option>
                   {% for d in DEGREES %}
                   <option>{{ d['name_degree'] }}</option>
                   {% endfor %}
@@ -112,7 +112,7 @@
               <div class="form-group col-md-6">
                 <label>Projects</label>
                 <select name="project" class="form-control">
-                  <option value="">Projects</option>
+                  <option value="">{{ I18N["Project"][LANG] }}</option>
                   {% for p in PROJECTS %}
                   <option>{{ p['project_name'] }}</option>
                   {% endfor %}
@@ -156,7 +156,7 @@
               <input type="hidden" name="projectId" value="{{s['projectId']}}" />
               <input type="hidden" name="year_of_graduation" value="{{s['year_of_graduation']}}" />
               <input type="hidden" name="pdf" value="{{s['resume']}}">
-              <button type="submit" class="btn btn-primary my-2 my-sm-0">Unarchive
+              <button type="submit" class="btn btn-primary my-2 my-sm-0">{{ I18N["Unarchive"][LANG] }}
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-archive-fill" viewBox="0 0 16 16">
                   <path d="M12.643 15C13.979 15 15 13.845 15 12.5V5H1v7.5C1 13.845 2.021 15 3.357 15h9.286zM5.5 7h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1zM.8 1a.8.8 0 0 0-.8.8V3a.8.8 0 0 0 .8.8h14.4A.8.8 0 0 0 16 3V1.8a.8.8 0 0 0-.8-.8H.8z"/>
                 </svg>
@@ -164,7 +164,7 @@
             </form>
           </td>
           <td>
-            <a href="/staff/list/student/editstudent/{{s._id}}" class="btn btn-sm btn-primary">Edit
+            <a href="/staff/list/student/editstudent/{{s._id}}" class="btn btn-sm btn-primary">{{ I18N["Edit"][LANG] }}
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
                 <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
               </svg>
@@ -199,7 +199,7 @@
               <input type="hidden" name="projectId" value="{{s['projectId']}}" />
               <input type="hidden" name="year_of_graduation" value="{{s['year_of_graduation']}}" />
               <input type="hidden" name="pdf" value="{{s['resume']}}">
-              <button type="submit" class="btn btn-primary my-2 my-sm-0">Archive
+              <button type="submit" class="btn btn-primary my-2 my-sm-0">{{ I18N["Archive"][LANG] }}
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-archive-fill" viewBox="0 0 16 16">
                   <path d="M12.643 15C13.979 15 15 13.845 15 12.5V5H1v7.5C1 13.845 2.021 15 3.357 15h9.286zM5.5 7h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1zM.8 1a.8.8 0 0 0-.8.8V3a.8.8 0 0 0 .8.8h14.4A.8.8 0 0 0 16 3V1.8a.8.8 0 0 0-.8-.8H.8z"/>
                 </svg>
@@ -207,7 +207,7 @@
             </form>
           </td>
           <td>
-            <a href="/staff/list/student/editstudent/{{s._id}}" class="btn btn-sm btn-primary">Edit
+            <a href="/staff/list/student/editstudent/{{s._id}}" class="btn btn-sm btn-primary">{{ I18N["Edit"][LANG] }}
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
                 <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
               </svg>
