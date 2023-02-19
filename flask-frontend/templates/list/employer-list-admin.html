@@ -10,7 +10,7 @@
    </head>
    <body style="background-color: #e9e3d3">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-         <a class="navbar-brand" href="#">
+         <a class="navbar-brand" href="/">
          <img src="../../static/concordia-logo-nav.png" width="172" height="52" class="d-inline-block align-top" alt="Logo">
          </a>
          <span class="navbar-text font-weight-bold">Concordia ISRS</span>
@@ -20,9 +20,16 @@
          <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                <ul class="navbar-nav mr-auto">
-                  <li class="nav-item">
+                <li class="nav-item">
+                  <input type="submit" value="email me" form="email-form" class="btn btn-primary my-2 my-sm-0">       
+                </li>
+                <li class="nav-item">
                      <button class="btn btn-link nav-link" data-toggle="collapse" data-target="#filter-content" aria-expanded="false" aria-controls="filter-content">
-                     <span>Filter students</span>
+                     <span>Filter students
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-funnel-fill" viewBox="0 0 16 16">
+                           <path d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5v-2z"/>
+                         </svg>
+                     </span>
                      </button>
                   </li>
                </ul>
@@ -42,7 +49,8 @@
                   </div>
                </li>
                <li class="nav-item">
-                  <a class="nav-link" href="/clearsession">{{ I18N["LOGOUT"][LANG] }}</a>
+                  <a class="nav-link" href="/clearsession">{{ I18N["LOGOUT"][LANG] }}
+                  </a>
                </li>
             </ul>
          </div>
@@ -102,47 +110,45 @@
             </div>
          </div>
       </div>
-<form action="/emailtest" method="POST">
-      <table class="tableEmployer">
-         <thead>
-            <tr>
-               <td>{{ I18N["email"][LANG]}}</td>
-               <th>{{ I18N["Full name"][LANG]}}</th>
-               <th>{{ I18N["Degree"][LANG]}}</th>
-               <th>{{ I18N["Technologies"][LANG]}}</th>
-               <th>{{ I18N["More Info"][LANG]}}</th>
-            </tr>
-         </thead>
-         {% for s in STUDENTS %}
-         <tbody>
-            {% if s["status"] == "active" %}
-            <tr>
-              <!--
-                <td>
-                  <form  method="post" action="/employer/email">
-                     <input type="hidden" value="{{s._id}}" name="student_id" />
-                     <input type="submit" value="Email Me This Student"/>
-                  </form>
-               </td>
-              -->
 
-              <td>
-                <input type="checkbox" name="student" value="{{s._id}}">
-              </td>
+<form action="/employer/email" method="POST" id="email-form">
 
-               <td>{{s.first_name}},{{s.last_name}}</td>
-               <td>{{s.degree}}, {{s.year_of_graduation}}</td>
-               <td>{{s.programming_language}}</td>
-               <td>
-                  <a href="/employer/list/student/id/{{s._id}}">
-                  More info</a>
-               </td>
-            </tr>
-            {% endif %}
-         </tbody>
-         {% endfor %}
-      </table>
-    <input type="submit" value="email me">
+
+  <table class="table">
+    <thead style="background-color: #912338; color: #FFFFFF;">
+      <tr>
+        <th>{{ I18N["email"][LANG]}}</th>
+        <th>{{ I18N["Full name"][LANG]}}</th>
+        <th>{{ I18N["Degree"][LANG]}}</th>
+        <th>{{ I18N["Technologies"][LANG]}}</th>
+        <th>{{ I18N["More Info"][LANG]}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for s in STUDENTS %}
+        {% if s["status"] == "active" %}
+          <tr style="background-color: {{ '#c8c8c8' if loop.index is odd else '#f0f0f0' }};">
+            <td>
+              <input type="checkbox" name="student" value="{{s._id}}">
+            </td>
+            <td>{{s.first_name}},{{s.last_name}}</td>
+            <td>{{s.degree}}, {{s.year_of_graduation}}</td>
+            <td>{{s.programming_language}}</td>
+            <td>
+              <a href="/employer/list/student/id/{{s._id}}" class="btn btn-primary my-2 my-sm-0">
+               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
+                  <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
+                </svg>
+              </a>
+            </td>
+          </tr>
+        {% endif %}
+      {% endfor %}
+    </tbody>
+  </table>
+  
+
+
     </form>
       <script>
          var slider1 = document.getElementById("min");

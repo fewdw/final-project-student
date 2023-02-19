@@ -22,16 +22,30 @@
         <ul class="navbar-nav ml-auto">
                 <ul class="navbar-nav mr-auto">
                   <li class="nav-item">
-                      <a class="nav-link" href="/staff/list/student/addstudent">ADD Student</a>
+                      <a class="nav-link" href="/staff/list/student/addstudent">ADD Student 
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill-add" viewBox="0 0 16 16">
+                          <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0Zm-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+                          <path d="M2 13c0 1 1 1 1 1h5.256A4.493 4.493 0 0 1 8 12.5a4.49 4.49 0 0 1 1.544-3.393C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4Z"/>
+                        </svg>
+                      </a>
                   </li>
                   <li class="nav-item">
             <button class="btn btn-link nav-link" data-toggle="collapse" data-target="#filter-content" aria-expanded="false" aria-controls="filter-content">
-              <span>Filter students</span>
+              <span>Filter students
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-funnel-fill" viewBox="0 0 16 16">
+                  <path d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5v-2z"/>
+                </svg>
+              </span>
             </button>
           </li>
         </ul>
           <li class="nav-item">
-            <a class="nav-link" href="/staff/pannel">{{ I18N["VISIT STAFF PANNEL"][LANG] }}</a>
+            <a class="nav-link" href="/staff/pannel">{{ I18N["VISIT STAFF PANNEL"][LANG] }}
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-motherboard" viewBox="0 0 16 16">
+                <path d="M11.5 2a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5Zm2 0a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5Zm-10 8a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1h-6Zm0 2a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1h-6ZM5 3a1 1 0 0 0-1 1h-.5a.5.5 0 0 0 0 1H4v1h-.5a.5.5 0 0 0 0 1H4a1 1 0 0 0 1 1v.5a.5.5 0 0 0 1 0V8h1v.5a.5.5 0 0 0 1 0V8a1 1 0 0 0 1-1h.5a.5.5 0 0 0 0-1H9V5h.5a.5.5 0 0 0 0-1H9a1 1 0 0 0-1-1v-.5a.5.5 0 0 0-1 0V3H6v-.5a.5.5 0 0 0-1 0V3Zm0 1h3v3H5V4Zm6.5 7a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-2Z"/>
+                <path d="M1 2a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-2H.5a.5.5 0 0 1-.5-.5v-1A.5.5 0 0 1 .5 9H1V8H.5a.5.5 0 0 1-.5-.5v-1A.5.5 0 0 1 .5 6H1V5H.5a.5.5 0 0 1-.5-.5v-2A.5.5 0 0 1 .5 2H1Zm1 11a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v11Z"/>
+              </svg>
+            </a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="dropdownFormLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Change Language</a>
@@ -112,7 +126,7 @@
     </div>
 
     <table class="table table-striped">
-      <thead class="thead-dark">
+      <thead style="background-color: #912338; color: #FFFFFF;">
         <tr>
           <th>{{ I18N["Archive"][LANG]}}</th>
           <th>{{ I18N["Edit"][LANG]}}</th>
@@ -142,21 +156,33 @@
               <input type="hidden" name="projectId" value="{{s['projectId']}}" />
               <input type="hidden" name="year_of_graduation" value="{{s['year_of_graduation']}}" />
               <input type="hidden" name="pdf" value="{{s['resume']}}">
-              <button type="submit" class="btn btn-sm btn-success">Unarchive</button>
+              <button type="submit" class="btn btn-primary my-2 my-sm-0">Unarchive
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-archive-fill" viewBox="0 0 16 16">
+                  <path d="M12.643 15C13.979 15 15 13.845 15 12.5V5H1v7.5C1 13.845 2.021 15 3.357 15h9.286zM5.5 7h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1zM.8 1a.8.8 0 0 0-.8.8V3a.8.8 0 0 0 .8.8h14.4A.8.8 0 0 0 16 3V1.8a.8.8 0 0 0-.8-.8H.8z"/>
+                </svg>
+              </button>
             </form>
           </td>
           <td>
-            <a href="/staff/list/student/editstudent/{{s._id}}" class="btn btn-sm btn-primary">Edit</a>
+            <a href="/staff/list/student/editstudent/{{s._id}}" class="btn btn-sm btn-primary">Edit
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
+                <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
+              </svg>
+            </a>
           </td>
           <td>{{s.first_name}} {{s.last_name}}</td>
           <td>{{s.degree}}, {{s.year_of_graduation}}</td>
           <td>{{s.programming_language}}</td>
           <td>
-            <a href="/staff/list/student/id/{{s._id}}" class="btn btn-sm btn-info">More Info</a>
+            <a href="/staff/list/student/id/{{s._id}}" class="btn btn-sm btn-info">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
+                <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
+              </svg>
+            </a>
           </td>
         </tr>
         {% else %}
-        <tr>
+        <tr style="background-color: {{ '#c8c8c8' if loop.index is odd else '#f0f0f0' }};">
           <td>
             <form method="POST" action="/staff/archive">
               <input type="hidden" name="_id" value="{{s['_id']}}" />
@@ -173,17 +199,29 @@
               <input type="hidden" name="projectId" value="{{s['projectId']}}" />
               <input type="hidden" name="year_of_graduation" value="{{s['year_of_graduation']}}" />
               <input type="hidden" name="pdf" value="{{s['resume']}}">
-              <button type="submit" class="btn btn-sm btn-warning">Archive</button>
+              <button type="submit" class="btn btn-primary my-2 my-sm-0">Archive
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-archive-fill" viewBox="0 0 16 16">
+                  <path d="M12.643 15C13.979 15 15 13.845 15 12.5V5H1v7.5C1 13.845 2.021 15 3.357 15h9.286zM5.5 7h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1zM.8 1a.8.8 0 0 0-.8.8V3a.8.8 0 0 0 .8.8h14.4A.8.8 0 0 0 16 3V1.8a.8.8 0 0 0-.8-.8H.8z"/>
+                </svg>
+              </button>
             </form>
           </td>
           <td>
-            <a href="/staff/list/student/editstudent/{{s._id}}" class="btn btn-sm btn-primary">Edit</a>
+            <a href="/staff/list/student/editstudent/{{s._id}}" class="btn btn-sm btn-primary">Edit
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
+                <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
+              </svg>
+            </a>
           </td>
           <td>{{s.first_name}} {{s.last_name}}</td>
           <td>{{s.degree}}, {{s.year_of_graduation}}</td>
           <td>{{s.programming_language}}</td>
           <td>
-            <a href="/staff/list/student/id/{{s._id}}" class="btn btn-sm btn-info">More Info</a>
+            <a href="/staff/list/student/id/{{s._id}}" class="btn btn-sm btn-info" class="btn btn-sm btn-primary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
+                <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
+              </svg>
+            </a>
           </td>
         </tr>
         {% endif %}

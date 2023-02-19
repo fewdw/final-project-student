@@ -72,21 +72,54 @@ def admin_list_teacher(professor_name):
 @app.route('/admin/list/student/id/<id>')
 def admin_more_info(id):
     if session.get("type") == "admin":
-        return render_template('moreinfo/student-more-info-admin.html', STUDENT = get_one_student_from_api(id), I18N=i18n, LANG=session.get("lang"))
+
+        student = get_one_student_from_api(id)
+        projects = get_all_projects_from_api()
+
+        matching_project = next((p for p in projects if p["project_name"] == student["projectId"]), None)
+
+        if matching_project:
+            description = matching_project["project_description"]
+        else:
+            description = "project has no description yet"
+
+        return render_template('moreinfo/student-more-info-admin.html', STUDENT = student, DESCRIPTION=description, I18N=i18n, LANG=session.get("lang"))
     return redirect("/")
 
 
 @app.route('/employer/list/student/id/<id>')
 def employer_more_info(id):
     if session.get("type") == "employer":
-        return render_template('moreinfo/student-more-info-employer.html', STUDENT = get_one_student_from_api(id), I18N=i18n, LANG=session.get("lang"))
+
+        student = get_one_student_from_api(id)
+        projects = get_all_projects_from_api()
+
+        matching_project = next((p for p in projects if p["project_name"] == student["projectId"]), None)
+
+        if matching_project:
+            description = matching_project["project_description"]
+        else:
+            description = "project has no description yet"
+
+        return render_template('moreinfo/student-more-info-employer.html', STUDENT = student, DESCRIPTION=description, I18N=i18n, LANG=session.get("lang"))
     return redirect("/")
 
 
 @app.route('/staff/list/student/id/<id>')
 def staff_more_info(id):
     if session.get("type") == "staff":
-        return render_template('moreinfo/student-more-info-staff.html', STUDENT = get_one_student_from_api(id), I18N=i18n, LANG=session.get("lang"))
+
+        student = get_one_student_from_api(id)
+        projects = get_all_projects_from_api()
+
+        matching_project = next((p for p in projects if p["project_name"] == student["projectId"]), None)
+
+        if matching_project:
+            description = matching_project["project_description"]
+        else:
+            description = "project has no description yet"
+
+        return render_template('moreinfo/student-more-info-staff.html', STUDENT = student, DESCRIPTION=description, I18N=i18n, LANG=session.get("lang"))
     return redirect("/staff")
 
 
@@ -131,16 +164,17 @@ def edited_student_admin():
     if request.method == "POST" and session.get("type") == "admin":
 
         old_pdf = request.form.get("old_pdf_string")
-
         pdf_file = request.files.get("pdf_file")
         pdf_data = pdf_file.read()
         pdf_data_b64 = base64.b64encode(pdf_data).decode('utf-8')
 
-        if len(pdf_data_b64) > 10:
-            pdf_to_post = pdf_data_b64
-        else:
+        if len(pdf_data_b64) == 0:
+            #olf pdf
             pdf_to_post = old_pdf
-        
+        else:
+            #new pdf
+            pdf_to_post = pdf_data_b64
+
 
         delete_student_from_api(request.form.get("id"))
         add_student_to_list(
@@ -164,15 +198,17 @@ def edited_student_staff():
     if request.method == "POST" and session.get("type") == "staff":
 
         old_pdf = request.form.get("old_pdf_string")
-
         pdf_file = request.files.get("pdf_file")
         pdf_data = pdf_file.read()
         pdf_data_b64 = base64.b64encode(pdf_data).decode('utf-8')
 
-        if len(pdf_data_b64) > 10:
-            pdf_to_post = pdf_data_b64
-        else:
+        if len(pdf_data_b64) == 0:
+            #olf pdf
             pdf_to_post = old_pdf
+        else:
+            #new pdf
+            pdf_to_post = pdf_data_b64
+
 
         delete_student_from_api(request.form.get("id"))
         add_student_to_list(
@@ -683,14 +719,31 @@ def employerFilterRoute():
     
     return redirect("/")
 
+##
 @app.route("/employer/email", methods=["POST"])
 def email_students_route():
     if session.get("type") == "employer":
 
-        student = get_one_student_from_api(request.form.get("student_id"))
-        sent_bool = send_mail(session.get("name"),student)
-        return render_template("email_sent.html", STUDENT_NAME=student["first_name"],EMAIL=session.get("name"),I18N=i18n,SENT=sent_bool,LANG=session.get("lang"))
+        list_of_students = []
+
+        emails = request.form.getlist('student')
+
+        if len(emails)==0:
+            return render_template("email_sent.html", STUDENT_NAME=" No student selected",EMAIL=session.get("name"),I18N=i18n,SENT=False,LANG=session.get("lang"),LENGTH=0) 
+
+        for i in emails:
+            student = get_one_student_from_api(i)
+            list_of_students.append({"name":student["first_name"],"resume":student["resume"]})
+
+        sent_bool = send_mail(session.get("name"),list_of_students)
+        
+        if len(emails) == 1:
+            return render_template("email_sent.html", STUDENT_NAME=list_of_students[0]["name"],EMAIL=session.get("name"),I18N=i18n,SENT=sent_bool,LANG=session.get("lang"),LENGTH=1)
+        if len(emails) > 1:
+            return render_template("email_sent.html", STUDENT_NAME=list_of_students[0]["name"],EMAIL=session.get("name"),I18N=i18n,SENT=sent_bool,LANG=session.get("lang"),LENGTH=2)
     return redirect("/")
+###
+
 
 @app.route("/admin/list/resume",methods=["POST"])
 def admin_view_resume_route():
@@ -727,10 +780,6 @@ def employer_view_resume_route():
         response.headers.set('Content-Type', 'application/pdf')
         return response
     return redirect("/")
-
-@app.route("/emailtest",methods=["POST"])
-def testing_new_email():
-    return request.form.getlist('student')
 
 if __name__ == '__main__':
     app.run()

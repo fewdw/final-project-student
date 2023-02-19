@@ -12,7 +12,7 @@
 
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="/">
         <img src="../../../../static/concordia-logo-nav.png" width="172" height="52" class="d-inline-block align-top" alt="Logo">
       </a>
       <span class="navbar-text font-weight-bold">Concordia ISRS</span>
@@ -49,7 +49,7 @@
                 <li class="list-group-item"><strong>Professor Name: </strong>{{STUDENT.professor_name}}</li>
                 <li class="list-group-item"><strong>Year of Graduation: </strong>{{STUDENT.year_of_graduation}}</li>
                 <li class="list-group-item"><strong>Degree: </strong>{{STUDENT.degree}}</li>
-                <li class="list-group-item"><strong>Project ID: </strong>{{STUDENT.projectId}}</li>
+                <li class="list-group-item"><strong>Project ID: </strong>{{STUDENT.projectId}}, {{DESCRIPTION}}</li>
                 <li class="list-group-item"><strong>Programming Language: </strong>{{STUDENT.programming_language}}</li>
                 {% if STUDENT.resume|length > 10 %}
                 <li class="list-group-item">

@@ -1,0 +1,27 @@
+input[type='checkbox'] {
+    /* Remove default checkbox appearance */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  
+    /* Add custom checkbox appearance */
+    width: 20px;
+    height: 20px;
+    border: 2px solid #999;
+    border-radius: 4px;
+    background-color: #fff;
+    cursor: pointer;
+    margin-left: 25px;
+  }
+  
+  /* Style the checkbox when it's checked */
+  input[type='checkbox']:checked {
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+  
+  /* Style the checkbox when it's hovered */
+  input[type='checkbox']:hover {
+    border-color: #007bff;
+  }
+  
