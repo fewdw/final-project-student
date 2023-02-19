@@ -96,8 +96,8 @@
         "fr": "Id de projet"
     },
     "Programming Language": {
-        "en": "Programming Language",
-        "fr": "Langage de programmation"
+        "en": "Technologies",
+        "fr": "Technologies"
     },
     "Update Student": {
         "en": "Update Student",
@@ -341,19 +341,26 @@
     "fr": "Informations d'identification"
     },
 
-    "":{
-    "en": "",
-    "fr": ""
+    "Student ID": {
+        "en": "Student ID",
+        "fr": "le numéro d'étudiant"
+    },
+    "Status": {
+        "en": "Status",
+        "fr": "statut"
+    },
+    "Project ID": {
+        "en": "Project name",
+        "fr": "nom du projet"
     },
 
-    "":{
-    "en": "",
-    "fr": ""
+    "View Resume": {
+        "en": "View Resume",
+        "fr": "Voir le CV"
     },
-
-    "":{
-    "en": "",
-    "fr": ""
+    "Student has no resume": {
+        "en": "Student has no resume",
+        "fr": "L'étudiant n'a pas de CV"
     }
 
 }

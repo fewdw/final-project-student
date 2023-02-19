@@ -15,7 +15,7 @@
       <a class="navbar-brand" href="/">
         <img src="../../../../static/concordia-logo-nav.png" width="172" height="52" class="d-inline-block align-top" alt="Logo">
       </a>
-      <span class="navbar-text font-weight-bold">Concordia ISRS</span>
+      <span class="navbar-text font-weight-bold">{{I18N["CONCORDIA ISRS"][LANG]}}</span>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -23,7 +23,7 @@
         <ul class="navbar-nav ml-auto">
   
           <li class="nav-item">
-            <a class="nav-link" href="/employer/list">BACK</a>
+            <a class="nav-link" href="/employer/list">{{I18N["BACK"][LANG]}}</a>
           </li>
   
           <li class="nav-item">
@@ -40,26 +40,25 @@
             <div class="card-header">{{STUDENT.first_name}} {{STUDENT.last_name}}</div>
             <div class="card-body">
               <ul class="list-group">
-                <li class="list-group-item"><strong>Student ID: </strong>{{STUDENT.student_id}}</li>
-                <li class="list-group-item"><strong>Status: </strong>{{STUDENT.status}}</li>
-                <li class="list-group-item"><strong>First Name: </strong>{{STUDENT.first_name}}</li>
-                <li class="list-group-item"><strong>Last Name: </strong>{{STUDENT.last_name}}</li>
-                <li class="list-group-item"><strong>Email: </strong>{{STUDENT.email}}</li>
-                <li class="list-group-item"><strong>Gender: </strong>{{STUDENT.gender}}</li>
-                <li class="list-group-item"><strong>Professor Name: </strong>{{STUDENT.professor_name}}</li>
-                <li class="list-group-item"><strong>Year of Graduation: </strong>{{STUDENT.year_of_graduation}}</li>
-                <li class="list-group-item"><strong>Degree: </strong>{{STUDENT.degree}}</li>
-                <li class="list-group-item"><strong>Project ID: </strong>{{STUDENT.projectId}}, {{DESCRIPTION}}</li>
-                <li class="list-group-item"><strong>Programming Language: </strong>{{STUDENT.programming_language}}</li>
+                <li class="list-group-item"><strong>{{ I18N["Student ID"][LANG] }}: </strong>{{STUDENT.student_id}}</li>
+                <li class="list-group-item"><strong>{{ I18N["Status"][LANG] }}: </strong>{{STUDENT.status}}</li>
+                <li class="list-group-item"><strong>{{ I18N["First Name"][LANG] }}: </strong>{{STUDENT.first_name}}</li>
+                <li class="list-group-item"><strong>{{ I18N["Last Name"][LANG] }}: </strong>{{STUDENT.last_name}}</li>
+                <li class="list-group-item"><strong>{{ I18N["Email"][LANG] }}: </strong>{{STUDENT.email}}</li>
+                <li class="list-group-item"><strong>{{ I18N["Professor Name"][LANG] }}: </strong>{{STUDENT.professor_name}}</li>
+                <li class="list-group-item"><strong>{{ I18N["Year of Graduation"][LANG] }}: </strong>{{STUDENT.year_of_graduation}}</li>
+                <li class="list-group-item"><strong>{{ I18N["Degree"][LANG] }}: </strong>{{STUDENT.degree}}</li>
+                <li class="list-group-item"><strong>{{ I18N["Project ID"][LANG] }}: </strong>{{STUDENT.projectId}}, {{DESCRIPTION}}</li>
+                <li class="list-group-item"><strong>{{ I18N["Programming Language"][LANG] }}: </strong>{{STUDENT.programming_language}}</li>
                 {% if STUDENT.resume|length > 10 %}
                 <li class="list-group-item">
                   <form action="/employer/list/resume" method="POST">
                     <input type="hidden" name="pdf" value="{{STUDENT.resume}}">
-                    <button type="submit" class="btn btn-link">View Resume</button>
+                    <button type="submit" class="btn btn-link">{{ I18N["View Resume"][LANG] }}</button>
                   </form>
                 </li>
                 {% else %}
-                <li class="list-group-item">Student has no resume</li>
+                <li class="list-group-item">{{ I18N["Student has no resume"][LANG] }}</li>
                 {% endif %}
               </ul>
             </div>
