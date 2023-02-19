@@ -281,8 +281,8 @@
     },
 
     "Submit student Resume":{
-        "en":"Submit student Resume",
-        "fr":"Soumettre le CV de l'étudiant"
+        "en":"Submit student Resume **Not submitting anything will keep last resume**",
+        "fr":"Soumettre le CV de l'étudiant **Si vous ne soumettez rien, vous conserverez le dernier CV**"
     },
 
     "CONCORDIA ISRS":{
@@ -409,6 +409,10 @@
     "Email me student list": {
         "en": "Email me student list",
         "fr": "M'envoyer la liste des étudiants par e-mail"
+    },
+    "Edit Student": {
+        "en": "Edit Student",
+        "fr": "Modifier l'étudiant"
     }
 
 }

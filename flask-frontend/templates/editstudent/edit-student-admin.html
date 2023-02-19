@@ -14,7 +14,7 @@
       <a class="navbar-brand" href="#">
         <img src="../../../../static/concordia-logo-nav.png" width="172" height="52" class="d-inline-block align-top" alt="Logo">
       </a>
-      <span class="navbar-text font-weight-bold">Concordia ISRS</span>
+      <span class="navbar-text font-weight-bold">{{ I18N["CONCORDIA ISRS"][LANG] }}</span>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -22,7 +22,7 @@
         <ul class="navbar-nav ml-auto">
   
           <li class="nav-item">
-            <a class="nav-link" href="/admin/list">BACK</a>
+            <a class="nav-link" href="/admin/list">{{ I18N["BACK"][LANG] }}</a>
           </li>
   
           <li class="nav-item">
@@ -36,7 +36,7 @@
   <div class="row justify-content-center">
     <div class="col-md-8">
       <div class="card">
-        <div class="card-header">Edit Student</div>
+        <div class="card-header">{{ I18N["Edit Student"][LANG] }}</div>
         <div class="card-body">
           <form method="post" action="/admin/list/studentUpdated/" enctype="multipart/form-data">
             <input type="hidden" value="{{STUDENT._id}}" name="id" />
@@ -57,14 +57,6 @@
               <input type="email" value="{{STUDENT.email}}" name="email" class="form-control" required>
             </div>
             <div class="form-group">
-              <label for="gender">{{ I18N["Gender"][LANG]}}</label>
-              <select name="gender" class="form-control" required>
-                <option>{{ I18N["Male"][LANG]}}</option>
-                <option>{{ I18N["Female"][LANG]}}</option>
-                <option>{{ I18N["I prefer not to say"][LANG]}}</option>
-              </select>
-            </div>
-            <div class="form-group">
               <label for="professor_name">{{ I18N["Professor Name"][LANG]}}</label>
               <input type="text" value="{{STUDENT.professor_name}}" name="professor_name" class="form-control" required>
             </div>
@@ -82,7 +74,7 @@
               </select>
             </div>
             <div class="form-group">
-              <label for="projectId">{{ I18N["Project Id"][LANG]}}</label>
+              <label for="projectId">{{ I18N["Project"][LANG]}}</label>
               <select name="projectId" class="form-control" required>
                 <option value="{{STUDENT.projectId}}">{{STUDENT.projectId}}</option>
                 {%for p in PROJECTS%}
@@ -100,6 +92,7 @@
               <input type="file" name="pdf_file" class="form-control-file" accept="application/pdf">
             </div>
             <div class="form-group">
+              <input type="hidden" name="gender" value="NONE">
               <button type="submit" class="btn btn-primary">{{ I18N["Update Student"][LANG]}}</button>
             </div>
           </form>
