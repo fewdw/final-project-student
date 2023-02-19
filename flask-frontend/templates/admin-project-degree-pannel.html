@@ -14,14 +14,14 @@
          <a class="navbar-brand" href="#">
          <img src="../../../../static/concordia-logo-nav.png" width="172" height="52" class="d-inline-block align-top" alt="Logo">
          </a>
-         <span class="navbar-text font-weight-bold">Concordia ISRS</span>
+         <span class="navbar-text font-weight-bold">{{ I18N["CONCORDIA ISRS"][LANG] }}</span>
          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
          <span class="navbar-toggler-icon"></span>
          </button>
          <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                <li class="nav-item">
-                  <a class="nav-link" href="/admin/list">BACK</a>
+                  <a class="nav-link" href="/admin/list">{{ I18N["BACK"][LANG] }}</a>
                </li>
                <li class="nav-item">
                   <a class="nav-link" href="/clearsession">{{ I18N["LOGOUT"][LANG] }}</a>
@@ -36,7 +36,7 @@
                <!--DEGREE-->
                <div>
                   <div id="degree-container">
-                     <h3>Degrees</h3>
+                     <h3>{{ I18N["DEGREES"][LANG] }}</h3>
                      <form method="POST" id="degree-form">
                         <input type="hidden" name="id" id="degreeIdFormInput" value=''>
                         <input type="hidden" name="degree_id" value="1">
@@ -55,7 +55,7 @@
                         </div>
                      </form>
                      <br>
-                     <button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#degree-list" aria-expanded="false" aria-controls="degree-list">View degrees</button>
+                     <button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#degree-list" aria-expanded="false" aria-controls="degree-list">{{ I18N["VIEW DEGREES"][LANG]}}</button>
                      <br><br>
                      <div class="collapse" id="degree-list">
                         <ul class="list-group">
@@ -83,7 +83,7 @@
                <!--PROJECT-->
                <div>
                   <div id="project-container">
-                     <h3>Projects</h3>
+                     <h3>{{ I18N["PROJECTS"][LANG]}}</h3>
                      <form method="POST" id="project-form">
                         <div class="form-group">
                            <input type="hidden" name="id" id="projectIdFormInput" value=''>
@@ -102,7 +102,7 @@
                         </div>
                      </form>
                      <br>
-                     <button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#project-list" aria-expanded="false" aria-controls="project-list">View projects</button>
+                     <button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#project-list" aria-expanded="false" aria-controls="project-list">{{ I18N["VIEW PROJECTS"][LANG]}}</button>
                      <br><br>
                      <div class="collapse" id="project-list">
                         <ul class="list-group">
@@ -131,7 +131,7 @@
                <!--CREDENTIALS-->
                <div>
                   <div id="credentials-container">
-                     <h3>Credentials</h3>
+                     <h3>{{ I18N["CREDENTIALS"][LANG]}}</h3>
                      <form action="/admin/credentials/addcredential" method="POST" id="credential-form">
                         <div class="form-group">
                            <label for="email">{{ I18N["Email"][LANG]}}</label>
@@ -142,7 +142,7 @@
                            <input type="password" class="form-control" id="password" name="password" required>
                         </div>
                         <div class="form-group">
-                           <label for="lang">language</label>
+                           <label for="lang">{{ I18N["language"][LANG]}}</label>
                            <select class="form-control" id="lang" name="lang" required>
                               <option value="en">{{ I18N["English"][LANG]}}</option>
                               <option value="fr">{{ I18N["French"][LANG]}}</option>
@@ -159,7 +159,7 @@
                         <button class="btn btn-primary" type="submit">{{ I18N["ADD"][LANG]}}</button>
                      </form>
                      <br>
-                     <button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#credential-list" aria-expanded="false" aria-controls="credential-list">View credentials</button>
+                     <button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#credential-list" aria-expanded="false" aria-controls="credential-list">{{ I18N["VIEW CREDENTIALS"][LANG]}}</button>
                      <br><br>
                      <div class="collapse" id="credential-list">
                         <ul class="list-group">

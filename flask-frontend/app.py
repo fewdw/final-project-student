@@ -729,7 +729,7 @@ def email_students_route():
         emails = request.form.getlist('student')
 
         if len(emails)==0:
-            return render_template("email_sent.html", STUDENT_NAME=" No student selected",EMAIL=session.get("name"),I18N=i18n,SENT=False,LANG=session.get("lang"),LENGTH=0) 
+            return render_template("email_sent.html", STUDENT_NAME="no student selected",EMAIL=session.get("name"),I18N=i18n,SENT=False,LANG=session.get("lang"),LENGTH=0) 
 
         for i in emails:
             student = get_one_student_from_api(i)
@@ -787,7 +787,7 @@ def page_not_found(e):
 
 @app.errorhandler(500)
 def internal_server_error(e):
-    return render_template('500.html'), 500
+    return render_template('error/500.html'), 500
 
 if __name__ == '__main__':
     app.run()

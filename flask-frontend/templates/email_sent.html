@@ -15,7 +15,7 @@
       <a class="navbar-brand" href="#">
         <img src="../../../../static/concordia-logo-nav.png" width="172" height="52" class="d-inline-block align-top" alt="Logo">
       </a>
-      <span class="navbar-text font-weight-bold">Concordia ISRS</span>
+      <span class="navbar-text font-weight-bold">{{I18N["CONCORDIA ISRS"][LANG]}}</span>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -23,7 +23,7 @@
         <ul class="navbar-nav ml-auto">
   
           <li class="nav-item">
-            <a class="nav-link" href="/employer/list">BACK</a>
+            <a class="nav-link" href="/employer/list">{{I18N["BACK"][LANG]}}</a>
           </li>
   
           <li class="nav-item">
@@ -32,16 +32,23 @@
         </ul>
       </div>
     </nav>
-
     <div class="d-flex justify-content-center">
       {% if SENT == False %}
       <p class="text-danger">
-        THERE WAS AN ERROR EMAILING {{EMAIL}} {{STUDENT_NAME}} {%if LENGTH == 2 %}AND MORE{%endif%}
+        {{I18N["THERE WAS AN ERROR EMAILING"][LANG]}} {{EMAIL}} 
+        
+        {% if STUDENT_NAME == "no student selected" %}
+          {{ I18N["NO STUDENT SELECTED"][LANG] }}
+        {% elif STUDENT_NAME %}
+          {{ STUDENT_NAME }}
+        {% endif %}
+        
+        {%if LENGTH == 2 %}{{ I18N["AND MORE"][LANG] }}{%endif%}
       </p>
       <!--ADD I18N -->
       {% else %}
       <p class="text-success">
-        {{EMAIL}} was sent all information about {{STUDENT_NAME}} {%if LENGTH == 2 %}AND MORE{%endif%}
+        {{EMAIL}} {{ I18N["WAS SENT ALL INFORMATION ABOUT"][LANG] }} {{STUDENT_NAME}} {%if LENGTH == 2 %}{{ I18N["AND MORE"][LANG] }}{%endif%}
       </p>
       <!--ADD I18N -->
       {%endif%}

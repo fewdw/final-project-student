@@ -132,8 +132,8 @@
         "fr": "VISITEZ LE PANNEAU D'ADMIN"
     },
     "LOGOUT": {
-        "en": "LOGOUT",
-        "fr": "SE DÉCONNECTER"
+        "en": "Logout",
+        "fr": "déconnecter"
     },
     "email": {
         "en": "email",
@@ -279,5 +279,81 @@
     "Submit student Resume":{
         "en":"Submit student Resume",
         "fr":"Soumettre le CV de l'étudiant"
+    },
+
+    "CONCORDIA ISRS":{
+        "en": "Concordia ISRS",
+        "fr": "ISRS Concordia"
+    },
+
+    "BACK":{
+    "en": "Back",
+    "fr": "retour"
+    },
+
+    "DEGREES":{
+    "en": "Degrees",
+    "fr": "Diplômes"
+    },
+
+    "VIEW DEGREES":{
+    "en": "View degrees",
+    "fr": "Voir les diplômes"
+    },
+
+    "VIEW PROJECTS":{
+    "en": "View projects",
+    "fr": "Voir les projets"
+    },
+
+    "THERE WAS AN ERROR EMAILING":{
+    "en": "There was an error emailing",
+    "fr": "Il y a eu une erreur d'envoi d'email"
+    },
+
+    "AND MORE":{
+    "en": "and more",
+    "fr": "et plus"
+    },
+
+    "WAS SENT ALL INFORMATION ABOUT":{
+    "en": "was sent all information about",
+    "fr": "a reçu toutes les informations sur"
+    },
+
+    "NO STUDENT SELECTED":{
+    "en": "no student selected",
+    "fr": "aucun étudiant n'a été sélectionné"
+    },
+
+    "PROJECTS":{
+    "en": "Projects",
+    "fr": "Projets"
+    },
+
+    "VIEW CREDENTIALS":{
+    "en": "View credentials",
+    "fr": "voir les informations d'identification"
+    },
+
+    "CREDENTIALS":{
+    "en": "Credentials",
+    "fr": "Informations d'identification"
+    },
+
+    "":{
+    "en": "",
+    "fr": ""
+    },
+
+    "":{
+    "en": "",
+    "fr": ""
+    },
+
+    "":{
+    "en": "",
+    "fr": ""
     }
+
 }
