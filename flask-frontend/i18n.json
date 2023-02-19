@@ -48,8 +48,8 @@
         "fr": "Choisir le diplôme de l'élève"
     },
     "Enter Students Project Id": {
-        "en": "Enter Students Project Id",
-        "fr": "Entrer l'Id du projet de l'élève"
+        "en": "Enter Students Project name",
+        "fr": "Entrer le nom du projet de l'élève"
     },
     "Enter Students Technological Aptitudes": {
         "en": "Enter Students Technological Aptitudes",
@@ -413,6 +413,14 @@
     "Edit Student": {
         "en": "Edit Student",
         "fr": "Modifier l'étudiant"
+    },
+    "Create Student": {
+        "en": "Create Student",
+        "fr": "Créer un étudiant"
+    },
+    "Attach resume":{
+        "en": "Attach resume",
+        "fr": "Attacher un CV"
     }
 
 }

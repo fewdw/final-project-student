@@ -11,10 +11,10 @@
 <body style="background-color: #e9e3d3">
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="/">
       <img src="../../static/concordia-logo-nav.png" width="172" height="52" class="d-inline-block align-top" alt="Logo">
     </a>
-    <span class="navbar-text font-weight-bold">Concordia ISRS</span>
+    <span class="navbar-text font-weight-bold">{{ I18N["CONCORDIA ISRS"][LANG] }}</span>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -22,7 +22,7 @@
       <ul class="navbar-nav ml-auto">
 
         <li class="nav-item">
-          <a class="nav-link" href="/admin/list">BACK</a>
+          <a class="nav-link" href="/admin/list">{{ I18N["BACK"][LANG] }}</a>
         </li>
 
         <li class="nav-item">
@@ -36,7 +36,7 @@
     <div class="row justify-content-center">
       <div class="col-md-8">
         <div class="card">
-          <div class="card-header">Create Student</div>
+          <div class="card-header">{{ I18N["Create Student"][LANG] }}</div>
           <div class="card-body">
             <form method="post" action="/admin/list/student/studentadded" enctype="multipart/form-data">
               <div class="form-group">
@@ -85,7 +85,7 @@
                 <textarea name="programming_language" class="form-control" rows="7" cols="30" placeholder="List Technological Aptitudes" required></textarea>
               </div>
               <div class="form-group">
-                <label for="resume">{{ I18N["Submit student Resume"][LANG]}}</label>
+                <label for="resume">{{ I18N["Attach resume"][LANG]}}</label>
                 <input type="file" name="pdf_file" class="form-control-file" accept="application/pdf" required>
               </div>
               <div class="form-group">

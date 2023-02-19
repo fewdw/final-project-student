@@ -120,7 +120,7 @@ def staff_more_info(id):
             description = "project has no description yet"
 
         return render_template('moreinfo/student-more-info-staff.html', STUDENT = student, DESCRIPTION=description, I18N=i18n, LANG=session.get("lang"))
-    return redirect("/staff")
+    return redirect("/")
 
 
 # delete route
@@ -144,7 +144,7 @@ def add_student_admin():
 def add_student_staff():
     if session.get("type") == "staff":
         return render_template("addstudent/add-student-staff.html", DEGREES=get_all_degrees_from_api(),PROJECTS = get_all_projects_from_api(), I18N=i18n, LANG=session.get("lang"))
-    return redirect("/staff")
+    return redirect("/")
 
 @app.route("/admin/list/student/editstudent/<id>")
 def edit_student_admin(id):
@@ -156,7 +156,7 @@ def edit_student_admin(id):
 def edit_student_staff(id):
     if session.get("type") == "staff":
         return render_template("editstudent/edit-student-staff.html", STUDENT = get_one_student_from_api(id),DEGREES=get_all_degrees_from_api(),PROJECTS = get_all_projects_from_api(), I18N=i18n, LANG=session.get("lang"))
-    return redirect("/staff")
+    return redirect("/")
 
 
 @app.route("/admin/list/studentUpdated/", methods=["POST"])
@@ -285,7 +285,7 @@ def admin_pannel():
 def staff_pannel():
     if session.get("type") == "staff":
         return render_template("staff-project-degree-pannel.html",DEGREES=get_all_degrees_from_api(),PROJECTS = get_all_projects_from_api(), I18N=i18n, LANG=session.get("lang"))
-    return redirect("/staff")
+    return redirect("/")
 
 @app.route("/admin/pannel/deletedegree",methods=["POST"])
 def delete_a_degree_by_id_route():
@@ -456,7 +456,7 @@ def validate_staff_login():
     password = request.form.get("password")
     
     if not email or not password:
-        return redirect("/staff")
+        return redirect("/")
     
     credentials = get_credentials_from_api()
 
@@ -468,7 +468,7 @@ def validate_staff_login():
                 session["lang"] = obj["lang"]
                 session["type"] = obj["type"]
                 return redirect("/staff/list")
-    return redirect("/staff")
+    return redirect("/")
 
 
 @app.route("/employer/login", methods=["POST"])
