@@ -1,9 +1,0 @@
-Flask
-marshmallow
-pymongo
-requests
-python_dotenv
-bcrypt
-Flask-Session
-email
-# pip install -r requirements.txt
