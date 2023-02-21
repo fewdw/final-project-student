@@ -3,8 +3,8 @@ import requests, json
 import os
 
 auth = requests.auth.HTTPBasicAuth(os.environ.get("api_user"), os.environ.get("api_pass"))
-
-BASE_URL = "http://127.0.0.1:5001/credentials"
+URL= os.environ.get("url")
+BASE_URL = f"{URL}/credentials"
 
 def get_credentials_from_api():
     response = requests.get(BASE_URL, auth=auth)
