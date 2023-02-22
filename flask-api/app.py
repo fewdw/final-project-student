@@ -10,6 +10,8 @@ from flask_httpauth import HTTPBasicAuth
 auth = HTTPBasicAuth()
 
 app = Flask(__name__)
+
+
 #Student
 from controllerHelper.studentControllerHelper.get_students import get_all_students_helper_method, get_one_student_helper_method
 from controllerHelper.studentControllerHelper.delete_students import delete_one_student_helper_method
@@ -42,19 +44,19 @@ USE 'flask run' IN TERMNIAL TO START THE API
 def verify_password(username, password):
     return username == os.environ.get("api_user") and password == os.environ.get("api_pass")
 
-@app.route('/')
+@app.route('/api')
 @auth.login_required
 def default_route():
     return {"json":"type"}
 
 #get all students
-@app.route('/students/', methods=['GET'])
+@app.route('/api/students/', methods=['GET'])
 @auth.login_required
 def get_all_students():
     return jsonify(get_all_students_helper_method())
 
 #get all degrees
-@app.route('/degrees/', methods=['GET'])
+@app.route('/api/degrees/', methods=['GET'])
 @auth.login_required
 def get_all_degrees():
     return jsonify(get_all_degrees_helper_method())
@@ -62,53 +64,53 @@ def get_all_degrees():
 
 
 #get student by id
-@app.route('/students/<id>', methods=['GET'])
+@app.route('/api/students/<id>', methods=['GET'])
 @auth.login_required
 def get_one_students(id):
     return get_one_student_helper_method(id)
 
 
 #get project by id
-@app.route('/project/<id>', methods=['GET'])
+@app.route('/api/project/<id>', methods=['GET'])
 @auth.login_required
 def get_one_project(id):
     return get_project_by_id(id)
 
 #get all projects
-@app.route('/project/', methods=['GET'])
+@app.route('/api/project/', methods=['GET'])
 @auth.login_required
 def get_all_project():
     return jsonify(get_all_projects_helper_method())
 
 
 # get degree by id
-@app.route('/degrees/<id>', methods=['GET'])
+@app.route('/api/degrees/<id>', methods=['GET'])
 @auth.login_required
 def get_one_degree(id):
     return jsonify(get_degree_by_id(id))
 
 
 #delete student by id
-@app.route('/students/', methods=['DELETE'])
+@app.route('/api/students/', methods=['DELETE'])
 @auth.login_required
 def delete_one_student():
     return delete_one_student_helper_method(request.json["id"])
 
 #delete degree by id
-@app.route('/degrees/', methods=['DELETE'])
+@app.route('/api/degrees/', methods=['DELETE'])
 @auth.login_required
 def delete_one_degree():
     return delete_one_degree_helper_method(request.json["id"])
 
 
 #delete project by id
-@app.route('/projects/', methods=['DELETE'])
+@app.route('/api/projects/', methods=['DELETE'])
 @auth.login_required
 def delete_one_project():
     return delete_one_project_helper_method(request.json["id"])
 
 #post a new student
-@app.route('/students/', methods=['POST'])
+@app.route('/api/students/', methods=['POST'])
 @auth.login_required
 def post_new_student():
     return post_a_new_student_helper_method(
@@ -127,7 +129,7 @@ def post_new_student():
     )
 
 # post a new degree
-@app.route('/degrees/', methods=['POST'])
+@app.route('/api/degrees/', methods=['POST'])
 @auth.login_required
 def post_new_degree():
     return post_new_degree_helper_method(
@@ -138,7 +140,7 @@ def post_new_degree():
     )
 
 #post a new project
-@app.route('/projects/', methods=['POST'])
+@app.route('/api/projects/', methods=['POST'])
 @auth.login_required
 def post_new_project():
     return post_new_project_helper_method(
@@ -149,7 +151,7 @@ def post_new_project():
     ) 
 
 
-@app.route('/students/', methods=['PUT'])
+@app.route('/api/students/', methods=['PUT'])
 @auth.login_required
 def put_a_student_to_mongodb():
         return put_an_existing_student_helper_method(
@@ -167,7 +169,7 @@ def put_a_student_to_mongodb():
             request.json['programming_language']
         )
 
-@app.route('/degrees/', methods=['PUT'])
+@app.route('/api/degrees/', methods=['PUT'])
 @auth.login_required
 def put_a_degree():
     return put_an_existing_degree_helper_method(
@@ -177,7 +179,7 @@ def put_a_degree():
         request.json['description']
     )
 
-@app.route('/projects/', methods=['PUT'])
+@app.route('/api/projects/', methods=['PUT'])
 @auth.login_required
 def put_a_project():
     return put_an_existing_project_helper_method(
@@ -188,7 +190,7 @@ def put_a_project():
     )
 
 
-@app.route("/credentials", methods=['GET', 'POST', 'DELETE', 'PUT'])
+@app.route("/api/credentials", methods=['GET', 'POST', 'DELETE', 'PUT'])
 @auth.login_required
 def credentials_url():
     if request.method == 'GET':
@@ -214,7 +216,7 @@ def credentials_url():
             request.json['type']
         ) 
 
-@app.route("/credentials/<cred_id>", methods=["GET"])
+@app.route("/api/credentials/<cred_id>", methods=["GET"])
 @auth.login_required
 def credential_by_id_route(cred_id):
     return get_credential_by_id(cred_id)
