@@ -35,10 +35,10 @@ jobs:
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
         cd flask-api
-        python3 credential_api_test.py
-        python3 degree_api_test.py
-        python3 project_api_test.py
-        python3 student_api_test.py
+        python3 credential_api_test.py test
+        python3 degree_api_test.py test
+        python3 project_api_test.py test
+        python3 student_api_test.py test
     - name: Test with pytest
       run: |
         pytest
