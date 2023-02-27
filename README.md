@@ -9,6 +9,8 @@ ISRS is a student repository created with a python/flask back end and a React JS
 
 This project is being done with the aid of mentor and external client Dr. Ben Hamza, a professor from Concordia University that had the kindness to oversee this project. 
 
+To test this project from the employer login, use credentials username: "employer@employer.com" password: "employer"
+
 ### Project Structure
 
 - Every developper will have their own specific tag so it is easier to read the branches they have been working on 
